@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="PreBell — Daily pre-market gap scanner, sector ETF rotation, AH movers and earnings intelligence. Ready by 8:20 AM CST.">
-<meta name="theme-color" content="#0d1117">
-<title>🔔 PreBell — 2026-02-25</title>
+<title>Pre-Market Intel — 2026-02-25</title>
 <style>
 :root {
   --bg:        #0d1117;
@@ -33,14 +31,13 @@ body {
   font-size: 13px;
   line-height: 1.6;
   padding: 0 16px 80px;
-  -webkit-text-size-adjust: 100%;
 }
 
 /* ── top banner ── */
 .top-bar {
   background: var(--surface);
-  border-bottom: 2px solid var(--blue);
-  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,10 +47,8 @@ body {
   top: 0;
   z-index: 100;
 }
-.top-bar .brand { display: flex; flex-direction: column; gap: 1px; }
-.top-bar h1 { font-size: 20px; color: var(--blue); letter-spacing: 2px; font-weight: bold; }
-.top-bar .tagline { font-size: 10px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
-.top-bar .ts { font-size: 11px; color: var(--muted); text-align: right; }
+.top-bar h1 { font-size: 16px; color: var(--blue); letter-spacing: 1px; }
+.top-bar .ts { font-size: 11px; color: var(--muted); }
 
 /* ── market condition badge ── */
 .mkt-green  { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green);  }
@@ -234,44 +229,6 @@ pre.raw-text {
 .score-bar   { height: 4px; background: #21262d; border-radius: 2px; overflow: hidden; }
 .score-bar-fill { height: 100%; border-radius: 2px; }
 
-/* ── sector ETF grid ── */
-.etf-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-  gap: 6px;
-  margin-bottom: 12px;
-}
-.etf-cell {
-  background: #0d1117;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 8px 6px;
-  text-align: center;
-  position: relative;
-}
-.etf-ticker  { font-size: 13px; font-weight: bold; color: var(--blue); }
-.etf-name    { font-size: 9px;  color: var(--muted); margin: 2px 0; }
-.etf-change  { font-size: 14px; font-weight: bold; }
-.etf-status  { font-size: 9px;  color: var(--muted); margin-top: 2px; letter-spacing:.5px; }
-.etf-hot     { border-color: var(--green); background: var(--green-bg); }
-.etf-cold    { border-color: var(--red);   background: var(--red-bg);   }
-.etf-up      { color: var(--green); }
-.etf-flat    { color: var(--muted); }
-.etf-down    { color: var(--red);   }
-.etf-section-label {
-  font-size: 10px;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin: 10px 0 4px;
-}
-
-/* ── source badges ── */
-.badge-ah       { background: #1a2540; color: #7ec8e3; border: 1px solid #3a5a80;
-                  font-size: 10px; padding: 1px 6px; border-radius: 3px; white-space: nowrap; }
-.badge-earnings { background: var(--green-bg); color: var(--green); border: 1px solid var(--green);
-                  font-size: 10px; padding: 1px 6px; border-radius: 3px; white-space: nowrap; }
-
 /* ── no-stocks banner ── */
 .no-stocks {
   text-align: center;
@@ -292,125 +249,43 @@ footer {
   margin: 40px auto 0;
 }
 
-/* ── responsive — tablet ── */
-@media (max-width: 768px) {
-  .section, .stock-card { margin: 12px auto; }
-  .kv-grid { grid-template-columns: 1fr; }
-  .trade-plan { grid-template-columns: repeat(3, 1fr); }
-  .etf-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
-  th { font-size: 10px; padding: 6px 8px; top: 44px; }
-  td { padding: 6px 8px; font-size: 12px; }
-}
-
-/* ── responsive — phone ── */
-@media (max-width: 480px) {
-  body { padding: 0 6px 60px; font-size: 12px; }
-
-  /* top bar stacks vertically */
-  .top-bar { flex-direction: column; align-items: flex-start; padding: 10px 12px; }
-  .top-bar h1 { font-size: 18px; }
-  .top-bar .ts { font-size: 10px; }
-
-  /* sections */
-  .section-header h2 { font-size: 13px; }
-  .section-body { padding: 10px 10px; }
-
-  /* KV rows */
-  .kv-label { min-width: 110px; font-size: 11px; }
-  .kv-value { font-size: 11px; }
-
-  /* table — horizontal scroll */
-  .tbl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  table { min-width: 680px; }
-  th { font-size: 10px; padding: 5px 7px; position: static; }
-  td { padding: 5px 7px; font-size: 11px; }
-
-  /* stock header — wrap on small screens */
-  .stock-header { flex-wrap: wrap; gap: 8px; padding: 10px 12px; min-height: 44px; }
-  .ticker-badge { font-size: 15px; min-width: 56px; }
-  .stock-meta   { font-size: 11px; min-width: 0; }
-  .conv-ring    { width: 44px; height: 44px; font-size: 14px; border-width: 2px; }
-  .card-body    { padding: 10px 10px; }
-
-  /* trade plan 2 columns on phone */
-  .trade-plan { grid-template-columns: repeat(2, 1fr); }
-  .tp-val     { font-size: 14px; }
-
-  /* ETF grid — smaller cells */
-  .etf-grid   { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 4px; }
-  .etf-cell   { padding: 6px 4px; }
-  .etf-ticker { font-size: 12px; }
-  .etf-change { font-size: 13px; }
-
-  /* score grid */
-  .score-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
-
-  /* badges */
-  .badge-ah, .badge-earnings { font-size: 9px; padding: 1px 4px; }
-
-  /* touch target: make all clickable headers taller */
-  .section-header, .stock-header { min-height: 44px; }
-
-  /* mkt badge */
-  .mkt-badge { font-size: 11px; padding: 3px 8px; }
-
-  /* footer */
-  footer { font-size: 10px; padding: 16px 8px; }
+/* ── responsive ── */
+@media (max-width: 600px) {
+  body { padding: 0 8px 60px; }
+  .kv-label { min-width: 120px; }
+  .ticker-badge { font-size: 16px; min-width: 60px; }
+  .conv-ring { width: 48px; height: 48px; font-size: 15px; }
 }
 </style>
 </head>
 <body>
 <div class="top-bar">
-  <div class="brand">
-    <h1>🔔 PreBell</h1>
-    <span class="tagline">Morning Market Intelligence &mdash; 2026-02-25</span>
-  </div>
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="mkt-badge mkt-yellow">MILDLY BULLISH</span>
-    <span class="ts">Generated Wednesday, February 25 2026  07:59 AM EST<br>Target: 8:20 AM CST</span>
+  <h1>⚡ PRE-MARKET INTELLIGENCE — 2026-02-25</h1>
+  <div style="display:flex;align-items:center;gap:12px">
+    <span class="mkt-badge mkt-yellow">YELLOW</span>
+    <span class="ts">Generated Wednesday, February 25 2026  09:10 AM EST</span>
   </div>
 </div>
 
-<div class="section"><div class="section-header open"><h2>📊 Market Overview</h2><span class="arrow">▼</span></div><div class="section-body open"><div style="margin-bottom:12px"><span class="mkt-badge mkt-yellow">MILDLY BULLISH</span></div>
+<div class="section"><div class="section-header open"><h2>📊 Market Overview</h2><span class="arrow">▼</span></div><div class="section-body open"><div style="margin-bottom:12px"><span class="mkt-badge mkt-yellow">YELLOW</span></div>
 <div class="kv-grid">
-<div class="kv-row"><span class="kv-label">Market Status</span><span class="kv-value">Pre-market active. Futures broadly higher — SPY +0.34%, QQQ +0.42%, IWM +0.73%. Consumer Discretionary leading (+1.52%). Quiet catalyst day: 5 qualifying gap stocks vs 17 yesterday.</span></div>
-<div class="kv-row"><span class="kv-label">Yesterday Context</span><span class="kv-value">Markets were volatile. Mixed close across sectors.</span></div>
-<div class="kv-row"><span class="kv-label">Futures Snapshot</span><span class="kv-value">ES/SPY +0.34%  |  NQ/QQQ +0.42%  |  RTY/IWM +0.73%</span></div>
-<div class="kv-row"><span class="kv-label">Global Markets</span><span class="kv-value">Europe mixed. Asia modestly higher overnight.</span></div>
-<div class="kv-row"><span class="kv-label">Economic Calendar</span><span class="kv-value">8:30 AM — GDP Revision Q4  |  10:00 AM — Consumer Confidence</span></div>
-<div class="kv-row"><span class="kv-label">Market Score</span><span class="kv-value">7 / 10</span></div>
-<div class="kv-row"><span class="kv-label">Sector Bias</span><span class="kv-value">MILDLY BULLISH — Consumer Discr. HOT (+1.52%), Staples slightly DOWN</span></div>
+<div class="kv-row"><span class="kv-label">Market Status</span><span class="kv-value">—</span></div>
+<div class="kv-row"><span class="kv-label">Yesterday Context</span><span class="kv-value">—</span></div>
+<div class="kv-row"><span class="kv-label">Futures Snapshot</span><span class="kv-value">—</span></div>
+<div class="kv-row"><span class="kv-label">Global Markets</span><span class="kv-value">—</span></div>
+<div class="kv-row"><span class="kv-label">Economic Calendar</span><span class="kv-value">—</span></div>
+<div class="kv-row"><span class="kv-label">Market Score</span><span class="kv-value">4 / 10</span></div>
+<div class="kv-row"><span class="kv-label">Sector Bias</span><span class="kv-value">—</span></div>
 </div></div></div>
-
-<div class="section"><div class="section-header open"><h2>📈 Sector ETFs — Premarket Snapshot</h2><span class="arrow">▼</span></div><div class="section-body open"><div class="etf-section-label">Broad Market</div>
-<div class="etf-grid"><div class="etf-cell"><div class="etf-ticker">SPY</div><div class="etf-name">S&amp;P 500</div><div class="etf-change etf-up">+0.34%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">QQQ</div><div class="etf-name">Nasdaq 100</div><div class="etf-change etf-up">+0.42%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">IWM</div><div class="etf-name">Russell 2000</div><div class="etf-change etf-up">+0.73%</div><div class="etf-status">UP</div></div></div>
-<div class="etf-section-label">SPDR Sector ETFs</div>
-<div class="etf-grid"><div class="etf-cell"><div class="etf-ticker">XLK</div><div class="etf-name">Technology</div><div class="etf-change etf-up">+0.54%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLF</div><div class="etf-name">Financials</div><div class="etf-change etf-up">+0.35%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLV</div><div class="etf-name">Health Care</div><div class="etf-change etf-flat">+0.06%</div><div class="etf-status">FLAT</div></div><div class="etf-cell"><div class="etf-ticker">XLE</div><div class="etf-name">Energy</div><div class="etf-change etf-up">+0.31%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLB</div><div class="etf-name">Materials</div><div class="etf-change etf-up">+0.58%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLI</div><div class="etf-name">Industrials</div><div class="etf-change etf-up">+0.58%</div><div class="etf-status">UP</div></div><div class="etf-cell etf-hot"><div class="etf-ticker">XLY</div><div class="etf-name">Consumer Discr.</div><div class="etf-change etf-up">+1.52%</div><div class="etf-status">HOT</div></div><div class="etf-cell"><div class="etf-ticker">XLP</div><div class="etf-name">Consumer Staples</div><div class="etf-change etf-down">-0.21%</div><div class="etf-status">DOWN</div></div><div class="etf-cell"><div class="etf-ticker">XLRE</div><div class="etf-name">Real Estate</div><div class="etf-change etf-up">+0.28%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLU</div><div class="etf-name">Utilities</div><div class="etf-change etf-flat">+0.02%</div><div class="etf-status">FLAT</div></div></div>
-<div style="margin-top:10px;padding:6px 10px;background:#0d1117;border:1px solid var(--border);border-radius:4px;font-size:12px;">Sector Bias: <strong style="color:var(--green)">MILDLY BULLISH — slight tailwind</strong> &nbsp; avg PM +0.40%</div></div></div>
 
 <div id="stocks-container">
-<div class="section"><div class="section-header open"><h2>📋 Stocks Summary</h2><span class="arrow">▼</span></div><div class="section-body open"><div class="tbl-wrap"><table><thead><tr><th style="min-width:40px">#</th><th style="min-width:70px">Ticker</th><th style="min-width:160px">Company</th><th style="min-width:65px">Price</th><th style="min-width:75px">Gap %</th><th style="min-width:65px">Rel Vol</th><th style="min-width:200px">Catalyst</th><th style="min-width:110px">Type</th><th style="min-width:55px">Conv</th><th style="min-width:65px">Entry</th><th style="min-width:65px">Stop</th><th style="min-width:70px">Target</th><th style="min-width:55px">R:R</th></tr></thead><tbody><tr><td>1</td><td><strong style="color:var(--blue)">ANPA</strong></td><td>Rich Sparkle Holdings Limited</td><td>$13.71</td><td class="gap-warm">+9.6%</td><td>8.2x</td><td style="white-space:normal;font-size:11px">Full AI analysis runs at 9:00 AM CST</td><td>—</td><td class="conv-cell conv-low">0</td><td class="green">$—</td><td class="red">$—</td><td class="blue">$—</td><td>—</td></tr><tr><td>2</td><td><strong style="color:var(--blue)">BNAI</strong></td><td>Brand Engagement Network Inc.</td><td>$31.0</td><td class="gap-warm">+9.9%</td><td>4.3x</td><td style="white-space:normal;font-size:11px">Full AI analysis runs at 9:00 AM CST</td><td>—</td><td class="conv-cell conv-low">0</td><td class="green">$—</td><td class="red">$—</td><td class="blue">$—</td><td>—</td></tr><tr><td>3</td><td><strong style="color:var(--blue)">IOVA</strong></td><td>Iovance Biotherapeutics, Inc.</td><td>$4.0</td><td class="gap-cool">+5.8%</td><td>8.9x</td><td style="white-space:normal;font-size:11px">Full AI analysis runs at 9:00 AM CST</td><td>—</td><td class="conv-cell conv-low">0</td><td class="green">$—</td><td class="red">$—</td><td class="blue">$—</td><td>—</td></tr><tr><td>4</td><td><strong style="color:var(--blue)">CRMX</strong></td><td>Tradr 2X Long CRML Daily ETF</td><td>$9.47</td><td class="gap-warm">+9.0%</td><td>2.2x</td><td style="white-space:normal;font-size:11px">Full AI analysis runs at 9:00 AM CST</td><td>—</td><td class="conv-cell conv-low">0</td><td class="green">$—</td><td class="red">$—</td><td class="blue">$—</td><td>—</td></tr><tr><td>5</td><td><strong style="color:var(--blue)">PLAB</strong></td><td>Photronics, Inc.</td><td>$39.91</td><td class="gap-cool">+5.0%</td><td>2.8x</td><td style="white-space:normal;font-size:11px">Full AI analysis runs at 9:00 AM CST</td><td>—</td><td class="conv-cell conv-low">0</td><td class="green">$—</td><td class="red">$—</td><td class="blue">$—</td><td>—</td></tr></tbody></table></div></div></div><div class="stock-card"><div class="stock-header"><div class="ticker-badge">#1 ANPA</div><div class="stock-meta"><strong>Rich Sparkle Holdings Limited</strong>Price: $13.71 &nbsp;|&nbsp; Gap: <span class="gap-warm">+9.6%</span>&nbsp;|&nbsp;RelVol: 8.2x&nbsp; </div><div class="conv-ring conv-low" style="border-color:var(--red)">0</div><span class="card-arrow" style="color:var(--muted);margin-left:10px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Overall Verdict (P11)</div>
-<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$—</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$—</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$—</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">—</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-low">0/10</div></div></div>
-</div></div></div>
-<div class="stock-card"><div class="stock-header"><div class="ticker-badge">#2 BNAI</div><div class="stock-meta"><strong>Brand Engagement Network Inc.</strong>Price: $31.0 &nbsp;|&nbsp; Gap: <span class="gap-warm">+9.9%</span>&nbsp;|&nbsp;RelVol: 4.3x&nbsp; </div><div class="conv-ring conv-low" style="border-color:var(--red)">0</div><span class="card-arrow" style="color:var(--muted);margin-left:10px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Overall Verdict (P11)</div>
-<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$—</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$—</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$—</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">—</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-low">0/10</div></div></div>
-</div></div></div>
-<div class="stock-card"><div class="stock-header"><div class="ticker-badge">#3 IOVA</div><div class="stock-meta"><strong>Iovance Biotherapeutics, Inc.</strong>Price: $4.0 &nbsp;|&nbsp; Gap: <span class="gap-cool">+5.8%</span>&nbsp;|&nbsp;RelVol: 8.9x&nbsp; </div><div class="conv-ring conv-low" style="border-color:var(--red)">0</div><span class="card-arrow" style="color:var(--muted);margin-left:10px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Overall Verdict (P11)</div>
-<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$—</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$—</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$—</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">—</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-low">0/10</div></div></div>
-</div></div></div>
-<div class="stock-card"><div class="stock-header"><div class="ticker-badge">#4 CRMX</div><div class="stock-meta"><strong>Tradr 2X Long CRML Daily ETF</strong>Price: $9.47 &nbsp;|&nbsp; Gap: <span class="gap-warm">+9.0%</span>&nbsp;|&nbsp;RelVol: 2.2x&nbsp; </div><div class="conv-ring conv-low" style="border-color:var(--red)">0</div><span class="card-arrow" style="color:var(--muted);margin-left:10px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Overall Verdict (P11)</div>
-<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$—</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$—</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$—</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">—</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-low">0/10</div></div></div>
-</div></div></div>
-<div class="stock-card"><div class="stock-header"><div class="ticker-badge">#5 PLAB</div><div class="stock-meta"><strong>Photronics, Inc.</strong>Price: $39.91 &nbsp;|&nbsp; Gap: <span class="gap-cool">+5.0%</span>&nbsp;|&nbsp;RelVol: 2.8x&nbsp; </div><div class="conv-ring conv-low" style="border-color:var(--red)">0</div><span class="card-arrow" style="color:var(--muted);margin-left:10px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Overall Verdict (P11)</div>
-<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$—</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$—</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$—</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">—</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-low">0/10</div></div></div>
-</div></div></div>
+<div class="no-stocks"><span>🔍</span>No qualifying stocks found today.<br><small style="font-size:13px">All gap criteria must be met: gap≥4%, price $10–$100, avgVol≥500K, relVol≥2×</small></div>
 </div>
 
 <footer>
-  🔔 <strong>PreBell</strong> &bull; Morning Market Intelligence<br>
-  Powered by Perplexity AI &amp; TradingView &bull; Pre/Post-market gaps &bull; Sector ETFs &bull; Earnings<br>
-  <span style="color:#555">For educational purposes only &mdash; not financial advice.</span><br>
-  Generated Wednesday, February 25 2026  07:59 AM EST
+  Pre-Market Intelligence System &bull; Powered by Perplexity AI + TradingView<br>
+  For educational purposes only &mdash; not financial advice.<br>
+  Generated Wednesday, February 25 2026  09:10 AM EST
 </footer>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
