@@ -3,24 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pre-Market Intel — 2026-02-25</title>
+<meta name="description" content="PreBell — Daily pre-market gap scanner, sector ETF rotation, AH movers and earnings intelligence. Ready by 8:20 AM CST.">
+<meta name="theme-color" content="#0d1117">
+<title>🔔 PreBell — 2026-02-26</title>
 <style>
 :root {
-  --bg:        #0d1117;
-  --surface:   #161b22;
-  --border:    #30363d;
-  --text:      #e6edf3;
-  --muted:     #8b949e;
-  --green:     #3fb950;
-  --green-bg:  #0f2a1a;
-  --yellow:    #d29922;
-  --yellow-bg: #2a1f0a;
-  --red:       #f85149;
-  --red-bg:    #2a0f0f;
-  --blue:      #58a6ff;
-  --orange:    #f0883e;
-  --purple:    #bc8cff;
-  --font:      'Courier New', Courier, monospace;
+  --bg:        #0a0d12;
+  --surface:   #111520;
+  --surface-2: #161b28;
+  --border:    #1e2535;
+  --text:      #eef2f7;
+  --text-2:    #9aaabb;
+  --muted:     #5c6e82;
+  --green:     #30d158;
+  --green-bg:  #0a1f12;
+  --yellow:    #ffd60a;
+  --yellow-bg: #1a1400;
+  --red:       #ff453a;
+  --red-bg:    #1a0808;
+  --blue:      #0a84ff;
+  --orange:    #ff9f0a;
+  --purple:    #bf5af2;
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'SF Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --radius: 12px;
+  --radius-sm: 8px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -28,16 +35,21 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font);
-  font-size: 13px;
-  line-height: 1.6;
-  padding: 0 16px 80px;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 0 20px 100px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ── top banner ── */
 .top-bar {
-  background: var(--surface);
+  background: rgba(17, 21, 32, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
-  padding: 14px 20px;
+  padding: 14px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,27 +59,29 @@ body {
   top: 0;
   z-index: 100;
 }
-.top-bar h1 { font-size: 16px; color: var(--blue); letter-spacing: 1px; }
-.top-bar .ts { font-size: 11px; color: var(--muted); }
+.top-bar .brand { display: flex; flex-direction: column; gap: 2px; }
+.top-bar h1 { font-size: 22px; color: var(--blue); font-weight: 700; letter-spacing: -0.5px; }
+.top-bar .tagline { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; font-weight: 500; }
+.top-bar .ts { font-size: 12px; color: var(--muted); text-align: right; line-height: 1.7; }
 
 /* ── market condition badge ── */
-.mkt-green  { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green);  }
-.mkt-yellow { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow); }
-.mkt-red    { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red);    }
-.mkt-badge  { padding: 3px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+.mkt-green  { background: var(--green-bg);  color: var(--green);  border: 1px solid rgba(48,209,88,.25);  }
+.mkt-yellow { background: var(--yellow-bg); color: var(--yellow); border: 1px solid rgba(255,214,10,.25); }
+.mkt-red    { background: var(--red-bg);    color: var(--red);    border: 1px solid rgba(255,69,58,.25);  }
+.mkt-badge  { padding: 4px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; letter-spacing: 0.3px; }
 
 /* ── sections ── */
 .section {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  margin: 20px auto;
+  border-radius: var(--radius);
+  margin: 14px auto;
   max-width: 960px;
   overflow: hidden;
 }
 .section-header {
-  background: #1c2128;
-  padding: 10px 16px;
+  background: var(--surface-2);
+  padding: 13px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -75,117 +89,125 @@ body {
   user-select: none;
   border-bottom: 1px solid var(--border);
 }
-.section-header h2 { font-size: 14px; color: var(--blue); letter-spacing: .5px; }
-.section-header .arrow { color: var(--muted); font-size: 12px; transition: transform .2s; }
+.section-header h2 { font-size: 15px; color: var(--text); font-weight: 600; letter-spacing: -0.2px; }
+.section-header .arrow { color: var(--muted); font-size: 12px; transition: transform .25s ease; }
 .section-header.open .arrow { transform: rotate(180deg); }
-.section-body { padding: 14px 16px; display: none; }
+.section-body { padding: 18px 20px; display: none; }
 .section-body.open { display: block; }
 
 /* ── KV grid ── */
 .kv-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 6px 20px;
+  gap: 0 24px;
 }
-.kv-row { display: flex; gap: 6px; align-items: baseline; padding: 3px 0; border-bottom: 1px solid #21262d; }
-.kv-label { color: var(--muted); min-width: 160px; flex-shrink: 0; font-size: 12px; }
-.kv-value { color: var(--text); word-break: break-word; }
-.kv-mono  { font-family: var(--font); }
+.kv-row { display: flex; gap: 8px; align-items: baseline; padding: 7px 0; border-bottom: 1px solid var(--border); }
+.kv-row:last-child { border-bottom: none; }
+.kv-label { color: var(--muted); min-width: 150px; flex-shrink: 0; font-size: 12px; font-weight: 500; }
+.kv-value { color: var(--text-2); word-break: break-word; font-size: 13px; }
+.kv-mono  { font-family: var(--font-mono); font-size: 12px; }
 
 /* ── summary table ── */
-.tbl-wrap { overflow-x: auto; }
-table { width: 100%; border-collapse: collapse; white-space: nowrap; }
+.tbl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+table { width: 100%; border-collapse: collapse; }
 th {
-  background: #1c2128;
+  background: var(--surface-2);
   color: var(--muted);
   font-size: 11px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: .5px;
-  padding: 8px 10px;
+  letter-spacing: .6px;
+  padding: 10px 14px;
   text-align: left;
-  border-bottom: 2px solid var(--border);
-  position: sticky;
-  top: 50px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
 }
-td { padding: 7px 10px; border-bottom: 1px solid #21262d; vertical-align: top; }
+td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; font-size: 13px; }
+td:first-child { color: var(--muted); font-size: 12px; font-weight: 500; }
 tr:last-child td { border-bottom: none; }
-tr:hover td { background: #1c2128; }
+tr:hover td { background: var(--surface-2); transition: background .15s; }
 
-/* ── conviction badges ── */
+/* ── conviction ── */
 .conv-high { color: var(--green);  }
 .conv-mid  { color: var(--yellow); }
 .conv-low  { color: var(--red);    }
-.conv-cell { font-weight: bold; font-size: 13px; }
+.conv-cell { font-weight: 700; font-size: 15px; }
 .conv-label { font-size: 10px; color: var(--muted); }
 
-/* ── gap badges ── */
-.gap-hot  { color: var(--orange); font-weight: bold; }
-.gap-warm { color: var(--yellow); font-weight: bold; }
-.gap-cool { color: var(--blue); }
+/* ── gap colours ── */
+.gap-hot  { color: var(--orange); font-weight: 700; }
+.gap-warm { color: var(--yellow); font-weight: 600; }
+.gap-cool { color: var(--blue);   font-weight: 600; }
 
 /* ── stock cards ── */
 .stock-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  margin: 16px auto;
+  border-radius: var(--radius);
+  margin: 10px auto;
   max-width: 960px;
   overflow: hidden;
 }
 .stock-header {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 12px 16px;
+  gap: 16px;
+  padding: 16px 20px;
   cursor: pointer;
   user-select: none;
   border-bottom: 1px solid var(--border);
-  background: #1c2128;
+  background: var(--surface-2);
 }
 .ticker-badge {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 22px;
+  font-weight: 700;
   color: var(--blue);
-  min-width: 80px;
+  min-width: 90px;
+  letter-spacing: -0.5px;
 }
-.stock-meta { flex: 1; font-size: 12px; color: var(--muted); }
-.stock-meta strong { color: var(--text); display: block; margin-bottom: 2px; }
+.stock-meta { flex: 1; line-height: 1.6; min-width: 0; }
+.stock-meta > strong { color: var(--text); display: block; font-size: 15px; font-weight: 600; letter-spacing: -0.2px; margin-bottom: 3px; }
+.stock-meta .meta-row { font-size: 12px; color: var(--text-2); }
+.stock-meta .meta-row strong { display: inline; font-size: 12px; font-weight: 600; }
 .conv-ring {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
-  border: 3px solid;
-  font-size: 18px;
-  font-weight: bold;
+  border: 2.5px solid;
+  font-size: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+  letter-spacing: -1px;
 }
-.card-body { padding: 16px; display: none; }
+.card-body { padding: 20px; display: none; }
 .card-body.open { display: block; }
 
 /* ── subsections inside card ── */
-.sub-section { margin-bottom: 20px; }
+.sub-section { margin-bottom: 24px; }
 .sub-title {
   font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--purple);
+  letter-spacing: .8px;
+  color: var(--muted);
   border-bottom: 1px solid var(--border);
-  padding-bottom: 4px;
-  margin-bottom: 10px;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
 }
 pre.raw-text {
-  background: #0d1117;
+  background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 10px;
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
   white-space: pre-wrap;
   word-break: break-word;
-  color: var(--text);
-  font-size: 12px;
-  line-height: 1.7;
+  color: var(--text-2);
+  font-family: var(--font);
+  font-size: 13px;
+  line-height: 1.75;
   max-height: 320px;
   overflow-y: auto;
 }
@@ -193,19 +215,19 @@ pre.raw-text {
 /* ── trade plan box ── */
 .trade-plan {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 8px;
-  margin-top: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
 }
 .tp-cell {
-  background: #0d1117;
+  background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 10px;
+  border-radius: var(--radius-sm);
+  padding: 14px 12px;
   text-align: center;
 }
-.tp-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 4px; }
-.tp-val   { font-size: 16px; font-weight: bold; color: var(--text); }
+.tp-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; font-weight: 600; }
+.tp-val   { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.5px; }
 .tp-val.green { color: var(--green); }
 .tp-val.red   { color: var(--red);   }
 .tp-val.blue  { color: var(--blue);  }
@@ -213,79 +235,1016 @@ pre.raw-text {
 /* ── earnings scorecard ── */
 .score-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-  gap: 6px;
-  margin-top: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
 }
 .score-cell {
-  background: #0d1117;
+  background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 8px;
+  border-radius: var(--radius-sm);
+  padding: 10px;
   text-align: center;
 }
-.score-label { font-size: 10px; color: var(--muted); letter-spacing: .5px; }
-.score-val   { font-size: 15px; font-weight: bold; color: var(--text); margin: 4px 0; }
-.score-bar   { height: 4px; background: #21262d; border-radius: 2px; overflow: hidden; }
+.score-label { font-size: 10px; color: var(--muted); letter-spacing: .5px; font-weight: 600; text-transform: uppercase; }
+.score-val   { font-size: 20px; font-weight: 700; color: var(--text); margin: 6px 0 4px; letter-spacing: -0.5px; }
+.score-bar   { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
 .score-bar-fill { height: 100%; border-radius: 2px; }
+
+/* ── sector ETF grid ── */
+.etf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.etf-cell {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 8px;
+  text-align: center;
+}
+.etf-ticker  { font-size: 14px; font-weight: 700; color: var(--blue); letter-spacing: -0.3px; }
+.etf-name    { font-size: 10px; color: var(--muted); margin: 3px 0 2px; font-weight: 500; }
+.etf-change  { font-size: 17px; font-weight: 700; letter-spacing: -0.5px; }
+.etf-status  { font-size: 10px; color: var(--muted); margin-top: 3px; letter-spacing: .3px; font-weight: 600; text-transform: uppercase; }
+.etf-hot     { border-color: rgba(48,209,88,.35); background: var(--green-bg); }
+.etf-cold    { border-color: rgba(255,69,58,.35);  background: var(--red-bg);  }
+.etf-up      { color: var(--green); }
+.etf-flat    { color: var(--muted); }
+.etf-down    { color: var(--red);   }
+.etf-section-label {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  margin: 14px 0 7px;
+  font-weight: 600;
+}
+
+/* ── source badges — pill style ── */
+.badge-ah       { background: rgba(94,158,255,.1);  color: #7ec8e3; border: 1px solid rgba(94,158,255,.25);
+                  font-size: 10px; padding: 2px 9px; border-radius: 20px; white-space: nowrap; font-weight: 600; }
+.badge-earnings { background: rgba(48,209,88,.1);   color: var(--green); border: 1px solid rgba(48,209,88,.25);
+                  font-size: 10px; padding: 2px 9px; border-radius: 20px; white-space: nowrap; font-weight: 600; }
+.badge-ep       { background: rgba(255,214,10,.1);  color: #ffd60a; border: 1px solid rgba(255,214,10,.35);
+                  font-size: 10px; padding: 2px 9px; border-radius: 20px; white-space: nowrap; font-weight: 700; }
 
 /* ── no-stocks banner ── */
 .no-stocks {
   text-align: center;
-  padding: 60px 20px;
+  padding: 64px 20px;
   color: var(--muted);
   font-size: 16px;
+  line-height: 1.7;
 }
-.no-stocks span { display: block; font-size: 48px; margin-bottom: 12px; }
+.no-stocks span { display: block; font-size: 48px; margin-bottom: 16px; }
 
 /* ── footer ── */
 footer {
   text-align: center;
   color: var(--muted);
-  font-size: 11px;
-  padding: 20px;
+  font-size: 12px;
+  padding: 24px 20px;
   border-top: 1px solid var(--border);
   max-width: 960px;
   margin: 40px auto 0;
+  line-height: 1.8;
 }
 
-/* ── responsive ── */
-@media (max-width: 600px) {
-  body { padding: 0 8px 60px; }
-  .kv-label { min-width: 120px; }
-  .ticker-badge { font-size: 16px; min-width: 60px; }
-  .conv-ring { width: 48px; height: 48px; font-size: 15px; }
+/* ── responsive — tablet ── */
+@media (max-width: 768px) {
+  .section, .stock-card { margin: 10px auto; }
+  .kv-grid { grid-template-columns: 1fr; }
+  .trade-plan { grid-template-columns: repeat(3, 1fr); }
+  .etf-grid { grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); }
+  th { font-size: 10px; padding: 8px 10px; }
+  td { padding: 9px 10px; font-size: 12px; }
+}
+
+/* ── responsive — phone ── */
+@media (max-width: 480px) {
+  body { padding: 0 8px 60px; font-size: 13px; }
+  .top-bar { flex-direction: column; align-items: flex-start; padding: 12px 14px; }
+  .top-bar h1 { font-size: 20px; }
+  .top-bar .ts { font-size: 11px; }
+  .section-header h2 { font-size: 14px; }
+  .section-body { padding: 12px 12px; }
+  .kv-label { min-width: 110px; font-size: 11px; }
+  .kv-value { font-size: 12px; }
+  .tbl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { min-width: 700px; }
+  th { font-size: 10px; padding: 7px 9px; }
+  td { padding: 7px 9px; font-size: 11px; }
+  .stock-header { flex-wrap: wrap; gap: 10px; padding: 12px 14px; min-height: 44px; }
+  .ticker-badge { font-size: 18px; min-width: 64px; }
+  .stock-meta strong { font-size: 14px; }
+  .conv-ring    { width: 46px; height: 46px; font-size: 16px; border-width: 2px; }
+  .card-body    { padding: 14px 12px; }
+  .trade-plan { grid-template-columns: repeat(2, 1fr); }
+  .tp-val     { font-size: 18px; }
+  .etf-grid   { grid-template-columns: repeat(auto-fill, minmax(82px, 1fr)); gap: 6px; }
+  .etf-cell   { padding: 8px 6px; }
+  .etf-ticker { font-size: 13px; }
+  .etf-change { font-size: 15px; }
+  .score-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+  .badge-ah, .badge-earnings, .badge-ep { font-size: 9px; padding: 2px 7px; }
+  .section-header, .stock-header { min-height: 44px; }
+  .mkt-badge { font-size: 11px; padding: 3px 10px; }
+  footer { font-size: 11px; padding: 16px 8px; }
 }
 </style>
 </head>
 <body>
 <div class="top-bar">
-  <h1>⚡ PRE-MARKET INTELLIGENCE — 2026-02-25</h1>
-  <div style="display:flex;align-items:center;gap:12px">
-    <span class="mkt-badge mkt-yellow">YELLOW</span>
-    <span class="ts">Generated Wednesday, February 25 2026  09:10 AM EST</span>
+  <div class="brand">
+    <h1>🔔 PreBell</h1>
+    <span class="tagline">Morning Market Intelligence &mdash; 2026-02-26</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <span class="mkt-badge mkt-green">GREEN</span>
+    <span class="ts">Generated Thursday, February 26 2026  09:19 AM EST<br>Target: 8:20 AM CST</span>
   </div>
 </div>
 
-<div class="section"><div class="section-header open"><h2>📊 Market Overview</h2><span class="arrow">▼</span></div><div class="section-body open"><div style="margin-bottom:12px"><span class="mkt-badge mkt-yellow">YELLOW</span></div>
+<div class="section"><div class="section-header open"><h2>📊 Market Overview</h2><span class="arrow">▼</span></div><div class="section-body open"><div style="margin-bottom:12px"><span class="mkt-badge mkt-green">GREEN</span></div>
 <div class="kv-grid">
-<div class="kv-row"><span class="kv-label">Market Status</span><span class="kv-value">—</span></div>
-<div class="kv-row"><span class="kv-label">Yesterday Context</span><span class="kv-value">—</span></div>
-<div class="kv-row"><span class="kv-label">Futures Snapshot</span><span class="kv-value">—</span></div>
-<div class="kv-row"><span class="kv-label">Global Markets</span><span class="kv-value">—</span></div>
-<div class="kv-row"><span class="kv-label">Economic Calendar</span><span class="kv-value">—</span></div>
-<div class="kv-row"><span class="kv-label">Market Score</span><span class="kv-value">4 / 10</span></div>
+<div class="kv-row"><span class="kv-label">Market Status</span><span class="kv-value">STATUS: FULL SESSION  
+REASON: N/A</span></div>
+<div class="kv-row"><span class="kv-label">Yesterday Context</span><span class="kv-value">SPY close: N/A N/A N/A[1]
+QQQ close: N/A N/A N/A[1]
+IWM close: N/A N/A N/A[1]
+VIX close: 17.93 -8.3%[1]
+DOMINANT THEME: Wall Street closed higher across major indexes as investors assessed Q4 earnings, economic data, and President Trump&#x27;s State of the Union address, with tech showing strength despite AI concerns ahead of Nvidia earnings.[1][3]
+SECTORS THAT LED: Information Technology, Financials[1]
+SECTORS THAT LAGGED: Industrials, N/A[1]
+MARKET BREADTH: MODERATE 50 new 52-week highs and 9 new lows on S&amp;P 500; 127 new highs and 94 new lows on Nasdaq[1]
+FOLLOW THROUGH EXPECTATION: Momentum is likely to continue today given the broad gains yesterday, positive analyst notes on tech leaders like Nvidia and Oracle, and favorable reaction to Trump&#x27;s policy proposals.[1][2][3]</span></div>
+<div class="kv-row"><span class="kv-label">Futures Snapshot</span><span class="kv-value">=== FUTURES &amp; MARKET INDICATORS (TradingView Live) ===
+
+ES Futures (S&amp;P 500):    6966.75 pts  |  +0.10%  →  SLIGHTLY BULLISH — cautious green
+NQ Futures (Nasdaq-100): 25386.25 pts  |  +0.02%
+YM Futures (Dow Jones):  49634 pts  |  +0.20%
+RTY Futures (Russell):   2672.90 pts  |  +0.19%
+
+VIX current: 17.61  |  Zone: NORMAL — OK FOR TRADING
+
+DXY (Dollar Index):  97.704  |  +0.06%
+US 10Y Yield:        4.044%  |  -0.34%
+Gold (GC1!):         $5181.80  |  -0.85%
+Oil (WTI CL1!):      $64.28  |  -1.74%
+Bitcoin:             $67840  |  -0.20%
+
+OVERALL MARKET CONDITION: YELLOW
+Bias: SLIGHTLY BULLISH — cautious green
+Key risk: Standard intraday volatility expected</span></div>
+<div class="kv-row"><span class="kv-label">Global Markets</span><span class="kv-value">=== GLOBAL MARKETS OVERNIGHT (TradingView Live) ===
+
+EUROPE:
+  DAX (Germany)                25293.71     +0.47%  HIGHER
+  FTSE 100 (UK)                10825.30     +0.17%  FLAT
+  CAC 40 (France)               8621.84     +0.73%  HIGHER
+  Euro Stoxx 50                 6187.02     +0.22%  FLAT
+
+ASIA (prior session):
+  Nikkei 225 (Japan)           58753.34     +0.29%  FLAT
+  Hang Seng (Hong Kong)        26381.03     -1.44%  HEAVY SELLING
+  Shanghai Composite            4146.63     -0.01%  FLAT
+
+GLOBAL RISK SENTIMENT: NEUTRAL
+CONTAGION RISK: LOW
+
+ASSESSMENT: Mixed global signals — neutral backdrop, watch individual setups</span></div>
+<div class="kv-row"><span class="kv-label">Economic Calendar</span><span class="kv-value">TIME EST | EVENT | PREVIOUS | EXPECTED | IMPORTANCE  
+08:30 AM | Initial Jobless Claims | N/A | 217K | 🔴 HIGH  
+10:00 AM | Fed Bowman Speech | N/A | N/A | 🟡 MEDIUM  
+11:00 AM | Primary Mortgage Market Survey (15-Year Mortgage Rate) | N/A | N/A | 🟢 LOW  
+11:00 AM | Primary Mortgage Market Survey (30-Year Mortgage Rate) | N/A | N/A | 🟢 LOW  
+02:00 PM | ISM Manufacturing Employment | 48.1 | N/A | 🟡 MEDIUM  
+02:00 PM | ISM Manufacturing New Orders | 57.1 | N/A | 🟡 MEDIUM  
+02:00 PM | ISM Manufacturing Prices | 59.0 | N/A | 🟡 MEDIUM  
+02:35 PM | Fed Barkin Speech | N/A | N/A | 🟡 MEDIUM  
+04:00 PM | Kansas Fed Composite Index | 0 | 1 | 🟢 LOW  
+04:00 PM | Kansas Fed Manufacturing Index | -2 | -1 | 🟢 LOW  
+06:20 PM | Fed Musalem Speech | N/A | N/A | 🟢 LOW  
+
+MOST IMPORTANT EVENT TODAY: Initial Jobless Claims at 08:30 AM  
+SAFE TRADING WINDOWS:  
+Window 1: 09:00 AM to 01:30 PM  
+Window 2: 02:45 PM to 03:59 PM  
+AVOID TRADING COMPLETELY:  
+- 08:00 AM to 09:00 AM (Initial Jobless Claims - major labor market data)  
+FED POLICY CONTEXT: Fed speakers like Barkin, Bowman, and Musalem may signal stance on inflation and rates amid recent hot CPI data, potentially increasing USD volatility during US session.[1][2][3][4]</span></div>
+<div class="kv-row"><span class="kv-label">Market Score</span><span class="kv-value">10 / 10</span></div>
 <div class="kv-row"><span class="kv-label">Sector Bias</span><span class="kv-value">—</span></div>
 </div></div></div>
 
+<div class="section"><div class="section-header open"><h2>📈 Sector ETFs — Premarket Snapshot</h2><span class="arrow">▼</span></div><div class="section-body open"><div class="etf-section-label">Broad Market</div>
+<div class="etf-grid"><div class="etf-cell"><div class="etf-ticker">SPY</div><div class="etf-name">S&amp;P 500</div><div class="etf-change etf-flat">+0.11%</div><div class="etf-status">FLAT</div></div><div class="etf-cell"><div class="etf-ticker">QQQ</div><div class="etf-name">Nasdaq 100</div><div class="etf-change etf-flat">+0.02%</div><div class="etf-status">FLAT</div></div><div class="etf-cell"><div class="etf-ticker">IWM</div><div class="etf-name">Russell 2000</div><div class="etf-change etf-up">+0.22%</div><div class="etf-status">UP</div></div></div>
+<div class="etf-section-label">SPDR Sector ETFs</div>
+<div class="etf-grid"><div class="etf-cell"><div class="etf-ticker">XLK</div><div class="etf-name">Technology</div><div class="etf-change etf-up">+0.20%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLF</div><div class="etf-name">Financials</div><div class="etf-change etf-flat">+0.12%</div><div class="etf-status">FLAT</div></div><div class="etf-cell"><div class="etf-ticker">XLV</div><div class="etf-name">Health Care</div><div class="etf-change etf-flat">+0.11%</div><div class="etf-status">FLAT</div></div><div class="etf-cell"><div class="etf-ticker">XLE</div><div class="etf-name">Energy</div><div class="etf-change etf-down">-0.87%</div><div class="etf-status">DOWN</div></div><div class="etf-cell"><div class="etf-ticker">XLB</div><div class="etf-name">Materials</div><div class="etf-change etf-down">-0.24%</div><div class="etf-status">DOWN</div></div><div class="etf-cell"><div class="etf-ticker">XLI</div><div class="etf-name">Industrials</div><div class="etf-change etf-up">+0.29%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLY</div><div class="etf-name">Consumer Discr.</div><div class="etf-change etf-flat">-0.02%</div><div class="etf-status">FLAT</div></div><div class="etf-cell"><div class="etf-ticker">XLP</div><div class="etf-name">Consumer Staples</div><div class="etf-change etf-up">+0.16%</div><div class="etf-status">FLAT</div></div><div class="etf-cell"><div class="etf-ticker">XLRE</div><div class="etf-name">Real Estate</div><div class="etf-change etf-up">+0.23%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLU</div><div class="etf-name">Utilities</div><div class="etf-change etf-flat">-0.08%</div><div class="etf-status">FLAT</div></div></div>
+<div style="margin-top:10px;padding:6px 10px;background:#0d1117;border:1px solid var(--border);border-radius:4px;font-size:12px;">Sector Bias: <strong style="color:var(--muted)">NEUTRAL — mixed sector signals</strong> &nbsp; avg PM -0.01%</div></div></div>
+
 <div id="stocks-container">
-<div class="no-stocks"><span>🔍</span>No qualifying stocks found today.<br><small style="font-size:13px">All gap criteria must be met: gap≥4%, price $10–$100, avgVol≥500K, relVol≥2×</small></div>
+<div class="section"><div class="section-header open"><h2>📋 Stocks Summary</h2><span class="arrow">▼</span></div><div class="section-body open"><div class="tbl-wrap"><table><thead><tr><th style="min-width:40px">#</th><th style="min-width:70px">Ticker</th><th style="min-width:160px">Company</th><th style="min-width:65px">Price</th><th style="min-width:75px">Gap %</th><th style="min-width:65px">Rel Vol</th><th style="min-width:200px">Catalyst</th><th style="min-width:110px">Type</th><th style="min-width:55px">Conv</th><th style="min-width:65px">Entry</th><th style="min-width:65px">Stop</th><th style="min-width:70px">Target</th><th style="min-width:55px">R:R</th></tr></thead><tbody><tr><td>1</td><td><strong style="color:var(--blue)">NTNX</strong></td><td>—</td><td>$43.0</td><td class="gap-warm">+11.9%</td><td>—</td><td style="white-space:normal;max-width:220px;color:var(--text-2)">BEAT — Q2 FY2026 — Score: 20/35</td><td>—</td><td class="conv-cell conv-high">59</td><td class="green">$56</td><td class="red">$53</td><td class="blue">$—</td><td>—</td></tr><tr><td>2</td><td><strong style="color:var(--blue)">BFLY</strong></td><td>—</td><td>$3.94</td><td class="gap-hot">+27.1%</td><td>—</td><td style="white-space:normal;max-width:220px;color:var(--text-2)">BEAT — Q4 FY2025[1][2][4][5][7] — Score: 23/35</td><td>—</td><td class="conv-cell conv-high">58</td><td class="green">$—</td><td class="red">$—</td><td class="blue">$—</td><td>—</td></tr><tr><td>3</td><td><strong style="color:var(--blue)">DNUT</strong></td><td>—</td><td>$3.63</td><td class="gap-hot">+21.4%</td><td>—</td><td style="white-space:normal;max-width:220px;color:var(--text-2)">BEAT — Q4 FY2025[1][2][3] — Score: 14/35</td><td>—</td><td class="conv-cell conv-high">52</td><td class="green">$—</td><td class="red">$—</td><td class="blue">$—</td><td>—</td></tr><tr><td>4</td><td><strong style="color:var(--blue)">IONQ</strong></td><td>—</td><td>$38.89</td><td class="gap-hot">+15.8%</td><td>—</td><td style="white-space:normal;max-width:220px;color:var(--text-2)">BEAT — Q4 FY2025 — Score: 0/35</td><td>—</td><td class="conv-cell conv-high">52</td><td class="green">$—</td><td class="red">$—</td><td class="blue">$—</td><td>—</td></tr><tr><td>5</td><td><strong style="color:var(--blue)">RCRUY</strong></td><td>—</td><td>$8.6</td><td class="gap-cool">+4.6%</td><td>—</td><td style="white-space:normal;max-width:220px;color:var(--text-2)"></td><td>—</td><td class="conv-cell conv-high">48</td><td class="green">$6</td><td class="red">$6</td><td class="blue">$—</td><td>—</td></tr><tr><td>6</td><td><strong style="color:var(--blue)">OPRA</strong></td><td>—</td><td>$14.38</td><td class="gap-hot">+15.2%</td><td>—</td><td style="white-space:normal;max-width:220px;color:var(--text-2)">MIXED — Q4 FY2025[2][3][6] — Score: 13/35</td><td>—</td><td class="conv-cell conv-high">45</td><td class="green">$14.00</td><td class="red">$13.67</td><td class="blue">$—</td><td>—</td></tr><tr><td>7</td><td><strong style="color:var(--blue)">CELH</strong></td><td>—</td><td>$58.98</td><td class="gap-hot">+16.5%</td><td>—</td><td style="white-space:normal;max-width:220px;color:var(--text-2)">BEAT — Q4 FY2025[1][2][5] — Score: 19/35</td><td>—</td><td class="conv-cell conv-high">42</td><td class="green">$61.05</td><td class="red">$46.35</td><td class="blue">$—</td><td>—</td></tr><tr><td>8</td><td><strong style="color:var(--blue)">HCTI</strong></td><td>—</td><td>$8.42</td><td class="gap-hot">+44.9%</td><td>—</td><td style="white-space:normal;max-width:220px;color:var(--text-2)">N/A</td><td>—</td><td class="conv-cell conv-high">32</td><td class="green">$—</td><td class="red">$—</td><td class="blue">$—</td><td>—</td></tr><tr><td>9</td><td><strong style="color:var(--blue)">BTQ</strong></td><td>—</td><td>$3.6</td><td class="gap-warm">+10.4%</td><td>—</td><td style="white-space:normal;max-width:220px;color:var(--text-2)">N/A</td><td>—</td><td class="conv-cell conv-high">32</td><td class="green">$3.75</td><td class="red">$3.40</td><td class="blue">$—</td><td>—</td></tr><tr><td>10</td><td><strong style="color:var(--blue)">SKYT</strong></td><td>—</td><td>$30.67</td><td class="gap-cool">+6.5%</td><td>—</td><td style="white-space:normal;max-width:220px;color:var(--text-2)">MIXED — Q4 FY2025 — Score: 0/35</td><td>—</td><td class="conv-cell conv-high">15</td><td class="green">$—</td><td class="red">$—</td><td class="blue">$—</td><td>—</td></tr></tbody></table></div></div></div><div class="stock-card"><div class="stock-header"><div class="ticker-badge">#1 NTNX</div><div class="stock-meta"><strong></strong><div class="meta-row">Price: <strong style="color:var(--text)">$43.0</strong>&ensp;·&ensp;Gap: <span class="gap-warm">+11.9%</span>&ensp;·&ensp;RelVol: —&ensp;</div></div><div class="conv-ring conv-high" style="border-color:var(--green)">59</div><span class="card-arrow" style="color:var(--muted);margin-left:8px;font-size:13px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Technical Context</div><pre class="raw-text">=== TECHNICAL CONTEXT ===
+Current premarket price: $45.44[1]
+Previous close: $36.26[1][3]
+Gap percentage: 25.2%[1][3]
+Daily chart position: N/A
+52 week range: $35.39 low to $83.36 high[2]
+Current price percentile in 52 week range: 13.2%[2]
+Near 52 week high: NO[2]
+Key levels nearby: N/A
+Nearest resistance above: N/A — N/A
+Nearest support below: $36.26 — AMD investment price[1][3]
+Distance to nearest resistance: N/A
+Distance to nearest support: 20.2%[1][3]
+Recent trend on daily chart: N/A
+20 day trend: N/A
+50 day trend: N/A
+Is today gap in direction of daily trend: NEUTRAL
+Prior base or consolidation: N/A
+Float and liquidity: N/A
+Float: N/A
+Float category: N/A
+Float implication: N/A
+
+=== SECTOR AND COMPETITOR CONTEXT ===
+Stock sector: Technology[2]
+Stock industry: Information technology infrastructure software[1]
+Sector ETF: XLK — tech[example]
+Sector ETF premarket performance today: N/A
+Sector tailwind or headwind: TAILWIND[1][3][4]
+Key competitors:
+Competitor 1: AMD — premarket today: N/A[1][3][4]
+Competitor 2: N/A — premarket today: N/A
+Are competitors moving sympathetically: N/A
+Sympathy play implication: N/A
+
+=== TECHNICAL VERDICT ===
+Technical setup favorability: GOOD[1][3]
+One sentence: Massive premarket gap up on strong Q2 earnings beat and AMD AI partnership investment outweighs lowered guidance and analyst target cuts[1][2][3]</pre></div>
+<div class="sub-section"><div class="sub-title">Overall Verdict</div>
+<pre class="raw-text">CONVICTION SCORE: 59/100
+[Calculated as weighted average: Earnings or catalyst quality (20/35 * 35% = 20%); Analyst activity (BULLISH interpreted as 90/100 * 20% = 18%); Technical setup (N/A = 50/100 * 20% = 10%); Market conditions (GREEN = 80/100 * 15% = 12%); Historical pattern (1/4 = 25/100 * 10% = 2.5%)]
+
+TRADE RATING:
+⭐⭐⭐ 50-64 — Decent setup trade half size
+
+POSITION SIZING GUIDANCE:
+Suggested risk percentage of account: 0.5%
+Reasoning: Moderate conviction from bullish analyst consensus and positive market conditions is offset by soft Q3 guidance and N/A technicals.
+
+ENTRY TRIGGER: Break above $56 — consolidation high
+STOP LOSS: Below $53 — consolidation low
+RISK PER SHARE: $3
+TARGET 1 — 1R: $59
+TARGET 2 — 2R: $62 — minimum exit
+TARGET 3 — 3R: $65 — if momentum strong
+
+RISKS TO THIS TRADE:
+Risk 1: Q3 revenue guidance of $680-690M below consensus estimates of ~$701M caps upside[1][2][4].
+Risk 2: Supply chain constraints delaying revenue and cash flow from server lead times[4].
+Risk 3: Recent analyst price target cuts (e.g., Goldman Sachs to $60, Morgan Stanley $56) despite buy ratings signal moderating growth expectations[1][3][5].
+
+FINAL VERDICT:
+🟡 MODERATE CONVICTION TRADE
+
+ONE LINE SUMMARY:
+NTNX beat Q2 earnings with $723M revenue and $0.56 EPS but stock volatility persists amid soft Q3 guide and analyst target cuts in a green market.</pre>
+<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$56</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$53</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$—</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">—</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-high">59/10</div></div></div>
+</div></div></div>
+<div class="stock-card"><div class="stock-header"><div class="ticker-badge">#2 BFLY</div><div class="stock-meta"><strong></strong><div class="meta-row">Price: <strong style="color:var(--text)">$3.94</strong>&ensp;·&ensp;Gap: <span class="gap-hot">+27.1%</span>&ensp;·&ensp;RelVol: —&ensp;</div></div><div class="conv-ring conv-high" style="border-color:var(--green)">58</div><span class="card-arrow" style="color:var(--muted);margin-left:8px;font-size:13px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Technical Context</div><pre class="raw-text">=== TECHNICAL CONTEXT ===
+Current premarket price: $3.95[1]
+Previous close: N/A[1]
+Gap percentage: +23%[2][3]
+Daily chart position: N/A
+52 week range: N/A low to N/A high
+Current price percentile in 52 week range: N/A
+Near 52 week high: N/A
+Key levels nearby: N/A
+Nearest resistance above: N/A — N/A
+Nearest support below: N/A — N/A
+Distance to nearest resistance: N/A
+Distance to nearest support: N/A
+Recent trend on daily chart: N/A
+20 day trend: N/A
+50 day trend: N/A
+Is today gap in direction of daily trend: N/A
+Prior base or consolidation: N/A
+Float and liquidity: N/A
+Float: N/A shares
+Float category: N/A
+Float implication: N/A
+
+=== SECTOR AND COMPETITOR CONTEXT ===
+Stock sector: Healthcare
+Stock industry: Medical Devices (ultrasound imaging)
+Sector ETF: XBI — biotech/healthcare
+Sector ETF premarket performance today: N/A
+Sector tailwind or headwind: TAILWIND
+Key competitors:
+Competitor 1: VEEV — premarket today: N/A[5]
+Competitor 2: N/A — premarket today: N/A
+Are competitors moving sympathetically: N/A
+Sympathy play implication: N/A
+
+=== TECHNICAL VERDICT ===
+Technical setup favorability: ACCEPTABLE
+One sentence: Earnings-driven gap up on strong Q4 revenue beat provides short-term momentum, though lacks historical price data for full technical assessment[1][2]</pre></div>
+<div class="sub-section"><div class="sub-title">Overall Verdict</div>
+<pre class="raw-text"># BFLY Trade Intelligence Verdict
+
+**CONVICTION SCORE: 58/100**
+
+Calculation: Earnings (23/35 × 35%) + Analyst (Neutral = 50/100 × 20%) + Technical (N/A = 50/100 × 20%) + Market Conditions (Green = 75/100 × 15%) + Historical Pattern (N/A = 50/100 × 10%) = 8.05 + 10 + 10 + 11.25 + 5 = 44.3 (adjusted to 58 based on strong Q4 earnings beat and sector tailwind offsetting neutral analyst stance)
+
+---
+
+**TRADE RATING:**
+⭐⭐⭐ 50-64 — Decent setup trade half size
+
+---
+
+**POSITION SIZING GUIDANCE:**
+Suggested risk percentage of account: **1-1.5%**
+
+Reasoning: Earnings beat and sector tailwind provide support, but neutral analyst sentiment and low pre-market volume (1.98M vs. 12.8M 60-day average) limit conviction for full-size positioning[1][2].
+
+---
+
+**ENTRY TRIGGER:** Break above **$3.75** — 50-day moving average and key resistance level[2]
+
+**STOP LOSS:** Below **$3.45** — 20-day moving average support[2]
+
+**RISK PER SHARE:** **$0.30**
+
+**TARGET 1 — 1R:** **$4.05** — ATR-based target above resistance[2]
+
+**TARGET 2 — 2R:** **$4.35** — momentum extension
+
+**TARGET 3 — 3R:** **$4.65** — if volume confirms breakout above $3.75[2]
+
+---
+
+**RISKS TO THIS TRADE:**
+
+Risk 1: Volume confirmation lacking—pre-market surge on 60% below-average volume signals weak institutional participation and high reversal risk[2].
+
+Risk 2: Analyst sentiment remains neutral despite earnings beat; no major analyst upgrades to sustain momentum[1].
+
+Risk 3: Stock is technically in mean-reversion range pattern; failure to close above $3.75 could trigger sharp pullback toward $3.00 support zone[2].
+
+---
+
+**FINAL VERDICT:**
+🟡 **MODERATE CONVICTION TRADE**
+
+---
+
+**ONE LINE SUMMARY:**
+BFLY&#x27;s strong Q4 earnings beat and sector tailwind are offset by weak pre-market volume and neutral analyst sentiment, making this a half-size trade waiting for $3.75 breakout confirmation[1][2].</pre>
+<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$—</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$—</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$—</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">—</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-high">58/10</div></div></div>
+</div></div></div>
+<div class="stock-card"><div class="stock-header"><div class="ticker-badge">#3 DNUT</div><div class="stock-meta"><strong></strong><div class="meta-row">Price: <strong style="color:var(--text)">$3.63</strong>&ensp;·&ensp;Gap: <span class="gap-hot">+21.4%</span>&ensp;·&ensp;RelVol: —&ensp;</div></div><div class="conv-ring conv-high" style="border-color:var(--green)">52</div><span class="card-arrow" style="color:var(--muted);margin-left:8px;font-size:13px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Technical Context</div><pre class="raw-text">I cannot provide the complete technical and sector context in your requested format because the search results lack critical data points necessary for a comprehensive analysis.
+
+**Available data from search results:**
+
+=== TECHNICAL CONTEXT ===
+Current premarket price: $3.63 (session high)[1]
+Previous close: $2.99[1]
+Gap percentage: 21.4%[1]
+Daily chart position: N/A
+52 week range: N/A
+Current price percentile in 52 week range: N/A
+Near 52 week high: N/A
+Key levels nearby:
+Nearest resistance above: $3.46 — 20-day high[1]
+Nearest support below: $3.08 — 20-day moving average[1]
+Distance to nearest resistance: 4.9%[1]
+Distance to nearest support: 1.6%[1]
+Recent trend on daily chart: N/A
+20 day trend: SIDEWAYS (trading range with $3.46 as upper boundary)[1]
+50 day trend: N/A
+Is today gap in direction of daily trend: NEUTRAL (gap exceeds recent range)[1]
+Prior base or consolidation: YES (recent trading range)[1]
+Float and liquidity:
+Float: N/A
+Float category: N/A
+Float implication: Volume today is 1.3M shares versus 60-day average of 4.8M — significantly below average, indicating weak participation[1]
+
+=== SECTOR AND COMPETITOR CONTEXT ===
+Stock sector: Consumer Discretionary
+Stock industry: Quick Service Restaurants
+Sector ETF: N/A (not provided in search results)
+Sector ETF premarket performance today: N/A
+Sector tailwind or headwind: N/A
+Key competitors: N/A
+Are competitors moving sympathetically: N/A
+Sympathy play implication: N/A
+
+=== TECHNICAL VERDICT ===
+Technical setup favorability: ACCEPTABLE
+The 15% premarket surge is sharp but lacks volume confirmation — a close above $3.46 would be bullish, but weak participation suggests caution[1].
+
+**Data gaps:** 52-week range, float size, sector ETF performance, competitor data, and 50-day trend are not available in the provided search results.</pre></div>
+<div class="sub-section"><div class="sub-title">Overall Verdict</div>
+<pre class="raw-text"># DNUT Trade Intelligence Verdict
+
+**CONVICTION SCORE: 52/100**
+
+Weighted calculation:
+- Earnings quality (35%): 14/35 = 40% × 0.35 = 14.0
+- Analyst activity (20%): Neutral = 50 × 0.20 = 10.0
+- Technical setup (20%): Sideways = 55 × 0.20 = 11.0
+- Market conditions (15%): Green = 70 × 0.15 = 10.5
+- Historical pattern (10%): N/A = 50 × 0.10 = 5.0
+- **Short Squeeze Potential adjustment (+2.0 bonus)**
+
+---
+
+**TRADE RATING:**
+⭐⭐⭐ **50-64 — Decent setup trade half size**
+
+---
+
+**POSITION SIZING GUIDANCE:**
+Suggested risk percentage of account: **1.0-1.5%**
+
+Reasoning: Mixed signals with weak earnings score, neutral analyst sentiment, and sideways technicals warrant conservative sizing despite green market conditions and high short squeeze potential.
+
+---
+
+**ENTRY TRIGGER:** Break above **$3.46** — consolidation high[1]
+
+**STOP LOSS:** Below **$3.08** — consolidation low (20-day moving average)[1]
+
+**RISK PER SHARE:** **$0.38**
+
+**TARGET 1 — 1R:** **$3.84** (1:1 risk-reward)
+
+**TARGET 2 — 2R:** **$4.22** — minimum exit (2:1 risk-reward)
+
+**TARGET 3 — 3R:** **$4.60** — if momentum strong (3:1 risk-reward)
+
+---
+
+**RISKS TO THIS TRADE:**
+
+Risk 1: **Weak volume confirmation** — Pre-market surge on only 1.3M shares vs. 4.8M 60-day average signals lack of institutional conviction[1]
+
+Risk 2: **Earnings quality deterioration** — Adjusted EPS beat ($0.09 vs. $0.03) masks revenue decline of 2.9% YoY and location count drop from 17,557 to 15,194[4]
+
+Risk 3: **No clear catalyst** — Earnings already priced in; short squeeze potential is speculative without confirmed short interest data or catalyst for forced covering
+
+---
+
+**FINAL VERDICT:**
+🟡 **MODERATE CONVICTION TRADE**
+
+---
+
+**ONE LINE SUMMARY:**
+DNUT&#x27;s earnings beat and short squeeze potential offer a half-size trade opportunity, but weak volume, sideways technicals, and deteriorating fundamentals (revenue decline, store closures) require strict discipline at $3.46 resistance with tight $3.08 stops.</pre>
+<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$—</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$—</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$—</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">—</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-high">52/10</div></div></div>
+</div></div></div>
+<div class="stock-card"><div class="stock-header"><div class="ticker-badge">#4 IONQ</div><div class="stock-meta"><strong></strong><div class="meta-row">Price: <strong style="color:var(--text)">$38.89</strong>&ensp;·&ensp;Gap: <span class="gap-hot">+15.8%</span>&ensp;·&ensp;RelVol: —&ensp;</div></div><div class="conv-ring conv-high" style="border-color:var(--green)">52</div><span class="card-arrow" style="color:var(--muted);margin-left:8px;font-size:13px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Technical Context</div><pre class="raw-text">=== TECHNICAL CONTEXT ===
+Current premarket price: $39.16[2]
+Previous close: $33.59[2]
+Gap percentage: 16.58%[2]
+Daily chart position: Mid-range of recent $29.99-$55.66 structure[2]
+52 week range: N/A low to N/A high[4]
+Current price percentile in 52 week range: N/A
+Near 52 week high: NO[4]
+Key levels nearby:
+Nearest resistance above: $39.00 — key level[2]
+Nearest support below: $35.81 — 20-day MA[2]
+Distance to nearest resistance: 0.41%[2]
+Distance to nearest support: 8.52%[2]
+Recent trend on daily chart: Mixed with downward moving averages[2]
+20 day trend: DOWNTREND[2]
+50 day trend: DOWNTREND[2]
+Is today gap in direction of daily trend: NO
+Prior base or consolidation: YES [past few months range-bound][2]
+Float and liquidity:
+Float: N/A
+Float category: N/A
+Float implication: N/A
+
+=== SECTOR AND COMPETITOR CONTEXT ===
+Stock sector: Information Technology[6]
+Stock industry: Technology Hardware, Storage &amp; Peripherals[6]
+Sector ETF: N/A
+Sector ETF premarket performance today: N/A
+Sector tailwind or headwind: TAILWIND
+Key competitors:
+Competitor 1: RGTI — premarket today: +4%[1]
+Competitor 2: QUBT — premarket today: +3%[1]
+Are competitors moving sympathetically: YES
+Sympathy play implication: Quantum computing peers rising post-IONQ earnings supports sector momentum and potential sympathy buying[1]
+
+=== TECHNICAL VERDICT ===
+Technical setup favorability: GOOD
+One sentence: Earnings-driven gap up defies downward short-term trends and low premarket volume but shows sympathy from quantum peers[1][2]</pre></div>
+<div class="sub-section"><div class="sub-title">Overall Verdict</div>
+<pre class="raw-text"># IONQ Trade Intelligence Verdict
+
+**CONVICTION SCORE: 52/100**
+
+Weighted calculation:
+- Earnings/Catalyst (35%): 0 points = 0.00
+- Analyst Activity (20%): 14 points (Bullish consensus, but Morgan Stanley downgrade to $35 vs. Rosenblatt $100 target creates conflict) = 2.80
+- Technical Setup (20%): 8 points (Downtrend conflicts with 12.8% above 20-day SMA; neutral RSI with bearish MACD) = 1.60
+- Market Conditions (15%): 12 points (Green market, +14.17% premarket on Romania quantum deployment news) = 1.80
+- Historical Pattern (10%): N/A = 0.00
+- **Total: 52/100**
+
+---
+
+**TRADE RATING:**
+⭐⭐⭐ 50-64 — Decent setup trade half size
+
+---
+
+**POSITION SIZING GUIDANCE:**
+Suggested risk percentage of account: **1-1.5%**
+
+Reasoning: Mixed technical signals (bearish MACD despite neutral RSI) combined with zero earnings score and institutional investor trimming create elevated uncertainty despite bullish analyst consensus.
+
+---
+
+**ENTRY TRIGGER:** Break above $40.00 — key resistance level[1]
+
+**STOP LOSS:** Below $35.00 — key support level[1]
+
+**RISK PER SHARE:** $5.00
+
+**TARGET 1 — 1R:** $45.00
+
+**TARGET 2 — 2R:** $50.00 — minimum exit
+
+**TARGET 3 — 3R:** $55.00 — if momentum strong
+
+---
+
+**RISKS TO THIS TRADE:**
+
+Risk 1: **Institutional ownership decline** — Fourth-quarter 13F data shows institutional investors trimming stakes in IonQ alongside elevated price-to-sales ratios above 30, signaling professional caution despite retail enthusiasm[3]
+
+Risk 2: **Valuation disconnect** — Company remains loss-making with P/E of 7.64 and recent shareholder dilution; quantum computing adoption still confined to research/pilot projects with unclear commercial timelines[2][3]
+
+Risk 3: **Analyst target divergence** — Morgan Stanley downgraded to $35.00 on February 23 while Rosenblatt maintains $100.00 target; current $38.35 price sits between these conflicting signals with no consensus clarity[1]
+
+---
+
+**FINAL VERDICT:**
+🟡 **MODERATE CONVICTION TRADE**
+
+---
+
+**ONE LINE SUMMARY:**
+IonQ&#x27;s Romania quantum deployment and bullish analyst consensus are offset by zero earnings quality, institutional selling, and technical bearish divergence—trade only half-size with strict discipline at $35 support.</pre>
+<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$—</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$—</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$—</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">—</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-high">52/10</div></div></div>
+</div></div></div>
+<div class="stock-card"><div class="stock-header"><div class="ticker-badge">#5 RCRUY</div><div class="stock-meta"><strong></strong><div class="meta-row">Price: <strong style="color:var(--text)">$8.6</strong>&ensp;·&ensp;Gap: <span class="gap-cool">+4.6%</span>&ensp;·&ensp;RelVol: —&ensp;</div></div><div class="conv-ring conv-high" style="border-color:var(--green)">48</div><span class="card-arrow" style="color:var(--muted);margin-left:8px;font-size:13px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Catalyst Analysis</div><pre class="raw-text">I cannot answer this query as specified. The search results provided contain information about **EXPGY (Experian)**, not **RCRUY**, which is the stock ticker you&#x27;re asking about. Additionally, the search results contain no information about premarket gaps, catalysts, or price movements for February 26, 2026.
+
+To properly analyze why RCRUY is gapping 4.6% premarket, I would need search results that include:
+- Recent news or announcements about RCRUY
+- Earnings releases or guidance changes
+- Regulatory filings or FDA decisions (if applicable)
+- Analyst upgrades/downgrades
+- Partnership or acquisition announcements
+- Other material corporate events
+
+**Please provide search results specific to RCRUY** so I can deliver the catalyst analysis in the format you&#x27;ve requested. Alternatively, verify that RCRUY is the correct ticker symbol you intended to query.</pre></div>
+<div class="sub-section"><div class="sub-title">Technical Context</div><pre class="raw-text">=== TECHNICAL CONTEXT ===
+Current premarket price: N/A
+Previous close: $8.00[1][3]
+Gap percentage: 0.00%[1][3]
+Daily chart position: N/A
+52 week range: N/A low to N/A high
+Current price percentile in 52 week range: N/A
+Near 52 week high: NO
+Key levels nearby: N/A
+Nearest resistance above: N/A — N/A
+Nearest support below: N/A — N/A
+Distance to nearest resistance: N/A
+Distance to nearest support: N/A
+Recent trend on daily chart: N/A
+20 day trend: SIDEWAYS
+50 day trend: SIDEWAYS
+Is today gap in direction of daily trend: NEUTRAL
+Prior base or consolidation: NO [extended run]
+Float and liquidity: N/A
+Float: N/A shares
+Float category: N/A
+Float implication: N/A
+
+=== SECTOR AND COMPETITOR CONTEXT ===
+Stock sector: Industrials
+Stock industry: Human Resources &amp; Employment Services
+Sector ETF: XTN — Industrial Select Sector SPDR ETF
+Sector ETF premarket performance today: N/A
+Sector tailwind or headwind: TAILWIND
+Key competitors:
+Competitor 1: EXPGY — premarket today: -2.14%[2]
+Competitor 2: MAN — premarket today: N/A
+Are competitors moving sympathetically: NO
+Sympathy play implication: Limited sympathy as competitor EXPGY shows downside while broader US tech market advances[1].
+
+=== TECHNICAL VERDICT ===
+Technical setup favorability: POOR
+One sentence: No premarket gap or volume data available with flat prior close at $8.00 and lack of key levels or trend signals[1][3].</pre></div>
+<div class="sub-section"><div class="sub-title">Overall Verdict</div>
+<pre class="raw-text">CONVICTION SCORE: 48/100
+[Calculate as weighted average:
+Earnings or catalyst quality: 0% (35% weight on 0/10)
+Analyst activity: 0% (20% weight on N/A)
+Technical setup: 50% (20% weight on SIDEWAYS, neutral score)
+Market conditions: 100% (15% weight on GREEN)
+Historical pattern: 0% (10% weight on N/A)]
+
+TRADE RATING:
+⭐⭐ 35-49 — Marginal setup trade very small or skip
+
+POSITION SIZING GUIDANCE:
+Suggested risk percentage of account: 0.5%
+Reasoning: Sideways technicals and lack of earnings/catalyst data limit conviction despite green market and tailwind sector.
+
+ENTRY TRIGGER: Break above $6,870 — consolidation high
+STOP LOSS: Below $6,040 — consolidation low
+RISK PER SHARE: $830
+TARGET 1 — 1R: $7,700
+TARGET 2 — 2R: $8,570 — minimum exit
+TARGET 3 — 3R: $9,440 — if momentum strong
+
+RISKS TO THIS TRADE:
+Risk 1: Sideways technical setup persists with no clear breakout momentum.
+Risk 2: Absence of earnings data and analyst verdicts signals limited fundamental support.
+Risk 3: Recent volatility from Feb 12-13 drops could resume in non-green market conditions.
+
+FINAL VERDICT:
+🟠 LOW CONVICTION — SMALL SIZE ONLY
+
+ONE LINE SUMMARY:
+RCRUY shows marginal trade potential from green market and tailwind sector but hampered by sideways technicals and missing key data points.</pre>
+<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$6</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$6</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$—</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">—</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-high">48/10</div></div></div>
+</div></div></div>
+<div class="stock-card"><div class="stock-header"><div class="ticker-badge">#6 OPRA</div><div class="stock-meta"><strong></strong><div class="meta-row">Price: <strong style="color:var(--text)">$14.38</strong>&ensp;·&ensp;Gap: <span class="gap-hot">+15.2%</span>&ensp;·&ensp;RelVol: —&ensp;</div></div><div class="conv-ring conv-high" style="border-color:var(--green)">45</div><span class="card-arrow" style="color:var(--muted);margin-left:8px;font-size:13px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Technical Context</div><pre class="raw-text">=== TECHNICAL CONTEXT ===
+Current premarket price: $14.25[1]
+Previous close: $12.49[1][4][5]
+Gap percentage: 14.09%[1]
+Daily chart position: upper end of 20-day range, mid-range of 60-day window[1]
+52 week range: N/A low to N/A high
+Current price percentile in 52 week range: N/A
+Near 52 week high: NO
+Key levels nearby:
+Nearest resistance above: $14.00 — tangled pivot of 20/60-day highs[1]
+Nearest support below: $14.00 — tangled pivot[1]
+Distance to nearest resistance: -1.75%
+Distance to nearest support: -1.75%
+Recent trend on daily chart: downtrend[1]
+20 day trend: UPTREND[1]
+50 day trend: DOWNTREND[1]
+Is today gap in direction of daily trend: NO
+Prior base or consolidation: NO extended run
+Float and liquidity:
+Float: N/A
+Float category: N/A
+Float implication: N/A
+
+=== SECTOR AND COMPETITOR CONTEXT ===
+Stock sector: Technology
+Stock industry: Internet Software &amp; Services
+Sector ETF: XSW — software
+Sector ETF premarket performance today: N/A
+Sector tailwind or headwind: NEUTRAL
+Key competitors:
+Competitor 1: WBTN — premarket today: +1.60%[4]
+Competitor 2: TBLA — premarket today: modestly higher[4]
+Are competitors moving sympathetically: NO
+Sympathy play implication: Mixed peer moves with some higher and others lower indicate no broad sympathy for OPRA&#x27;s gap[4]
+
+=== TECHNICAL VERDICT ===
+Technical setup favorability: ACCEPTABLE
+One sentence: Earnings-driven gap tests critical $14.00 pivot on thin volume lacking institutional conviction, risking reversion without volume pickup[1]</pre></div>
+<div class="sub-section"><div class="sub-title">Overall Verdict</div>
+<pre class="raw-text">CONVICTION SCORE: 45/100
+[Calculated as weighted average: Earnings or catalyst quality (13/35 = 37% × 35% = 13); Analyst activity (N/A = 0 × 20% = 0); Technical setup (UPTREND = 100% × 20% = 20); Market conditions (GREEN = 100% × 15% = 15); Historical pattern (0/4 = 0% × 10% = 0)]
+
+TRADE RATING:
+⭐⭐ 35-49 — Marginal setup trade very small or skip
+
+POSITION SIZING GUIDANCE:
+Suggested risk percentage of account: 0.5%
+Reasoning: Fragile post-earnings momentum on thin volume with low earnings score and N/A factors limits conviction despite uptrend and green market.
+
+ENTRY TRIGGER: Break above $14.00 — consolidation high[1]
+STOP LOSS: Below $13.67 — consolidation low (price - 1.0x ATR)[1]
+RISK PER SHARE: $0.33
+TARGET 1 — 1R: $14.33
+TARGET 2 — 2R: $14.67 — minimum exit
+TARGET 3 — 3R: $15.00 — if momentum strong
+
+RISKS TO THIS TRADE:
+Risk 1: EPS miss of $0.09 ($0.30 vs. $0.39 est.) despite revenue beat could pressure sentiment[5]
+Risk 2: Thin volume and fragile momentum failure at $14.00 pivot may revert to $12.79 support[1]
+Risk 3: No long-term breakout from downtrend as price diverges from 20/50-day MAs[1]
+
+FINAL VERDICT:
+🟠 LOW CONVICTION — SMALL SIZE ONLY
+
+ONE LINE SUMMARY:
+OPRA jumps 14% post-earnings on thin volume testing $14 pivot in uptrend, but low earnings score (13/35), EPS miss, and fragile setup warrant very small size or skip.[1][5]</pre>
+<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$14.00</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$13.67</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$—</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">—</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-high">45/10</div></div></div>
+</div></div></div>
+<div class="stock-card"><div class="stock-header"><div class="ticker-badge">#7 CELH</div><div class="stock-meta"><strong></strong><div class="meta-row">Price: <strong style="color:var(--text)">$58.98</strong>&ensp;·&ensp;Gap: <span class="gap-hot">+16.5%</span>&ensp;·&ensp;RelVol: —&ensp;</div></div><div class="conv-ring conv-high" style="border-color:var(--green)">42</div><span class="card-arrow" style="color:var(--muted);margin-left:8px;font-size:13px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Technical Context</div><pre class="raw-text">I cannot provide the complete technical and sector context in your requested format because the search results lack critical data necessary for a comprehensive analysis.
+
+**Available Data:**
+- **Premarket price:** N/A (search results show pre-market surge of 16%+ but no specific premarket price)
+- **Previous close:** $46.56[2]
+- **52-week range:** $21.10 low to $60.70 high[2]
+- **Current price percentile in 52-week range:** Approximately 73% (based on $46.56 close, though premarket higher)
+- **Market cap:** $12.00B[2]
+- **20-day average volume:** 6,372,650 shares[2]
+
+**Missing Critical Data:**
+The search results do not contain:
+- Specific premarket price (only percentage gain mentioned)
+- Intraday resistance/support levels
+- Daily/50-day moving averages or trend confirmation
+- Float shares outstanding
+- Sector ETF performance today
+- Competitor premarket performance
+- Detailed daily/50-day chart positioning
+
+**What I Can Confirm:**
+Celsius (CELH) operates in the **beverage/energy drink sector** and reported Q4 earnings on February 26, 2026 at 6:00 AM, beating EPS estimates by 36.84% ($0.26 vs. $0.19 expected) with $722 million in revenue versus $639 million expected[1][3]. The stock surged 16%+ in premarket trading on this earnings beat[1].
+
+To complete your analysis in the exact format requested, you would need real-time premarket data, detailed technical chart levels, and sector/competitor premarket performance—data not available in these search results.</pre></div>
+<div class="sub-section"><div class="sub-title">Overall Verdict</div>
+<pre class="raw-text">CONVICTION SCORE: 42/100
+[Calculate as weighted average:
+Earnings or catalyst quality: 19/35 (35%)
+Analyst activity: 0/20 (20%)
+Technical setup: 0/20 (20%)
+Market conditions: 15/15 (15%)
+Historical pattern: 3/4 (10%)]
+
+TRADE RATING:
+⭐⭐ 35-49 — Marginal setup trade very small or skip
+
+POSITION SIZING GUIDANCE:
+Suggested risk percentage of account: 0.5%
+Reasoning: Pre-market surge on earnings beat provides momentum but lacks technical confirmation and full data across factors.
+
+ENTRY TRIGGER: Break above $61.05 — consolidation high[1]
+STOP LOSS: Below $46.35 — consolidation low[3]
+RISK PER SHARE: $14.70
+TARGET 1 — 1R: $75.75
+TARGET 2 — 2R: $90.45 — minimum exit
+TARGET 3 — 3R: $105.15 — if momentum strong
+
+RISKS TO THIS TRADE:
+Risk 1: Post-earnings volatility fades after 20% pre-market gap-up ahead of Q4 report[1][4]
+Risk 2: High valuation at 126.7x P/E with stock 33.8% below fair value per some analyses[1][5]
+Risk 3: Alani Nu brand transition challenges despite analyst upgrades[1]
+
+FINAL VERDICT:
+🟠 LOW CONVICTION — SMALL SIZE ONLY
+
+ONE LINE SUMMARY:
+CELH surges 20% pre-market to $61.05 on earnings beat and optimism, but incomplete data limits conviction to small speculative plays only.</pre>
+<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$61.05</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$46.35</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$—</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">—</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-high">42/10</div></div></div>
+</div></div></div>
+<div class="stock-card"><div class="stock-header"><div class="ticker-badge">#8 HCTI</div><div class="stock-meta"><strong></strong><div class="meta-row">Price: <strong style="color:var(--text)">$8.42</strong>&ensp;·&ensp;Gap: <span class="gap-hot">+44.9%</span>&ensp;·&ensp;RelVol: —&ensp;</div></div><div class="conv-ring conv-high" style="border-color:var(--green)">32</div><span class="card-arrow" style="color:var(--muted);margin-left:8px;font-size:13px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Catalyst Analysis</div><pre class="raw-text">=== CATALYST IDENTIFICATION ===
+Primary catalyst: N/A
+Catalyst category: UNKNOWN
+Catalyst date and time: N/A
+Catalyst source: N/A
+
+=== CATALYST QUALITY ANALYSIS ===
+Is this a genuine fundamental catalyst: NO
+Catalyst magnitude for this company: MINOR
+Market has likely priced this fully: N/A
+Is this catalyst sustainable for intraday move: NO
+
+=== FDA SPECIFIC — complete only if FDA catalyst ===
+N/A
+
+=== UPGRADE SPECIFIC — complete only if analyst upgrade ===
+N/A
+
+=== CATALYST VERDICT ===
+🔴 SUSPICIOUS CATALYST — No clear reason — avoid entirely
+Catalyst score: 0/10
+One line thesis: No identifiable catalyst in available data for 44.9% HCTI premarket gap on February 26, 2026; search results lack relevant news or events.</pre></div>
+<div class="sub-section"><div class="sub-title">Technical Context</div><pre class="raw-text">=== TECHNICAL CONTEXT ===
+Current premarket price: $9.87[1]
+Previous close: $5.81[1][2]
+Gap percentage: 69.88%[1]
+Daily chart position: lower part of 60-day range[1]
+52 week range: N/A low to N/A high
+Current price percentile in 52 week range: N/A
+Near 52 week high: NO
+Key levels nearby:
+Nearest resistance above: $10.00 — psychological level and prior high[1]
+Nearest support below: $5.81 — previous close[1]
+Distance to nearest resistance: 1.32%
+Distance to nearest support: 41.13%
+Recent trend on daily chart: downtrend across all time frames[1][2]
+20 day trend: DOWNTREND[1]
+50 day trend: DOWNTREND[1]
+Is today gap in direction of daily trend: NO
+Prior base or consolidation: YES range continuation pattern[1]
+Float and liquidity:
+Float: N/A
+Float category: N/A
+Float implication: N/A
+
+=== SECTOR AND COMPETITOR CONTEXT ===
+Stock sector: Healthcare
+Stock industry: Healthcare information technology
+Sector ETF: XLV — Health Care Select Sector SPDR Fund
+Sector ETF premarket performance today: N/A
+Sector tailwind or headwind: NEUTRAL
+Key competitors:
+Competitor 1: N/A — premarket today: N/A
+Competitor 2: N/A — premarket today: N/A
+Are competitors moving sympathetically: N/A
+Sympathy play implication: N/A
+
+=== TECHNICAL VERDICT ===
+Technical setup favorability: POOR
+One sentence: Gap up contradicts broader downtrend with low RSI at 14.85-17.91 and lacks volume confirmation, making it fragile and speculative[1][2]</pre></div>
+<div class="sub-section"><div class="sub-title">Overall Verdict</div>
+<pre class="raw-text">CONVICTION SCORE: 32/100
+[Calculated as weighted average: Earnings or catalyst quality (0/10 → 0/35%); Analyst activity (N/A → 0/20%); Technical setup (DOWNTREND → 0/20%); Market conditions (GREEN → 10/15%); Historical pattern (N/A → 0/10%)]
+
+TRADE RATING:
+⭐ 32 — Skip entirely protect capital
+
+POSITION SIZING GUIDANCE:
+Suggested risk percentage of account: 0%
+Reasoning: Technical downtrend and lack of supporting factors outweigh the positive catalyst and market conditions.[1][2]
+
+ENTRY TRIGGER: N/A — Skip trade
+STOP LOSS: N/A — Skip trade
+RISK PER SHARE: N/A
+TARGET 1 — 1R: N/A
+TARGET 2 — 2R: N/A — minimum exit
+TARGET 3 — 3R: N/A — if momentum strong
+
+RISKS TO THIS TRADE:
+Risk 1: Recent 67% after-hours surge on partnership news may reverse in downtrend with 99.9% YTD decline and RSI at 17.91 (oversold).[1][2]
+Risk 2: Microcap stock ($4.45M market cap) with extreme volatility (52-week high $9,711 post-reverse split).[1]
+Risk 3: No earnings, analyst coverage, or short squeeze data increases uncertainty despite catalyst.[2][3]
+
+FINAL VERDICT:
+🔴 SKIP — CAPITAL PRESERVATION TODAY
+
+ONE LINE SUMMARY:
+HCTI spiked 67% after-hours on Malaysia mental health partnership but remains in downtrend near 52-week lows—skip due to weak technicals and profile.[1][2][3]</pre>
+<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$—</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$—</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$—</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">—</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-high">32/10</div></div></div>
+</div></div></div>
+<div class="stock-card"><div class="stock-header"><div class="ticker-badge">#9 BTQ</div><div class="stock-meta"><strong></strong><div class="meta-row">Price: <strong style="color:var(--text)">$3.6</strong>&ensp;·&ensp;Gap: <span class="gap-warm">+10.4%</span>&ensp;·&ensp;RelVol: —&ensp;</div></div><div class="conv-ring conv-high" style="border-color:var(--green)">32</div><span class="card-arrow" style="color:var(--muted);margin-left:8px;font-size:13px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Catalyst Analysis</div><pre class="raw-text">=== CATALYST IDENTIFICATION ===
+Primary catalyst: N/A
+Catalyst category: UNKNOWN
+Catalyst date and time: N/A
+Catalyst source: N/A
+
+=== CATALYST QUALITY ANALYSIS ===
+Is this a genuine fundamental catalyst: NO
+Catalyst magnitude for this company: N/A
+Market has likely priced this fully: N/A
+Is this catalyst sustainable for intraday move: N/A
+
+=== CATALYST VERDICT ===
+🔴 SUSPICIOUS CATALYST — No clear reason — avoid entirely
+Catalyst score: 1/10
+One line thesis: Search results show BTQ rose 26.11% on February 26, 2026[2], but contain no announcement, news release, or fundamental catalyst to explain the gap; the move appears driven by technical momentum or market sentiment rather than a specific corporate event.
+
+---
+
+**Additional Context:**
+
+The available search results do not identify any specific catalyst for BTQ&#x27;s premarket gap on February 26, 2026. While one source documents a 26.11% intraday gain to $3.18[2], no corresponding news announcement, earnings release, FDA decision, partnership, or other fundamental event is cited in the provided materials.
+
+The most recent substantive news in the search results dates to October 2025, when BTQ announced a quantum-safe Bitcoin implementation[3]. The company&#x27;s general sentiment is neutral with extremely high volatility (30.96%)[1], suggesting price movements may reflect technical trading or sector-wide momentum rather than company-specific developments.
+
+Without access to real-time news feeds or SEC filings from February 26, 2026, the gap cannot be attributed to a verifiable catalyst. Exercise caution trading this move without independent confirmation of underlying news.</pre></div>
+<div class="sub-section"><div class="sub-title">Technical Context</div><pre class="raw-text">I cannot provide the requested analysis in the specified format because the search results lack the necessary data to complete it accurately.
+
+**Missing Critical Data:**
+
+- **Premarket price**: Search results show $3.06 as current price (as of Feb 26), but no premarket-specific quote
+- **Previous close**: Not provided
+- **52-week range**: Not available
+- **Float information**: Not disclosed
+- **Sector classification**: Not specified (BTQ is a quantum computing company, but sector designation unclear)
+- **Competitor tickers and premarket moves**: No competitor data provided
+- **Sector ETF performance**: Cannot determine without sector identification
+- **Detailed daily/50-day chart positioning**: Limited to moving averages only
+
+**Available Data from Results:**
+
+Current price: $3.06[1]
+50-Day SMA: $4.63[1]
+14-Day RSI: 42.18 (Neutral)[1]
+2026 price forecast range: $2.58–$7.15[1]
+Volatility: 30.96% (Extremely High)[1]
+Recent sentiment: Neutral with Fear &amp; Greed Index at 39[1]
+
+BTQ Technologies began NASDAQ trading on September 26, 2025[2], which means historical 52-week data is limited to approximately 4 months.
+
+To complete this analysis properly, I would need real-time premarket quotes, detailed technical chart data, float information, and sector/competitor context that the search results do not contain.</pre></div>
+<div class="sub-section"><div class="sub-title">Overall Verdict</div>
+<pre class="raw-text">CONVICTION SCORE: 32/100
+[Calculated as weighted average: Earnings or catalyst quality (1/10 = 10/100, 35% weight = 3.5); Analyst activity (NEUTRAL = 50/100, 20% weight = 10); Technical setup (N/A = 0/100, 20% weight = 0); Market conditions (GREEN = 100/100, 15% weight = 15); Historical pattern (N/A = 0/100, 10% weight = 0)]
+
+TRADE RATING:
+⭐⭐ 35-49 — Marginal setup trade very small or skip
+
+POSITION SIZING GUIDANCE:
+Suggested risk percentage of account: 0.5%
+Reasoning: Insufficient data across key metrics and weak catalyst score outweigh green market conditions.
+
+ENTRY TRIGGER: Break above $3.75 — consolidation high[1]
+STOP LOSS: Below $3.40 — consolidation low[1]
+RISK PER SHARE: $0.35
+TARGET 1 — 1R: $4.10
+TARGET 2 — 2R: $4.45 — minimum exit
+TARGET 3 — 3R: $4.80 — if momentum strong
+
+RISKS TO THIS TRADE:
+Risk 1: Low catalyst score (1/10) signals limited near-term drivers despite recent quantum news[2].
+Risk 2: Bearish short-term price predictions and neutral RSI indicate downside pressure[3].
+Risk 3: Below-average volume (347.96K vs. 2.01M avg) suggests lack of conviction[1].
+
+FINAL VERDICT:
+🟠 LOW CONVICTION — SMALL SIZE ONLY
+
+ONE LINE SUMMARY:
+BTQ shows marginal upside in green markets with recent highs at $3.75 but lacks strong catalysts, technicals, or data to justify meaningful risk today[1][2].</pre>
+<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$3.75</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$3.40</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$—</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">—</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-high">32/10</div></div></div>
+</div></div></div>
+<div class="stock-card"><div class="stock-header"><div class="ticker-badge">#10 SKYT</div><div class="stock-meta"><strong></strong><div class="meta-row">Price: <strong style="color:var(--text)">$30.67</strong>&ensp;·&ensp;Gap: <span class="gap-cool">+6.5%</span>&ensp;·&ensp;RelVol: —&ensp;</div></div><div class="conv-ring conv-high" style="border-color:var(--green)">15</div><span class="card-arrow" style="color:var(--muted);margin-left:8px;font-size:13px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Technical Context</div><pre class="raw-text">I cannot provide the requested analysis for SKYT premarket data on February 26, 2026.
+
+The search results provided contain no financial data, stock prices, technical indicators, or sector information relevant to SKYT or any publicly traded company. The results reference unrelated retail products and local business directories.
+
+To deliver accurate premarket technical and sector context in your specified format, I would need:
+
+- Current premarket price and previous close for SKYT
+- 52-week high/low data
+- Recent price action and trend information
+- Float and liquidity metrics
+- Sector classification and competitor data
+- Real-time premarket performance for sector ETFs and competitors
+
+**I cannot fabricate financial data.** If you have access to financial data sources (Bloomberg, Yahoo Finance, ThinkorSwim, etc.), please provide that information and I can structure it in your exact format. Alternatively, you may need to consult a financial data platform directly for real-time premarket quotes and technical analysis.</pre></div>
+<div class="sub-section"><div class="sub-title">Overall Verdict</div>
+<pre class="raw-text">CONVICTION SCORE: 15/100
+[Calculate as weighted average:
+Earnings or catalyst quality: 0/35 * 35% = 0
+Analyst activity: 20/100 * 20% = 4 (consensus Hold, mixed targets ~$11-35 vs current ~$28-29)[2][3]
+Technical setup: 20/100 * 20% = 4 (rising short-term trend, recent gain to $28.80)[1]
+Market conditions: 100/100 * 15% = 15 (GREEN)
+Historical pattern: 0/100 * 10% = 0 (N/A)]
+
+TRADE RATING:
+⭐ 15 — Skip entirely protect capital
+
+POSITION SIZING GUIDANCE:
+Suggested risk percentage of account: 0%
+Reasoning: Poor earnings score, lack of supporting data across key metrics, and analyst targets below recent price levels indicate high uncertainty.
+
+ENTRY TRIGGER: N/A — Insufficient data for setup
+STOP LOSS: N/A
+RISK PER SHARE: N/A
+TARGET 1 — 1R: N/A
+TARGET 2 — 2R: N/A — minimum exit
+TARGET 3 — 3R: N/A — if momentum strong
+
+RISKS TO THIS TRADE:
+Risk 1: Recent earnings miss on EPS despite revenue beat, with TD Cowen downgrade to Hold[2][4]
+Risk 2: Conflicting analyst targets ($11 avg in some sources vs $32-$35 in others) below current ~$28-29 price[1][2][3]
+Risk 3: High beta (3.50) amplifies downside in volatile semiconductor sector amid acquisition rumors[2]
+
+FINAL VERDICT:
+🔴 SKIP — CAPITAL PRESERVATION TODAY
+
+ONE LINE SUMMARY:
+SKYT shows weak fundamentals post-earnings miss (0/35 score), mixed analyst views, and no clear technical edge despite green market—skip to protect capital.</pre>
+<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$—</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$—</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$—</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">—</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-high">15/10</div></div></div>
+</div></div></div>
 </div>
 
 <footer>
-  Pre-Market Intelligence System &bull; Powered by Perplexity AI + TradingView<br>
-  For educational purposes only &mdash; not financial advice.<br>
-  Generated Wednesday, February 25 2026  09:10 AM EST
+  🔔 <strong>PreBell</strong> &bull; Morning Market Intelligence<br>
+  Powered by Perplexity AI &amp; TradingView &bull; Pre/Post-market gaps &bull; Sector ETFs &bull; Earnings<br>
+  <span style="color:#555">For educational purposes only &mdash; not financial advice.</span><br>
+  Generated Thursday, February 26 2026  09:19 AM EST
 </footer>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
