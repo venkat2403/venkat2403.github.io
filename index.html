@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="PreBell — Daily pre-market gap scanner, sector ETF rotation, AH movers and earnings intelligence. Ready by 8:20 AM CST.">
 <meta name="theme-color" content="#0d1117">
-<title>🔔 PreBell — 2026-03-09</title>
+<title>🔔 PreBell — 2026-03-10</title>
 <style>
 :root {
   --bg:        #0a0d12;
@@ -354,6 +354,20 @@ footer {
 .no-tradeable .nt-title { font-size: 20px; font-weight: 700; color: var(--red); margin-bottom: 8px; }
 .no-tradeable .nt-body  { font-size: 14px; color: var(--muted); line-height: 1.8; }
 
+/* ── EP alert banner ── */
+.ep-banner { background: rgba(255,214,10,.07); border: 2px solid #ffd60a; border-radius: var(--radius); max-width: 960px; margin: 14px auto; padding: 18px 22px; }
+.ep-banner-title { font-size: 15px; font-weight: 800; color: #ffd60a; letter-spacing: .4px; margin-bottom: 4px; }
+.ep-banner-sub { font-size: 11px; color: var(--muted); margin-bottom: 14px; text-transform: uppercase; letter-spacing: .6px; }
+.ep-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.ep-card { background: rgba(255,214,10,.06); border: 1px solid rgba(255,214,10,.35); border-radius: 8px; padding: 10px 14px; min-width: 180px; flex: 1 1 180px; }
+.ep-card-ticker { font-size: 17px; font-weight: 800; color: #ffd60a; }
+.ep-card-setup { font-size: 11px; color: var(--muted); margin: 2px 0 6px; text-transform: uppercase; letter-spacing: .5px; }
+.ep-card-action { font-size: 12px; font-weight: 700; color: var(--green); margin-bottom: 3px; }
+.ep-card-detail { font-size: 11px; color: var(--text-2); line-height: 1.6; }
+
+/* ── EP stock card gold border ── */
+.stock-card.ep-stock { border-left: 3px solid #ffd60a; }
+
 /* ── responsive — tablet ── */
 @media (max-width: 768px) {
   .section, .stock-card { margin: 10px auto; }
@@ -402,120 +416,120 @@ footer {
 <div class="top-bar">
   <div class="brand">
     <h1>🔔 PreBell</h1>
-    <span class="tagline">Morning Market Intelligence &mdash; 2026-03-09</span>
+    <span class="tagline">Morning Market Intelligence &mdash; 2026-03-10</span>
   </div>
   <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span class="mkt-badge mkt-red">RED</span>
-    <span class="ts">Generated Monday, March 9 2026  10:13 AM EST<br>Target: 8:20 AM CST</span>
+    <span class="mkt-badge mkt-yellow">YELLOW</span>
+    <span class="ts">Generated Tuesday, March 10 2026  09:20 AM EST<br>Target: 8:20 AM CST</span>
   </div>
 </div>
 
 <div class="section"><div class="section-header open"><h2>📊 Market Snapshot</h2><span class="arrow">▼</span></div><div class="section-body open"><div class="mkt-quick">
-  <div class="trading-mode-banner mode-red"><span class="mode-label">TODAY'S MODE</span>&nbsp;&nbsp;🛡️ DEFENSE — Reduce size. Exit at 1R. Protect capital.</div><div class="traction-line">🧊 COLD STREAK — 7W / 16L / 7F last 7d  (23% win rate) — reduce size, −10% conviction</div>
+  <div class="trading-mode-banner mode-red"><span class="mode-label">TODAY'S MODE</span>&nbsp;&nbsp;🛡️ DEFENSE — Reduce size. Exit at 1R. Protect capital.</div><div class="traction-line">🧊 COLD STREAK — 10W / 12L / 8F last 7d  (33% win rate) — reduce size, −10% conviction</div>
   <div class="mkt-verdict-row">
-    <span class="mkt-badge mkt-red">🔴 STAND DOWN</span>
+    <span class="mkt-badge mkt-yellow">🟠 HIGH CAUTION</span>
     <div class="mkt-score-wrap">
       <div class="mkt-score-bar">
-        <div class="mkt-score-fill" style="width:10%;background:var(--red)"></div>
+        <div class="mkt-score-fill" style="width:40%;background:var(--orange)"></div>
       </div>
-      <span class="mkt-score-num">1 / 10</span>
+      <span class="mkt-score-num">4 / 10</span>
     </div>
   </div>
   <div class="mkt-metrics">
     <div class="mkt-metric">
       <div class="mkt-metric-label">VIX</div>
-      <div class="mkt-metric-value" style="color:var(--red)">31.4</div>
+      <div class="mkt-metric-value" style="color:var(--red)">25.1</div>
       <div class="mkt-metric-note">HIGH FEAR</div>
     </div>
     <div class="mkt-metric">
       <div class="mkt-metric-label">ES Futures</div>
-      <div class="mkt-metric-value" style="color:var(--red)">-1.35%</div>
-      <div class="mkt-metric-note">bearish</div>
+      <div class="mkt-metric-value" style="color:var(--red)">-0.21%</div>
+      <div class="mkt-metric-note">mildly bearish</div>
     </div>
     <div class="mkt-metric">
       <div class="mkt-metric-label">Global</div>
-      <div class="mkt-metric-value" style="color:var(--red);font-size:14px">RISK OFF</div>
+      <div class="mkt-metric-value" style="color:var(--green);font-size:14px">RISK ON</div>
     </div>
     <div class="mkt-metric">
       <div class="mkt-metric-label">Contagion</div>
-      <div class="mkt-metric-value" style="color:var(--red);font-size:15px">HIGH</div>
+      <div class="mkt-metric-value" style="color:var(--green);font-size:15px">LOW</div>
     </div>
   </div>
-  <div class="mkt-risk">⚠️ VIX at 31.4 signals high fear — risk of sharp reversals</div>
-  <div class="mkt-calendar">📅 None&nbsp;&nbsp;·&nbsp;&nbsp;✅ Safe windows: 00:00 to 23:59&nbsp;&nbsp;·&nbsp;&nbsp;🚫 Avoid: None</div>
-  <div id="mkt-details" class="mkt-details-content"><div class="sub-title" style="margin-top:14px">Yesterday Recap</div><pre class="raw-text">SPY close: N/A N/A N/A  
-QQQ close: N/A [-5%]  
-IWM close: N/A N/A N/A  
-VIX close: N/A N/A  
-DOMINANT THEME: US stocks declined sharply on March 6, 2026, with the S&amp;P 500 breaking key technical levels like 6752 to trigger systematic selling from CTAs and gamma imbalances, amid early signs of broader market pressure.[1]  
-SECTORS THAT LED: N/A  
-SECTORS THAT LAGGED: N/A  
-MARKET BREADTH: WEAK N/A  
-FOLLOW THROUGH EXPECTATION: Momentum is likely to extend lower today amid escalating West Asia tensions, surging oil prices, and risk-off flows hitting global equities including US indices.[1][2][4]</pre><div class="sub-title" style="margin-top:14px">Futures &amp; Macro</div><pre class="raw-text">=== FUTURES &amp; MARKET INDICATORS (TradingView Live) ===
+  <div class="mkt-risk">⚠️ VIX at 25.1 signals high fear — risk of sharp reversals</div>
+  <div class="mkt-calendar">📅 ** N/A&nbsp;&nbsp;·&nbsp;&nbsp;✅ Safe windows: 00:00 EST to 12:00 EST, 13:00 EST to 23:59 EST&nbsp;&nbsp;·&nbsp;&nbsp;🚫 Avoid: **</div>
+  <div id="mkt-details" class="mkt-details-content"><div class="sub-title" style="margin-top:14px">Yesterday Recap</div><pre class="raw-text">SPY close: N/A N/A N/A
+QQQ close: N/A N/A N/A
+IWM close: N/A N/A N/A
+VIX close: N/A N/A
+DOMINANT THEME: Major indices rebounded with upside reversals amid wild oil price swings following Trump&#x27;s statements easing geopolitical tensions, reducing inflation fears and reviving Fed rate cut bets.
+SECTORS THAT LED: N/A
+SECTORS THAT LAGGED: N/A
+MARKET BREADTH: MODERATE N/A
+FOLLOW THROUGH EXPECTATION: Momentum may stall as cycles point to a potential deeper trough in the S&amp;P 500 despite yesterday&#x27;s support finds and oil relief rally.</pre><div class="sub-title" style="margin-top:14px">Futures &amp; Macro</div><pre class="raw-text">=== FUTURES &amp; MARKET INDICATORS (TradingView Live) ===
 
-ES Futures (S&amp;P 500):    6652.75 pts  |  -1.35%  →  BEARISH — high reversal risk
-NQ Futures (Nasdaq-100): 24408.50 pts  |  -1.06%
-YM Futures (Dow Jones):  46717 pts  |  -1.68%
-RTY Futures (Russell):   2473.30 pts  |  -2.11%
+ES Futures (S&amp;P 500):    6787.00 pts  |  -0.21%  →  SLIGHTLY BEARISH — watch for fades
+NQ Futures (Nasdaq-100): 24976.75 pts  |  -0.06%
+YM Futures (Dow Jones):  47666 pts  |  -0.22%
+RTY Futures (Russell):   2539.00 pts  |  -0.58%
 
-VIX current: 31.43  |  Zone: EXTREME FEAR — STAND DOWN
+VIX current: 25.07  |  Zone: HIGH — REDUCE POSITION SIZE
 
-DXY (Dollar Index):  99.264  |  +0.41%
-US 10Y Yield:        4.158%  |  +0.48%
-Gold (GC1!):         $5091.30  |  -1.31%
-Oil (WTI CL1!):      $102.28  |  +12.52%
-Bitcoin:             $68791  |  +4.27%
+DXY (Dollar Index):  98.687  |  -0.04%
+US 10Y Yield:        4.121%  |  +0.46%
+Gold (GC1!):         $5205.80  |  +2.00%
+Oil (WTI CL1!):      $89.44  |  -5.62%
+Bitcoin:             $70596  |  +3.16%
 
 OVERALL MARKET CONDITION: RED
-Bias: BEARISH — high reversal risk
+Bias: SLIGHTLY BEARISH — watch for fades
 Key risk: VIX elevated — reduce position sizes</pre><div class="sub-title" style="margin-top:14px">Global Markets</div><pre class="raw-text">=== GLOBAL MARKETS OVERNIGHT (TradingView Live) ===
 
 EUROPE:
-  DAX (Germany)                23240.27     -1.49%  HEAVY SELLING
-  FTSE 100 (UK)                10168.82     -1.13%  HEAVY SELLING
-  CAC 40 (France)               7818.89     -2.18%  HEAVY SELLING
-  Euro Stoxx 50                 5610.63     -1.91%  HEAVY SELLING
+  DAX (Germany)                23899.02     +2.09%  STRONG RALLY
+  FTSE 100 (UK)                10400.39     +1.47%  STRONG RALLY
+  CAC 40 (France)               8042.19     +1.60%  STRONG RALLY
+  Euro Stoxx 50                 5808.33     +2.17%  STRONG RALLY
 
 ASIA (prior session):
-  Nikkei 225 (Japan)           52728.67     -5.20%  HEAVY SELLING
-  Hang Seng (Hong Kong)        25408.47     -1.35%  HEAVY SELLING
-  Shanghai Composite            4096.60     -0.67%  LOWER
+  Nikkei 225 (Japan)           54248.34     +2.88%  STRONG RALLY
+  Hang Seng (Hong Kong)        25959.90     +2.17%  STRONG RALLY
+  Shanghai Composite            4123.14     +0.65%  HIGHER
 
-GLOBAL RISK SENTIMENT: RISK OFF
-CONTAGION RISK: HIGH
+GLOBAL RISK SENTIMENT: RISK ON
+CONTAGION RISK: LOW
 
-ASSESSMENT: Risk-off mood globally — headwind for gap plays, be selective</pre><div class="sub-title" style="margin-top:14px">Economic Calendar</div><pre class="raw-text">TIME EST | EVENT | PREVIOUS | EXPECTED | IMPORTANCE
-N/A | N/A | N/A | N/A | N/A
+ASSESSMENT: Risk appetite elevated — global tailwind supports gap-and-go plays</pre><div class="sub-title" style="margin-top:14px">Economic Calendar</div><pre class="raw-text">N/A
 
-MOST IMPORTANT EVENT TODAY: None
-SAFE TRADING WINDOWS:
-Window 1: 00:00 to 23:59
-AVOID TRADING COMPLETELY:
-None
-FED POLICY CONTEXT: N/A</pre></div><span class="mkt-details-toggle" onclick="var d=document.getElementById('mkt-details');d.classList.toggle('open');this.textContent=d.classList.contains('open')?'▲ Hide AI Details':'▶ Full AI Analysis Details'">▶ Full AI Analysis Details</span>
+**MOST IMPORTANT EVENT TODAY:** N/A  
+**SAFE TRADING WINDOWS:**  
+Window 1: 00:00 EST to 12:00 EST  
+Window 2: 13:00 EST to 23:59 EST  
+**AVOID TRADING COMPLETELY:**  
+12:00 EST - 13:00 EST (US data cluster at 12:30 EST including potential jobless claims and budget statements)  
+**FED POLICY CONTEXT:** N/A</pre></div><span class="mkt-details-toggle" onclick="var d=document.getElementById('mkt-details');d.classList.toggle('open');this.textContent=d.classList.contains('open')?'▲ Hide AI Details':'▶ Full AI Analysis Details'">▶ Full AI Analysis Details</span>
 </div></div></div>
 
 <div class="section"><div class="section-header open"><h2>📈 Sector ETFs — Premarket Snapshot</h2><span class="arrow">▼</span></div><div class="section-body open"><div class="etf-section-label">Broad Market</div>
-<div class="etf-grid"><div class="etf-cell"><div class="etf-ticker">SPY</div><div class="etf-name">S&amp;P 500</div><div class="etf-change etf-down">-0.89%</div><div class="etf-status">DOWN</div></div><div class="etf-cell"><div class="etf-ticker">QQQ</div><div class="etf-name">Nasdaq 100</div><div class="etf-change etf-down">-0.92%</div><div class="etf-status">DOWN</div></div><div class="etf-cell etf-cold"><div class="etf-ticker">IWM</div><div class="etf-name">Russell 2000</div><div class="etf-change etf-down">-1.32%</div><div class="etf-status">COLD</div></div></div>
+<div class="etf-grid"><div class="etf-cell"><div class="etf-ticker">SPY</div><div class="etf-name">S&amp;P 500</div><div class="etf-change etf-down">-0.17%</div><div class="etf-status">FLAT</div></div><div class="etf-cell"><div class="etf-ticker">QQQ</div><div class="etf-name">Nasdaq 100</div><div class="etf-change etf-flat">-0.07%</div><div class="etf-status">FLAT</div></div><div class="etf-cell"><div class="etf-ticker">IWM</div><div class="etf-name">Russell 2000</div><div class="etf-change etf-down">-0.50%</div><div class="etf-status">DOWN</div></div></div>
 <div class="etf-section-label">SPDR Sector ETFs</div>
-<div class="etf-grid"><div class="etf-cell"><div class="etf-ticker">XLK</div><div class="etf-name">Technology</div><div class="etf-change etf-down">-0.98%</div><div class="etf-status">DOWN</div></div><div class="etf-cell etf-cold"><div class="etf-ticker">XLF</div><div class="etf-name">Financials</div><div class="etf-change etf-down">-1.36%</div><div class="etf-status">COLD</div></div><div class="etf-cell"><div class="etf-ticker">XLV</div><div class="etf-name">Health Care</div><div class="etf-change etf-down">-0.60%</div><div class="etf-status">DOWN</div></div><div class="etf-cell"><div class="etf-ticker">XLE</div><div class="etf-name">Energy</div><div class="etf-change etf-up">+0.97%</div><div class="etf-status">UP</div></div><div class="etf-cell etf-cold"><div class="etf-ticker">XLB</div><div class="etf-name">Materials</div><div class="etf-change etf-down">-1.28%</div><div class="etf-status">COLD</div></div><div class="etf-cell etf-cold"><div class="etf-ticker">XLI</div><div class="etf-name">Industrials</div><div class="etf-change etf-down">-1.26%</div><div class="etf-status">COLD</div></div><div class="etf-cell etf-cold"><div class="etf-ticker">XLY</div><div class="etf-name">Consumer Discr.</div><div class="etf-change etf-down">-1.29%</div><div class="etf-status">COLD</div></div><div class="etf-cell"><div class="etf-ticker">XLP</div><div class="etf-name">Consumer Staples</div><div class="etf-change etf-down">-0.63%</div><div class="etf-status">DOWN</div></div><div class="etf-cell etf-cold"><div class="etf-ticker">XLRE</div><div class="etf-name">Real Estate</div><div class="etf-change etf-down">-1.12%</div><div class="etf-status">COLD</div></div><div class="etf-cell"><div class="etf-ticker">XLU</div><div class="etf-name">Utilities</div><div class="etf-change etf-down">-0.72%</div><div class="etf-status">DOWN</div></div></div>
-<div style="margin-top:10px;padding:6px 10px;background:#0d1117;border:1px solid var(--border);border-radius:4px;font-size:12px;">Sector Bias: <strong style="color:var(--red)">BROADLY BEARISH — most sectors under pressure</strong> &nbsp; avg PM -0.83%</div></div></div>
+<div class="etf-grid"><div class="etf-cell"><div class="etf-ticker">XLK</div><div class="etf-name">Technology</div><div class="etf-change etf-flat">-0.06%</div><div class="etf-status">FLAT</div></div><div class="etf-cell"><div class="etf-ticker">XLF</div><div class="etf-name">Financials</div><div class="etf-change etf-down">-0.34%</div><div class="etf-status">DOWN</div></div><div class="etf-cell"><div class="etf-ticker">XLV</div><div class="etf-name">Health Care</div><div class="etf-change etf-down">-0.20%</div><div class="etf-status">DOWN</div></div><div class="etf-cell"><div class="etf-ticker">XLE</div><div class="etf-name">Energy</div><div class="etf-change etf-down">-0.48%</div><div class="etf-status">DOWN</div></div><div class="etf-cell"><div class="etf-ticker">XLB</div><div class="etf-name">Materials</div><div class="etf-change etf-flat">-0.06%</div><div class="etf-status">FLAT</div></div><div class="etf-cell"><div class="etf-ticker">XLI</div><div class="etf-name">Industrials</div><div class="etf-change etf-down">-0.29%</div><div class="etf-status">DOWN</div></div><div class="etf-cell"><div class="etf-ticker">XLY</div><div class="etf-name">Consumer Discr.</div><div class="etf-change etf-down">-0.21%</div><div class="etf-status">DOWN</div></div><div class="etf-cell"><div class="etf-ticker">XLP</div><div class="etf-name">Consumer Staples</div><div class="etf-change etf-down">-0.30%</div><div class="etf-status">DOWN</div></div><div class="etf-cell"><div class="etf-ticker">XLRE</div><div class="etf-name">Real Estate</div><div class="etf-change etf-down">-0.56%</div><div class="etf-status">DOWN</div></div><div class="etf-cell"><div class="etf-ticker">XLU</div><div class="etf-name">Utilities</div><div class="etf-change etf-down">-0.43%</div><div class="etf-status">DOWN</div></div></div>
+<div style="margin-top:10px;padding:6px 10px;background:#0d1117;border:1px solid var(--border);border-radius:4px;font-size:12px;">Sector Bias: <strong style="color:var(--yellow)">MILDLY BEARISH — sector headwind</strong> &nbsp; avg PM -0.29%</div></div></div>
 
 <div id="stocks-container">
-<div class="no-tradeable"><span class="nt-icon">🚫</span><div class="nt-title">No High Conviction Setups Today</div><div class="nt-body">Scanned 8 stocks — none cleared the conviction threshold.<br>Risk/reward on today's gaps doesn't meet our criteria. Consider staying flat or sizing down significantly.</div></div><div class="tier-label tier-watchlist">👀 Also Watching — Lower Confidence (3 stocks)</div><div class="section"><div class="section-header open"><h2>👀 Also Watching — Lower Confidence</h2><span class="arrow">▼</span></div><div class="section-body open"><div class="tbl-wrap"><table><thead><tr><th style="min-width:70px">Ticker</th><th style="min-width:160px">Company</th><th style="min-width:75px">Gap %</th><th style="min-width:55px">Conv</th><th style="min-width:220px">Catalyst</th><th style="min-width:140px">Verdict</th></tr></thead><tbody><tr><td><strong style="color:var(--blue)">RLMD</strong></td><td>Relmada Therapeutics, Inc.</td><td class="gap-hot">+44.7%</td><td class="conv-cell conv-low">46</td><td style="white-space:normal;color:var(--text-2)">Oversubscribed $160.0 Million Private Placement Financing</td><td style="white-space:normal;color:var(--muted);font-size:12px"># RLMD Trade Intelligence Verdict
+<div class="no-tradeable"><span class="nt-icon">🚫</span><div class="nt-title">No High Conviction Setups Today</div><div class="nt-body">Scanned 10 stocks — none cleared the conviction threshold.<br>Risk/reward on today's gaps doesn't meet our criteria. Consider staying flat or sizing down significantly.</div></div><div class="tier-label tier-watchlist">👀 Also Watching — Lower Confidence (3 stocks)</div><div class="section"><div class="section-header open"><h2>👀 Also Watching — Lower Confidence</h2><span class="arrow">▼</span></div><div class="section-body open"><div class="tbl-wrap"><table><thead><tr><th style="min-width:70px">Ticker</th><th style="min-width:160px">Company</th><th style="min-width:75px">Gap %</th><th style="min-width:55px">Conv</th><th style="min-width:220px">Catalyst</th><th style="min-width:140px">Verdict</th></tr></thead><tbody><tr><td><strong style="color:var(--blue)">ELDN</strong></td><td>Eledon Pharmaceuticals, Inc.</td><td class="gap-warm">+7.2%</td><td class="conv-cell conv-mid">52</td><td style="white-space:normal;color:var(--text-2)">FDA Orphan Drug designation for tegoprubart in liver transplantation</td><td style="white-space:normal;color:var(--muted);font-size:12px">CONVICTION SCORE: 52/100
+[Calculated as weighted average under YELLOW market condition ceiling of 72</td></tr><tr><td><strong style="color:var(--blue)">RLMD</strong></td><td>Relmada Therapeutics Inc</td><td class="gap-hot">+61.1%</td><td class="conv-cell conv-low">49</td><td style="white-space:normal;color:var(--text-2)">Oversubscribed $160.0 Million Private Placement Financing</td><td style="white-space:normal;color:var(--muted);font-size:12px"># RLMD Trade Intelligence Verdict
 
-**CONVICTION SCORE: 52/100**
+**CONVICTION SCORE: 58/100**
 
-**Calculation (Weighted Average):**</td></tr><tr><td><strong style="color:var(--blue)">XENE</strong></td><td>Xenon Pharmaceuticals Inc.</td><td class="gap-hot">+44.5%</td><td class="conv-cell conv-low">46</td><td style="white-space:normal;color:var(--text-2)">Positive Phase 3 X-TOLE2 topline data for azetukalner in focal onset seizures</td><td style="white-space:normal;color:var(--muted);font-size:12px">CONVICTION SCORE: 55/100  
-[Calculated as weighted average: Earnings or catalyst quality (Catalyst S</td></tr><tr><td><strong style="color:var(--blue)">OPTX</strong></td><td>Syntec Optics Holdings, Inc.</td><td class="gap-cool">+6.0%</td><td class="conv-cell conv-low">46</td><td style="white-space:normal;color:var(--text-2)">$4M defense contract wins across multiple U.S. military platforms</td><td style="white-space:normal;color:var(--muted);font-size:12px">CONVICTION SCORE: 55/100  
-[Calculated as weighted average: Earnings or catalyst quality (Catalyst S</td></tr></tbody></table></div></div></div>
+**Calculation (Weighted Average):**</td></tr><tr><td><strong style="color:var(--blue)">ZVRA</strong></td><td>Zevra Therapeutics, Inc.</td><td class="gap-hot">+20.6%</td><td class="conv-cell conv-low">45</td><td style="white-space:normal;color:var(--text-2)">BEAT — Q4 FY2025 — Score: 16/35</td><td style="white-space:normal;color:var(--muted);font-size:12px">CONVICTION SCORE: 72/100  
+[Calculated as weighted average: Earnings or catalyst quality (16/35 scal</td></tr></tbody></table></div></div></div>
 </div>
 
 <footer>
   🔔 <strong>PreBell</strong> &bull; Morning Market Intelligence<br>
   Powered by Perplexity AI &amp; TradingView &bull; Pre/Post-market gaps &bull; Sector ETFs &bull; Earnings<br>
   <span style="color:#555">For educational purposes only &mdash; not financial advice.</span><br>
-  Generated Monday, March 9 2026  10:13 AM EST
+  Generated Tuesday, March 10 2026  09:20 AM EST
 </footer>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -554,917 +568,5 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
-
-<!-- ═══════════════════════════════════════════════════════════════
-     EOD LEARNING REPORT — appended at 10:13 AM ET by PreBell
-     ═══════════════════════════════════════════════════════════════ -->
-
-<div style="max-width:960px;margin:52px auto 22px;display:flex;align-items:center;gap:14px">
-  <div style="flex:1;height:1px;background:linear-gradient(to right,transparent,var(--border))"></div>
-  <span style="color:var(--muted);font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;white-space:nowrap;padding:0 6px">
-    📊 &nbsp; End-of-Day Report &nbsp;·&nbsp; 10:13 AM ET
-  </span>
-  <div style="flex:1;height:1px;background:linear-gradient(to left,transparent,var(--border))"></div>
-</div>
-
-<div class="section">
-  <div class="section-header open" onclick="toggleSection(this)">
-    <h2>📋 Today's Scorecard &nbsp;<span style="color:var(--muted);font-weight:400;font-size:13px">2W / 6L / 2F &nbsp;·&nbsp; <span style="color:var(--red)">20% win rate</span></span></h2>
-    <span class="arrow">▲</span>
-  </div>
-  <div class="section-body open">
-      <div class="tbl-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>#</th><th>TICKER</th><th>COMPANY</th>
-              <th>PM GAP%</th><th>CONV</th>
-              <th>PM PRICE</th><th>CLOSE</th><th>PM→CLOSE%</th><th>OUTCOME</th>
-            </tr>
-          </thead>
-          <tbody>
-        <tr>
-          <td>1</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">HIMS</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+47.4%</td>
-          <td style="color:var(--yellow);font-weight:700">65</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$23.20</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$21.68</td>
-          <td style="color:var(--red);font-weight:600">-6.5%</td>
-          <td><span style="color:var(--red);font-weight:700">❌ LOSS</span></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">XENE</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+44.6%</td>
-          <td style="color:var(--yellow);font-weight:700">65</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$60.62</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$59.00</td>
-          <td style="color:var(--red);font-weight:600">-2.7%</td>
-          <td><span style="color:var(--red);font-weight:700">❌ LOSS</span></td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">AGH</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+22.7%</td>
-          <td style="color:var(--yellow);font-weight:700">65</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$5.99</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$4.55</td>
-          <td style="color:var(--red);font-weight:600">-24.0%</td>
-          <td><span style="color:var(--red);font-weight:700">❌ LOSS</span></td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">OPTX</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-cool">+5.9%</td>
-          <td style="color:var(--yellow);font-weight:700">65</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$6.77</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$6.90</td>
-          <td style="color:var(--green);font-weight:600">+1.9%</td>
-          <td><span style="color:var(--muted);font-weight:600">➖ FLAT</span></td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">RLMD</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+44.7%</td>
-          <td style="color:var(--yellow);font-weight:700">62</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$6.44</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$6.00</td>
-          <td style="color:var(--red);font-weight:600">-6.8%</td>
-          <td><span style="color:var(--red);font-weight:700">❌ LOSS</span></td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">TALK</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-warm">+8.2%</td>
-          <td style="color:var(--yellow);font-weight:700">57</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$5.15</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$5.12</td>
-          <td style="color:var(--red);font-weight:600">-0.6%</td>
-          <td><span style="color:var(--muted);font-weight:600">➖ FLAT</span></td>
-        </tr>
-        <tr>
-          <td>7</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">QURE</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+24.4%</td>
-          <td style="color:var(--red);font-weight:700">42</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$17.75</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$16.69</td>
-          <td style="color:var(--red);font-weight:600">-6.0%</td>
-          <td><span style="color:var(--red);font-weight:700">❌ LOSS</span></td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">DNTH</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+22.7%</td>
-          <td style="color:var(--red);font-weight:700">42</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$80.00</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$82.08</td>
-          <td style="color:var(--green);font-weight:600">+2.6%</td>
-          <td><span style="color:var(--green);font-weight:700">✅ WIN</span></td>
-        </tr>
-        <tr>
-          <td>9</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">BHVN</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+22.4%</td>
-          <td style="color:var(--red);font-weight:700">26</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$12.14</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$9.97</td>
-          <td style="color:var(--red);font-weight:600">-17.9%</td>
-          <td><span style="color:var(--red);font-weight:700">❌ LOSS</span></td>
-        </tr>
-        <tr>
-          <td>10</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">ATRA</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-warm">+13.9%</td>
-          <td style="color:var(--red);font-weight:700">21</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$5.89</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$6.29</td>
-          <td style="color:var(--green);font-weight:600">+6.8%</td>
-          <td><span style="color:var(--green);font-weight:700">✅ WIN</span></td>
-        </tr>
-        <tr style="background:var(--surface-2)">
-          <td colspan="4" style="color:var(--muted);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px">Today's Result</td>
-          <td colspan="4"></td>
-          <td style="color:var(--red);font-weight:700">2W&nbsp;6L&nbsp;2F&nbsp;&nbsp;·&nbsp;&nbsp;<span style="font-size:15px">20%</span>&nbsp;win</td>
-        </tr>
-          </tbody>
-        </table>
-      </div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header open" onclick="toggleSection(this)">
-    <h2>🎯 Market Call — How Did We Do? &nbsp;<span style="font-size:13px">✅&nbsp;<span style="color:var(--green);font-weight:600">CORRECT</span></span></h2>
-    <span class="arrow">▲</span>
-  </div>
-  <div class="section-body open">
-    <div class="kv-grid">
-      <div class="kv-row"><span class="kv-label">Predicted</span>
-        <span class="kv-value"><span class="mkt-badge mkt-red">RED</span></span></div>
-      <div class="kv-row"><span class="kv-label">Actual</span>
-        <span class="kv-value"><span class="mkt-badge mkt-red">RED</span></span></div>
-      <div class="kv-row"><span class="kv-label">Score Error</span>
-        <span class="kv-value kv-mono">2</span></div>
-      <div class="kv-row"><span class="kv-label">Systematic Bias</span>
-        <span class="kv-value" style="color:var(--text-2)">0 (no bias)</span></div>
-      <div class="kv-row"><span class="kv-label">Calibration Version</span>
-        <span class="kv-value kv-mono">v8</span></div>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header" onclick="toggleSection(this)">
-    <h2>📈 Rolling Patterns <span style="color:var(--muted);font-weight:400;font-size:12px">(50 picks total)</span></h2>
-    <span class="arrow">▼</span>
-  </div>
-  <div class="section-body">
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>BUCKET</th><th>SAMPLE</th><th>WIN RATE</th></tr></thead>
-        <tbody><tr><td>Conviction 0-35</td><td style='color:var(--muted)'>6 picks</td><td style='color:var(--red);font-weight:600'>33%</td></tr><tr><td>Conviction 35-50</td><td style='color:var(--muted)'>13 picks</td><td style='color:var(--red);font-weight:600'>31%</td></tr><tr><td>Conviction 50-65</td><td style='color:var(--muted)'>16 picks</td><td style='color:var(--red);font-weight:600'>19%</td></tr><tr><td>Conviction 65-80</td><td style='color:var(--muted)'>14 picks</td><td style='color:var(--red);font-weight:600'>36%</td></tr><tr><td>Conviction 80-101</td><td style='color:var(--muted)'>1 picks</td><td style='color:var(--red);font-weight:600'>0%</td></tr><tr><td>Earnings picks</td><td style='color:var(--muted)'>18 picks</td><td style='color:var(--yellow);font-weight:600'>50%</td></tr><tr><td>Non-earnings picks</td><td style='color:var(--muted)'>32 picks</td><td style='color:var(--red);font-weight:600'>16%</td></tr></tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header" onclick="toggleSection(this)">
-    <h2>🧠 What the System Learned Today <span style="color:var(--green);font-size:11px;font-weight:600;background:var(--green-bg);padding:2px 8px;border-radius:4px;margin-left:8px">UPDATED → v9</span></h2>
-    <span class="arrow">▼</span>
-  </div>
-  <div class="section-body">
-    <p style="color:var(--text-2);font-size:12px;margin-bottom:14px">Rules updated using 50 picks of historical data.</p>
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>RULE</th><th>STATUS</th><th>THRESHOLDS</th><th>PURPOSE</th></tr></thead>
-        <tbody><tr><td style='color:var(--text-2);font-weight:600'>Thin Volume Cap</td><td><span style="color:var(--green)">ON</span></td><td style='color:var(--muted);font-size:11px;font-family:var(--font-mono)'>participation_threshold: 20.0 · gap_threshold: 8.0 · max_conviction: 42</td><td style='color:var(--muted);font-size:11px'>Data-derived: participation&lt;20.0% + gap&gt;8.0% → cap at 42</td></tr><tr><td style='color:var(--text-2);font-weight:600'>Earnings Low-Part Cap</td><td><span style="color:var(--green)">ON</span></td><td style='color:var(--muted);font-size:11px;font-family:var(--font-mono)'>participation_threshold: 22.0 · gap_threshold: 10.0 · max_conviction: 52</td><td style='color:var(--muted);font-size:11px'>Earnings + participation&lt;22.0% + gap&gt;10.0% → cap at 52</td></tr><tr><td style='color:var(--text-2);font-weight:600'>High Participation Bonus</td><td><span style="color:var(--green)">ON</span></td><td style='color:var(--muted);font-size:11px;font-family:var(--font-mono)'>participation_threshold: 50.0 · bonus: 10 · max_after_bonus: 90</td><td style='color:var(--muted);font-size:11px'>participation&gt;=50.0% → +10 conviction bonus</td></tr></tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header open" onclick="toggleSection(this)">
-    <h2>⚡ Tomorrow's Posture</h2>
-    <span class="arrow">▲</span>
-  </div>
-  <div class="section-body open">
-    <div class="trading-mode-banner mode-red" style="margin:0 0 16px">
-      <span style="font-size:22px">🧊</span>
-      <div>
-        <div>DEFENSE</div>
-        <div class="mode-label">Win rate below 40% rolling — size down 10%. Tighten stops, skip marginal setups.</div>
-      </div>
-    </div>
-    <p class="traction-line">🧊 COLD STREAK — 9W / 22L / 9F last 7d  (22% win rate) — reduce size, −10% conviction</p>
-    <div class="kv-grid">
-      <div class="kv-row"><span class="kv-label">7-Day Record</span>
-        <span class="kv-value kv-mono">9W / 22L / 9F (40 total)</span></div>
-      <div class="kv-row"><span class="kv-label">7-Day Win Rate</span>
-        <span class="kv-value" style="color:var(--red);font-weight:600">22%</span></div>
-      <div class="kv-row"><span class="kv-label">Conviction Multiplier</span>
-        <span class="kv-value kv-mono">0.9x</span></div>
-    </div>
-  </div>
-</div>
-<!-- ═══════════════════════════════ EOD END ═══════════════════════════════ -->
-
-
-<!-- ═══════════════════════════════════════════════════════════════
-     EOD LEARNING REPORT — appended at 04:05 PM ET by PreBell
-     ═══════════════════════════════════════════════════════════════ -->
-
-<div style="max-width:960px;margin:52px auto 22px;display:flex;align-items:center;gap:14px">
-  <div style="flex:1;height:1px;background:linear-gradient(to right,transparent,var(--border))"></div>
-  <span style="color:var(--muted);font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;white-space:nowrap;padding:0 6px">
-    📊 &nbsp; End-of-Day Report &nbsp;·&nbsp; 04:05 PM ET
-  </span>
-  <div style="flex:1;height:1px;background:linear-gradient(to left,transparent,var(--border))"></div>
-</div>
-
-<div class="section">
-  <div class="section-header open" onclick="toggleSection(this)">
-    <h2>📋 Today's Scorecard &nbsp;<span style="color:var(--muted);font-weight:400;font-size:13px">4W / 3L / 3F &nbsp;·&nbsp; <span style="color:var(--yellow)">40% win rate</span></span></h2>
-    <span class="arrow">▲</span>
-  </div>
-  <div class="section-body open">
-      <div class="tbl-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>#</th><th>TICKER</th><th>COMPANY</th>
-              <th>PM GAP%</th><th>CONV</th>
-              <th>PM PRICE</th><th>CLOSE</th><th>PM→CLOSE%</th><th>OUTCOME</th>
-            </tr>
-          </thead>
-          <tbody>
-        <tr>
-          <td>1</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">HIMS</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+47.4%</td>
-          <td style="color:var(--yellow);font-weight:700">65</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$23.20</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$22.17</td>
-          <td style="color:var(--red);font-weight:600">-4.4%</td>
-          <td><span style="color:var(--red);font-weight:700">❌ LOSS</span></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">XENE</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+44.6%</td>
-          <td style="color:var(--yellow);font-weight:700">65</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$60.62</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$62.76</td>
-          <td style="color:var(--green);font-weight:600">+3.5%</td>
-          <td><span style="color:var(--green);font-weight:700">✅ WIN</span></td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">AGH</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+22.7%</td>
-          <td style="color:var(--yellow);font-weight:700">65</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$5.99</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$5.48</td>
-          <td style="color:var(--red);font-weight:600">-8.5%</td>
-          <td><span style="color:var(--red);font-weight:700">❌ LOSS</span></td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">OPTX</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-cool">+5.9%</td>
-          <td style="color:var(--yellow);font-weight:700">65</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$6.77</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$7.14</td>
-          <td style="color:var(--green);font-weight:600">+5.5%</td>
-          <td><span style="color:var(--green);font-weight:700">✅ WIN</span></td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">RLMD</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+44.7%</td>
-          <td style="color:var(--yellow);font-weight:700">62</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$6.44</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$7.17</td>
-          <td style="color:var(--green);font-weight:600">+11.3%</td>
-          <td><span style="color:var(--green);font-weight:700">✅ WIN</span></td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">TALK</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-warm">+8.2%</td>
-          <td style="color:var(--yellow);font-weight:700">57</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$5.15</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$5.12</td>
-          <td style="color:var(--red);font-weight:600">-0.6%</td>
-          <td><span style="color:var(--muted);font-weight:600">➖ FLAT</span></td>
-        </tr>
-        <tr>
-          <td>7</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">QURE</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+24.4%</td>
-          <td style="color:var(--red);font-weight:700">42</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$17.75</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$17.99</td>
-          <td style="color:var(--green);font-weight:600">+1.4%</td>
-          <td><span style="color:var(--muted);font-weight:600">➖ FLAT</span></td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">DNTH</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+22.7%</td>
-          <td style="color:var(--red);font-weight:700">42</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$80.00</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$79.23</td>
-          <td style="color:var(--red);font-weight:600">-1.0%</td>
-          <td><span style="color:var(--muted);font-weight:600">➖ FLAT</span></td>
-        </tr>
-        <tr>
-          <td>9</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">BHVN</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+22.4%</td>
-          <td style="color:var(--red);font-weight:700">26</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$12.14</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$10.21</td>
-          <td style="color:var(--red);font-weight:600">-15.9%</td>
-          <td><span style="color:var(--red);font-weight:700">❌ LOSS</span></td>
-        </tr>
-        <tr>
-          <td>10</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">ATRA</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-warm">+13.9%</td>
-          <td style="color:var(--red);font-weight:700">21</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$5.89</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$6.68</td>
-          <td style="color:var(--green);font-weight:600">+13.4%</td>
-          <td><span style="color:var(--green);font-weight:700">✅ WIN</span></td>
-        </tr>
-        <tr style="background:var(--surface-2)">
-          <td colspan="4" style="color:var(--muted);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px">Today's Result</td>
-          <td colspan="4"></td>
-          <td style="color:var(--yellow);font-weight:700">4W&nbsp;3L&nbsp;3F&nbsp;&nbsp;·&nbsp;&nbsp;<span style="font-size:15px">40%</span>&nbsp;win</td>
-        </tr>
-          </tbody>
-        </table>
-      </div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header open" onclick="toggleSection(this)">
-    <h2>🎯 Market Call — How Did We Do? &nbsp;<span style="font-size:13px">❌&nbsp;<span style="color:var(--red);font-weight:600">WRONG</span></span></h2>
-    <span class="arrow">▲</span>
-  </div>
-  <div class="section-body open">
-    <div class="kv-grid">
-      <div class="kv-row"><span class="kv-label">Predicted</span>
-        <span class="kv-value"><span class="mkt-badge mkt-red">RED</span></span></div>
-      <div class="kv-row"><span class="kv-label">Actual</span>
-        <span class="kv-value"><span class="mkt-badge mkt-green">GREEN</span></span></div>
-      <div class="kv-row"><span class="kv-label">Score Error</span>
-        <span class="kv-value kv-mono">8</span></div>
-      <div class="kv-row"><span class="kv-label">Systematic Bias</span>
-        <span class="kv-value" style="color:var(--text-2)">0 (no bias)</span></div>
-      <div class="kv-row"><span class="kv-label">Calibration Version</span>
-        <span class="kv-value kv-mono">v9</span></div>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header" onclick="toggleSection(this)">
-    <h2>📈 Rolling Patterns <span style="color:var(--muted);font-weight:400;font-size:12px">(50 picks total)</span></h2>
-    <span class="arrow">▼</span>
-  </div>
-  <div class="section-body">
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>BUCKET</th><th>SAMPLE</th><th>WIN RATE</th></tr></thead>
-        <tbody><tr><td>Conviction 0-35</td><td style='color:var(--muted)'>6 picks</td><td style='color:var(--red);font-weight:600'>33%</td></tr><tr><td>Conviction 35-50</td><td style='color:var(--muted)'>13 picks</td><td style='color:var(--red);font-weight:600'>23%</td></tr><tr><td>Conviction 50-65</td><td style='color:var(--muted)'>16 picks</td><td style='color:var(--red);font-weight:600'>25%</td></tr><tr><td>Conviction 65-80</td><td style='color:var(--muted)'>14 picks</td><td style='color:var(--yellow);font-weight:600'>50%</td></tr><tr><td>Conviction 80-101</td><td style='color:var(--muted)'>1 picks</td><td style='color:var(--red);font-weight:600'>0%</td></tr><tr><td>Earnings picks</td><td style='color:var(--muted)'>18 picks</td><td style='color:var(--yellow);font-weight:600'>44%</td></tr><tr><td>Non-earnings picks</td><td style='color:var(--muted)'>32 picks</td><td style='color:var(--red);font-weight:600'>25%</td></tr></tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header" onclick="toggleSection(this)">
-    <h2>🧠 What the System Learned Today <span style="color:var(--green);font-size:11px;font-weight:600;background:var(--green-bg);padding:2px 8px;border-radius:4px;margin-left:8px">UPDATED → v10</span></h2>
-    <span class="arrow">▼</span>
-  </div>
-  <div class="section-body">
-    <p style="color:var(--text-2);font-size:12px;margin-bottom:14px">Rules updated using 50 picks of historical data.</p>
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>RULE</th><th>STATUS</th><th>THRESHOLDS</th><th>PURPOSE</th></tr></thead>
-        <tbody><tr><td style='color:var(--text-2);font-weight:600'>Thin Volume Cap</td><td><span style="color:var(--green)">ON</span></td><td style='color:var(--muted);font-size:11px;font-family:var(--font-mono)'>participation_threshold: 20.0 · gap_threshold: 8.0 · max_conviction: 42</td><td style='color:var(--muted);font-size:11px'>Data-derived: participation&lt;20.0% + gap&gt;8.0% → cap at 42</td></tr><tr><td style='color:var(--text-2);font-weight:600'>Earnings Low-Part Cap</td><td><span style="color:var(--green)">ON</span></td><td style='color:var(--muted);font-size:11px;font-family:var(--font-mono)'>participation_threshold: 22.0 · gap_threshold: 10.0 · max_conviction: 52</td><td style='color:var(--muted);font-size:11px'>Earnings + participation&lt;22.0% + gap&gt;10.0% → cap at 52</td></tr><tr><td style='color:var(--text-2);font-weight:600'>High Participation Bonus</td><td><span style="color:var(--green)">ON</span></td><td style='color:var(--muted);font-size:11px;font-family:var(--font-mono)'>participation_threshold: 50.0 · bonus: 10 · max_after_bonus: 90</td><td style='color:var(--muted);font-size:11px'>participation&gt;=50.0% → +10 conviction bonus</td></tr></tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header open" onclick="toggleSection(this)">
-    <h2>⚡ Tomorrow's Posture</h2>
-    <span class="arrow">▲</span>
-  </div>
-  <div class="section-body open">
-    <div class="trading-mode-banner mode-red" style="margin:0 0 16px">
-      <span style="font-size:22px">🧊</span>
-      <div>
-        <div>DEFENSE</div>
-        <div class="mode-label">Win rate below 40% rolling — size down 10%. Tighten stops, skip marginal setups.</div>
-      </div>
-    </div>
-    <p class="traction-line">🧊 COLD STREAK — 11W / 19L / 10F last 7d  (28% win rate) — reduce size, −10% conviction</p>
-    <div class="kv-grid">
-      <div class="kv-row"><span class="kv-label">7-Day Record</span>
-        <span class="kv-value kv-mono">11W / 19L / 10F (40 total)</span></div>
-      <div class="kv-row"><span class="kv-label">7-Day Win Rate</span>
-        <span class="kv-value" style="color:var(--red);font-weight:600">28%</span></div>
-      <div class="kv-row"><span class="kv-label">Conviction Multiplier</span>
-        <span class="kv-value kv-mono">0.9x</span></div>
-    </div>
-  </div>
-</div>
-<!-- ═══════════════════════════════ EOD END ═══════════════════════════════ -->
-
-
-<!-- ═══════════════════════════════════════════════════════════════
-     EOD LEARNING REPORT — appended at 04:07 PM ET by PreBell
-     ═══════════════════════════════════════════════════════════════ -->
-
-<div style="max-width:960px;margin:52px auto 22px;display:flex;align-items:center;gap:14px">
-  <div style="flex:1;height:1px;background:linear-gradient(to right,transparent,var(--border))"></div>
-  <span style="color:var(--muted);font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;white-space:nowrap;padding:0 6px">
-    📊 &nbsp; End-of-Day Report &nbsp;·&nbsp; 04:07 PM ET
-  </span>
-  <div style="flex:1;height:1px;background:linear-gradient(to left,transparent,var(--border))"></div>
-</div>
-
-<div class="section">
-  <div class="section-header open" onclick="toggleSection(this)">
-    <h2>📋 Today's Scorecard &nbsp;<span style="color:var(--muted);font-weight:400;font-size:13px">4W / 3L / 3F &nbsp;·&nbsp; <span style="color:var(--yellow)">40% win rate</span></span></h2>
-    <span class="arrow">▲</span>
-  </div>
-  <div class="section-body open">
-      <div class="tbl-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>#</th><th>TICKER</th><th>COMPANY</th>
-              <th>PM GAP%</th><th>CONV</th>
-              <th>PM PRICE</th><th>CLOSE</th><th>PM→CLOSE%</th><th>OUTCOME</th>
-            </tr>
-          </thead>
-          <tbody>
-        <tr>
-          <td>1</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">HIMS</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+47.4%</td>
-          <td style="color:var(--yellow);font-weight:700">65</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$23.20</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$22.17</td>
-          <td style="color:var(--red);font-weight:600">-4.4%</td>
-          <td><span style="color:var(--red);font-weight:700">❌ LOSS</span></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">XENE</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+44.6%</td>
-          <td style="color:var(--yellow);font-weight:700">65</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$60.62</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$62.76</td>
-          <td style="color:var(--green);font-weight:600">+3.5%</td>
-          <td><span style="color:var(--green);font-weight:700">✅ WIN</span></td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">AGH</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+22.7%</td>
-          <td style="color:var(--yellow);font-weight:700">65</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$5.99</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$5.48</td>
-          <td style="color:var(--red);font-weight:600">-8.5%</td>
-          <td><span style="color:var(--red);font-weight:700">❌ LOSS</span></td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">OPTX</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-cool">+5.9%</td>
-          <td style="color:var(--yellow);font-weight:700">65</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$6.77</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$7.14</td>
-          <td style="color:var(--green);font-weight:600">+5.5%</td>
-          <td><span style="color:var(--green);font-weight:700">✅ WIN</span></td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">RLMD</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+44.7%</td>
-          <td style="color:var(--yellow);font-weight:700">62</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$6.44</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$7.17</td>
-          <td style="color:var(--green);font-weight:600">+11.3%</td>
-          <td><span style="color:var(--green);font-weight:700">✅ WIN</span></td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">TALK</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-warm">+8.2%</td>
-          <td style="color:var(--yellow);font-weight:700">57</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$5.15</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$5.12</td>
-          <td style="color:var(--red);font-weight:600">-0.6%</td>
-          <td><span style="color:var(--muted);font-weight:600">➖ FLAT</span></td>
-        </tr>
-        <tr>
-          <td>7</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">QURE</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+24.4%</td>
-          <td style="color:var(--red);font-weight:700">42</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$17.75</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$17.99</td>
-          <td style="color:var(--green);font-weight:600">+1.4%</td>
-          <td><span style="color:var(--muted);font-weight:600">➖ FLAT</span></td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">DNTH</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+22.7%</td>
-          <td style="color:var(--red);font-weight:700">42</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$80.00</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$79.23</td>
-          <td style="color:var(--red);font-weight:600">-1.0%</td>
-          <td><span style="color:var(--muted);font-weight:600">➖ FLAT</span></td>
-        </tr>
-        <tr>
-          <td>9</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">BHVN</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+22.4%</td>
-          <td style="color:var(--red);font-weight:700">26</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$12.14</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$10.21</td>
-          <td style="color:var(--red);font-weight:600">-15.9%</td>
-          <td><span style="color:var(--red);font-weight:700">❌ LOSS</span></td>
-        </tr>
-        <tr>
-          <td>10</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">ATRA</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-warm">+13.9%</td>
-          <td style="color:var(--red);font-weight:700">21</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$5.89</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$6.68</td>
-          <td style="color:var(--green);font-weight:600">+13.4%</td>
-          <td><span style="color:var(--green);font-weight:700">✅ WIN</span></td>
-        </tr>
-        <tr style="background:var(--surface-2)">
-          <td colspan="4" style="color:var(--muted);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px">Today's Result</td>
-          <td colspan="4"></td>
-          <td style="color:var(--yellow);font-weight:700">4W&nbsp;3L&nbsp;3F&nbsp;&nbsp;·&nbsp;&nbsp;<span style="font-size:15px">40%</span>&nbsp;win</td>
-        </tr>
-          </tbody>
-        </table>
-      </div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header open" onclick="toggleSection(this)">
-    <h2>🎯 Market Call — How Did We Do? &nbsp;<span style="font-size:13px">❌&nbsp;<span style="color:var(--red);font-weight:600">WRONG</span></span></h2>
-    <span class="arrow">▲</span>
-  </div>
-  <div class="section-body open">
-    <div class="kv-grid">
-      <div class="kv-row"><span class="kv-label">Predicted</span>
-        <span class="kv-value"><span class="mkt-badge mkt-red">RED</span></span></div>
-      <div class="kv-row"><span class="kv-label">Actual</span>
-        <span class="kv-value"><span class="mkt-badge mkt-green">GREEN</span></span></div>
-      <div class="kv-row"><span class="kv-label">Score Error</span>
-        <span class="kv-value kv-mono">8</span></div>
-      <div class="kv-row"><span class="kv-label">Systematic Bias</span>
-        <span class="kv-value" style="color:var(--text-2)">0 (no bias)</span></div>
-      <div class="kv-row"><span class="kv-label">Calibration Version</span>
-        <span class="kv-value kv-mono">v10</span></div>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header" onclick="toggleSection(this)">
-    <h2>📈 Rolling Patterns <span style="color:var(--muted);font-weight:400;font-size:12px">(50 picks total)</span></h2>
-    <span class="arrow">▼</span>
-  </div>
-  <div class="section-body">
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>BUCKET</th><th>SAMPLE</th><th>WIN RATE</th></tr></thead>
-        <tbody><tr><td>Conviction 0-35</td><td style='color:var(--muted)'>6 picks</td><td style='color:var(--red);font-weight:600'>33%</td></tr><tr><td>Conviction 35-50</td><td style='color:var(--muted)'>13 picks</td><td style='color:var(--red);font-weight:600'>23%</td></tr><tr><td>Conviction 50-65</td><td style='color:var(--muted)'>16 picks</td><td style='color:var(--red);font-weight:600'>25%</td></tr><tr><td>Conviction 65-80</td><td style='color:var(--muted)'>14 picks</td><td style='color:var(--yellow);font-weight:600'>50%</td></tr><tr><td>Conviction 80-101</td><td style='color:var(--muted)'>1 picks</td><td style='color:var(--red);font-weight:600'>0%</td></tr><tr><td>Earnings picks</td><td style='color:var(--muted)'>18 picks</td><td style='color:var(--yellow);font-weight:600'>44%</td></tr><tr><td>Non-earnings picks</td><td style='color:var(--muted)'>32 picks</td><td style='color:var(--red);font-weight:600'>25%</td></tr></tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header" onclick="toggleSection(this)">
-    <h2>🧠 What the System Learned Today <span style="color:var(--green);font-size:11px;font-weight:600;background:var(--green-bg);padding:2px 8px;border-radius:4px;margin-left:8px">UPDATED → v11</span></h2>
-    <span class="arrow">▼</span>
-  </div>
-  <div class="section-body">
-    <p style="color:var(--text-2);font-size:12px;margin-bottom:14px">Rules updated using 50 picks of historical data.</p>
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>RULE</th><th>STATUS</th><th>THRESHOLDS</th><th>PURPOSE</th></tr></thead>
-        <tbody><tr><td style='color:var(--text-2);font-weight:600'>Thin Volume Cap</td><td><span style="color:var(--green)">ON</span></td><td style='color:var(--muted);font-size:11px;font-family:var(--font-mono)'>participation_threshold: 20.0 · gap_threshold: 8.0 · max_conviction: 42</td><td style='color:var(--muted);font-size:11px'>Data-derived: participation&lt;20.0% + gap&gt;8.0% → cap at 42</td></tr><tr><td style='color:var(--text-2);font-weight:600'>Earnings Low-Part Cap</td><td><span style="color:var(--green)">ON</span></td><td style='color:var(--muted);font-size:11px;font-family:var(--font-mono)'>participation_threshold: 22.0 · gap_threshold: 10.0 · max_conviction: 52</td><td style='color:var(--muted);font-size:11px'>Earnings + participation&lt;22.0% + gap&gt;10.0% → cap at 52</td></tr><tr><td style='color:var(--text-2);font-weight:600'>High Participation Bonus</td><td><span style="color:var(--green)">ON</span></td><td style='color:var(--muted);font-size:11px;font-family:var(--font-mono)'>participation_threshold: 50.0 · bonus: 10 · max_after_bonus: 90</td><td style='color:var(--muted);font-size:11px'>participation&gt;=50.0% → +10 conviction bonus</td></tr></tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header open" onclick="toggleSection(this)">
-    <h2>⚡ Tomorrow's Posture</h2>
-    <span class="arrow">▲</span>
-  </div>
-  <div class="section-body open">
-    <div class="trading-mode-banner mode-red" style="margin:0 0 16px">
-      <span style="font-size:22px">🧊</span>
-      <div>
-        <div>DEFENSE</div>
-        <div class="mode-label">Win rate below 40% rolling — size down 10%. Tighten stops, skip marginal setups.</div>
-      </div>
-    </div>
-    <p class="traction-line">🧊 COLD STREAK — 11W / 19L / 10F last 7d  (28% win rate) — reduce size, −10% conviction</p>
-    <div class="kv-grid">
-      <div class="kv-row"><span class="kv-label">7-Day Record</span>
-        <span class="kv-value kv-mono">11W / 19L / 10F (40 total)</span></div>
-      <div class="kv-row"><span class="kv-label">7-Day Win Rate</span>
-        <span class="kv-value" style="color:var(--red);font-weight:600">28%</span></div>
-      <div class="kv-row"><span class="kv-label">Conviction Multiplier</span>
-        <span class="kv-value kv-mono">0.9x</span></div>
-    </div>
-  </div>
-</div>
-<!-- ═══════════════════════════════ EOD END ═══════════════════════════════ -->
-
-
-<!-- ═══════════════════════════════════════════════════════════════
-     EOD LEARNING REPORT — appended at 04:11 PM ET by PreBell
-     ═══════════════════════════════════════════════════════════════ -->
-
-<div style="max-width:960px;margin:52px auto 22px;display:flex;align-items:center;gap:14px">
-  <div style="flex:1;height:1px;background:linear-gradient(to right,transparent,var(--border))"></div>
-  <span style="color:var(--muted);font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;white-space:nowrap;padding:0 6px">
-    📊 &nbsp; End-of-Day Report &nbsp;·&nbsp; 04:11 PM ET
-  </span>
-  <div style="flex:1;height:1px;background:linear-gradient(to left,transparent,var(--border))"></div>
-</div>
-
-<div class="section">
-  <div class="section-header open" onclick="toggleSection(this)">
-    <h2>📋 Today's Scorecard &nbsp;<span style="color:var(--muted);font-weight:400;font-size:13px">4W / 3L / 3F &nbsp;·&nbsp; <span style="color:var(--yellow)">40% win rate</span></span></h2>
-    <span class="arrow">▲</span>
-  </div>
-  <div class="section-body open">
-      <div class="tbl-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>#</th><th>TICKER</th><th>COMPANY</th>
-              <th>PM GAP%</th><th>CONV</th>
-              <th>PM PRICE</th><th>CLOSE</th><th>PM→CLOSE%</th><th>OUTCOME</th>
-            </tr>
-          </thead>
-          <tbody>
-        <tr>
-          <td>1</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">HIMS</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+47.4%</td>
-          <td style="color:var(--yellow);font-weight:700">65</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$23.20</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$22.17</td>
-          <td style="color:var(--red);font-weight:600">-4.4%</td>
-          <td><span style="color:var(--red);font-weight:700">❌ LOSS</span></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">XENE</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+44.6%</td>
-          <td style="color:var(--yellow);font-weight:700">65</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$60.62</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$62.76</td>
-          <td style="color:var(--green);font-weight:600">+3.5%</td>
-          <td><span style="color:var(--green);font-weight:700">✅ WIN</span></td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">AGH</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+22.7%</td>
-          <td style="color:var(--yellow);font-weight:700">65</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$5.99</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$5.48</td>
-          <td style="color:var(--red);font-weight:600">-8.5%</td>
-          <td><span style="color:var(--red);font-weight:700">❌ LOSS</span></td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">OPTX</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-cool">+5.9%</td>
-          <td style="color:var(--yellow);font-weight:700">65</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$6.77</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$7.14</td>
-          <td style="color:var(--green);font-weight:600">+5.5%</td>
-          <td><span style="color:var(--green);font-weight:700">✅ WIN</span></td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">RLMD</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+44.7%</td>
-          <td style="color:var(--yellow);font-weight:700">62</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$6.44</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$7.17</td>
-          <td style="color:var(--green);font-weight:600">+11.3%</td>
-          <td><span style="color:var(--green);font-weight:700">✅ WIN</span></td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">TALK</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-warm">+8.2%</td>
-          <td style="color:var(--yellow);font-weight:700">57</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$5.15</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$5.12</td>
-          <td style="color:var(--red);font-weight:600">-0.6%</td>
-          <td><span style="color:var(--muted);font-weight:600">➖ FLAT</span></td>
-        </tr>
-        <tr>
-          <td>7</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">QURE</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+24.4%</td>
-          <td style="color:var(--red);font-weight:700">42</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$17.75</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$17.99</td>
-          <td style="color:var(--green);font-weight:600">+1.4%</td>
-          <td><span style="color:var(--muted);font-weight:600">➖ FLAT</span></td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">DNTH</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+22.7%</td>
-          <td style="color:var(--red);font-weight:700">42</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$80.00</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$79.23</td>
-          <td style="color:var(--red);font-weight:600">-1.0%</td>
-          <td><span style="color:var(--muted);font-weight:600">➖ FLAT</span></td>
-        </tr>
-        <tr>
-          <td>9</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">BHVN</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-hot">+22.4%</td>
-          <td style="color:var(--red);font-weight:700">26</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$12.14</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$10.21</td>
-          <td style="color:var(--red);font-weight:600">-15.9%</td>
-          <td><span style="color:var(--red);font-weight:700">❌ LOSS</span></td>
-        </tr>
-        <tr>
-          <td>10</td>
-          <td style="color:var(--blue);font-weight:700;font-size:15px">ATRA</td>
-          <td style="color:var(--text-2);font-size:12px"></td>
-          <td class="gap-warm">+13.9%</td>
-          <td style="color:var(--red);font-weight:700">21</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$5.89</td>
-          <td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">$6.68</td>
-          <td style="color:var(--green);font-weight:600">+13.4%</td>
-          <td><span style="color:var(--green);font-weight:700">✅ WIN</span></td>
-        </tr>
-        <tr style="background:var(--surface-2)">
-          <td colspan="4" style="color:var(--muted);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px">Today's Result</td>
-          <td colspan="4"></td>
-          <td style="color:var(--yellow);font-weight:700">4W&nbsp;3L&nbsp;3F&nbsp;&nbsp;·&nbsp;&nbsp;<span style="font-size:15px">40%</span>&nbsp;win</td>
-        </tr>
-          </tbody>
-        </table>
-      </div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header open" onclick="toggleSection(this)">
-    <h2>🎯 Market Call — How Did We Do? &nbsp;<span style="font-size:13px">❌&nbsp;<span style="color:var(--red);font-weight:600">WRONG</span></span></h2>
-    <span class="arrow">▲</span>
-  </div>
-  <div class="section-body open">
-    <div class="kv-grid">
-      <div class="kv-row"><span class="kv-label">Predicted</span>
-        <span class="kv-value"><span class="mkt-badge mkt-red">RED</span></span></div>
-      <div class="kv-row"><span class="kv-label">Actual</span>
-        <span class="kv-value"><span class="mkt-badge mkt-green">GREEN</span></span></div>
-      <div class="kv-row"><span class="kv-label">Score Error</span>
-        <span class="kv-value kv-mono">8</span></div>
-      <div class="kv-row"><span class="kv-label">Systematic Bias</span>
-        <span class="kv-value" style="color:var(--text-2)">0 (no bias)</span></div>
-      <div class="kv-row"><span class="kv-label">Calibration Version</span>
-        <span class="kv-value kv-mono">v11</span></div>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header" onclick="toggleSection(this)">
-    <h2>📈 Rolling Patterns <span style="color:var(--muted);font-weight:400;font-size:12px">(50 picks total)</span></h2>
-    <span class="arrow">▼</span>
-  </div>
-  <div class="section-body">
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>BUCKET</th><th>SAMPLE</th><th>WIN RATE</th></tr></thead>
-        <tbody><tr><td>Conviction 0-35</td><td style='color:var(--muted)'>6 picks</td><td style='color:var(--red);font-weight:600'>33%</td></tr><tr><td>Conviction 35-50</td><td style='color:var(--muted)'>13 picks</td><td style='color:var(--red);font-weight:600'>23%</td></tr><tr><td>Conviction 50-65</td><td style='color:var(--muted)'>16 picks</td><td style='color:var(--red);font-weight:600'>25%</td></tr><tr><td>Conviction 65-80</td><td style='color:var(--muted)'>14 picks</td><td style='color:var(--yellow);font-weight:600'>50%</td></tr><tr><td>Conviction 80-101</td><td style='color:var(--muted)'>1 picks</td><td style='color:var(--red);font-weight:600'>0%</td></tr><tr><td>Earnings picks</td><td style='color:var(--muted)'>18 picks</td><td style='color:var(--yellow);font-weight:600'>44%</td></tr><tr><td>Non-earnings picks</td><td style='color:var(--muted)'>32 picks</td><td style='color:var(--red);font-weight:600'>25%</td></tr></tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header" onclick="toggleSection(this)">
-    <h2>🧠 What the System Learned Today <span style="color:var(--green);font-size:11px;font-weight:600;background:var(--green-bg);padding:2px 8px;border-radius:4px;margin-left:8px">UPDATED → v12</span></h2>
-    <span class="arrow">▼</span>
-  </div>
-  <div class="section-body">
-    <p style="color:var(--text-2);font-size:12px;margin-bottom:14px">Rules updated using 50 picks of historical data.</p>
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>RULE</th><th>STATUS</th><th>THRESHOLDS</th><th>PURPOSE</th></tr></thead>
-        <tbody><tr><td style='color:var(--text-2);font-weight:600'>Thin Volume Cap</td><td><span style="color:var(--green)">ON</span></td><td style='color:var(--muted);font-size:11px;font-family:var(--font-mono)'>participation_threshold: 20.0 · gap_threshold: 8.0 · max_conviction: 42</td><td style='color:var(--muted);font-size:11px'>Data-derived: participation&lt;20.0% + gap&gt;8.0% → cap at 42</td></tr><tr><td style='color:var(--text-2);font-weight:600'>Earnings Low-Part Cap</td><td><span style="color:var(--green)">ON</span></td><td style='color:var(--muted);font-size:11px;font-family:var(--font-mono)'>participation_threshold: 22.0 · gap_threshold: 10.0 · max_conviction: 52</td><td style='color:var(--muted);font-size:11px'>Earnings + participation&lt;22.0% + gap&gt;10.0% → cap at 52</td></tr><tr><td style='color:var(--text-2);font-weight:600'>High Participation Bonus</td><td><span style="color:var(--green)">ON</span></td><td style='color:var(--muted);font-size:11px;font-family:var(--font-mono)'>participation_threshold: 50.0 · bonus: 10 · max_after_bonus: 90</td><td style='color:var(--muted);font-size:11px'>participation&gt;=50.0% → +10 conviction bonus</td></tr></tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header open" onclick="toggleSection(this)">
-    <h2>⚡ Tomorrow's Posture</h2>
-    <span class="arrow">▲</span>
-  </div>
-  <div class="section-body open">
-    <div class="trading-mode-banner mode-red" style="margin:0 0 16px">
-      <span style="font-size:22px">🧊</span>
-      <div>
-        <div>DEFENSE</div>
-        <div class="mode-label">Win rate below 40% rolling — size down 10%. Tighten stops, skip marginal setups.</div>
-      </div>
-    </div>
-    <p class="traction-line">🧊 COLD STREAK — 11W / 19L / 10F last 7d  (28% win rate) — reduce size, −10% conviction</p>
-    <div class="kv-grid">
-      <div class="kv-row"><span class="kv-label">7-Day Record</span>
-        <span class="kv-value kv-mono">11W / 19L / 10F (40 total)</span></div>
-      <div class="kv-row"><span class="kv-label">7-Day Win Rate</span>
-        <span class="kv-value" style="color:var(--red);font-weight:600">28%</span></div>
-      <div class="kv-row"><span class="kv-label">Conviction Multiplier</span>
-        <span class="kv-value kv-mono">0.9x</span></div>
-    </div>
-  </div>
-</div>
-<!-- ═══════════════════════════════ EOD END ═══════════════════════════════ -->
-
 </body>
 </html>
