@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="PreBell — Daily pre-market gap scanner, sector ETF rotation, AH movers and earnings intelligence. Ready by 8:20 AM CST.">
 <meta name="theme-color" content="#0d1117">
-<title>🔔 PreBell — 2026-03-31</title>
+<title>🔔 PreBell — 2026-04-01</title>
 <style>
 :root {
   --bg:        #0a0d12;
@@ -326,13 +326,13 @@ footer {
 }
 
 /* ── market quick card ── */
-.mkt-quick { padding: 14px 20px 10px; }
-.mkt-verdict-row { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; flex-wrap: wrap; }
+.mkt-quick { padding: 18px 20px; }
+.mkt-verdict-row { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; flex-wrap: wrap; }
 .mkt-score-wrap { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 180px; }
 .mkt-score-bar { flex: 1; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
 .mkt-score-fill { height: 100%; border-radius: 4px; transition: width .3s; }
 .mkt-score-num { font-size: 14px; color: var(--text); font-weight: 700; white-space: nowrap; letter-spacing: -0.3px; }
-.mkt-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 4px; }
+.mkt-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px; }
 .mkt-metric { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 11px 12px; text-align: center; }
 .mkt-metric-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .7px; font-weight: 600; margin-bottom: 5px; }
 .mkt-metric-value { font-size: 19px; font-weight: 700; letter-spacing: -0.5px; }
@@ -410,242 +410,22 @@ footer {
   .mkt-badge { font-size: 11px; padding: 3px 10px; }
   footer { font-size: 11px; padding: 16px 8px; }
 }
-
-/* ── 401k Action Bar (top of page) ── */
-.ret-action-bar {
-  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
-  padding: 10px 20px; margin: 0 0 10px;
-  background: var(--surface); border: 1px solid var(--border);
-  border-left: 3px solid var(--green);
-  border-radius: 10px;
-}
-.ret-action-label {
-  font-size: 11px; font-weight: 700; color: var(--text-2);
-  text-transform: uppercase; letter-spacing: .7px; white-space: nowrap;
-  display: flex; align-items: center; gap: 5px;
-}
-.ret-action-pill {
-  display: inline-flex; align-items: center; gap: 7px;
-  padding: 6px 16px; border-radius: 20px; font-weight: 800;
-  font-size: 14px; letter-spacing: .2px; white-space: nowrap;
-  border: 2px solid transparent;
-}
-.ret-action-pill-green  { background: rgba(48,209,88,.15);  border-color: rgba(48,209,88,.5);  color: var(--green);  }
-.ret-action-pill-yellow { background: rgba(255,214,10,.15); border-color: rgba(255,214,10,.5); color: var(--yellow); }
-.ret-action-pill-orange { background: rgba(255,159,10,.15); border-color: rgba(255,159,10,.5); color: var(--orange); }
-.ret-action-pill-red    { background: rgba(255,69,58,.15);  border-color: rgba(255,69,58,.5);  color: var(--red);    }
-.ret-action-score {
-  font-size: 12px; color: var(--muted); white-space: normal; flex-shrink: 1; min-width: 0;
-}
-.ret-action-score strong { color: var(--text-2); }
-.ret-action-score-bar {
-  flex: 1; min-width: 80px; max-width: 160px;
-  height: 5px; background: var(--surface-2); border-radius: 3px; overflow: hidden;
-}
-.ret-action-score-fill { height: 100%; border-radius: 3px; }
-.ret-action-override {
-  font-size: 11px; color: var(--red); font-weight: 700;
-  background: rgba(255,69,58,.1); border: 1px solid rgba(255,69,58,.3);
-  padding: 3px 10px; border-radius: 20px; white-space: nowrap;
-}
-.ret-action-link {
-  margin-left: auto; font-size: 11px; color: var(--blue); white-space: nowrap;
-  text-decoration: none; cursor: pointer;
-}
-@media (max-width: 640px) {
-  .ret-action-bar { gap: 8px; padding: 8px 12px; }
-  .ret-action-score-bar { display: none; }
-  .ret-action-link { display: none; }
-}
-
-/* ── 401k Retirement Advisor ── */
-.ret-header-badge {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: rgba(191,90,242,.12); border: 1px solid rgba(191,90,242,.3);
-  border-radius: 20px; padding: 3px 12px; font-size: 11px; font-weight: 700;
-  color: var(--purple); letter-spacing: .4px;
-}
-.ret-rec-row {
-  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;
-  margin-bottom: 20px;
-}
-@media (max-width: 640px) { .ret-rec-row { grid-template-columns: 1fr 1fr; } }
-.ret-box {
-  background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm);
-  padding: 16px 14px; text-align: center;
-}
-.ret-box-label {
-  font-size: 10px; color: var(--muted); text-transform: uppercase;
-  letter-spacing: .7px; font-weight: 600; margin-bottom: 8px;
-}
-.ret-score-num {
-  font-size: 38px; font-weight: 800; letter-spacing: -2px; line-height: 1;
-}
-.ret-score-bar {
-  height: 6px; background: var(--border); border-radius: 3px;
-  overflow: hidden; margin: 8px 0 6px;
-}
-.ret-score-fill { height: 100%; border-radius: 3px; }
-.ret-regime {
-  font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
-}
-.ret-alloc-emoji { font-size: 28px; margin-bottom: 6px; }
-.ret-alloc-val {
-  font-size: 17px; font-weight: 700; color: var(--text); letter-spacing: -0.3px;
-}
-.ret-alloc-sub { font-size: 12px; color: var(--muted); margin-top: 3px; }
-.ret-conf-val {
-  font-size: 22px; font-weight: 700; letter-spacing: -0.5px;
-}
-.ret-conf-detail { font-size: 11px; color: var(--muted); margin-top: 4px; }
-.ret-changed-badge {
-  display: inline-block; background: rgba(255,159,10,.12);
-  border: 1px solid rgba(255,159,10,.35); color: var(--orange);
-  border-radius: 20px; font-size: 10px; font-weight: 700;
-  padding: 2px 9px; margin-top: 6px; letter-spacing: .3px;
-}
-.ret-ind-table { width: 100%; border-collapse: collapse; margin-bottom: 4px; }
-.ret-ind-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); font-size: 13px; vertical-align: middle; }
-.ret-ind-table td:first-child { font-size: 16px; width: 28px; text-align: center; }
-.ret-ind-table td:nth-child(2) { color: var(--text-2); font-size: 12px; font-weight: 500; }
-.ret-ind-table td:nth-child(3) { color: var(--text); font-weight: 600; font-family: var(--font-mono); font-size: 12px; }
-.ret-ind-table td:last-child { text-align: right; }
-.ret-ind-table tr:last-child td { border-bottom: none; }
-.ret-sig-bull { color: var(--green); font-size: 11px; font-weight: 700; letter-spacing: .3px; }
-.ret-sig-neu  { color: var(--yellow); font-size: 11px; font-weight: 700; letter-spacing: .3px; }
-.ret-sig-bear { color: var(--red); font-size: 11px; font-weight: 700; letter-spacing: .3px; }
-.ret-pts      { font-size: 11px; color: var(--muted); font-family: var(--font-mono); }
-.ret-quarter-row {
-  display: flex; gap: 10px; flex-wrap: wrap; margin: 14px 0;
-}
-.ret-q-cell {
-  background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm);
-  padding: 10px 16px; text-align: center; flex: 1; min-width: 130px;
-}
-.ret-q-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; font-weight: 600; }
-.ret-q-val { font-size: 20px; font-weight: 700; margin: 4px 0; letter-spacing: -0.5px; }
-.ret-q-desc { font-size: 11px; color: var(--muted); }
-.ret-bt-best { background: rgba(48,209,88,.05); border-color: rgba(48,209,88,.2) !important; }
-.ret-disclaimer {
-  font-size: 11px; color: var(--muted); margin-top: 14px; text-align: center;
-  line-height: 1.7; padding: 10px; border-top: 1px solid var(--border);
-}
-/* ── Master Signal ── */
-.ret-master-sig {
-  display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start;
-  padding: 16px 18px; border-radius: 10px; border: 2px solid;
-  margin-bottom: 18px;
-}
-.ret-master-left, .ret-master-center, .ret-master-right {
-  display: flex; flex-direction: column; gap: 4px; min-width: 140px;
-}
-.ret-master-center { flex: 1; }
-.ret-master-label {
-  font-size: 10px; font-weight: 700; color: var(--muted);
-  text-transform: uppercase; letter-spacing: .6px;
-}
-.ret-master-action {
-  font-size: 22px; font-weight: 900; letter-spacing: -.5px; line-height: 1.1;
-}
-.ret-master-pct {
-  font-size: 28px; font-weight: 900; letter-spacing: -1px; line-height: 1;
-}
-.ret-master-sub {
-  font-size: 11px; color: var(--muted);
-}
-.ret-consensus-bar {
-  height: 5px; background: rgba(255,69,58,.2); border-radius: 3px;
-  overflow: hidden; margin-top: 6px;
-}
-.ret-consensus-bull { height: 100%; background: var(--green); border-radius: 3px; }
-.ret-master-dots { display: flex; gap: 5px; flex-wrap: wrap; margin: 6px 0 4px; }
-.ret-dot {
-  width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0;
-}
-.ret-dot-bull { background: var(--green); box-shadow: 0 0 5px rgba(48,209,88,.5); }
-.ret-dot-bear { background: var(--red);   box-shadow: 0 0 5px rgba(255,69,58,.3); }
-/* ── HACAX Weekly Technicals panel ── */
-.ret-tech-panel {
-  margin-top: 18px; padding: 16px; border-radius: var(--radius-sm);
-  background: var(--bg); border: 1px solid var(--border);
-}
-.ret-tech-header {
-  display: flex; align-items: flex-start; justify-content: space-between;
-  gap: 14px; flex-wrap: wrap; margin-bottom: 14px;
-}
-.ret-best-sig {
-  display: flex; flex-direction: column; gap: 3px;
-  padding: 8px 14px; border-radius: 8px; border: 1px solid;
-  min-width: 220px;
-}
-.ret-best-sig-val { font-size: 14px; font-weight: 800; letter-spacing: -.2px; }
-.ret-tech-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px;
-}
-@media (max-width: 640px) { .ret-tech-grid { grid-template-columns: repeat(2, 1fr); } }
-.ret-tech-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius-sm); padding: 12px; text-align: center;
-}
-.ret-tech-card-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; font-weight: 600; margin-bottom: 6px; }
-.ret-tech-card-val   { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 4px; }
-.ret-tech-card-sub   { font-size: 10px; color: var(--muted); }
-.ret-range-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; margin: 5px 0 4px; }
-.ret-range-fill { height: 100%; background: var(--blue); border-radius: 2px; }
-.ret-tech-two-col { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 4px; }
-.ret-tech-mas { flex: 1; min-width: 200px; }
-.ret-tech-mas-title { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; font-weight: 600; margin-bottom: 8px; }
-.ret-tech-row {
-  display: flex; align-items: center; gap: 10px; justify-content: space-between;
-  padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 12px;
-}
-.ret-tech-row:last-child { border-bottom: none; }
-.ret-tech-label { color: var(--text-2); font-weight: 500; flex: 1; }
-.ret-tech-val   { color: var(--text); font-weight: 700; font-family: var(--font-mono); }
-.ret-sr-block { flex: 1; min-width: 160px; }
-.ret-sr-row { display: flex; gap: 14px; flex-wrap: wrap; }
-.ret-sr-col { flex: 1; min-width: 120px; }
-.ret-sr-title { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 7px; }
-.ret-sr-pills { display: flex; flex-wrap: wrap; gap: 6px; }
-.ret-sr-pill {
-  font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px;
-  font-family: var(--font-mono);
-}
-.ret-sr-res { background: rgba(255,69,58,.1); border: 1px solid rgba(255,69,58,.35); color: var(--red); }
-.ret-sr-sup { background: rgba(48,209,88,.1); border: 1px solid rgba(48,209,88,.35); color: var(--green); }
-.ret-bt-badge {
-  display: inline-block; font-size: 9px; font-weight: 800; padding: 1px 6px;
-  border-radius: 10px; vertical-align: middle; letter-spacing: .4px;
-  text-transform: uppercase; margin-left: 4px;
-}
-.ret-bt-badge-best { background: rgba(48,209,88,.15); color: var(--green); border: 1px solid rgba(48,209,88,.4); }
-.ret-bt-badge-cur  { background: rgba(255,214,10,.15); color: var(--yellow); border: 1px solid rgba(255,214,10,.4); }
-.ret-details-toggle { margin-top: 16px; }
-.ret-details-btn {
-  display: flex; align-items: center; gap: 8px; width: 100%;
-  padding: 8px 14px; border-radius: 8px; cursor: pointer;
-  background: var(--surface-2); border: 1px solid var(--border);
-  color: var(--text-2); font-size: 12px; font-weight: 600;
-  letter-spacing: .3px; text-transform: uppercase;
-  justify-content: space-between; transition: background .15s;
-}
-.ret-details-btn:hover { background: var(--surface); border-color: var(--blue); color: var(--blue); }
 </style>
 </head>
 <body>
 <div class="top-bar">
   <div class="brand">
     <h1>🔔 PreBell</h1>
-    <span class="tagline">Morning Market Intelligence &mdash; 2026-03-31</span>
+    <span class="tagline">Morning Market Intelligence &mdash; 2026-04-01</span>
   </div>
   <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
     <span class="mkt-badge mkt-green">GREEN</span>
-    <span class="ts">Generated Tuesday, March 31 2026  09:20 AM EST<br>Target: 8:20 AM CST</span>
+    <span class="ts">Generated Wednesday, April 1 2026  09:20 AM EST<br>Target: 8:20 AM CST</span>
   </div>
 </div>
 
 <div class="section"><div class="section-header open"><h2>📊 Market Snapshot</h2><span class="arrow">▼</span></div><div class="section-body open"><div class="mkt-quick">
-  <div class="trading-mode-banner mode-red"><span class="mode-label">TODAY'S MODE</span>&nbsp;&nbsp;🛡️ DEFENSE — Reduce size. Exit at 1R. Protect capital.</div><div class="traction-line">🧊 COLD STREAK — 12W / 12L / 8F last 7d  (38% win rate) — reduce size, −10% conviction</div>
+  <div class="trading-mode-banner mode-red"><span class="mode-label">TODAY'S MODE</span>&nbsp;&nbsp;🛡️ DEFENSE — Reduce size. Exit at 1R. Protect capital.</div><div class="traction-line">🧊 COLD STREAK — 10W / 10L / 8F last 7d  (36% win rate) — reduce size, −10% conviction</div>
   <div class="mkt-verdict-row">
     <span class="mkt-badge mkt-green">🟢 FULL SEND</span>
     <div class="mkt-score-wrap">
@@ -658,13 +438,13 @@ footer {
   <div class="mkt-metrics">
     <div class="mkt-metric">
       <div class="mkt-metric-label">VIX</div>
-      <div class="mkt-metric-value" style="color:var(--red)">28.1</div>
-      <div class="mkt-metric-note">HIGH FEAR</div>
+      <div class="mkt-metric-value" style="color:var(--red)">24.8</div>
+      <div class="mkt-metric-note">elevated</div>
     </div>
     <div class="mkt-metric">
       <div class="mkt-metric-label">ES Futures</div>
-      <div class="mkt-metric-value" style="color:var(--green)">+1.06%</div>
-      <div class="mkt-metric-note">bullish</div>
+      <div class="mkt-metric-value" style="color:var(--green)">+0.35%</div>
+      <div class="mkt-metric-note">mildly bullish</div>
     </div>
     <div class="mkt-metric">
       <div class="mkt-metric-label">Global</div>
@@ -675,167 +455,73 @@ footer {
       <div class="mkt-metric-value" style="color:var(--green);font-size:15px">LOW</div>
     </div>
   </div>
-  <div class="mkt-risk">⚠️ VIX at 28.1 signals high fear — risk of sharp reversals</div>
-  <div class="mkt-calendar">📅 ** Fed Chair Powell Speech at 10:30 AM&nbsp;&nbsp;·&nbsp;&nbsp;✅ Safe windows: 11:00 AM to 3:00 PM, N/A&nbsp;&nbsp;·&nbsp;&nbsp;🚫 Avoid: **</div>
-  <div id="mkt-details" class="mkt-details-content"><div class="sub-title" style="margin-top:14px">Yesterday Recap</div><pre class="raw-text">SPY close: N/A N/A N/A
-QQQ close: N/A N/A N/A
-IWM close: N/A N/A N/A
-VIX close: N/A N/A
-DOMINANT THEME: U.S. stocks swung amid escalating uncertainty from the ongoing war with Iran, driving oil prices higher to $102.88 per barrel while the S&amp;P 500 fell 0.3% after its worst week since the conflict began.[1]
-SECTORS THAT LED: N/A
-SECTORS THAT LAGGED: N/A
-MARKET BREADTH: STRONG / MODERATE / WEAK N/A
-FOLLOW THROUGH EXPECTATION: Momentum is unlikely to continue positively today given persistent geopolitical caution and seesawing action that deepened S&amp;P losses.[1]</pre><div class="sub-title" style="margin-top:14px">Futures &amp; Macro</div><pre class="raw-text">=== FUTURES &amp; MARKET INDICATORS (TradingView Live) ===
+  <div class="mkt-risk">⚠️ VIX 24.8 slightly elevated — prefer high-participation gaps with strong catalysts</div>
+  <div class="mkt-calendar">📅 **US ISM Manufacturing PMI at 10:00 AM**&nbsp;&nbsp;·&nbsp;&nbsp;✅ Safe windows: 09:30 AM to 08:00 AM, 11:00 AM to 04:00 PM&nbsp;&nbsp;·&nbsp;&nbsp;🚫 Avoid: - 07:45 AM to 08:45 AM (ADP release, high impact on labor data expectations)</div>
+  <div id="mkt-details" class="mkt-details-content"><div class="sub-title" style="margin-top:14px">Yesterday Recap</div><pre class="raw-text">I cannot provide the requested market data in the specified format. The search result provided contains only a trading alert from March 31, 2026, recommending sector rotation trades, but does not include the actual closing prices, price changes, percentages, VIX levels, sector performance data, or market breadth information needed to complete your requested format.
 
-ES Futures (S&amp;P 500):    6456.25 pts  |  +1.06%  →  BULLISH — supports gap-and-go plays
-NQ Futures (Nasdaq-100): 23380.00 pts  |  +1.04%
-YM Futures (Dow Jones):  45941 pts  |  +1.05%
-RTY Futures (Russell):   2462.00 pts  |  +1.39%
+To answer your query accurately, I would need search results containing:
+- Closing prices and daily changes for SPY, QQQ, IWM, and VIX
+- Sector performance rankings
+- Market breadth statistics (advancing vs. declining stocks)
+- Market narrative analysis from financial news sources
 
-VIX current: 28.10  |  Zone: HIGH — REDUCE POSITION SIZE
+**N/A** for all requested data points due to insufficient source material.</pre><div class="sub-title" style="margin-top:14px">Futures &amp; Macro</div><pre class="raw-text">=== FUTURES &amp; MARKET INDICATORS (TradingView Live) ===
 
-DXY (Dollar Index):  100.219  |  -0.27%
-US 10Y Yield:        4.313%  |  -0.85%
-Gold (GC1!):         $4601.60  |  +0.97%
-Oil (WTI CL1!):      $102.98  |  +0.10%
-Bitcoin:             $66630  |  -0.12%
+ES Futures (S&amp;P 500):    6593.75 pts  |  +0.35%  →  SLIGHTLY BULLISH — cautious green
+NQ Futures (Nasdaq-100): 24059.50 pts  |  +0.60%
+YM Futures (Dow Jones):  46741 pts  |  +0.34%
+RTY Futures (Russell):   2519.90 pts  |  +0.31%
+
+VIX current: 24.83  |  Zone: ELEVATED — EXERCISE CAUTION
+
+DXY (Dollar Index):  99.482  |  -0.37%
+US 10Y Yield:        4.328%  |  +0.21%
+Gold (GC1!):         $4745.80  |  +1.44%
+Oil (WTI CL1!):      $100.65  |  -0.72%
+Bitcoin:             $68316  |  +0.15%
 
 OVERALL MARKET CONDITION: RED
-Bias: BULLISH — supports gap-and-go plays
+Bias: SLIGHTLY BULLISH — cautious green
 Key risk: VIX elevated — reduce position sizes</pre><div class="sub-title" style="margin-top:14px">Global Markets</div><pre class="raw-text">=== GLOBAL MARKETS OVERNIGHT (TradingView Live) ===
 
 EUROPE:
-  DAX (Germany)                22800.43     +1.05%  STRONG RALLY
-  FTSE 100 (UK)                10226.61     +0.97%  HIGHER
-  CAC 40 (France)               7830.40     +0.75%  HIGHER
-  Euro Stoxx 50                 5580.95     +0.71%  HIGHER
+  DAX (Germany)                23286.81     +2.68%  STRONG RALLY
+  FTSE 100 (UK)                10367.06     +1.87%  STRONG RALLY
+  CAC 40 (France)               7948.86     +1.69%  STRONG RALLY
+  Euro Stoxx 50                 5695.92     +2.27%  STRONG RALLY
 
 ASIA (prior session):
-  Nikkei 225 (Japan)           51063.67     -1.58%  HEAVY SELLING
-  Hang Seng (Hong Kong)        24788.15     +0.15%  FLAT
-  Shanghai Composite            3891.86     -0.80%  LOWER
+  Nikkei 225 (Japan)           53739.68     +5.24%  STRONG RALLY
+  Hang Seng (Hong Kong)        25294.04     +2.04%  STRONG RALLY
+  Shanghai Composite            3948.55     +1.46%  STRONG RALLY
 
 GLOBAL RISK SENTIMENT: RISK ON
 CONTAGION RISK: LOW
 
-ASSESSMENT: Risk appetite elevated — global tailwind supports gap-and-go plays</pre><div class="sub-title" style="margin-top:14px">Economic Calendar</div><pre class="raw-text">**10:30 AM EST | Dallas Fed Manufacturing Index | N/A | N/A | 🟢 LOW**  
-**10:30 AM EST | Fed Chair Powell Speech | N/A | N/A | 🔴 HIGH**  
-**11:30 AM EST | 3-Month Bill Auction | N/A | N/A | 🟢 LOW**  
-**01:20 PM EST | NY Fed Bill Purchases 1 to 4 months | N/A | N/A | 🟢 LOW**  
-**03:30 PM EST | 17-Week Bill Auction | N/A | 3.635% | 🟢 LOW** [2][4]  
+ASSESSMENT: Risk appetite elevated — global tailwind supports gap-and-go plays</pre><div class="sub-title" style="margin-top:14px">Economic Calendar</div><pre class="raw-text">TIME EST | EVENT | PREVIOUS | EXPECTED | IMPORTANCE  
+08:15 AM | US ADP Employment Change (Mar) | N/A | N/A | 🔴 HIGH  
+08:30 AM | US Retail Sales MoM (Feb) | N/A | N/A | 🟡 MEDIUM  
+10:00 AM | US ISM Manufacturing PMI (Mar) | N/A | N/A | 🔴 HIGH  
+10:30 AM | US DoE Crude Oil Inventories | N/A | N/A | 🟢 LOW  
 
-**MOST IMPORTANT EVENT TODAY:** Fed Chair Powell Speech at 10:30 AM  
-**SAFE TRADING WINDOWS:**  
-Window 1: 11:00 AM to 3:00 PM  
-Window 2: N/A  
-**AVOID TRADING COMPLETELY:**  
-- 10:00 AM to 11:00 AM (Fed Chair Powell Speech - major market mover) [1][4]  
-**FED POLICY CONTEXT:** Fed Chair Powell downplayed inflationary risks from energy costs while longer-term inflation expectations remain in check, and Fed’s Williams stated policy is well positioned amid supply shock, supporting reduced volatility unless Powell signals shifts.[1]</pre></div><span class="mkt-details-toggle" onclick="var d=document.getElementById('mkt-details');d.classList.toggle('open');this.textContent=d.classList.contains('open')?'▲ Hide AI Details':'▶ Full AI Analysis Details'">▶ Full AI Analysis Details</span>
+MOST IMPORTANT EVENT TODAY: **US ISM Manufacturing PMI at 10:00 AM**  
+SAFE TRADING WINDOWS:  
+Window 1: 09:30 AM to 08:00 AM  
+Window 2: 11:00 AM to 04:00 PM  
+AVOID TRADING COMPLETELY:  
+- 07:45 AM to 08:45 AM (ADP release, high impact on labor data expectations)  
+- 09:45 AM to 10:45 AM (ISM PMI, major market mover)  
+FED POLICY CONTEXT: N/A</pre></div><span class="mkt-details-toggle" onclick="var d=document.getElementById('mkt-details');d.classList.toggle('open');this.textContent=d.classList.contains('open')?'▲ Hide AI Details':'▶ Full AI Analysis Details'">▶ Full AI Analysis Details</span>
 </div></div></div>
-
-
-<div class="ret-action-bar" id="ret-action-bar">
-  <span class="ret-action-label">💰 401k</span>
-  <span class="ret-action-pill ret-action-pill-yellow">50% HACAX / 50% Stable</span>
-  <div class="ret-action-score-bar">
-    <div class="ret-action-score-fill" style="width:51%;background:var(--yellow)"></div>
-  </div>
-  <span class="ret-action-override" style="border-color:rgba(255,214,10,.4);background:rgba(255,214,10,.1);color:var(--yellow)">⚡ SIGNAL CHANGED</span>
-  <a class="ret-action-link" href="#ret-advisor-section">Details ↓</a>
-</div>
-
-<div class="section" id="ret-advisor-section"><div class="section-header open"><h2>💰 401k Allocation</h2><span class="arrow">▼</span></div><div class="section-body open">
-<div style="background:var(--surface-2);border:2px solid var(--yellow)40;border-radius:12px;
-     padding:24px 28px;margin:0 0 16px;text-align:center">
-  <div style="margin:8px 0;padding:6px 10px;background:rgba(255,214,10,.12);border:1px solid rgba(255,214,10,.4);border-radius:6px;font-size:12px;color:var(--yellow);font-weight:700">⚡ Signal changed from: 📈 HOLD HACAX — Faber caution</div>
-  <div style="font-size:42px;margin-bottom:4px">⚖️</div>
-  <div style="font-size:28px;font-weight:800;color:var(--yellow);letter-spacing:-0.5px;line-height:1.2">50% HACAX / 50% Stable</div>
-  <div style="font-size:13px;color:var(--muted);margin-top:6px">Split — EMA gap thin, signals disagree</div>
-  
-<ul style="list-style:none;padding:0;margin:12px 0 0;font-size:13px;color:var(--text-2);line-height:2">
-  <li>✅ HACAX EMA 13/26: Bullish (gap +0.46%)</li>
-  <li>⚠️ Market trend (Faber): Caution — SPX -4.0% below 10M avg</li>
-  <li>📊 Regime: CORRECTION — HOLD</li>
-</ul>
-  <div style="margin-top:14px;font-size:12px;line-height:2"><span style="color:var(--orange)">⏱ EMA crossover est. ~Apr 08 — gap narrowing -0.434%/week</span><br><span style="color:var(--muted)">📅 March historically +0.2% avg (52% of years positive)</span></div>
-  
-<div style="margin-top:14px;padding:12px 14px;background:var(--surface-2);
-     border:1px solid rgba(100,100,100,0.2);border-radius:8px">
-  <div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.6px;margin-bottom:8px">
-    📊 EOD LEARNING — ROLLING ACCURACY
-  </div>
-  <div style="font-size:12px;line-height:2.2">
-    <div style="margin-bottom:4px">❌ Today: HACAX -2.43%  ·  Portfolio -1.82%  ·  Adapted HOLD: 75% HACAX</div>
-    <span style="color:var(--red)">Overall 30d: 0% correct (1 days)</span>
-  </div>
-</div>
-  <div style="font-size:11px;color:var(--muted);margin-top:12px">As of 2026-03-31</div>
-</div>
-<details style="margin-top:8px">
-  <summary style="cursor:pointer;font-size:13px;color:var(--blue);font-weight:600;list-style:none;padding:8px 0">
-    📊 View all 12 indicators →
-  </summary>
-  <div class="tbl-wrap" style="margin-top:10px">
-  <table class="ret-ind-table">
-    <thead><tr><th></th><th>INDICATOR</th><th>VALUE</th><th>SIGNAL</th><th style="text-align:right">PTS</th></tr></thead>
-    <tbody><tr><td>⚠️</td><td>HACAX EMA 13/26 Weekly ⭐ PRIMARY</td><td>EMA13W:106.77  EMA26W:106.28  gap:+0.46%</td><td><span class="ret-sig-neu">BORDERLINE BULLISH</span></td><td class="ret-pts">25/25</td></tr><tr><td>✅</td><td>52-Week High Drawdown</td><td>-9.1%</td><td><span class="ret-sig-bull">MILD PULLBACK</span></td><td class="ret-pts">14/20</td></tr><tr><td>⚠️</td><td>VIX Fear Index</td><td>28.2</td><td><span class="ret-sig-neu">HIGH FEAR</span></td><td class="ret-pts">4/15</td></tr><tr><td>⚠️</td><td>Market Breadth (T2108 proxy)</td><td>43%</td><td><span class="ret-sig-neu">MIXED</span></td><td class="ret-pts">7/15</td></tr><tr><td>✅</td><td>50/200 SMA Cross</td><td>GOLDEN CROSS</td><td><span class="ret-sig-bull">BULLISH</span></td><td class="ret-pts">15/15</td></tr><tr><td>❌</td><td>Faber 10M SMA (SPX) — Macro Warning</td><td>10M:6,605  7M:6,759</td><td><span class="ret-sig-neu">FABER DOWNTREND</span></td><td class="ret-pts">0/15</td></tr><tr><td>❌</td><td>HACAX 3-Month Momentum</td><td>-14.9%</td><td><span class="ret-sig-bear">NEGATIVE</span></td><td class="ret-pts">0/5</td></tr><tr><td>✅</td><td>SPX 12-Month Momentum</td><td>+13.7%</td><td><span class="ret-sig-bull">BULL</span></td><td class="ret-pts">4/5</td></tr><tr><td>⚠️</td><td>T2108 — % Stocks Above 40-day MA</td><td>20%</td><td><span class="ret-sig-neu">OVERSOLD</span></td><td class="ret-pts">4/10</td></tr><tr><td>⚠️</td><td>Holdings Breadth (Top 10 EMA 13/26)</td><td>30%</td><td><span class="ret-sig-neu">WEAK</span></td><td class="ret-pts">1/10</td></tr><tr><td>❌</td><td>HACAX/QQQ Relative Strength</td><td>RS trend -1.8%</td><td><span class="ret-sig-bear">LAGGING</span></td><td class="ret-pts">0/5</td></tr><tr><td>⚠️</td><td>EMA 13/26 Gap Quality</td><td>0.47%</td><td><span class="ret-sig-bear">BORDERLINE</span></td><td class="ret-pts">1/5</td></tr></tbody>
-  </table>
-  </div>
-</details>
-<details style="margin-top:8px">
-  <summary style="cursor:pointer;font-size:13px;color:var(--blue);font-weight:600;list-style:none;padding:8px 0">
-    📈 View backtest (2000–2026 · 26.2 yrs · $100 start) →
-  </summary>
-  <div class="tbl-wrap" style="margin-top:10px">
-  <table>
-    <thead><tr><th>STRATEGY</th><th>CAGR</th><th>MAX DD</th><th>SHARPE</th><th>$100→</th></tr></thead>
-    <tbody><tr class="ret-bt-best"><td style="color:var(--text-2);font-size:12px">Faber + Adaptive Bond/Stable ⭐⭐ <span style="color:var(--green);font-size:10px;font-weight:700">⭐ BEST</span></td><td style="color:var(--green);font-weight:700">+15.5%</td><td style="color:var(--red);font-weight:600">-32.1%</td><td style="color:var(--text-2)">0.91</td><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">$4,391</td></tr><tr><td style="color:var(--text-2);font-size:12px">Faber + VTBSX Safe Harbor ⭐</td><td style="color:var(--green);font-weight:700">+15.5%</td><td style="color:var(--red);font-weight:600">-37.7%</td><td style="color:var(--text-2)">0.90</td><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">$4,340</td></tr><tr><td style="color:var(--text-2);font-size:12px">Faber + HACAX EMA 13/26 Weekly ⭐⭐ NEW</td><td style="color:var(--green);font-weight:700">+13.7%</td><td style="color:var(--red);font-weight:600">-30.6%</td><td style="color:var(--text-2)">0.84</td><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">$2,881</td></tr><tr><td style="color:var(--text-2);font-size:12px">10-Month SMA (Faber)</td><td style="color:var(--green);font-weight:700">+14.1%</td><td style="color:var(--red);font-weight:600">-32.1%</td><td style="color:var(--text-2)">0.85</td><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">$3,183</td></tr><tr><td style="color:var(--text-2);font-size:12px">Faber + 2% Entry Buffer</td><td style="color:var(--green);font-weight:700">+13.8%</td><td style="color:var(--yellow);font-weight:600">-25.9%</td><td style="color:var(--text-2)">0.85</td><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">$2,940</td></tr><tr><td style="color:var(--text-2);font-size:12px">Asymmetric SMA</td><td style="color:var(--green);font-weight:700">+14.0%</td><td style="color:var(--red);font-weight:600">-32.1%</td><td style="color:var(--text-2)">0.85</td><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">$3,107</td></tr><tr><td style="color:var(--text-2);font-size:12px">Multi-Signal V2</td><td style="color:var(--green);font-weight:700">+13.9%</td><td style="color:var(--red);font-weight:600">-31.3%</td><td style="color:var(--text-2)">0.85</td><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">$3,015</td></tr><tr><td style="color:var(--text-2);font-size:12px">HACAX Own SMA</td><td style="color:var(--green);font-weight:700">+12.9%</td><td style="color:var(--red);font-weight:600">-31.3%</td><td style="color:var(--text-2)">0.74</td><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">$2,412</td></tr><tr><td style="color:var(--text-2);font-size:12px">Dual Signal (SPX+HACAX)</td><td style="color:var(--green);font-weight:700">+13.1%</td><td style="color:var(--yellow);font-weight:600">-25.9%</td><td style="color:var(--text-2)">0.82</td><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">$2,533</td></tr><tr><td style="color:var(--text-2);font-size:12px">200 SMA Timing</td><td style="color:var(--green);font-weight:700">+13.7%</td><td style="color:var(--red);font-weight:600">-32.1%</td><td style="color:var(--text-2)">0.83</td><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">$2,874</td></tr><tr><td style="color:var(--text-2);font-size:12px">Buy &amp; Hold HACAX</td><td style="color:var(--green);font-weight:700">+13.2%</td><td style="color:var(--red);font-weight:600">-54.7%</td><td style="color:var(--text-2)">0.64</td><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">$2,566</td></tr><tr><td style="color:var(--text-2);font-size:12px">Buy &amp; Hold Stable (2.5%/yr)</td><td style="color:var(--muted);font-weight:700">+2.5%</td><td style="color:var(--green);font-weight:600">0.0%</td><td style="color:var(--text-2)">0.00</td><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">$191</td></tr></tbody>
-  </table>
-  </div>
-  <details style="margin-top:8px"><summary style="cursor:pointer;font-size:12px;color:var(--blue);list-style:none">🔄 Historical switch points →</summary><div class="tbl-wrap" style="margin-top:8px"><table><thead><tr><th>DATE</th><th>ACTION</th><th>SPX</th><th>REASON</th></tr></thead><tbody><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2016-03</td><td style="color:var(--green);font-weight:700;font-size:12px">→ HACAX 🚀</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">2060 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed above 10M SMA (+2.0%)</td></tr><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2018-10</td><td style="color:var(--red);font-weight:700;font-size:12px">→ STABLE FUND 🧊</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">2712 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed below 10M SMA (-1.9%)</td></tr><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2018-11</td><td style="color:var(--green);font-weight:700;font-size:12px">→ HACAX 🚀</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">2760 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed above 10M SMA (+0.1%)</td></tr><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2018-12</td><td style="color:var(--red);font-weight:700;font-size:12px">→ STABLE FUND 🧊</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">2507 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed below 10M SMA (-8.7%)</td></tr><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2019-02</td><td style="color:var(--green);font-weight:700;font-size:12px">→ HACAX 🚀</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">2784 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed above 10M SMA (+1.4%)</td></tr><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2019-05</td><td style="color:var(--red);font-weight:700;font-size:12px">→ STABLE FUND 🧊</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">2752 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed below 10M SMA (-0.9%)</td></tr><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2019-06</td><td style="color:var(--green);font-weight:700;font-size:12px">→ HACAX 🚀</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">2942 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed above 10M SMA (+5.7%)</td></tr><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2020-02</td><td style="color:var(--red);font-weight:700;font-size:12px">→ STABLE FUND 🧊</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">2954 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed below 10M SMA (-2.8%)</td></tr><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2020-05</td><td style="color:var(--green);font-weight:700;font-size:12px">→ HACAX 🚀</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">3044 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed above 10M SMA (+1.6%)</td></tr><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2022-02</td><td style="color:var(--red);font-weight:700;font-size:12px">→ STABLE FUND 🧊</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">4374 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed below 10M SMA (-1.7%)</td></tr><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2022-03</td><td style="color:var(--green);font-weight:700;font-size:12px">→ HACAX 🚀</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">4530 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed above 10M SMA (+1.3%)</td></tr><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2022-04</td><td style="color:var(--red);font-weight:700;font-size:12px">→ STABLE FUND 🧊</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">4132 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed below 10M SMA (-7.9%)</td></tr><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2022-11</td><td style="color:var(--green);font-weight:700;font-size:12px">→ HACAX 🚀</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">4080 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed above 10M SMA (+0.2%)</td></tr><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2022-12</td><td style="color:var(--red);font-weight:700;font-size:12px">→ STABLE FUND 🧊</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">3840 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed below 10M SMA (-4.5%)</td></tr><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2023-01</td><td style="color:var(--green);font-weight:700;font-size:12px">→ HACAX 🚀</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">4077 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed above 10M SMA (+2.4%)</td></tr><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2023-10</td><td style="color:var(--red);font-weight:700;font-size:12px">→ STABLE FUND 🧊</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">4194 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed below 10M SMA (-0.8%)</td></tr><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2023-11</td><td style="color:var(--green);font-weight:700;font-size:12px">→ HACAX 🚀</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">4568 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed above 10M SMA (+6.8%)</td></tr><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2025-03</td><td style="color:var(--red);font-weight:700;font-size:12px">→ STABLE FUND 🧊</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">5612 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed below 10M SMA (-2.2%)</td></tr><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2025-05</td><td style="color:var(--green);font-weight:700;font-size:12px">→ HACAX 🚀</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">5912 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed above 10M SMA (+2.6%)</td></tr><tr><td style="color:var(--muted);font-family:var(--font-mono);font-size:12px">2026-03</td><td style="color:var(--red);font-weight:700;font-size:12px">→ STABLE FUND 🧊</td><td style="color:var(--text-2);font-family:var(--font-mono);font-size:12px">6344 SPX</td><td style="color:var(--muted);font-size:11px">SPX crossed below 10M SMA (-4.0%)</td></tr></tbody></table></div></details>
-</details>
-<details style="margin-top:8px">
-  <summary style="cursor:pointer;font-size:13px;color:var(--blue);font-weight:600;list-style:none;padding:8px 0">
-    🔬 HACAX weekly technicals →
-  </summary>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px">
-    <div class="ret-box"><div class="ret-box-label">TREND</div>
-      <div style="color:var(--yellow);font-weight:700;font-size:16px">DOWNTREND</div>
-      <div style="color:var(--muted);font-size:11px">Above 0/3 weekly MAs</div></div>
-    <div class="ret-box"><div class="ret-box-label">RSI (14W)</div>
-      <div style="color:var(--blue);font-weight:700;font-size:22px">11.2</div>
-      <div style="color:var(--muted);font-size:11px">OVERSOLD</div></div>
-    <div class="ret-box"><div class="ret-box-label">52W RANGE</div>
-      <div style="color:var(--text-2);font-weight:700;font-size:22px">0%</div>
-      <div style="color:var(--muted);font-size:11px">$73.18 — $118.27</div></div>
-  </div>
-  <div class="tbl-wrap" style="margin-top:10px">
-  <table><thead><tr><th>MA</th><th>VALUE</th><th>DISTANCE</th></tr></thead>
-  <tbody></tbody></table>
-  </div>
-</details><div class="ret-disclaimer" style="margin-top:16px">⚠️ For educational purposes only — not financial advice. Past performance does not guarantee future results.</div></div></div>
 
 <div class="section"><div class="section-header open"><h2>📈 Sector ETFs — Premarket Snapshot</h2><span class="arrow">▼</span></div><div class="section-body open"><div class="etf-section-label">Broad Market</div>
-<div class="etf-grid"><div class="etf-cell etf-hot"><div class="etf-ticker">SPY</div><div class="etf-name">S&amp;P 500</div><div class="etf-change etf-up">+1.08%</div><div class="etf-status">HOT</div></div><div class="etf-cell etf-hot"><div class="etf-ticker">QQQ</div><div class="etf-name">Nasdaq 100</div><div class="etf-change etf-up">+1.04%</div><div class="etf-status">HOT</div></div><div class="etf-cell etf-hot"><div class="etf-ticker">IWM</div><div class="etf-name">Russell 2000</div><div class="etf-change etf-up">+1.42%</div><div class="etf-status">HOT</div></div></div>
+<div class="etf-grid"><div class="etf-cell"><div class="etf-ticker">SPY</div><div class="etf-name">S&amp;P 500</div><div class="etf-change etf-up">+0.35%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">QQQ</div><div class="etf-name">Nasdaq 100</div><div class="etf-change etf-up">+0.61%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">IWM</div><div class="etf-name">Russell 2000</div><div class="etf-change etf-up">+0.34%</div><div class="etf-status">UP</div></div></div>
 <div class="etf-section-label">SPDR Sector ETFs</div>
-<div class="etf-grid"><div class="etf-cell etf-hot"><div class="etf-ticker">XLK</div><div class="etf-name">Technology</div><div class="etf-change etf-up">+1.18%</div><div class="etf-status">HOT</div></div><div class="etf-cell etf-hot"><div class="etf-ticker">XLF</div><div class="etf-name">Financials</div><div class="etf-change etf-up">+1.12%</div><div class="etf-status">HOT</div></div><div class="etf-cell"><div class="etf-ticker">XLV</div><div class="etf-name">Health Care</div><div class="etf-change etf-up">+0.96%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLE</div><div class="etf-name">Energy</div><div class="etf-change etf-up">+0.32%</div><div class="etf-status">UP</div></div><div class="etf-cell etf-hot"><div class="etf-ticker">XLB</div><div class="etf-name">Materials</div><div class="etf-change etf-up">+1.16%</div><div class="etf-status">HOT</div></div><div class="etf-cell etf-hot"><div class="etf-ticker">XLI</div><div class="etf-name">Industrials</div><div class="etf-change etf-up">+1.32%</div><div class="etf-status">HOT</div></div><div class="etf-cell etf-hot"><div class="etf-ticker">XLY</div><div class="etf-name">Consumer Discr.</div><div class="etf-change etf-up">+1.36%</div><div class="etf-status">HOT</div></div><div class="etf-cell"><div class="etf-ticker">XLP</div><div class="etf-name">Consumer Staples</div><div class="etf-change etf-up">+0.43%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLRE</div><div class="etf-name">Real Estate</div><div class="etf-change etf-up">+0.97%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLU</div><div class="etf-name">Utilities</div><div class="etf-change etf-up">+0.33%</div><div class="etf-status">UP</div></div></div>
-<div style="margin-top:10px;padding:6px 10px;background:#0d1117;border:1px solid var(--border);border-radius:4px;font-size:12px;">Sector Bias: <strong style="color:var(--green)">BROADLY BULLISH — most sectors green</strong> &nbsp; avg PM +0.91%</div></div></div>
+<div class="etf-grid"><div class="etf-cell"><div class="etf-ticker">XLK</div><div class="etf-name">Technology</div><div class="etf-change etf-up">+0.87%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLF</div><div class="etf-name">Financials</div><div class="etf-change etf-up">+0.45%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLV</div><div class="etf-name">Health Care</div><div class="etf-change etf-up">+0.20%</div><div class="etf-status">FLAT</div></div><div class="etf-cell etf-cold"><div class="etf-ticker">XLE</div><div class="etf-name">Energy</div><div class="etf-change etf-down">-2.46%</div><div class="etf-status">COLD</div></div><div class="etf-cell"><div class="etf-ticker">XLB</div><div class="etf-name">Materials</div><div class="etf-change etf-up">+0.36%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLI</div><div class="etf-name">Industrials</div><div class="etf-change etf-up">+0.79%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLY</div><div class="etf-name">Consumer Discr.</div><div class="etf-change etf-up">+0.61%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLP</div><div class="etf-name">Consumer Staples</div><div class="etf-change etf-down">-0.15%</div><div class="etf-status">FLAT</div></div><div class="etf-cell"><div class="etf-ticker">XLRE</div><div class="etf-name">Real Estate</div><div class="etf-change etf-up">+0.56%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLU</div><div class="etf-name">Utilities</div><div class="etf-change etf-flat">+0.04%</div><div class="etf-status">FLAT</div></div></div>
+<div style="margin-top:10px;padding:6px 10px;background:#0d1117;border:1px solid var(--border);border-radius:4px;font-size:12px;">Sector Bias: <strong style="color:var(--green)">MILDLY BULLISH — slight tailwind</strong> &nbsp; avg PM +0.13%</div></div></div>
 
 <div id="stocks-container">
-<div class="tier-label tier-tradeable">✅ Tradeable Setups — High Conviction (2 stocks)</div><div class="section"><div class="section-header open"><h2>📋 Stocks Summary</h2><span class="arrow">▼</span></div><div class="section-body open"><div class="tbl-wrap"><table><thead><tr><th style="min-width:40px">#</th><th style="min-width:70px">Ticker</th><th style="min-width:160px">Company</th><th style="min-width:65px">Price</th><th style="min-width:75px">Gap %</th><th style="min-width:65px">Rel Vol</th><th style="min-width:200px">Catalyst</th><th style="min-width:110px">Type</th><th style="min-width:55px">Conv</th><th style="min-width:65px">Entry</th><th style="min-width:65px">Stop</th><th style="min-width:70px">Target</th><th style="min-width:55px">R:R</th></tr></thead><tbody><tr><td>1</td><td><strong style="color:var(--blue)">ELAB</strong></td><td>PMGC Holdings Inc.</td><td>$3.8</td><td class="gap-cool">+6.7%</td><td>32.0x</td><td style="white-space:normal;max-width:220px;color:var(--text-2)">MIXED — FY2025 Annual Results — Score: 0/35</td><td><span class="badge-earnings">📊 EARNINGS</span></td><td class="conv-cell conv-high">77</td><td class="green">$5.28</td><td class="red">$1.75</td><td class="blue">$—</td><td>—</td></tr><tr><td>2</td><td><strong style="color:var(--blue)">MASK</strong></td><td>3 E Network Technology Group Ltd</td><td>$1.66</td><td class="gap-hot">+33.5%</td><td>0.4x</td><td style="white-space:normal;max-width:220px;color:var(--text-2)">UNKNOWN — N/A — Score: 0/35</td><td><span class="badge-earnings">📊 EARNINGS</span></td><td class="conv-cell conv-high">74</td><td class="green">$1.62</td><td class="red">$1.50</td><td class="blue">$—</td><td>—</td></tr></tbody></table></div></div></div><div class="stock-card"><div class="stock-header"><div class="ticker-badge">#1 ELAB</div><div class="stock-meta"><strong>PMGC Holdings Inc.</strong><div class="meta-row">Price: <strong style="color:var(--text)">$3.8</strong>&ensp;·&ensp;Gap: <span class="gap-cool">+6.7%</span>&ensp;·&ensp;RelVol: 32.0x&ensp;<span class="badge-earnings">📊 EARNINGS</span></div></div><div class="conv-ring conv-high" style="border-color:var(--green)">77</div><span class="card-arrow" style="color:var(--muted);margin-left:8px;font-size:13px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Earnings Scorecard</div>
-<div class="kv-grid">
-<div class="kv-row"><span class="kv-label">Earnings Driven</span><span class="kv-value">YES</span></div>
-<div class="kv-row"><span class="kv-label">EPS Estimate</span><span class="kv-value">—</span></div>
-<div class="kv-row"><span class="kv-label">EPS Actual</span><span class="kv-value">N/A</span></div>
-<div class="kv-row"><span class="kv-label">EPS Beat %</span><span class="kv-value">N/A%</span></div>
-<div class="kv-row"><span class="kv-label">Revenue Est</span><span class="kv-value">—</span></div>
-<div class="kv-row"><span class="kv-label">Revenue Actual</span><span class="kv-value">N/A</span></div>
-<div class="kv-row"><span class="kv-label">Revenue Beat %</span><span class="kv-value">N/A%</span></div>
-<div class="kv-row"><span class="kv-label">Guidance</span><span class="kv-value">N/A</span></div>
-<div class="kv-row"><span class="kv-label">Total Score</span><span class="kv-value">0 / 35</span></div>
-</div>
-</div>
-<div class="sub-section"><div class="sub-title">Analyst & Short Interest</div>
+<div class="tier-label tier-tradeable">✅ Tradeable Setups — High Conviction (1 stock)</div><div class="section"><div class="section-header open"><h2>📋 Stocks Summary</h2><span class="arrow">▼</span></div><div class="section-body open"><div class="tbl-wrap"><table><thead><tr><th style="min-width:40px">#</th><th style="min-width:70px">Ticker</th><th style="min-width:160px">Company</th><th style="min-width:65px">Price</th><th style="min-width:75px">Gap %</th><th style="min-width:65px">Rel Vol</th><th style="min-width:200px">Catalyst</th><th style="min-width:110px">Type</th><th style="min-width:55px">Conv</th><th style="min-width:65px">Entry</th><th style="min-width:65px">Stop</th><th style="min-width:70px">Target</th><th style="min-width:55px">R:R</th></tr></thead><tbody><tr><td>1</td><td><strong style="color:var(--blue)">ELAB</strong></td><td>PMGC Holdings Inc.</td><td>$6.97</td><td class="gap-hot">+16.3%</td><td>3.6x</td><td style="white-space:normal;max-width:220px;color:var(--text-2)">AGA Precision Systems signs 5-year supply agreement with Turbo-Jet Products for aerospace/defense components</td><td><span class="badge-earnings">💰 EARNINGS RUNNER</span></td><td class="conv-cell conv-high">81</td><td class="green">$7.8</td><td class="red">$3.94</td><td class="blue">$—</td><td>—</td></tr></tbody></table></div></div></div><div class="stock-card"><div class="stock-header"><div class="ticker-badge">#1 ELAB</div><div class="stock-meta"><strong>PMGC Holdings Inc.</strong><div class="meta-row">Price: <strong style="color:var(--text)">$6.97</strong>&ensp;·&ensp;Gap: <span class="gap-hot">+16.3%</span>&ensp;·&ensp;RelVol: 3.6x&ensp;<span class="badge-earnings">💰 EARNINGS RUNNER</span></div></div><div class="conv-ring conv-high" style="border-color:var(--green)">81</div><span class="card-arrow" style="color:var(--muted);margin-left:8px;font-size:13px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Analyst & Short Interest</div>
 <div class="kv-grid">
 <div class="kv-row"><span class="kv-label">Consensus</span><span class="kv-value">N/A</span></div>
 <div class="kv-row"><span class="kv-label">Avg Price Target</span><span class="kv-value">$N/A</span></div>
@@ -847,191 +533,120 @@ Window 2: N/A
 <div class="kv-row"><span class="kv-label">Insider Activity</span><span class="kv-value">N/A</span></div>
 </div>
 </div>
+<div class="sub-section"><div class="sub-title">Catalyst Analysis</div><pre class="raw-text">=== CATALYST IDENTIFICATION ===
+Primary catalyst: AGA Precision Systems signs 5-year supply agreement with Turbo-Jet Products for aerospace/defense components
+Catalyst category: CONTRACT
+Catalyst date and time: March 31, 2026 (announced Tuesday, extending into premarket Wednesday)
+Catalyst source: GlobeNewswire press release + confirmed by SEC 8-K filing
+
+=== SOURCE QUALITY ===
+Source tier: TIER 1 — Official filing (SEC 8-K/10-K, FDA press release, company IR) / TIER 2 — Major financial media (Reuters, Bloomberg, WSJ, CNBC) / TIER 3 — Minor media (Seeking Alpha, Benzinga, PR Newswire) / TIER 4 — Unverified (Twitter/X, Reddit, rumor, unknown)
+Source tier rating: TIER 1
+Source verification: CONFIRMED
+
+=== CATALYST QUALITY ANALYSIS ===
+Is this a genuine fundamental catalyst: YES
+Catalyst magnitude for this company: SIGNIFICANT
+Market has likely priced this fully: NO
+Is this catalyst sustainable for intraday move: YES
+
+=== FDA SPECIFIC — complete only if FDA catalyst ===
+N/A
+
+=== UPGRADE SPECIFIC — complete only if analyst upgrade ===
+N/A
+
+=== CATALYST VERDICT ===
+🟢 STRONG CATALYST — Tier 1/2 source, confirmed fundamental — High probability gap sustains intraday
+Catalyst score: 9/10
+Source quality penalty applied: NO
+One line thesis: Tier 1 SEC-confirmed multi-year defense contract with recent asset growth (43% to $13.8M) drives fresh momentum in beaten-down small-cap, supporting gap hold.
+
+=== SIPS ASSESSMENT (Stock In Play) ===
+A true SIPS has a fresh catalyst, active price discovery, and sustained intraday crowd interest.
+Catalyst announced within last 8 hours: NO
+Active price discovery still ongoing (market still figuring out true value): YES
+Intraday retail and institutional trading crowd expected: HIGH
+Gap fade by 10:30 AM EST risk: LOW
+SIPS Rating: STRONG_SIP
+SIPS Reasoning: Fresh Tier 1 contract news builds on Monday&#x27;s 10-K surge (113% close), with premarket extension and multi-sector exposure (aerospace/defense + biotech) fueling sustained trader interest.[1][4][5]</pre></div>
 <div class="sub-section"><div class="sub-title">Technical Context</div><pre class="raw-text">=== TECHNICAL CONTEXT ===
 Current premarket price: N/A
-Previous close: $3.47[2]
+Previous close: $5.99
 Gap percentage: N/A
-Daily chart position: N/A
+Daily chart position:
 52 week range: N/A low to N/A high
 Current price percentile in 52 week range: N/A
 Near 52 week high: NO
 Key levels nearby:
-Nearest resistance above: $5.28 — key resistance level[1]
-Nearest support below: $1.75 — first key support level[1]
+Nearest resistance above: $7.8 — key resistance level[1]
+Nearest support below: $3.94 — first key support level[1]
 Distance to nearest resistance: N/A
 Distance to nearest support: N/A
-Recent trend on daily chart: N/A
-20 day trend: SIDEWAYS
-50 day trend: SIDEWAYS
+Recent trend on daily chart:
+20 day trend: UPTREND
+50 day trend: DOWNTREND
 Is today gap in direction of daily trend: NEUTRAL
-Prior base or consolidation: NO [extended run]
-Float and liquidity:
-Float: LOW under 20M[3]
-Float category: LOW under 20M
-Float implication: Low float amplifies short-term volatility and momentum-driven buying on positive news like asset growth and acquisitions[3]
-
-=== SECTOR AND COMPETITOR CONTEXT ===
-Stock sector: Industrials
-Stock industry: Precision manufacturing and industrial packaging
-Sector ETF: XLI — industrial sector
-Sector ETF premarket performance today: N/A
-Sector tailwind or headwind: TAILWIND
-Key competitors:
-Competitor 1: N/A — premarket today: N/A
-Competitor 2: N/A — premarket today: N/A
-Are competitors moving sympathetically: NO
-Sympathy play implication: Without clear competitor data, ELAB&#x27;s move appears driven by company-specific catalysts like FY2025 results and supply deal rather than sector sympathy[3][4][6]
-
-=== TECHNICAL VERDICT ===
-Technical setup favorability: ACCEPTABLE
-One sentence: Recent spike from earnings and 10-K filing creates momentum above prior levels, but key resistance at $5.28 caps upside without breakout[1][3]</pre></div>
-<div class="sub-section"><div class="sub-title">Overall Verdict</div>
-<pre class="raw-text">CONVICTION SCORE: 78/100
-[Calculated as weighted average:
-Earnings or catalyst quality: 30% (Earnings Score 0/35 indicates poor earnings quality, but FY2025 10-K filing shows 43% asset growth and acquisitions driving the gap[2]; recent Turbo-Jet deal adds catalyst support despite no quantified financials[4][5] → scored 25/35)
-Gap sustainability (participation + screener score): 25% (45.2% avg daily vol participation is SOLID; Raw Screener Score 70.3/100; no float turnover data = neutral → scored 90/100)
-Analyst activity: 15% (N/A → scored 0/100)
-Technical setup: 10% (SIDEWAYS → scored 50/100)
-Market conditions: 20% (GREEN + STRONG TAILWIND from XLK +1.2% → scored 95/100)
-Excess gap +6.7% adds minor conviction boost per rules (not &lt;2% or ≥20%); GREEN market condition applies full scoring with no ceiling.]
-
-TRADE RATING:
-⭐⭐⭐⭐ 65-79 — Strong setup trade normal size
-
-POSITION SIZING GUIDANCE:
-Suggested risk percentage of account: 2%
-Reasoning: Strong premarket participation and excess gap alpha support normal sizing in GREEN market, tempered by poor earnings score and SIDEWAYS technicals.
-
-ENTRY TRIGGER: Break above $5.28 — consolidation high[1]
-STOP LOSS: Below $1.75 — consolidation low[1]
-RISK PER SHARE: $3.53
-TARGET 1 — 1R: $8.81
-TARGET 2 — 2R: $12.34 — minimum exit
-TARGET 3 — 3R: $15.87 — if momentum strong
-
-RISKS TO THIS TRADE:
-Risk 1: Poor Earnings Score (0/35) signals weak fundamentals that could cause post-open fade despite asset growth narrative[2].
-Risk 2: Recent 1-for-6 reverse split may indicate prior distress and amplify volatility without sustained volume[5].
-Risk 3: Unquantified Turbo-Jet deal lacks revenue details, risking disappointment if no follow-through contracts materialize[4].
-
-FINAL VERDICT:
-🟢 HIGH CONVICTION TRADE
-
-ONE LINE SUMMARY:
-ELAB&#x27;s 6.7% excess premarket gap on 10-K asset growth and Turbo-Jet deal shows solid volume-backed catalyst alpha in hot tech sector—strong momentum play if it breaks $5.28.</pre>
-<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$5.28</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$1.75</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$—</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">—</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-high">77/100</div></div></div>
-</div></div></div>
-<div class="stock-card"><div class="stock-header"><div class="ticker-badge">#2 MASK</div><div class="stock-meta"><strong>3 E Network Technology Group Ltd</strong><div class="meta-row">Price: <strong style="color:var(--text)">$1.66</strong>&ensp;·&ensp;Gap: <span class="gap-hot">+33.5%</span>&ensp;·&ensp;RelVol: 0.4x&ensp;<span class="badge-earnings">📊 EARNINGS</span></div></div><div class="conv-ring conv-high" style="border-color:var(--green)">74</div><span class="card-arrow" style="color:var(--muted);margin-left:8px;font-size:13px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Earnings Scorecard</div>
-<div class="kv-grid">
-<div class="kv-row"><span class="kv-label">Earnings Driven</span><span class="kv-value">YES</span></div>
-<div class="kv-row"><span class="kv-label">EPS Estimate</span><span class="kv-value">—</span></div>
-<div class="kv-row"><span class="kv-label">EPS Actual</span><span class="kv-value">N/A</span></div>
-<div class="kv-row"><span class="kv-label">EPS Beat %</span><span class="kv-value">N/A%</span></div>
-<div class="kv-row"><span class="kv-label">Revenue Est</span><span class="kv-value">—</span></div>
-<div class="kv-row"><span class="kv-label">Revenue Actual</span><span class="kv-value">N/A</span></div>
-<div class="kv-row"><span class="kv-label">Revenue Beat %</span><span class="kv-value">N/A%</span></div>
-<div class="kv-row"><span class="kv-label">Guidance</span><span class="kv-value">N/A</span></div>
-<div class="kv-row"><span class="kv-label">Total Score</span><span class="kv-value">0 / 35</span></div>
-</div>
-</div>
-<div class="sub-section"><div class="sub-title">Analyst & Short Interest</div>
-<div class="kv-grid">
-<div class="kv-row"><span class="kv-label">Consensus</span><span class="kv-value">N/A</span></div>
-<div class="kv-row"><span class="kv-label">Avg Price Target</span><span class="kv-value">$N/A</span></div>
-<div class="kv-row"><span class="kv-label"># Analysts</span><span class="kv-value">—</span></div>
-<div class="kv-row"><span class="kv-label">Recent Action</span><span class="kv-value">None recent</span></div>
-<div class="kv-row"><span class="kv-label">Short Interest</span><span class="kv-value">N/A</span></div>
-<div class="kv-row"><span class="kv-label">Short Squeeze Risk</span><span class="kv-value">N/A</span></div>
-<div class="kv-row"><span class="kv-label">Institutional Own.</span><span class="kv-value">N/A</span></div>
-<div class="kv-row"><span class="kv-label">Insider Activity</span><span class="kv-value">N/A</span></div>
-</div>
-</div>
-<div class="sub-section"><div class="sub-title">Technical Context</div><pre class="raw-text">=== TECHNICAL CONTEXT ===
-Current premarket price: N/A
-Previous close: $0.401
-Gap percentage: N/A
-Daily chart position: N/A
-52 week range: N/A low to N/A high
-Current price percentile in 52 week range: N/A
-Near 52 week high: NO
-Key levels nearby:
-Nearest resistance above: $1.69 — R1 prior high[1]
-Nearest support below: $1.52 — S1 support level[1]
-Distance to nearest resistance: N/A
-Distance to nearest support: N/A
-Recent trend on daily chart: Horizontal / sideways trend[1]
-20 day trend: SIDEWAYS
-50 day trend: SIDEWAYS
-Is today gap in direction of daily trend: NEUTRAL
-Prior base or consolidation: YES horizontal trend ongoing[1]
+Prior base or consolidation: NO extended run
 Float and liquidity:
 Float: N/A
 Float category: N/A
 Float implication: N/A
 
 === SECTOR AND COMPETITOR CONTEXT ===
-Stock sector: Technology
-Stock industry: Blockchain / Web3 infrastructure
-Sector ETF: N/A
+Stock sector: Industrials
+Stock industry: Aerospace and Defense Manufacturing
+Sector ETF: ITA
 Sector ETF premarket performance today: N/A
-Sector tailwind or headwind: NEUTRAL
+Sector tailwind or headwind: TAILWIND
 Key competitors:
 Competitor 1: N/A — premarket today: N/A
 Competitor 2: N/A — premarket today: N/A
-Are competitors moving sympathetically: NO
+Are competitors moving sympathetically: N/A
 Sympathy play implication: N/A
 
 === TECHNICAL VERDICT ===
-Technical setup favorability: POOR
-One sentence: Stock in wide horizontal sideways trend with recent down days and no premarket data available, limiting setup clarity[1]</pre></div>
+Technical setup favorability: ACCEPTABLE
+One sentence: Recent breakout above 20-day high of $6.72 on strong volume from defense deal news supports upside potential toward $7.8 resistance, despite longer-term downtrend and proximity to 52-week low[1][3][4]</pre></div>
 <div class="sub-section"><div class="sub-title">Overall Verdict</div>
-<pre class="raw-text">CONVICTION SCORE: 88/100  
-[Calculate as weighted average:  
-Earnings or catalyst quality: 0/30 (Earnings Score 0/35 indicates poor earnings quality)  
-Gap sustainability (participation + screener score): 25/25 (Premarket Participation 5315.6% = extraordinary conviction; Raw Screener Score 88/100; Excess Gap +33.5% ≥20% adds 5 pts per rules)  
-Analyst activity: 0/15 (N/A)  
-Technical setup: 5/10 (SIDEWAYS = neutral, partial credit)  
-Market conditions: 20/20 (GREEN = full scoring; Sector ETF XLK +1.2% = STRONG TAILWIND)]  
+<pre class="raw-text">CONVICTION SCORE: 78/100
+[Calculated as weighted average: Earnings or catalyst quality (9/10 Catalyst → 90/100, 30% weight = 27); Gap sustainability (15.9% participation + 57.6 screener → moderate conviction, +3 pts for excess gap +16.3% ≥20% threshold nearly met, 25% weight = 65); Analyst activity (N/A, 15% weight = 0); Technical setup (UPTREND, 10% weight = 100); Market conditions (GREEN + sector tailwind, 20% weight = 90). GREEN market allows full scoring, no ceiling applied.][1][2][3]
 
-TRADE RATING:  
-⭐⭐⭐⭐⭐ 80-100 — Elite setup trade full size  
+TRADE RATING:
+⭐⭐⭐⭐ 65-79 — Strong setup trade normal size
 
-POSITION SIZING GUIDANCE:  
-Suggested risk percentage of account: 2%  
-Reasoning: Elite gap sustainability with massive premarket volume conviction overrides weak earnings in GREEN market conditions.  
+POSITION SIZING GUIDANCE:
+Suggested risk percentage of account: 1.5%
+Reasoning: Strong catalyst alpha with moderate volume supports normal size in GREEN market, but N/A earnings/analyst data caps aggression.
 
-ENTRY TRIGGER: Break above $1.62 — consolidation high  
-STOP LOSS: Below $1.50 — consolidation low  
-RISK PER SHARE: $0.12  
-TARGET 1 — 1R: $1.74  
-TARGET 2 — 2R: $1.86 — minimum exit  
-TARGET 3 — 3R: $1.98 — if momentum strong  
+ENTRY TRIGGER: Break above $7.8 — consolidation high
+STOP LOSS: Below $3.94 — consolidation low
+RISK PER SHARE: $3.86
+TARGET 1 — 1R: $11.66
+TARGET 2 — 2R: $15.52 — minimum exit
+TARGET 3 — 3R: $19.38 — if momentum strong
 
-RISKS TO THIS TRADE:  
-Risk 1: Weak Earnings Score (0/35) signals potential fade if catalyst lacks substance post-open.  
-Risk 2: SIDEWAYS technical setup may lead to choppy consolidation without clean breakout.  
-Risk 3: Microcap status ($33.8M market cap) amplifies volatility and risk of sharp reversal on profit-taking.  
+RISKS TO THIS TRADE:
+Risk 1: Moderate premarket participation (15.9%) on 16.3% gap risks thin open conviction and fade if volume doesn&#x27;t follow through.
+Risk 2: Small-cap with 98% 12-month drop and negative profitability (EBIT -1483%) vulnerable to profit-taking despite defense catalyst.
+Risk 3: Recent reverse split (1-for-6 on March 10) signals prior weakness, increasing reversal odds near 52-week low area.
 
-FINAL VERDICT:  
-🟢 HIGH CONVICTION TRADE  
+FINAL VERDICT:
+🟢 HIGH CONVICTION TRADE
 
-ONE LINE SUMMARY:  
-MASK gapping +33.5% with 5315.6% premarket volume conviction and strong XLK tailwind screams elite gap play despite poor earnings score.</pre>
-<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$1.62</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$1.50</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$—</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">—</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-high">74/100</div></div></div>
+ONE LINE SUMMARY:
+ELAB&#x27;s 16.3% premarket gap on defense deal catalyst shows pure alpha vs +0.9% XLK, backed by UPTREND and GREEN tape—trade the breakout with volume confirmation.[1][2][3][5]</pre>
+<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$7.8</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$3.94</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$—</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">—</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-high">81/100</div></div></div>
 </div></div></div>
-<div class="tier-label tier-watchlist">👀 Also Watching — Lower Confidence (2 stocks)</div><div class="section"><div class="section-header open"><h2>👀 Also Watching — Lower Confidence</h2><span class="arrow">▼</span></div><div class="section-body open"><div class="tbl-wrap"><table><thead><tr><th style="min-width:70px">Ticker</th><th style="min-width:160px">Company</th><th style="min-width:75px">Gap %</th><th style="min-width:55px">Conv</th><th style="min-width:220px">Catalyst</th><th style="min-width:140px">Verdict</th></tr></thead><tbody><tr><td><strong style="color:var(--blue)">APLS</strong></td><td>Apellis Pharmaceuticals, Inc.</td><td class="gap-hot">+136.7%</td><td class="conv-cell conv-mid">58</td><td style="white-space:normal;color:var(--text-2)">Biogen acquisition of Apellis for $5.6 billion</td><td style="white-space:normal;color:var(--muted);font-size:12px">CONVICTION SCORE: 95/100
-[Calculated as weighted average: Earnings or catalyst quality (Catalyst Sco</td></tr><tr><td><strong style="color:var(--blue)">CNTA</strong></td><td>Centessa Pharmaceuticals plc</td><td class="gap-hot">+45.8%</td><td class="conv-cell conv-low">47</td><td style="white-space:normal;color:var(--text-2)">Eli Lilly acquisition of Centessa Pharmaceuticals</td><td style="white-space:normal;color:var(--muted);font-size:12px"># CNTA Trade Intelligence Verdict
-
-**CONVICTION SCORE: 87/100**
-
-**Calculation (Weighted Average):**</td></tr></tbody></table></div></div></div>
+<div class="tier-label tier-watchlist">👀 Also Watching — Lower Confidence (2 stocks)</div><div class="section"><div class="section-header open"><h2>👀 Also Watching — Lower Confidence</h2><span class="arrow">▼</span></div><div class="section-body open"><div class="tbl-wrap"><table><thead><tr><th style="min-width:70px">Ticker</th><th style="min-width:160px">Company</th><th style="min-width:75px">Gap %</th><th style="min-width:55px">Conv</th><th style="min-width:220px">Catalyst</th><th style="min-width:140px">Verdict</th></tr></thead><tbody><tr><td><strong style="color:var(--blue)">NCNO</strong></td><td>nCino, Inc.</td><td class="gap-hot">+22.7%</td><td class="conv-cell conv-mid">61</td><td style="white-space:normal;color:var(--text-2)">BEAT — Q4 FY2026 — Score: 0/35</td><td style="white-space:normal;color:var(--muted);font-size:12px">CONVICTION SCORE: 68/100
+[Calculated as weighted average: Earnings or catalyst quality (25/30 due to</td></tr><tr><td><strong style="color:var(--blue)">OMER</strong></td><td>Omeros Corporation</td><td class="gap-cool">+4.5%</td><td class="conv-cell conv-mid">52</td><td style="white-space:normal;color:var(--text-2)">BEAT — Q4 FY2025 — Score: 14/35</td><td style="white-space:normal;color:var(--muted);font-size:12px">I cannot generate this trade intelligence verdict because **critical pricing data is missing**</td></tr></tbody></table></div></div></div>
 </div>
 
 <footer>
   🔔 <strong>PreBell</strong> &bull; Morning Market Intelligence<br>
   Powered by Perplexity AI &amp; TradingView &bull; Pre/Post-market gaps &bull; Sector ETFs &bull; Earnings<br>
   <span style="color:#555">For educational purposes only &mdash; not financial advice.</span><br>
-  Generated Tuesday, March 31 2026  09:20 AM EST
+  Generated Wednesday, April 1 2026  09:20 AM EST
 </footer>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
