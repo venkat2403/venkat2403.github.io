@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TQQQ Trend Dashboard</title>
+<style>
+:root {
+  --bg:        #0a0d12;
+  --surface:   #111520;
+  --surface-2: #161b28;
+  --border:    #1e2535;
+  --text:      #eef2f7;
+  --text-2:    #9aaabb;
+  --muted:     #5c6e82;
+  --green:     #30d158;
+  --green-bg:  #0a1f12;
+  --yellow:    #ffd60a;
+  --yellow-bg: #1a1400;
+  --red:       #ff453a;
+  --red-bg:    #1a0808;
+  --blue:      #0a84ff;
+  --purple:    #bf5af2;
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'SF Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--text); font-family: var(--font);
+  font-size: 14px; line-height: 1.5; padding: 0 20px 80px;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1000px; margin: 0 auto; }
+.top-bar {
+  padding: 24px 0 18px; border-bottom: 1px solid var(--border);
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px;
+}
+.top-bar h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+.top-bar .sub { color: var(--text-2); font-size: 13px; }
+.pill {
+  display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px;
+  border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.01em;
+}
+.pill-dot { width: 6px; height: 6px; border-radius: 50%; }
+.pill-on  { background: var(--green-bg); color: var(--green); }
+.pill-on  .pill-dot { background: var(--green); }
+.pill-off { background: var(--surface-2); color: var(--muted); }
+.pill-off .pill-dot { background: var(--muted); }
+.pill-warn { background: var(--yellow-bg); color: var(--yellow); }
+.pill-warn .pill-dot { background: var(--yellow); }
+.pill-bad { background: var(--red-bg); color: var(--red); }
+.pill-bad .pill-dot { background: var(--red); }
+.badges { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.cards {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px; margin: 20px 0;
+}
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 16px 18px;
+}
+.card .label { color: var(--text-2); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
+.card .value { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.card .value.pos { color: var(--green); }
+.card .value.neg { color: var(--red); }
+.card .footnote { color: var(--muted); font-size: 12px; margin-top: 4px; }
+
+section { margin: 32px 0; }
+section h2 {
+  font-size: 15px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+}
+section h2 .count { color: var(--muted); font-weight: 500; font-size: 13px; }
+
+.signal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.signal-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13.5px; }
+.signal-row:last-child { border-bottom: none; }
+.signal-row .v { font-family: var(--font-mono); font-weight: 600; }
+.signal-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
+
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+table { width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
+th {
+  text-align: left; padding: 10px 14px; color: var(--text-2); font-weight: 600;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--surface);
+}
+td { padding: 10px 14px; border-bottom: 1px solid var(--border); font-variant-numeric: tabular-nums; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--surface-2); }
+.ticker { font-weight: 700; font-family: var(--font-mono); }
+.num { text-align: right; }
+.pos { color: var(--green); }
+.neg { color: var(--red); }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; }
+.tag-yes { background: var(--green-bg); color: var(--green); }
+.tag-no { background: var(--surface-2); color: var(--muted); }
+
+.empty { padding: 28px; text-align: center; color: var(--muted); font-size: 13px; }
+
+footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+footer a { color: var(--blue); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top-bar">
+    <div>
+      <h1>📈 TQQQ Trend-Following Dashboard</h1>
+      <div class="sub">Friday, August 28 2026 — 04:04 PM EDT · IBKR paper account · Signal from QQQ, executed via TQQQ</div>
+    </div>
+    <div class="badges"><span class="pill pill-on"><span class="pill-dot"></span>LIVE</span><span class="pill pill-warn"><span class="pill-dot"></span>DRY RUN</span></div>
+  </div>
+
+  <div class="cards"><div class="card"><div class="label">Realized P&amp;L</div><div class="value ">$0.00</div></div><div class="card"><div class="label">Unrealized P&amp;L</div><div class="value ">—</div></div><div class="card"><div class="label">Win Rate</div><div class="value ">—</div><div class=footnote>0 closed trades</div></div><div class="card"><div class="label">Position</div><div class="value ">Cash</div></div><div class="card"><div class="label">Allocated Equity</div><div class="value ">$100,000</div><div class=footnote>as of 0m ago</div></div></div>
+
+  <section>
+    <h2>Today's Signal <span class="count">(last checked Aug 28, 4:04 PM)</span></h2>
+    <div class="signal-panel">
+      <div class="signal-row"><span>Regime</span><span class="v pos">BULLISH (above entry trigger)</span></div>
+      <div class="signal-row"><span>QQQ Price</span><span class="v">$716.11</span></div><div class="signal-row"><span>SMA 50</span><span class="v">$712.06</span></div><div class="signal-row"><span>SMA 200</span><span class="v">$655.17</span></div><div class="signal-row"><span>Entry Trigger (SMA200 +2%)</span><span class="v">$668.28</span></div><div class="signal-row"><span>Exit-B Trigger (SMA200 −2%)</span><span class="v">$642.07</span></div><div class="signal-row"><span>TQQQ Price</span><span class="v">$71.74</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Current Position</h2>
+    <div class="table-wrap"><div class="empty">Flat — no open TQQQ position.</div></div>
+  </section>
+
+  <section>
+    <h2>Closed Trades <span class="count">(most recent 40)</span></h2>
+    <div class="table-wrap"><div class="empty">No closed trades yet.</div></div>
+  </section>
+
+  <footer>
+    <span>Generated by tqqq_trend_dashboard.py</span>
+    <span>Paper trading only — DUT051543</span>
+  </footer>
+</div>
+</body>
+</html>
