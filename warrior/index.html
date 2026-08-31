@@ -101,6 +101,11 @@ tr:hover td { background: var(--surface-2); }
 .tag-stop { background: var(--red-bg); color: var(--red); }
 .tag-open { background: var(--yellow-bg); color: var(--yellow); }
 .tag-unknown { background: var(--surface-2); color: var(--muted); }
+.tag-fired { background: var(--surface-2); color: var(--text-2); }
+
+.watching-section h2 { color: var(--text-2); font-size: 13px; }
+.watching-section .table-wrap { opacity: 0.9; }
+.watching-section table { font-size: 12.5px; }
 
 .empty { padding: 28px; text-align: center; color: var(--muted); font-size: 13px; }
 
@@ -113,7 +118,7 @@ footer a { color: var(--blue); text-decoration: none; }
   <div class="top-bar">
     <div>
       <h1>⚡ Warrior — Low-Float Momentum Dashboard</h1>
-      <div class="sub">Monday, August 31 2026 — 10:54 AM EDT · IBKR paper account · Finviz low-float/gap/RVOL scan · Gap-and-Go + Micro-Pullback</div>
+      <div class="sub">Monday, August 31 2026 — 10:59 AM EDT · IBKR paper account · Finviz low-float/gap/RVOL scan · Gap-and-Go + Micro-Pullback</div>
     </div>
     <div class="badges"><span class="pill pill-on"><span class="pill-dot"></span>LIVE</span><span class="pill pill-warn"><span class="pill-dot"></span>DRY RUN</span></div>
   </div>
@@ -141,7 +146,42 @@ footer a { color: var(--blue); text-decoration: none; }
           <td class="num">182</td>
           <td><span class="tag tag-target">TARGET HIT</span></td>
           <td class="num pos">+$149.24 (+2.00R)</td>
-          <td>28m ago</td>
+          <td>34m ago</td>
+        </tr></tbody></table></div>
+  </section>
+
+  <section class="watching-section">
+    <h2>Currently Watching <span class="count">(scanned, not yet triggered · last checked Aug 31, 10:59:37 AM)</span></h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">Gap</th>
+      <th class="num">Float</th><th class="num">RVOL</th><th>Status</th><th>On watchlist since</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="ticker">WETO</td>
+          <td class="num">$13.22</td>
+          <td class="num">+131.2%</td>
+          <td class="num">0.9M</td>
+          <td class="num">11.5x</td>
+          <td><span class="tag tag-fired">already fired</span></td>
+          <td>0m ago</td>
+        </tr>
+        <tr>
+          <td class="ticker">NCRA</td>
+          <td class="num">$2.33</td>
+          <td class="num">+23.3%</td>
+          <td class="num">1.6M</td>
+          <td class="num">9.1x</td>
+          <td><span class="tag tag-open">watching</span></td>
+          <td>0m ago</td>
+        </tr>
+        <tr>
+          <td class="ticker">LGPS</td>
+          <td class="num">$1.29</td>
+          <td class="num">+21.7%</td>
+          <td class="num">6.3M</td>
+          <td class="num">8.9x</td>
+          <td><span class="tag tag-open">watching</span></td>
+          <td>0m ago</td>
         </tr></tbody></table></div>
   </section>
 
