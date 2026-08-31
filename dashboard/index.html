@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trading System Dashboard</title>
+<style>
+:root {
+  --bg:        #0a0d12;
+  --surface:   #111520;
+  --surface-2: #161b28;
+  --border:    #1e2535;
+  --text:      #eef2f7;
+  --text-2:    #9aaabb;
+  --muted:     #5c6e82;
+  --green:     #30d158;
+  --green-bg:  #0a1f12;
+  --yellow:    #ffd60a;
+  --yellow-bg: #1a1400;
+  --red:       #ff453a;
+  --red-bg:    #1a0808;
+  --blue:      #0a84ff;
+  --purple:    #bf5af2;
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'SF Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--text); font-family: var(--font);
+  font-size: 14px; line-height: 1.5; padding: 0 20px 80px;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1000px; margin: 0 auto; }
+.top-bar {
+  padding: 24px 0 18px; border-bottom: 1px solid var(--border);
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px;
+}
+.top-bar h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+.top-bar .sub { color: var(--text-2); font-size: 13px; }
+.pill {
+  display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px;
+  border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.01em;
+}
+.pill-dot { width: 6px; height: 6px; border-radius: 50%; }
+.pill-on  { background: var(--green-bg); color: var(--green); }
+.pill-on  .pill-dot { background: var(--green); }
+.pill-off { background: var(--surface-2); color: var(--muted); }
+.pill-off .pill-dot { background: var(--muted); }
+.pill-warn { background: var(--yellow-bg); color: var(--yellow); }
+.pill-warn .pill-dot { background: var(--yellow); }
+.pill-bad { background: var(--red-bg); color: var(--red); }
+.pill-bad .pill-dot { background: var(--red); }
+.badges { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.cards {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px; margin: 20px 0;
+}
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 16px 18px;
+}
+.card .label { color: var(--text-2); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
+.card .value { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.card .value.pos { color: var(--green); }
+.card .value.neg { color: var(--red); }
+.card .footnote { color: var(--muted); font-size: 12px; margin-top: 4px; }
+
+section { margin: 32px 0; }
+section h2 {
+  font-size: 15px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+}
+section h2 .count { color: var(--muted); font-weight: 500; font-size: 13px; }
+
+.signal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.signal-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13.5px; }
+.signal-row:last-child { border-bottom: none; }
+.signal-row .v { font-family: var(--font-mono); font-weight: 600; }
+.signal-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
+
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+table { width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
+th {
+  text-align: left; padding: 10px 14px; color: var(--text-2); font-weight: 600;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--surface);
+}
+td { padding: 10px 14px; border-bottom: 1px solid var(--border); font-variant-numeric: tabular-nums; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--surface-2); }
+.ticker { font-weight: 700; font-family: var(--font-mono); }
+.num { text-align: right; }
+.pos { color: var(--green); }
+.neg { color: var(--red); }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; }
+.tag-yes { background: var(--green-bg); color: var(--green); }
+.tag-no { background: var(--surface-2); color: var(--muted); }
+
+.empty { padding: 28px; text-align: center; color: var(--muted); font-size: 13px; }
+
+footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+footer a { color: var(--blue); text-decoration: none; }
+
+.strategy-header { display:flex; align-items:center; gap:10px; margin:40px 0 16px; padding-top:24px; border-top:1px solid var(--border); }
+.strategy-header h2 { font-size:18px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top-bar">
+    <div>
+      <h1>🏦 Trading System — Unified Dashboard</h1>
+      <div class="sub">Monday, August 31 2026 — 04:18 PM EDT · IBKR paper account DUT051543 · Positional + Swing + Day Trade, one page</div>
+    </div>
+  </div>
+
+  <section>
+    <h2>Overall Summary</h2>
+    <div class="cards"><div class="card"><div class="label">Combined Starting Balance</div><div class="value ">$300,000</div><div class=footnote>$100K x 3 strategies (1 real, 2 virtual tracking)</div></div><div class="card"><div class="label">Combined Current Balance</div><div class="value pos">$300,149</div></div><div class="card"><div class="label">Combined Total P&amp;amp;L</div><div class="value pos">+$149.24 (+0.05%)</div></div><div class="card"><div class="label">Positional / Swing / Day Trade</div><div class="value ">$100,000 / $100,000 / $100,149</div><div class=footnote>per-strategy current balance</div></div></div>
+  </section>
+
+  <section>
+    <h2>Market Bias <span class="count">breadth proxy (this project's own universe, not the whole market) + recent performance across all strategies</span></h2>
+    <div class="cards"><div class="card"><div class="label">SPY Trend (10 &amp;amp; 20-day MA)</div><div class="value neg">BEARISH/CHOP</div><div class=footnote>close $767.02</div></div><div class="card"><div class="label">Breadth Proxy (% &amp;gt; 40d MA)</div><div class="value pos">60.8%</div><div class=footnote>347 tickers (project universe, not whole market)</div></div></div>
+    <div class="signal-grid" style="margin-top:12px;">
+      <div class="signal-panel">
+        <div class="signal-row"><b>Recent Trade Performance</b><span></span></div>
+        <div class="signal-row"><span>Warrior (last 1)</span><span class="v">1/1 wins</span></div>
+      </div>
+      <div class="signal-panel">
+        <div class="signal-row"><b>Watchlist Health</b><span></span></div>
+        <div class="signal-row"><span>LYNCH candidates today</span><span class="v">20</span></div><div class="signal-row"><span>EP candidates today</span><span class="v">0</span></div><div class="signal-row"><span>Warrior currently watching</span><span class="v">4</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strategy-header"><h2>📈 Positional — TQQQ Dual-Exit Trend-Following</h2></div>
+  
+    <div class="badges" style="margin-bottom:12px;"><span class="pill pill-on"><span class="pill-dot"></span>LIVE</span><span class="pill pill-bad"><span class="pill-dot"></span>REAL ORDERS</span></div>
+    <div class="cards"><div class="card"><div class="label">Starting Balance</div><div class="value ">$100,000</div></div><div class="card"><div class="label">Current Balance</div><div class="value ">$100,000</div><div class=footnote>as of 22m ago</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value ">$0.00 (+0.00%)</div></div><div class="card"><div class="label">Unrealized (open position)</div><div class="value ">—</div></div></div>
+    <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Today's Signal</h3>
+    <div class="signal-panel">
+      <div class="signal-row"><span>Regime</span><span class="v pos">BULLISH (above entry trigger)</span></div>
+      <div class="signal-row"><span>QQQ Price</span><span class="v">$715.44</span></div><div class="signal-row"><span>SMA 50</span><span class="v">$711.56</span></div><div class="signal-row"><span>SMA 200</span><span class="v">$655.64</span></div><div class="signal-row"><span>Entry Trigger (SMA200 +1%)</span><span class="v">$662.20</span></div><div class="signal-row"><span>Exit-B Trigger (SMA200 −1%)</span><span class="v">$649.09</span></div><div class="signal-row"><span>TQQQ Price</span><span class="v">$71.51</span></div>
+    </div>
+    <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Current Position</h3>
+    <div class="table-wrap"><div class="empty">Flat — no open position.</div></div>
+    <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Closed Trades</h3>
+    <div class="table-wrap"><div class="empty">No closed trades yet.</div></div>
+
+  <div class="strategy-header"><h2>📊 Swing — LYNCH Continuation + Episodic Pivot</h2></div>
+  
+    <div class="badges" style="margin-bottom:12px;"><span class="pill pill-on"><span class="pill-dot"></span>LYNCH LIVE</span><span class="pill pill-warn"><span class="pill-dot"></span>LYNCH DRY RUN</span><span class="pill pill-off"><span class="pill-dot"></span>EP DISABLED</span></div>
+    <div class="cards"><div class="card"><div class="label">Realized P&amp;L</div><div class="value ">$0.00</div></div><div class="card"><div class="label">Unrealized P&amp;L</div><div class="value ">$0.00</div></div><div class="card"><div class="label">Win Rate</div><div class="value ">—</div><div class=footnote>0 closed trades</div></div><div class="card"><div class="label">Open Positions</div><div class="value ">0</div><div class=footnote>cap 5</div></div><div class="card"><div class="label">Portfolio Heat</div><div class="value ">0.0%</div><div class=footnote>cap 4.0%</div></div><div class="card"><div class="label">Account Equity</div><div class="value ">—</div><div class=footnote>as of —</div></div></div>
+    <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Open Positions</h3>
+    <div class="table-wrap"><div class="empty">No open swing positions.</div></div>
+    <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">LYNCH Candidates Today</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Ticker</th><th class="num">Signal Close</th><th class="num">Entry Trigger</th>
+      <th class="num">Initial Stop</th><th class="num">ADR%</th></tr></thead>
+      <tbody>
+    <tr>
+      <td class="ticker">TSLA</td>
+      <td class="num">$367.95</td>
+      <td class="num">$368.54</td>
+      <td class="num">$362.36</td>
+      <td class="num">3.4%</td>
+    </tr>
+    <tr>
+      <td class="ticker">MU</td>
+      <td class="num">$958.73</td>
+      <td class="num">$958.73</td>
+      <td class="num">$935.57</td>
+      <td class="num">4.8%</td>
+    </tr>
+    <tr>
+      <td class="ticker">CRWV</td>
+      <td class="num">$84.89</td>
+      <td class="num">$84.89</td>
+      <td class="num">$82.29</td>
+      <td class="num">6.1%</td>
+    </tr>
+    <tr>
+      <td class="ticker">HOOD</td>
+      <td class="num">$104.81</td>
+      <td class="num">$105.34</td>
+      <td class="num">$102.78</td>
+      <td class="num">4.9%</td>
+    </tr>
+    <tr>
+      <td class="ticker">BSX</td>
+      <td class="num">$48.30</td>
+      <td class="num">$48.97</td>
+      <td class="num">$48.20</td>
+      <td class="num">3.2%</td>
+    </tr>
+    <tr>
+      <td class="ticker">XOM</td>
+      <td class="num">$160.95</td>
+      <td class="num">$161.59</td>
+      <td class="num">$160.05</td>
+      <td class="num">1.9%</td>
+    </tr>
+    <tr>
+      <td class="ticker">HIMS</td>
+      <td class="num">$29.58</td>
+      <td class="num">$29.78</td>
+      <td class="num">$28.83</td>
+      <td class="num">6.4%</td>
+    </tr>
+    <tr>
+      <td class="ticker">SNDK</td>
+      <td class="num">$1566.70</td>
+      <td class="num">$1566.70</td>
+      <td class="num">$1509.30</td>
+      <td class="num">7.3%</td>
+    </tr>
+    <tr>
+      <td class="ticker">COIN</td>
+      <td class="num">$188.12</td>
+      <td class="num">$189.95</td>
+      <td class="num">$184.88</td>
+      <td class="num">5.4%</td>
+    </tr>
+    <tr>
+      <td class="ticker">RBLX</td>
+      <td class="num">$41.29</td>
+      <td class="num">$41.58</td>
+      <td class="num">$40.58</td>
+      <td class="num">4.8%</td>
+    </tr>
+    <tr>
+      <td class="ticker">QCOM</td>
+      <td class="num">$170.48</td>
+      <td class="num">$171.38</td>
+      <td class="num">$168.70</td>
+      <td class="num">3.1%</td>
+    </tr>
+    <tr>
+      <td class="ticker">ASTS</td>
+      <td class="num">$59.10</td>
+      <td class="num">$59.11</td>
+      <td class="num">$57.36</td>
+      <td class="num">5.9%</td>
+    </tr>
+    <tr>
+      <td class="ticker">CBRS</td>
+      <td class="num">$184.24</td>
+      <td class="num">$184.78</td>
+      <td class="num">$178.22</td>
+      <td class="num">7.1%</td>
+    </tr>
+    <tr>
+      <td class="ticker">DT</td>
+      <td class="num">$54.59</td>
+      <td class="num">$54.83</td>
+      <td class="num">$53.82</td>
+      <td class="num">3.7%</td>
+    </tr>
+    <tr>
+      <td class="ticker">GLXY</td>
+      <td class="num">$24.60</td>
+      <td class="num">$24.98</td>
+      <td class="num">$24.14</td>
+      <td class="num">6.8%</td>
+    </tr>
+    <tr>
+      <td class="ticker">QMCO</td>
+      <td class="num">$24.33</td>
+      <td class="num">$24.33</td>
+      <td class="num">$23.11</td>
+      <td class="num">10.0%</td>
+    </tr>
+    <tr>
+      <td class="ticker">ETON</td>
+      <td class="num">$60.44</td>
+      <td class="num">$60.55</td>
+      <td class="num">$58.80</td>
+      <td class="num">5.8%</td>
+    </tr>
+    <tr>
+      <td class="ticker">TXG</td>
+      <td class="num">$62.45</td>
+      <td class="num">$62.45</td>
+      <td class="num">$60.43</td>
+      <td class="num">6.5%</td>
+    </tr>
+    <tr>
+      <td class="ticker">HTFL</td>
+      <td class="num">$50.39</td>
+      <td class="num">$50.99</td>
+      <td class="num">$49.57</td>
+      <td class="num">5.7%</td>
+    </tr>
+    <tr>
+      <td class="ticker">ORKA</td>
+      <td class="num">$92.62</td>
+      <td class="num">$92.83</td>
+      <td class="num">$90.45</td>
+      <td class="num">5.1%</td>
+    </tr></tbody></table></div>
+    <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Closed Trades</h3>
+    <div class="table-wrap"><div class="empty">No closed trades yet.</div></div>
+
+  <div class="strategy-header"><h2>⚡ Day Trade — Warrior (Low-Float Momentum)</h2></div>
+  
+    <div class="badges" style="margin-bottom:12px;"><span class="pill pill-on"><span class="pill-dot"></span>LIVE</span><span class="pill pill-warn"><span class="pill-dot"></span>DRY RUN</span></div>
+    <div class="banner">
+      <b>No backtest exists for Warrior.</b> Every number in this section is
+      <b>hypothetical</b> while WARRIOR_DRY_RUN is on — computed by walking real
+      price bars after each signal, not real fills.
+    </div>
+    <div class="cards"><div class="card"><div class="label">Starting Balance (virtual)</div><div class="value ">$100,000</div></div><div class="card"><div class="label">Current Balance (virtual)</div><div class="value pos">$100,149</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value pos">+$149.24 (+0.15%)</div><div class=footnote>1 closed day</div></div><div class="card"><div class="label">Today&#x27;s P&amp;L</div><div class="value pos">+$149.24</div></div></div>
+    <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Today's Signals</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Ticker</th><th>Pattern</th><th class="num">Entry</th><th class="num">Stop</th>
+      <th class="num">Target</th><th class="num">Qty</th><th>Outcome</th><th class="num">P&amp;L</th><th>Fired</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="ticker">WETO</td>
+          <td>?</td>
+          <td class="num">$10.25</td>
+          <td class="num">$9.84</td>
+          <td class="num">$11.07</td>
+          <td class="num">182</td>
+          <td><span class="tag tag-target">TARGET HIT</span></td>
+          <td class="num pos">+$149.24 (+2.00R)</td>
+          <td>6h ago</td>
+        </tr></tbody></table></div>
+    <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Currently Watching</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">Gap</th>
+      <th class="num">Float</th><th class="num">RVOL</th><th>Status</th><th>On watchlist since</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="ticker">WETO</td>
+          <td class="num">$6.69</td>
+          <td class="num">+17.0%</td>
+          <td class="num">0.9M</td>
+          <td class="num">18.1x</td>
+          <td><span class="tag tag-fired">already fired</span></td>
+          <td>5h ago</td>
+        </tr>
+        <tr>
+          <td class="ticker">NCRA</td>
+          <td class="num">$2.74</td>
+          <td class="num">+45.0%</td>
+          <td class="num">1.6M</td>
+          <td class="num">20.9x</td>
+          <td><span class="tag tag-open">watching</span></td>
+          <td>5h ago</td>
+        </tr>
+        <tr>
+          <td class="ticker">LGPS</td>
+          <td class="num">$1.21</td>
+          <td class="num">+14.2%</td>
+          <td class="num">6.3M</td>
+          <td class="num">9.6x</td>
+          <td><span class="tag tag-open">watching</span></td>
+          <td>5h ago</td>
+        </tr>
+        <tr>
+          <td class="ticker">WBUY</td>
+          <td class="num">$1.04</td>
+          <td class="num">+25.3%</td>
+          <td class="num">2.5M</td>
+          <td class="num">12.0x</td>
+          <td><span class="tag tag-open">watching</span></td>
+          <td>5h ago</td>
+        </tr></tbody></table></div>
+    <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Trade History</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Date</th><th>Ticker</th><th>Pattern</th><th class="num">Entry</th>
+      <th class="num">Exit</th><th class="num">Qty</th><th>Outcome</th><th class="num">P&amp;L</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>2026-08-31</td>
+          <td class="ticker">WETO</td>
+          <td>?</td>
+          <td class="num">$10.25</td>
+          <td class="num">$11.07</td>
+          <td class="num">182</td>
+          <td><span class="tag tag-target">TARGET HIT</span></td>
+          <td class="num pos">+$149.24 (+2.00R)</td>
+        </tr></tbody></table></div>
+
+  <footer>
+    <span>Generated by unified_dashboard.py</span>
+    <span>Paper trading only — DUT051543</span>
+  </footer>
+</div>
+</body>
+</html>
