@@ -23,6 +23,7 @@
   --red-bg:      #fdeceb;
   --blue:        #0071e3;
   --purple:      #8944ab;
+  --purple-bg:   #f2e8f7;
   --accent:      #0071e3;
   --font:      -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
   --font-mono: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
@@ -51,6 +52,7 @@
     --red-bg:      rgba(255,69,58,.14);
     --blue:        #0a84ff;
     --purple:      #bf5af2;
+    --purple-bg:   rgba(191,90,242,.14);
     --accent:      #0a84ff;
     --shadow-card:  0 0 0 1px rgba(255,255,255,.045);
     --shadow-hover: 0 0 0 1px rgba(255,255,255,.09);
@@ -90,7 +92,35 @@ body {
 .pill-warn .pill-dot { background: var(--yellow); }
 .pill-bad  { background: var(--red-bg);    color: var(--red); }
 .pill-bad  .pill-dot { background: var(--red); }
+.pill-purple { background: var(--purple-bg); color: var(--purple); }
+.pill-purple .pill-dot { background: var(--purple); }
 .badges { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.market-clock {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 24px 32px; margin: 28px 0 8px; padding: 26px 30px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+.mc-main { display: flex; flex-direction: column; gap: 4px; }
+.mc-time { font-size: 52px; font-weight: 700; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; line-height: 1; }
+.mc-tz { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: var(--text-2); text-transform: uppercase; }
+.mc-status { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.mc-countdown { font-size: 13px; color: var(--text-2); font-variant-numeric: tabular-nums; }
+.mc-sessions { display: flex; gap: 10px; flex-wrap: wrap; }
+.mc-session {
+  padding: 10px 16px; border-radius: var(--radius-sm); background: var(--surface-2);
+  border: 1px solid var(--border); display: flex; flex-direction: column; gap: 2px; min-width: 152px;
+  transition: background .2s ease, border-color .2s ease;
+}
+.mc-session .mc-s-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-2); }
+.mc-session .mc-s-time { font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.mc-session.active { background: var(--green-bg); border-color: var(--green); }
+.mc-session.active .mc-s-label { color: var(--green); }
+@media (max-width: 640px) {
+  .mc-time { font-size: 38px; }
+  .market-clock { padding: 20px; }
+}
 
 .cards {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -179,9 +209,83 @@ footer a { color: var(--accent); text-decoration: none; }
   <div class="top-bar">
     <div>
       <h1>🏦 Trading System — Unified Dashboard</h1>
-      <div class="sub">Tuesday, September 01 2026 — 09:48 PM EDT · IBKR paper account DUT051543 · Positional + Swing + Day Trade, one page</div>
+      <div class="sub">Tuesday, September 01 2026 — 09:57 PM EDT · IBKR paper account DUT051543 · Positional + Swing + Day Trade, one page</div>
     </div>
   </div>
+
+  <section class="market-clock">
+      <div class="mc-main">
+        <div class="mc-time" id="mc-time">8:57:13 PM</div>
+        <div class="mc-tz">CENTRAL TIME</div>
+      </div>
+      <div class="mc-status">
+        <span class="pill pill-off" id="mc-status-pill"><span class="pill-dot"></span>CLOSED</span>
+        <div class="mc-countdown" id="mc-countdown">Pre-Market Opens (tomorrow)</div>
+      </div>
+      <div class="mc-sessions">
+        <div class="mc-session" data-session="premarket">
+          <span class="mc-s-label">Pre-Market</span><span class="mc-s-time">3:00 – 8:30 AM CT</span>
+        </div>
+        <div class="mc-session" data-session="regular">
+          <span class="mc-s-label">Market Open</span><span class="mc-s-time">8:30 AM – 3:00 PM CT</span>
+        </div>
+        <div class="mc-session" data-session="afterhours">
+          <span class="mc-s-label">After-Hours</span><span class="mc-s-time">3:00 – 7:00 PM CT</span>
+        </div>
+      </div>
+    </section>
+    <script>
+    (function() {
+      var IS_TRADING_DAY = true;
+      var timeEl = document.getElementById("mc-time");
+      var pillEl = document.getElementById("mc-status-pill");
+      var cdEl = document.getElementById("mc-countdown");
+      var sessions = document.querySelectorAll(".mc-session");
+      var fmtTime = new Intl.DateTimeFormat("en-US", { timeZone: "America/Chicago", hour: "numeric", minute: "2-digit", second: "2-digit", hour12: true });
+      var fmtHM = new Intl.DateTimeFormat("en-US", { timeZone: "America/Chicago", hour: "numeric", minute: "2-digit", hour12: true });
+      function etParts(d) {
+        var f = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", hour: "numeric", minute: "2-digit", second: "2-digit", hour12: false, weekday: "short" });
+        var parts = {};
+        f.formatToParts(d).forEach(function(p) { parts[p.type] = p.value; });
+        return { h: parseInt(parts.hour, 10), m: parseInt(parts.minute, 10), s: parseInt(parts.second, 10), wd: parts.weekday };
+      }
+      function fmtCountdown(ms) {
+        var mins = Math.round(ms / 60000);
+        var h = Math.floor(mins / 60), m = mins % 60;
+        if (h > 0) return h + "h " + m + "m";
+        return m + "m";
+      }
+      function tick() {
+        var now = new Date();
+        timeEl.textContent = fmtTime.format(now);
+        var et = etParts(now);
+        var minutesNow = et.h * 60 + et.m;
+        var isWeekday = (et.wd !== "Sat" && et.wd !== "Sun");
+        var tradingDay = isWeekday && IS_TRADING_DAY;
+        var premarketOpen = 4 * 60, marketOpen = 9 * 60 + 30, marketClose = 16 * 60, afterhoursClose = 20 * 60;
+        var status, cls, label, active = null;
+        if (!tradingDay) {
+          status = "CLOSED — Holiday/Weekend"; cls = "off"; label = "Next Open";
+        } else if (minutesNow < premarketOpen) {
+          status = "CLOSED"; cls = "off"; label = "Pre-Market Opens — " + fmtHM.format(now);
+        } else if (minutesNow < marketOpen) {
+          status = "PRE-MARKET"; cls = "warn"; label = "Market Opens — " + fmtHM.format(now); active = "premarket";
+        } else if (minutesNow < marketClose) {
+          status = "MARKET OPEN"; cls = "on"; label = "Market Closes — " + fmtHM.format(now); active = "regular";
+        } else if (minutesNow < afterhoursClose) {
+          status = "AFTER-HOURS"; cls = "purple"; label = "After-Hours Ends — " + fmtHM.format(now); active = "afterhours";
+        } else {
+          status = "CLOSED"; cls = "off"; label = "Pre-Market Opens Tomorrow";
+        }
+        pillEl.className = "pill pill-" + cls;
+        pillEl.innerHTML = '<span class="pill-dot"></span>' + status;
+        cdEl.textContent = label;
+        sessions.forEach(function(el) { el.classList.toggle("active", el.getAttribute("data-session") === active); });
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+    </script>
 
   <section>
     <h2>Overall Summary</h2>
@@ -537,7 +641,7 @@ footer a { color: var(--accent); text-decoration: none; }
           <td class="num">0.6M</td>
           <td><span class="tag">none</span></td>
           <td><span class="tag tag-fired">already fired</span></td>
-          <td>15m ago</td>
+          <td>24m ago</td>
         </tr>
         <tr>
           <td class="ticker">SSM</td>
@@ -549,7 +653,7 @@ footer a { color: var(--accent); text-decoration: none; }
           <td class="num">1.0M</td>
           <td><span class="tag">none</span></td>
           <td><span class="tag tag-fired">already fired</span></td>
-          <td>15m ago</td>
+          <td>24m ago</td>
         </tr>
         <tr>
           <td class="ticker">WETO</td>
@@ -561,7 +665,7 @@ footer a { color: var(--accent); text-decoration: none; }
           <td class="num">0.9M</td>
           <td><span class="tag">none</span></td>
           <td><span class="tag tag-fired">already fired</span></td>
-          <td>15m ago</td>
+          <td>24m ago</td>
         </tr>
         <tr>
           <td class="ticker">RDAC</td>
@@ -573,7 +677,7 @@ footer a { color: var(--accent); text-decoration: none; }
           <td class="num">2.5M</td>
           <td><span class="tag">none</span></td>
           <td><span class="tag tag-fired">already fired</span></td>
-          <td>15m ago</td>
+          <td>24m ago</td>
         </tr></tbody></table></div>
     <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">In-Market Watchlist (NASDAQ100+S&amp;P500)</h3>
     <div class="table-wrap"><table>
