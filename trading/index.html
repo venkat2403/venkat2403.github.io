@@ -229,14 +229,14 @@ footer a { color: var(--accent); text-decoration: none; }
     <div>
       <h1>🏦 Trading System — Unified Dashboard</h1>
       <div class="sub">
-        Last refreshed: Wednesday, September 02 2026 — 12:44 PM EDT <span id="lr-ago" class="lr-ago"></span>
+        Last refreshed: Wednesday, September 02 2026 — 12:59 PM EDT <span id="lr-ago" class="lr-ago"></span>
         · IBKR paper account DUT•••••• · Positional + Swing + Day Trade, one page
       </div>
     </div>
   </div>
   <script>
   (function() {
-    var refreshedAt = new Date("2026-09-02T12:44:46.337081-04:00");
+    var refreshedAt = new Date("2026-09-02T12:59:57.469554-04:00");
     var el = document.getElementById("lr-ago");
     function tick() {
       var mins = Math.round((Date.now() - refreshedAt.getTime()) / 60000);
@@ -254,7 +254,7 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <section class="market-clock">
       <div class="mc-main">
-        <div class="mc-time" id="mc-time">11:44:46 AM</div>
+        <div class="mc-time" id="mc-time">11:59:57 AM</div>
         <div class="mc-tz">CENTRAL TIME</div>
       </div>
       <div class="mc-status">
@@ -328,12 +328,12 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <section>
     <h2>Overall Summary</h2>
-    <div class="cards"><div class="card"><div class="label">Combined Starting Balance</div><div class="value ">$600,000</div><div class=footnote>$100K x 6 strategies (1 real, 5 virtual tracking)</div></div><div class="card"><div class="label">Combined Current Balance</div><div class="value neg">$599,855</div></div><div class="card"><div class="label">Combined Total P&amp;L</div><div class="value neg">−$144.97 (-0.02%)</div></div><div class="card"><div class="label">Positional (TQQQ + EP) / Swing (Continuation + Momentum + Minervini) / Day Trade (GUNS)</div><div class="value compact">$100,000 + $100,000 / $100,000 + $100,000 + $100,000 / $99,855</div><div class=footnote>per-strategy current balance</div></div></div>
+    <div class="cards"><div class="card"><div class="label">Combined Starting Balance</div><div class="value ">$600,000</div><div class=footnote>$100K x 6 strategies (1 real, 5 virtual tracking)</div></div><div class="card"><div class="label">Combined Current Balance</div><div class="value neg">$599,859</div></div><div class="card"><div class="label">Combined Total P&amp;L</div><div class="value neg">−$140.80 (-0.02%)</div></div><div class="card"><div class="label">Positional (TQQQ + EP) / Swing (Continuation + Momentum + Minervini) / Day Trade (GUNS)</div><div class="value compact">$100,000 + $100,000 / $100,000 + $100,000 + $100,000 / $99,859</div><div class=footnote>per-strategy current balance</div></div></div>
   </section>
 
   <section>
     <h2>Market Bias <span class="count">breadth proxy (this project's own universe, not the whole market) + recent performance across all strategies</span></h2>
-    <div class="cards"><div class="card"><div class="label">SPY Trend (10 &amp; 20-day MA)</div><div class="value neg">BEARISH/CHOP</div><div class=footnote>close $764.85</div></div><div class="card"><div class="label">Breadth Proxy (% above 40d MA)</div><div class="value pos">61.6%</div><div class=footnote>305 tickers (project universe, not whole market)</div></div></div>
+    <div class="cards"><div class="card"><div class="label">SPY Trend (10 &amp; 20-day MA)</div><div class="value neg">BEARISH/CHOP</div><div class=footnote>close $764.94</div></div><div class="card"><div class="label">Breadth Proxy (% above 40d MA)</div><div class="value pos">61.9%</div><div class=footnote>294 tickers (project universe, not whole market)</div></div></div>
     <div class="signal-grid" style="margin-top:12px;">
       <div class="signal-panel">
         <div class="signal-row"><b>Recent Trade Performance</b><span></span></div>
@@ -626,7 +626,7 @@ footer a { color: var(--accent); text-decoration: none; }
       GUNS_DRY_RUN is on, computed by walking real price bars after each
       signal, not real fills.
     </div>
-    <div class="cards"><div class="card"><div class="label">Starting Balance (virtual)</div><div class="value ">$100,000</div></div><div class="card"><div class="label">Current Balance (virtual)</div><div class="value neg">$99,855</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value neg">−$144.97 (-0.14%)</div><div class=footnote>0 closed days + today (in progress)</div></div><div class="card"><div class="label">Today&#x27;s P&amp;L</div><div class="value neg">−$144.97</div></div></div>
+    <div class="cards"><div class="card"><div class="label">Starting Balance (virtual)</div><div class="value ">$100,000</div></div><div class="card"><div class="label">Current Balance (virtual)</div><div class="value neg">$99,859</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value neg">−$140.80 (-0.14%)</div><div class=footnote>0 closed days + today (in progress)</div></div><div class="card"><div class="label">Today&#x27;s P&amp;L</div><div class="value neg">−$140.80</div></div></div>
     <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Today's Signals</h3>
     <div class="table-wrap"><table>
       <thead><tr><th>Ticker</th><th>Pattern</th><th class="num">Entry</th><th class="num">Stop</th>
@@ -663,7 +663,18 @@ footer a { color: var(--accent); text-decoration: none; }
           <td class="num">198</td>
           <td><span class="tag tag-stop">STOP HIT</span></td>
           <td class="num neg">−$49.50 (-1.00R)</td>
-          <td>59m ago</td>
+          <td>1h ago</td>
+        </tr>
+        <tr>
+          <td class="ticker">UPC</td>
+          <td>GUNS6</td>
+          <td class="num">$4.79</td>
+          <td class="num">$4.70</td>
+          <td class="num">$4.97</td>
+          <td class="num">417</td>
+          <td><span class="tag tag-open">OPEN</span></td>
+          <td class="num pos">+$4.17 (+0.11R)</td>
+          <td>2m ago</td>
         </tr></tbody></table></div>
     <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Pre-Market Watchlist</h3>
     <div class="table-wrap"><table>
@@ -677,11 +688,11 @@ footer a { color: var(--accent); text-decoration: none; }
           <td class="num">$7.10</td>
           <td class="num">+26.3%</td>
           <td class="num">4,493,535</td>
-          <td class="num">$145M</td>
+          <td class="num">$141M</td>
           <td class="num">1.3M</td>
           <td><span class="tag">none</span></td>
           <td><span class="tag tag-fired">already fired</span></td>
-          <td>0m ago</td>
+          <td>3m ago</td>
         </tr>
         <tr>
           <td class="ticker">UPC</td>
@@ -692,8 +703,8 @@ footer a { color: var(--accent); text-decoration: none; }
           <td class="num">$24M</td>
           <td class="num">2.6M</td>
           <td><span class="tag">none</span></td>
-          <td><span class="tag tag-open">watching</span></td>
-          <td>0m ago</td>
+          <td><span class="tag tag-fired">already fired</span></td>
+          <td>3m ago</td>
         </tr>
         <tr>
           <td class="ticker">BIAF</td>
@@ -705,7 +716,7 @@ footer a { color: var(--accent); text-decoration: none; }
           <td class="num">0.6M</td>
           <td><span class="tag">none</span></td>
           <td><span class="tag tag-fired">already fired</span></td>
-          <td>0m ago</td>
+          <td>3m ago</td>
         </tr>
         <tr>
           <td class="ticker">BRNX</td>
@@ -717,7 +728,7 @@ footer a { color: var(--accent); text-decoration: none; }
           <td class="num">0.7M</td>
           <td><span class="tag">none</span></td>
           <td><span class="tag tag-fired">already fired</span></td>
-          <td>0m ago</td>
+          <td>3m ago</td>
         </tr></tbody></table></div>
     <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">In-Market Watchlist (NASDAQ100+S&amp;P500)</h3>
     <div class="table-wrap"><table>
@@ -728,122 +739,122 @@ footer a { color: var(--accent); text-decoration: none; }
         <tr>
           <td class="ticker">DELL</td>
           <td>Dell Technologies Inc.</td>
-          <td class="num">$457.06</td>
-          <td class="num">+7.5%</td>
-          <td class="num">20,368,386</td>
-          <td class="num">$296.3B</td>
+          <td class="num">$458.18</td>
+          <td class="num">+7.8%</td>
+          <td class="num">20,778,486</td>
+          <td class="num">$297.0B</td>
           <td class="num">301.0M</td>
           <td><span class="tag">none</span></td>
           <td><span class="tag tag-open">watching</span></td>
-          <td>0m ago</td>
+          <td>3m ago</td>
         </tr>
         <tr>
           <td class="ticker">ALNY</td>
           <td>Alnylam Pharmaceuticals, Inc.</td>
-          <td class="num">$266.58</td>
-          <td class="num">+8.3%</td>
-          <td class="num">1,729,959</td>
-          <td class="num">$35.7B</td>
+          <td class="num">$265.45</td>
+          <td class="num">+7.9%</td>
+          <td class="num">1,764,467</td>
+          <td class="num">$35.5B</td>
           <td class="num">133.4M</td>
           <td><span class="tag">none</span></td>
           <td><span class="tag tag-open">watching</span></td>
-          <td>0m ago</td>
+          <td>3m ago</td>
         </tr>
         <tr>
           <td class="ticker">GEV</td>
           <td>GE Vernova Inc.</td>
-          <td class="num">$915.74</td>
-          <td class="num">+1.9%</td>
-          <td class="num">1,353,323</td>
-          <td class="num">$243.9B</td>
+          <td class="num">$916.20</td>
+          <td class="num">+2.0%</td>
+          <td class="num">1,393,476</td>
+          <td class="num">$244.0B</td>
           <td class="num">265.8M</td>
           <td><span class="tag">none</span></td>
           <td><span class="tag tag-open">watching</span></td>
-          <td>0m ago</td>
+          <td>3m ago</td>
         </tr>
         <tr>
           <td class="ticker">META</td>
           <td>Meta Platforms, Inc.</td>
-          <td class="num">$592.68</td>
-          <td class="num">+2.4%</td>
-          <td class="num">8,918,423</td>
-          <td class="num">$1509.9B</td>
+          <td class="num">$594.83</td>
+          <td class="num">+2.8%</td>
+          <td class="num">9,128,692</td>
+          <td class="num">$1515.3B</td>
           <td class="num">2200.0M</td>
           <td><span class="tag">none</span></td>
           <td><span class="tag tag-open">watching</span></td>
-          <td>0m ago</td>
-        </tr>
-        <tr>
-          <td class="ticker">MU</td>
-          <td>Micron Technology, Inc.</td>
-          <td class="num">$944.93</td>
-          <td class="num">+1.2%</td>
-          <td class="num">12,563,429</td>
-          <td class="num">$1067.2B</td>
-          <td class="num">1125.3M</td>
-          <td><span class="tag">none</span></td>
-          <td><span class="tag tag-open">watching</span></td>
-          <td>0m ago</td>
+          <td>3m ago</td>
         </tr>
         <tr>
           <td class="ticker">RDDT</td>
           <td>Reddit, Inc.</td>
-          <td class="num">$154.89</td>
-          <td class="num">+7.1%</td>
-          <td class="num">2,849,098</td>
-          <td class="num">$29.8B</td>
+          <td class="num">$155.83</td>
+          <td class="num">+7.7%</td>
+          <td class="num">2,962,995</td>
+          <td class="num">$30.0B</td>
           <td class="num">141.1M</td>
           <td><span class="tag">none</span></td>
           <td><span class="tag tag-open">watching</span></td>
-          <td>0m ago</td>
+          <td>3m ago</td>
         </tr>
         <tr>
-          <td class="ticker">SNDK</td>
-          <td>Sandisk Corporation</td>
-          <td class="num">$1546.19</td>
-          <td class="num">+0.6%</td>
-          <td class="num">5,761,337</td>
-          <td class="num">$226.4B</td>
-          <td class="num">144.3M</td>
+          <td class="ticker">MU</td>
+          <td>Micron Technology, Inc.</td>
+          <td class="num">$943.62</td>
+          <td class="num">+1.1%</td>
+          <td class="num">12,849,518</td>
+          <td class="num">$1065.7B</td>
+          <td class="num">1125.3M</td>
           <td><span class="tag">none</span></td>
           <td><span class="tag tag-open">watching</span></td>
-          <td>0m ago</td>
+          <td>3m ago</td>
         </tr>
         <tr>
           <td class="ticker">NVDA</td>
           <td>NVIDIA Corporation</td>
-          <td class="num">$226.41</td>
-          <td class="num">+4.1%</td>
-          <td class="num">91,265,839</td>
-          <td class="num">$5456.4B</td>
+          <td class="num">$225.84</td>
+          <td class="num">+3.9%</td>
+          <td class="num">94,857,237</td>
+          <td class="num">$5442.7B</td>
           <td class="num">23184.3M</td>
           <td><span class="tag">none</span></td>
           <td><span class="tag tag-open">watching</span></td>
-          <td>0m ago</td>
+          <td>3m ago</td>
         </tr>
         <tr>
           <td class="ticker">SWKS</td>
           <td>Skyworks Solutions, Inc.</td>
-          <td class="num">$72.31</td>
-          <td class="num">+7.3%</td>
-          <td class="num">2,602,985</td>
+          <td class="num">$72.43</td>
+          <td class="num">+7.4%</td>
+          <td class="num">2,774,442</td>
           <td class="num">$10.9B</td>
           <td class="num">149.9M</td>
           <td><span class="tag">none</span></td>
           <td><span class="tag tag-open">watching</span></td>
-          <td>0m ago</td>
+          <td>3m ago</td>
+        </tr>
+        <tr>
+          <td class="ticker">NXPI</td>
+          <td>NXP Semiconductors N.V.</td>
+          <td class="num">$228.49</td>
+          <td class="num">+2.7%</td>
+          <td class="num">1,013,128</td>
+          <td class="num">$57.6B</td>
+          <td class="num">251.8M</td>
+          <td><span class="tag">none</span></td>
+          <td><span class="tag tag-open">watching</span></td>
+          <td>3m ago</td>
         </tr>
         <tr>
           <td class="ticker">V</td>
           <td>Visa Inc.</td>
-          <td class="num">$378.85</td>
-          <td class="num">+1.7%</td>
-          <td class="num">1,627,278</td>
-          <td class="num">$707.3B</td>
+          <td class="num">$378.65</td>
+          <td class="num">+1.6%</td>
+          <td class="num">1,706,453</td>
+          <td class="num">$706.9B</td>
           <td class="num">1697.4M</td>
           <td><span class="tag">none</span></td>
           <td><span class="tag tag-open">watching</span></td>
-          <td>0m ago</td>
+          <td>3m ago</td>
         </tr></tbody></table></div>
     <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Trade History</h3>
     <div class="table-wrap"><div class="empty">No closed days yet — this strategy just started (2026-08-31).</div></div></div>
