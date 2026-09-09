@@ -229,14 +229,14 @@ footer a { color: var(--accent); text-decoration: none; }
     <div>
       <h1>🌋 Trading System — 9 Million</h1>
       <div class="sub">
-        Last refreshed: Wednesday, September 09 2026 — 12:18 AM EDT <span id="lr-ago" class="lr-ago"></span>
+        Last refreshed: Wednesday, September 09 2026 — 12:20 AM EDT <span id="lr-ago" class="lr-ago"></span>
         · IBKR paper account DUT•••••• · Swing Trading — LIVE (dry-run)
       </div>
     </div>
   </div>
   <script>
   (function() {
-    var refreshedAt = new Date("2026-09-09T00:18:57.242283-04:00");
+    var refreshedAt = new Date("2026-09-09T00:20:46.389092-04:00");
     var el = document.getElementById("lr-ago");
     function tick() {
       var mins = Math.round((Date.now() - refreshedAt.getTime()) / 60000);
@@ -254,7 +254,7 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <section class="market-clock">
       <div class="mc-main">
-        <div class="mc-time" id="mc-time">11:18:57 PM</div>
+        <div class="mc-time" id="mc-time">11:20:46 PM</div>
         <div class="mc-tz">CENTRAL TIME</div>
       </div>
       <div class="mc-status">
@@ -328,7 +328,7 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <section>
     <h2>Overall Summary</h2>
-    <div class="cards"><div class="card"><div class="label">Starting Balance</div><div class="value ">$100,000</div><div class=footnote>single strategy, virtual tracking</div></div><div class="card"><div class="label">Current Balance</div><div class="value ">$100,000</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value ">$0.00 (+0.00%)</div><div class=footnote>0 closed trade(s), 0 winner(s)</div></div><div class="card"><div class="label">Today&#x27;s Book</div><div class="value compact">0 open · 137 candidates</div><div class=footnote>137 Liquid Lava · 0 Cats · 0 Dogs</div></div></div>
+    <div class="cards"><div class="card"><div class="label">Starting Balance</div><div class="value ">$100,000</div><div class=footnote>single strategy, virtual tracking</div></div><div class="card"><div class="label">Current Balance</div><div class="value ">$100,000</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value ">$0.00 (+0.00%)</div><div class=footnote>0 closed trade(s), 0 winner(s)</div></div><div class="card"><div class="label">Today&#x27;s Book</div><div class="value compact">0 open · 146 candidates</div><div class=footnote>137 Liquid Lava · 8 Cats · 1 Dogs</div></div></div>
   </section>
 
   <section>
@@ -414,9 +414,9 @@ footer a { color: var(--accent); text-decoration: none; }
       <b>The scan:</b> price ≥ $2.00 and today's cumulative volume ≥
       9,000,000 shares, run live from 09:30 to
       15:55 ET every 5 minutes.
-      Last pass 2026-09-09T00:18:40 — <b>196</b> names cleared the screen →
-      137 Liquid Lava, 0 Cats, 0 Dogs,
-      12 undetermined.
+      Last pass 2026-09-09T00:20:29 — <b>196</b> names cleared the screen →
+      137 Liquid Lava, 8 Cats, 1 Dogs,
+      3 undetermined.
       <br><span style="opacity:.75;">The guide's own scan is V ≥ 8,900,000 EOD; this runs at
       9,000,000 intraday — both are config
       (<code>NINE_MIN_VOLUME</code>). Liquid Lava also requires a
@@ -439,14 +439,20 @@ footer a { color: var(--accent); text-decoration: none; }
 
     <div class="banner" style="opacity:.9;">Real, confirmable catalyst (SEC 8-K in the last 3 days, or a dated headline naming earnings / guidance / a management change / an analyst action / a partnership / a major order / an insider trade / a regulatory event). Stop 2.5%, skipped entirely if an intraday entry would need more than 8.0%. Target 20%+, risk 1.5%.</div>
     <h4 style="margin:18px 0 8px;font-size:13px;color:var(--text-2);">Candidates</h4>
-    <div class="table-wrap"><div class="empty">No Cat candidates in the last scan.</div></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Ticker</th><th>Company</th><th>Price</th><th>Chg</th><th>Volume</th>
+      <th>RVol ▼</th><th>Mkt Cap</th><th>Signal</th><th>Why</th></tr></thead>
+      <tbody><tr><td><b>NUR</b></td><td>Nuran Wireless Inc.</td><td>$2.46</td><td class="pos">+38.98%</td><td>48,163,121</td><td>1215.1x</td><td>$0.0B</td><td><span class="tag tag-open">regulatory</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">NuRAN Wireless said it applied to voluntarily delist its common shares from the Canadian Securities Exchange so Nasdaq would become the central marketplace for its shares</td></tr><tr><td><b>BNC</b></td><td>CEA Industries Inc.</td><td>$5.25</td><td class="pos">+50.43%</td><td>70,011,327</td><td>193.1x</td><td>$0.2B</td><td><span class="tag tag-open">earnings</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">CEA Industries Inc. Reports Full Year Fiscal 2026 Financial Results — (GlobeNewswire)</td></tr><tr><td><b>DYN</b></td><td>Dyne Therapeutics, Inc.</td><td>$20.31</td><td class="neg">-16.35%</td><td>17,173,107</td><td>10.6x</td><td>$3.8B</td><td><span class="tag tag-open">regulatory</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">Novartis shares fall as del-desiran flunks Phase 3 myotonic dystrophy trial — (Proactive)</td></tr><tr><td><b>BCRX</b></td><td>BioCryst Pharmaceuticals, Inc.</td><td>$9.06</td><td class="neg">-8.99%</td><td>9,687,920</td><td>4.0x</td><td>$2.3B</td><td><span class="tag tag-open">analyst</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">Needham reiterated a Buy rating on BioCryst Pharmaceuticals and maintained a $16 price target on 2026-09-08.</td></tr><tr><td><b>POET</b></td><td>POET Technologies Inc.</td><td>$8.31</td><td class="pos">+4.92%</td><td>17,893,489</td><td>2.4x</td><td>$1.4B</td><td><span class="tag tag-open">earnings</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">POET Technologies Reports Second Quarter 2026 Results: Revenue Up 112% Year-Over-Year in Sixth Consecutive Quarter of Sequential Growth — (GlobeNewswire)</td></tr><tr><td><b>SHOP</b></td><td>Shopify Inc.</td><td>$134.10</td><td class="neg">-7.57%</td><td>14,024,854</td><td>2.2x</td><td>$172.5B</td><td><span class="tag tag-open">earnings</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">5 SEC filing(s) in 4d: 10-K, EX-10.1, EX-2.1, EX-99.1, EX-99.3 — items 1.01 (material definitive agreement), 5.02 (director/officer departure or appointment), 7.01 (regul</td></tr><tr><td><b>INFQ</b></td><td>Infleqtion, Inc.</td><td>$13.66</td><td class="pos">+6.30%</td><td>15,454,873</td><td>2.1x</td><td>$3.1B</td><td><span class="tag tag-open">other</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">Infleqtion announced a $20 million follow-on NASA contract to continue development of the Quantum Gravity Gradiometer Pathfinder.</td></tr><tr><td><b>ON</b></td><td>ON Semiconductor Corporation</td><td>$71.08</td><td class="neg">-4.44%</td><td>14,888,932</td><td>2.1x</td><td>$27.7B</td><td><span class="tag tag-open">earnings</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">Wells Fargo cut its price target on ON Semiconductor to $95 from $110 while keeping an Overweight rating.</td></tr></tbody></table></div>
     <h4 style="margin:18px 0 8px;font-size:13px;color:var(--text-2);">Open Positions</h4>
     <div class="table-wrap"><div class="empty">No open positions.</div></div>
 <h3 style="margin:30px 0 10px;">🐶 Dogs</h3>
 
     <div class="banner" style="opacity:.9;">A big move on big volume with <b>no catalyst anyone can confirm</b> — the guide's own definition of a story stock. Wide 9.0% stop, small size (0.75% risk, 10% notional cap), partial at +40%, and held until a downside range-expansion bar. Capped at $20B — a mega-cap is not a story stock.</div>
     <h4 style="margin:18px 0 8px;font-size:13px;color:var(--text-2);">Candidates</h4>
-    <div class="table-wrap"><div class="empty">No Dog candidates in the last scan.</div></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Ticker</th><th>Company</th><th>Price</th><th>Chg</th><th>Volume</th>
+      <th>RVol ▼</th><th>Mkt Cap</th><th>Signal</th><th>Why</th></tr></thead>
+      <tbody><tr><td><b>NUAI</b></td><td>New Era Energy &amp; Digital, Inc.</td><td>$6.60</td><td class="pos">+22.00%</td><td>15,443,900</td><td>3.1x</td><td>$0.7B</td><td><span class="tag">no catalyst found</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">+22.0% on 3.1x its normal volume with NO confirmable catalyst across 6 sources (SEC filings included) at a $0.7B market cap — a story move by the guide&#x27;s own definit</td></tr></tbody></table></div>
     <h4 style="margin:18px 0 8px;font-size:13px;color:var(--text-2);">Open Positions</h4>
     <div class="table-wrap"><div class="empty">No open positions.</div></div>
 <h3 style="margin:32px 0 10px;">Closed Trades</h3>
