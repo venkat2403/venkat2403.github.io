@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Trading System Dashboard</title>
+<title>Trading System — 9 Million</title>
 <style>
 :root {
   --bg:          #f5f5f7;
@@ -227,16 +227,16 @@ footer a { color: var(--accent); text-decoration: none; }
 <div class="wrap">
   <div class="top-bar">
     <div>
-      <h1>🏦 Trading System — Unified Dashboard</h1>
+      <h1>🌋 Trading System — 9 Million</h1>
       <div class="sub">
-        Last refreshed: Thursday, September 03 2026 — 03:54 PM EDT <span id="lr-ago" class="lr-ago"></span>
-        · IBKR paper account DUT•••••• · Positional + Swing + Day Trade, one page
+        Last refreshed: Tuesday, September 08 2026 — 11:57 PM EDT <span id="lr-ago" class="lr-ago"></span>
+        · IBKR paper account DUT•••••• · Cats · Dogs · Liquid Lava
       </div>
     </div>
   </div>
   <script>
   (function() {
-    var refreshedAt = new Date("2026-09-03T15:54:04.271315-04:00");
+    var refreshedAt = new Date("2026-09-08T23:57:51.028649-04:00");
     var el = document.getElementById("lr-ago");
     function tick() {
       var mins = Math.round((Date.now() - refreshedAt.getTime()) / 60000);
@@ -254,12 +254,12 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <section class="market-clock">
       <div class="mc-main">
-        <div class="mc-time" id="mc-time">2:54:04 PM</div>
+        <div class="mc-time" id="mc-time">10:57:51 PM</div>
         <div class="mc-tz">CENTRAL TIME</div>
       </div>
       <div class="mc-status">
-        <span class="pill pill-on" id="mc-status-pill"><span class="pill-dot"></span>MARKET OPEN</span>
-        <div class="mc-countdown" id="mc-countdown">Market Closes — 3:00 PM CT</div>
+        <span class="pill pill-off" id="mc-status-pill"><span class="pill-dot"></span>CLOSED</span>
+        <div class="mc-countdown" id="mc-countdown">Pre-Market Opens (tomorrow)</div>
       </div>
       <div class="mc-sessions">
         <div class="mc-session" data-session="premarket">
@@ -328,954 +328,153 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <section>
     <h2>Overall Summary</h2>
-    <div class="cards"><div class="card"><div class="label">Combined Starting Balance</div><div class="value ">$600,000</div><div class=footnote>$100K x 6 strategies (1 real, 5 virtual tracking)</div></div><div class="card"><div class="label">Combined Current Balance</div><div class="value neg">$599,767</div></div><div class="card"><div class="label">Combined Total P&amp;L</div><div class="value neg">−$232.74 (-0.04%)</div></div><div class="card"><div class="label">Positional (TQQQ + EP) / Swing (Continuation + Momentum + Minervini) / Day Trade (GUNS)</div><div class="value compact">$100,000 + $100,000 / $100,000 + $100,000 + $100,000 / $99,767</div><div class=footnote>per-strategy current balance</div></div></div>
+    <div class="cards"><div class="card"><div class="label">Starting Balance</div><div class="value ">$100,000</div><div class=footnote>single strategy, virtual tracking</div></div><div class="card"><div class="label">Current Balance</div><div class="value ">$100,000</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value ">$0.00 (+0.00%)</div><div class=footnote>0 closed trade(s), 0 winner(s)</div></div><div class="card"><div class="label">Today&#x27;s Book</div><div class="value compact">0 open · 144 candidates</div><div class=footnote>137 Liquid Lava · 3 Cats · 4 Dogs</div></div></div>
   </section>
 
   <section>
-    <h2>Market Bias <span class="count">breadth proxy (this project's own universe, not the whole market) + recent performance across all strategies</span></h2>
-    <div class="cards"><div class="card"><div class="label">SPY Trend (10 &amp; 20-day MA)</div><div class="value pos">BULLISH</div><div class=footnote>close $773.14</div></div><div class="card"><div class="label">Breadth Proxy (% above 40d MA)</div><div class="value pos">63.8%</div><div class=footnote>298 tickers (project universe, not whole market)</div></div></div>
+    <h2>Market Bias <span class="count">breadth proxy (this project's own universe, not the whole market)</span></h2>
+    <div class="cards"><div class="card"><div class="label">SPY Trend (10 &amp; 20-day MA)</div><div class="value neg">BEARISH/CHOP</div><div class=footnote>close $765.96</div></div><div class="card"><div class="label">Breadth Proxy (% above 40d MA)</div><div class="value pos">62.9%</div><div class=footnote>348 tickers (project universe, not whole market)</div></div></div><div class="cards" style="margin-top:12px;">
+          <div class="card"><div class="label">T2108 proxy (% above 40d MA)</div><div class="value ">62.8%</div><div class=footnote>347 names · &lt;20 start bullish, &lt;10 extremely</div></div>
+          <div class="card"><div class="label">Regime</div><div class="value ">MID-RANGE</div><div class=footnote>Bonde&#x27;s own bands</div></div>
+          <div class="card"><div class="label">Quarter movers (+25%/qtr)</div><div class="value ">29.4%</div><div class=footnote>his Market Monitor primary column</div></div>
+          <div class="card"><div class="label">Breakouts likely to work?</div><div class="value ">UNCLEAR</div><div class=footnote>the daily question</div></div>
+        </div>
+        <div class="banner" style="margin-top:10px;">Breadth proxy in the middle — the condition he describes as choppy and rangebound, where breakouts are hardest.
+          <br><span style="opacity:.75;">His stated behaviour in chop: &quot;not even 5 10% invested&quot;, buying a breakout only to test the idea.
+          Both numbers are computed over this project's own liquid universe, not the NYSE —
+          directional proxies for real T2108, not the real reading.</span></div>
     <div class="signal-grid" style="margin-top:12px;">
       <div class="signal-panel">
         <div class="signal-row"><b>Recent Trade Performance</b><span></span></div>
-        <div class="signal-row"><span>GUNS (incl. former Warrior role) (last 4)</span><span class="v">0/4 wins</span></div>
+        <div class="signal-row"><span>No closed trades yet in any strategy</span></div>
       </div>
       <div class="signal-panel">
         <div class="signal-row"><b>Watchlist Health</b><span></span></div>
-        <div class="signal-row"><span>CONTINUATION candidates today</span><span class="v">73</span></div><div class="signal-row"><span>EP candidates today</span><span class="v">4</span></div><div class="signal-row"><span>Momentum Breakout setups today</span><span class="v">2</span></div><div class="signal-row"><span>Minervini candidates today</span><span class="v">8</span></div><div class="signal-row"><span>GUNS currently watching</span><span class="v">8</span></div>
+        <div class="signal-row"><span>Names clearing the scan</span><span class="v">196</span></div><div class="signal-row"><span>Liquid Lava candidates</span><span class="v">137</span></div><div class="signal-row"><span>  …of those, with a setup today</span><span class="v">13</span></div><div class="signal-row"><span>Cats today</span><span class="v">3</span></div><div class="signal-row"><span>Dogs today</span><span class="v">4</span></div>
       </div>
     </div>
   </section>
 
-  <details class="strategy-section" id="sec-positional">
-    <summary>
-      <h2>📈 Positional — TQQQ Dual-Exit Trend-Following + Episodic Pivot</h2>
-      <span class="chevron">Details <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </summary>
-    <div class="section-body">
-    <div class="badges" style="margin-bottom:12px;"><span class="pill pill-on"><span class="pill-dot"></span>LIVE</span><span class="pill pill-bad"><span class="pill-dot"></span>REAL ORDERS</span></div>
-    <div class="cards"><div class="card"><div class="label">Starting Balance</div><div class="value ">$100,000</div></div><div class="card"><div class="label">Current Balance</div><div class="value ">$100,000</div><div class=footnote>as of 24h ago</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value ">$0.00 (+0.00%)</div></div><div class="card"><div class="label">Unrealized (open position)</div><div class="value ">—</div></div></div>
-    <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Today's Signal</h3>
-    <div class="signal-panel">
-      <div class="signal-row"><span>Regime</span><span class="v pos">BULLISH (above entry trigger)</span></div>
-      <div class="signal-row"><span>QQQ Price</span><span class="v">$708.60</span></div><div class="signal-row"><span>SMA 50</span><span class="v">$710.88</span></div><div class="signal-row"><span>SMA 200</span><span class="v">$656.58</span></div><div class="signal-row"><span>Entry Trigger (SMA200 +1%)</span><span class="v">$663.15</span></div><div class="signal-row"><span>Exit-B Trigger (SMA200 −1%)</span><span class="v">$650.02</span></div><div class="signal-row"><span>TQQQ Price</span><span class="v">$69.40</span></div>
-    </div>
-    <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Current Position</h3>
-    <div class="table-wrap"><div class="empty">Flat — no open position.</div></div>
-    <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Closed Trades</h3>
-    <div class="table-wrap"><div class="empty">No closed trades yet.</div></div>
-    <h2 style="margin:32px 0 10px;">🎯 EP (Episodic Pivot)</h2>
+  <section>
+    <h2>💥 EP9M <span class="count">Bonde's own — 9M-volume day in the last month, then a low-risk entry</span></h2>
     
-    <div class="badges" style="margin-bottom:12px;"><span class="pill pill-on"><span class="pill-dot"></span>LIVE</span><span class="pill pill-warn"><span class="pill-dot"></span>DRY RUN</span></div>
     <div class="banner">
-      <b>No backtest exists for the live EP entry mechanics.</b> ep_backtest.py's
-      historical numbers use documented proxies (see its own docstring) —
-      treat this section's P&L as real trade tracking, not a validated
-      historical edge yet.
+      <b>Pradeep Bonde's own EP 9 million</b>, from his description in
+      <i>The $100 Million Dollar Catalyst Trade Setup</i>: a scan for stocks that traded more than
+      9 million shares on a day, run to find the ones that have done that <b>in the last month</b>,
+      then a wait for a <b>low-risk entry</b> on them — usually after a pullback. He calls EP9M and
+      "D" (delayed reaction) his two main setups.
+      <br><span style="opacity:.75;">This is a different reading of "the 9 million setup" than the
+      Cats/Dogs/Liquid Lava section below, which follows MMANIC's derivative guide (today's volume,
+      classified same-day). Both are kept deliberately — this one separates the trigger day from the
+      entry day. Liquidity filter is his absolute (1,000,000+ avg shares); the
+      $50-$300 price focus and CAP10x10 are
+      applied as <b>tags that rank</b>, not filters, because he states them as preferences.
+      <b>Research is not automated</b> — he is explicit that when the volume shows up he asks what the
+      reason is, and a good enough reason is what lets him size up. That judgement stays yours.</span>
     </div>
-    <div class="cards"><div class="card"><div class="label">Realized P&amp;L</div><div class="value ">$0.00</div></div><div class="card"><div class="label">Unrealized P&amp;L</div><div class="value ">$0.00</div></div><div class="card"><div class="label">Win Rate</div><div class="value ">—</div><div class=footnote>0 closed trades</div></div><div class="card"><div class="label">Open Positions</div><div class="value ">0</div><div class=footnote>cap 5</div></div><div class="card"><div class="label">Portfolio Heat</div><div class="value ">0.0%</div><div class=footnote>cap 4.0%</div></div><div class="card"><div class="label">Account Equity</div><div class="value ">—</div><div class=footnote>as of —</div></div></div>
-    <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Open Positions</h3>
-    <div class="table-wrap"><div class="empty">No open swing positions.</div></div>
-    <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">EP Candidates Today</h3>
+    <div class="cards"><div class="card"><div class="label">Watchlist</div><div class="value ">403</div><div class=footnote>printed a 9,000,000-share day in the last 21 bars</div></div><div class="card"><div class="label">Non-gap triggers</div><div class="value pos">256</div><div class=footnote>huge volume with no gap — the case a gap scanner misses</div></div><div class="card"><div class="label">Low-risk entries today</div><div class="value pos">26</div><div class=footnote>tight pullback, held, now resuming</div></div><div class="card"><div class="label">Built</div><div class="value compact">2026-09-08T23:07:10</div></div></div>
+    <h4 style="margin:20px 0 8px;font-size:13px;color:var(--text-2);">Low-risk entries today</h4>
     <div class="table-wrap"><table>
-      <thead><tr><th>Ticker</th><th class="num">Gap%</th><th class="num">Participation</th>
-      <th class="num">Perf 3M</th><th>Catalyst Sources</th><th>Source</th></tr></thead>
-      <tbody>
-    <tr>
-      <td class="ticker">TLYS</td>
-      <td class="num">41.7%</td>
-      <td class="num">0.0x</td>
-      <td class="num">-16%</td>
-      <td>SEC_EDGAR, finviz, thefly, stockanalysis</td>
-      <td>GUNS_PREMARKET</td>
-    </tr>
-    <tr>
-      <td class="ticker">CHPT</td>
-      <td class="num">27.7%</td>
-      <td class="num">0.0x</td>
-      <td class="num">-16%</td>
-      <td>SEC_EDGAR, finviz, thefly, stockanalysis</td>
-      <td>GUNS_PREMARKET</td>
-    </tr>
-    <tr>
-      <td class="ticker">HOOD</td>
-      <td class="num">6.0%</td>
-      <td class="num">0.0x</td>
-      <td class="num">+40%</td>
-      <td>finviz, thefly, stockanalysis</td>
-      <td>GUNS_PREMARKET</td>
-    </tr>
-    <tr>
-      <td class="ticker">CIEN</td>
-      <td class="num">1.6%</td>
-      <td class="num">0.0x</td>
-      <td class="num">-34%</td>
-      <td>SEC_EDGAR, finviz, thefly, stockanalysis</td>
-      <td>GUNS_PREMARKET</td>
-    </tr></tbody></table></div>
-    <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Closed Trades</h3>
-    <div class="table-wrap"><div class="empty">No closed trades yet.</div></div></div>
-  </details>
+      <thead><tr><th>Ticker</th><th>Company</th><th>Entry</th><th>Stop</th><th>9M trigger day</th>
+      <th>Tags</th><th>MAGNA53</th><th>Catalyst</th></tr></thead>
+      <tbody><tr><td><b>VMRK</b></td><td>Vivmark Residential</td><td>$66.19</td><td>$64.45 <span style="opacity:.7">(2.6%)</span></td><td>2026-08-17<br><span style="font-size:11px;opacity:.7">17,443,300 sh · 15d ago</span></td><td><span class="tag tag-open">non-gap</span><span class="tag">$50-300</span></td><td>N (2/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;"></td></tr><tr><td><b>WMB</b></td><td>Williams Companies, Inc. (</td><td>$75.83</td><td>$73.37 <span style="opacity:.7">(3.2%)</span></td><td>2026-08-31<br><span style="font-size:11px;opacity:.7">20,164,300 sh · 5d ago</span></td><td><span class="tag tag-open">non-gap</span><span class="tag">$50-300</span></td><td>— (0/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;"></td></tr><tr><td><b>VIK</b></td><td>Viking Holdings Ltd</td><td>$88.08</td><td>$84.41 <span style="opacity:.7">(4.2%)</span></td><td>2026-08-20<br><span style="font-size:11px;opacity:.7">9,191,700 sh · 12d ago</span></td><td><span class="tag tag-open">non-gap</span><span class="tag">$50-300</span></td><td>— (0/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;">Viking Holdings Ltd (VIK) (Q2 2026) Earnings Call Highlights: Record Revenue and Strong ... — (GuruFocus.com)</td></tr><tr><td><b>RKLB</b></td><td>Rocket Lab Corporation</td><td>$65.87</td><td>$62.36 <span style="opacity:.7">(5.3%)</span></td><td>2026-08-10<br><span style="font-size:11px;opacity:.7">34,015,000 sh · 20d ago</span></td><td><span class="tag tag-open">non-gap</span><span class="tag">$50-300</span></td><td>A (1/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;"></td></tr><tr><td><b>SUNB</b></td><td>Sunbelt Rentals Holdings, </td><td>$69.32</td><td>$64.87 <span style="opacity:.7">(6.4%)</span></td><td>2026-08-31<br><span style="font-size:11px;opacity:.7">28,446,400 sh · 5d ago</span></td><td><span class="tag tag-open">non-gap</span><span class="tag">$50-300</span></td><td>N (2/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;"></td></tr><tr><td><b>SWKS</b></td><td>Skyworks Solutions, Inc.</td><td>$75.38</td><td>$70.27 <span style="opacity:.7">(6.8%)</span></td><td>2026-08-31<br><span style="font-size:11px;opacity:.7">20,028,700 sh · 5d ago</span></td><td><span class="tag tag-open">non-gap</span><span class="tag">$50-300</span></td><td>— (1/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;"></td></tr><tr><td><b>SRE</b></td><td>DBA Sempra</td><td>$85.47</td><td>$83.55 <span style="opacity:.7">(2.2%)</span></td><td>2026-08-31<br><span style="font-size:11px;opacity:.7">9,467,000 sh · 5d ago</span></td><td><span class="tag">$50-300</span></td><td>N (1/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;"></td></tr><tr><td><b>QCOM</b></td><td>QUALCOMM Incorporated</td><td>$174.09</td><td>$164.88 <span style="opacity:.7">(5.3%)</span></td><td>2026-09-08<br><span style="font-size:11px;opacity:.7">26,081,100 sh · 0d ago</span></td><td><span class="tag">$50-300</span></td><td>G (1/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;">✅ SEC 8-K CONFIRMED — filed 2026-09-08 (QUALCOMM INC/DE  (QCOM)  (CIK 0000804328)) — Tier 1 catalyst source</td></tr><tr><td><b>FCX</b></td><td>Freeport-McMoRan, Inc.</td><td>$76.62</td><td>$71.45 <span style="opacity:.7">(6.8%)</span></td><td>2026-08-21<br><span style="font-size:11px;opacity:.7">28,518,300 sh · 11d ago</span></td><td><span class="tag">$50-300</span></td><td>G (1/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;"></td></tr><tr><td><b>ASTS</b></td><td>AST SpaceMobile, Inc.</td><td>$66.12</td><td>$61.07 <span style="opacity:.7">(7.6%)</span></td><td>2026-09-02<br><span style="font-size:11px;opacity:.7">19,809,700 sh · 3d ago</span></td><td><span class="tag">$50-300</span></td><td>MAGA (3/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;"></td></tr><tr><td><b>CNP</b></td><td>CenterPoint Energy, Inc (H</td><td>$40.12</td><td>$39.49 <span style="opacity:.7">(1.6%)</span></td><td>2026-08-31<br><span style="font-size:11px;opacity:.7">9,266,100 sh · 5d ago</span></td><td><span class="tag tag-open">non-gap</span></td><td>N (2/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;"></td></tr><tr><td><b>ABUS</b></td><td>Arbutus Biopharma Corporat</td><td>$5.18</td><td>$5.09 <span style="opacity:.7">(1.7%)</span></td><td>2026-08-24<br><span style="font-size:11px;opacity:.7">18,139,900 sh · 10d ago</span></td><td><span class="tag tag-open">non-gap</span></td><td>— (1/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;"></td></tr><tr><td><b>BB</b></td><td>BlackBerry Limited</td><td>$7.87</td><td>$7.58 <span style="opacity:.7">(3.7%)</span></td><td>2026-08-28<br><span style="font-size:11px;opacity:.7">14,709,000 sh · 6d ago</span></td><td><span class="tag tag-open">non-gap</span></td><td>MAA (2/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;"></td></tr><tr><td><b>RIVN</b></td><td>Rivian Automotive, Inc.</td><td>$16.17</td><td>$15.56 <span style="opacity:.7">(3.8%)</span></td><td>2026-08-17<br><span style="font-size:11px;opacity:.7">43,729,600 sh · 15d ago</span></td><td><span class="tag tag-open">non-gap</span></td><td>A (2/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;"></td></tr><tr><td><b>AVTR</b></td><td>Avantor, Inc.</td><td>$15.25</td><td>$14.59 <span style="opacity:.7">(4.3%)</span></td><td>2026-09-08<br><span style="font-size:11px;opacity:.7">12,503,700 sh · 0d ago</span></td><td><span class="tag tag-open">non-gap</span></td><td>— (0/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;">Avantor Inc (AVTR) Q2 2026 Earnings Call Highlights: Strategic Growth and Financial Resilience — (GuruFocus.co</td></tr><tr><td><b>QUBT</b></td><td>Quantum Computing Inc.</td><td>$8.22</td><td>$7.84 <span style="opacity:.7">(4.6%)</span></td><td>2026-08-21<br><span style="font-size:11px;opacity:.7">13,920,900 sh · 11d ago</span></td><td><span class="tag tag-open">non-gap</span></td><td>A (2/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;">✅ SEC 8-K CONFIRMED — filed 2026-09-08 (Quantum Computing Inc.  (QUBT)  (CIK 0001758009)) — Tier 1 catalyst so</td></tr><tr><td><b>RUN</b></td><td>Sunrun Inc.</td><td>$9.22</td><td>$8.61 <span style="opacity:.7">(6.6%)</span></td><td>2026-08-19<br><span style="font-size:11px;opacity:.7">10,494,200 sh · 13d ago</span></td><td><span class="tag tag-open">non-gap</span></td><td>A (2/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;"></td></tr><tr><td><b>MOS</b></td><td>Mosaic Company (The)</td><td>$26.53</td><td>$24.77 <span style="opacity:.7">(6.6%)</span></td><td>2026-08-21<br><span style="font-size:11px;opacity:.7">13,529,800 sh · 11d ago</span></td><td><span class="tag tag-open">non-gap</span></td><td>— (0/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;"></td></tr><tr><td><b>BLZE</b></td><td>Backblaze, Inc.</td><td>$13.89</td><td>$12.93 <span style="opacity:.7">(6.9%)</span></td><td>2026-08-20<br><span style="font-size:11px;opacity:.7">9,796,400 sh · 12d ago</span></td><td><span class="tag tag-open">non-gap</span><span class="tag tag-open">CAP10x10</span></td><td>— (0/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;">Backblaze, Inc. Q2 2026 Earnings Call Summary — (Moby)</td></tr><tr><td><b>ESI</b></td><td>Element Solutions Inc.</td><td>$36.21</td><td>$33.49 <span style="opacity:.7">(7.5%)</span></td><td>2026-08-28<br><span style="font-size:11px;opacity:.7">20,716,400 sh · 6d ago</span></td><td><span class="tag tag-open">non-gap</span></td><td>A (1/6)</td><td style="font-size:11px;opacity:.8;max-width:300px;"></td></tr><tr><td><b>RBLX</b></td><td>Roblox Corporation</td><td>$44.82</td><td>$41.24 <span style="opacity:.7">(8.0%)</span></td><td>2026-08-11<br><span style="font-size:11px;opacity:.7">24,667,900 sh · 19d ago</span></td><td><span class="tag tag-open">non-gap</span></td><td>—</td><td style="font-size:11px;opacity:.8;max-width:300px;">not analysed</td></tr><tr><td><b>IBRX</b></td><td>ImmunityBio, Inc.</td><td>$8.29</td><td>$7.88 <span style="opacity:.7">(5.0%)</span></td><td>2026-08-19<br><span style="font-size:11px;opacity:.7">13,063,700 sh · 13d ago</span></td><td></td><td>—</td><td style="font-size:11px;opacity:.8;max-width:300px;">not analysed</td></tr><tr><td><b>UAMY</b></td><td>United States Antimony Cor</td><td>$5.44</td><td>$5.11 <span style="opacity:.7">(6.1%)</span></td><td>2026-08-12<br><span style="font-size:11px;opacity:.7">27,042,700 sh · 18d ago</span></td><td></td><td>—</td><td style="font-size:11px;opacity:.8;max-width:300px;">not analysed</td></tr><tr><td><b>RGTI</b></td><td>Rigetti Computing, Inc.</td><td>$15.81</td><td>$14.83 <span style="opacity:.7">(6.2%)</span></td><td>2026-09-08<br><span style="font-size:11px;opacity:.7">42,165,700 sh · 0d ago</span></td><td></td><td>—</td><td style="font-size:11px;opacity:.8;max-width:300px;">not analysed</td></tr><tr><td><b>IONQ</b></td><td>IonQ, Inc.</td><td>$40.47</td><td>$37.84 <span style="opacity:.7">(6.5%)</span></td><td>2026-09-08<br><span style="font-size:11px;opacity:.7">40,050,600 sh · 0d ago</span></td><td></td><td>—</td><td style="font-size:11px;opacity:.8;max-width:300px;">not analysed</td></tr><tr><td><b>AVGO</b></td><td>Broadcom Inc.</td><td>$368.56</td><td>$342.33 <span style="opacity:.7">(7.1%)</span></td><td>2026-09-03<br><span style="font-size:11px;opacity:.7">60,242,600 sh · 2d ago</span></td><td></td><td>—</td><td style="font-size:11px;opacity:.8;max-width:300px;">not analysed</td></tr></tbody></table></div>
+  </section>
 
-  <details class="strategy-section" id="sec-swing">
-    <summary>
-      <h2>📊 Swing — Continuation + Momentum Breakout + Minervini</h2>
-      <span class="chevron">Details <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </summary>
-    <div class="section-body">
-    <div class="banner">Swing family — 0 open position(s) across the shared pool today (Continuation 0 · Momentum Breakout 0 · Minervini 0). Each setup enforces its own independent position/heat cap (see its own cards below), not a combined one.</div>
-    <h3 style="margin:24px 0 10px;">Continuation</h3>
+  <section>
+    <h2>🌙 NTRT / MTRT <span class="count">earnings gaps — last night's after-hours, this morning's pre-market</span></h2>
     
-    <div class="badges" style="margin-bottom:12px;"><span class="pill pill-on"><span class="pill-dot"></span>LIVE</span><span class="pill pill-warn"><span class="pill-dot"></span>DRY RUN</span></div>
-    <div class="cards"><div class="card"><div class="label">Realized P&amp;L</div><div class="value ">$0.00</div></div><div class="card"><div class="label">Unrealized P&amp;L</div><div class="value ">$0.00</div></div><div class="card"><div class="label">Win Rate</div><div class="value ">—</div><div class=footnote>0 closed trades</div></div><div class="card"><div class="label">Open Positions</div><div class="value ">0</div><div class=footnote>cap 5</div></div><div class="card"><div class="label">Portfolio Heat</div><div class="value ">0.0%</div><div class=footnote>cap 4.0%</div></div><div class="card"><div class="label">Account Equity</div><div class="value ">—</div><div class=footnote>as of —</div></div></div>
-    <h4 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Open Positions</h4>
-    <div class="table-wrap"><div class="empty">No open swing positions.</div></div>
-    <h4 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Candidates Today</h4>
-    <div class="table-wrap"><table>
-      <thead><tr><th>Ticker</th><th class="num">Signal Close</th><th class="num">Entry Trigger</th>
-      <th class="num">Initial Stop</th><th class="num">ADR%</th></tr></thead>
-      <tbody>
-    <tr>
-      <td class="ticker">NU</td>
-      <td class="num">$15.40</td>
-      <td class="num">$15.48</td>
-      <td class="num">$15.16</td>
-      <td class="num">4.2%</td>
-    </tr>
-    <tr>
-      <td class="ticker">ONDS</td>
-      <td class="num">$7.61</td>
-      <td class="num">$7.63</td>
-      <td class="num">$7.40</td>
-      <td class="num">6.1%</td>
-    </tr>
-    <tr>
-      <td class="ticker">HL</td>
-      <td class="num">$20.77</td>
-      <td class="num">$20.79</td>
-      <td class="num">$20.30</td>
-      <td class="num">4.7%</td>
-    </tr>
-    <tr>
-      <td class="ticker">CIFR</td>
-      <td class="num">$15.18</td>
-      <td class="num">$15.33</td>
-      <td class="num">$14.68</td>
-      <td class="num">8.6%</td>
-    </tr>
-    <tr>
-      <td class="ticker">RIG</td>
-      <td class="num">$6.22</td>
-      <td class="num">$6.27</td>
-      <td class="num">$6.15</td>
-      <td class="num">3.9%</td>
-    </tr>
-    <tr>
-      <td class="ticker">AUR</td>
-      <td class="num">$5.85</td>
-      <td class="num">$5.86</td>
-      <td class="num">$5.71</td>
-      <td class="num">5.1%</td>
-    </tr>
-    <tr>
-      <td class="ticker">NFLX</td>
-      <td class="num">$82.73</td>
-      <td class="num">$83.12</td>
-      <td class="num">$82.02</td>
-      <td class="num">2.7%</td>
-    </tr>
-    <tr>
-      <td class="ticker">MU</td>
-      <td class="num">$956.08</td>
-      <td class="num">$958.00</td>
-      <td class="num">$935.33</td>
-      <td class="num">4.7%</td>
-    </tr>
-    <tr>
-      <td class="ticker">HOOD</td>
-      <td class="num">$106.99</td>
-      <td class="num">$107.46</td>
-      <td class="num">$104.84</td>
-      <td class="num">4.9%</td>
-    </tr>
-    <tr>
-      <td class="ticker">NBIS</td>
-      <td class="num">$204.09</td>
-      <td class="num">$205.21</td>
-      <td class="num">$197.77</td>
-      <td class="num">7.3%</td>
-    </tr>
-    <tr>
-      <td class="ticker">RKT</td>
-      <td class="num">$13.56</td>
-      <td class="num">$13.77</td>
-      <td class="num">$13.48</td>
-      <td class="num">4.3%</td>
-    </tr>
-    <tr>
-      <td class="ticker">ITUB</td>
-      <td class="num">$8.08</td>
-      <td class="num">$8.13</td>
-      <td class="num">$8.02</td>
-      <td class="num">2.7%</td>
-    </tr>
-    <tr>
-      <td class="ticker">ORCL</td>
-      <td class="num">$145.75</td>
-      <td class="num">$146.69</td>
-      <td class="num">$143.82</td>
-      <td class="num">3.9%</td>
-    </tr>
-    <tr>
-      <td class="ticker">IOVA</td>
-      <td class="num">$8.62</td>
-      <td class="num">$8.69</td>
-      <td class="num">$8.35</td>
-      <td class="num">7.9%</td>
-    </tr>
-    <tr>
-      <td class="ticker">CLF</td>
-      <td class="num">$12.42</td>
-      <td class="num">$12.48</td>
-      <td class="num">$12.16</td>
-      <td class="num">5.2%</td>
-    </tr>
-    <tr>
-      <td class="ticker">TTD</td>
-      <td class="num">$14.55</td>
-      <td class="num">$14.59</td>
-      <td class="num">$14.23</td>
-      <td class="num">5.0%</td>
-    </tr>
-    <tr>
-      <td class="ticker">HAL</td>
-      <td class="num">$37.63</td>
-      <td class="num">$37.83</td>
-      <td class="num">$37.31</td>
-      <td class="num">2.8%</td>
-    </tr>
-    <tr>
-      <td class="ticker">EXK</td>
-      <td class="num">$11.13</td>
-      <td class="num">$11.20</td>
-      <td class="num">$10.89</td>
-      <td class="num">5.5%</td>
-    </tr>
-    <tr>
-      <td class="ticker">RBLX</td>
-      <td class="num">$43.20</td>
-      <td class="num">$43.23</td>
-      <td class="num">$42.21</td>
-      <td class="num">4.7%</td>
-    </tr>
-    <tr>
-      <td class="ticker">QCOM</td>
-      <td class="num">$169.96</td>
-      <td class="num">$170.60</td>
-      <td class="num">$168.03</td>
-      <td class="num">3.0%</td>
-    </tr>
-    <tr>
-      <td class="ticker">TSM</td>
-      <td class="num">$415.50</td>
-      <td class="num">$416.50</td>
-      <td class="num">$412.17</td>
-      <td class="num">2.1%</td>
-    </tr>
-    <tr>
-      <td class="ticker">OKLO</td>
-      <td class="num">$39.52</td>
-      <td class="num">$39.72</td>
-      <td class="num">$38.42</td>
-      <td class="num">6.6%</td>
-    </tr>
-    <tr>
-      <td class="ticker">ASTS</td>
-      <td class="num">$62.40</td>
-      <td class="num">$63.23</td>
-      <td class="num">$61.36</td>
-      <td class="num">6.0%</td>
-    </tr>
-    <tr>
-      <td class="ticker">TOST</td>
-      <td class="num">$34.04</td>
-      <td class="num">$34.29</td>
-      <td class="num">$33.72</td>
-      <td class="num">3.4%</td>
-    </tr>
-    <tr>
-      <td class="ticker">CBRS</td>
-      <td class="num">$184.52</td>
-      <td class="num">$185.50</td>
-      <td class="num">$178.87</td>
-      <td class="num">7.2%</td>
-    </tr>
-    <tr>
-      <td class="ticker">SLS</td>
-      <td class="num">$14.16</td>
-      <td class="num">$14.33</td>
-      <td class="num">$13.74</td>
-      <td class="num">8.3%</td>
-    </tr>
-    <tr>
-      <td class="ticker">RDDT</td>
-      <td class="num">$158.10</td>
-      <td class="num">$158.27</td>
-      <td class="num">$154.35</td>
-      <td class="num">5.0%</td>
-    </tr>
-    <tr>
-      <td class="ticker">DOW</td>
-      <td class="num">$31.28</td>
-      <td class="num">$31.46</td>
-      <td class="num">$31.02</td>
-      <td class="num">2.8%</td>
-    </tr>
-    <tr>
-      <td class="ticker">DKS</td>
-      <td class="num">$137.34</td>
-      <td class="num">$138.06</td>
-      <td class="num">$135.04</td>
-      <td class="num">4.4%</td>
-    </tr>
-    <tr>
-      <td class="ticker">MCHP</td>
-      <td class="num">$72.76</td>
-      <td class="num">$73.19</td>
-      <td class="num">$71.88</td>
-      <td class="num">3.6%</td>
-    </tr>
-    <tr>
-      <td class="ticker">V</td>
-      <td class="num">$378.40</td>
-      <td class="num">$380.17</td>
-      <td class="num">$377.17</td>
-      <td class="num">1.6%</td>
-    </tr>
-    <tr>
-      <td class="ticker">CHYM</td>
-      <td class="num">$33.41</td>
-      <td class="num">$33.47</td>
-      <td class="num">$32.65</td>
-      <td class="num">4.9%</td>
-    </tr>
-    <tr>
-      <td class="ticker">RUN</td>
-      <td class="num">$8.96</td>
-      <td class="num">$9.14</td>
-      <td class="num">$8.90</td>
-      <td class="num">5.4%</td>
-    </tr>
-    <tr>
-      <td class="ticker">GLXY</td>
-      <td class="num">$24.06</td>
-      <td class="num">$24.23</td>
-      <td class="num">$23.44</td>
-      <td class="num">6.6%</td>
-    </tr>
-    <tr>
-      <td class="ticker">CHWY</td>
-      <td class="num">$24.17</td>
-      <td class="num">$24.32</td>
-      <td class="num">$23.87</td>
-      <td class="num">3.8%</td>
-    </tr>
-    <tr>
-      <td class="ticker">SHOP</td>
-      <td class="num">$141.87</td>
-      <td class="num">$142.06</td>
-      <td class="num">$139.63</td>
-      <td class="num">3.4%</td>
-    </tr>
-    <tr>
-      <td class="ticker">MP</td>
-      <td class="num">$54.70</td>
-      <td class="num">$55.20</td>
-      <td class="num">$53.63</td>
-      <td class="num">5.7%</td>
-    </tr>
-    <tr>
-      <td class="ticker">BKR</td>
-      <td class="num">$64.63</td>
-      <td class="num">$65.27</td>
-      <td class="num">$64.51</td>
-      <td class="num">2.4%</td>
-    </tr>
-    <tr>
-      <td class="ticker">LIFE</td>
-      <td class="num">$36.80</td>
-      <td class="num">$37.28</td>
-      <td class="num">$35.88</td>
-      <td class="num">7.6%</td>
-    </tr>
-    <tr>
-      <td class="ticker">DELL</td>
-      <td class="num">$492.20</td>
-      <td class="num">$497.99</td>
-      <td class="num">$483.56</td>
-      <td class="num">5.9%</td>
-    </tr>
-    <tr>
-      <td class="ticker">PGY</td>
-      <td class="num">$22.00</td>
-      <td class="num">$22.02</td>
-      <td class="num">$21.44</td>
-      <td class="num">5.3%</td>
-    </tr>
-    <tr>
-      <td class="ticker">NMAX</td>
-      <td class="num">$11.00</td>
-      <td class="num">$11.10</td>
-      <td class="num">$10.74</td>
-      <td class="num">6.5%</td>
-    </tr>
-    <tr>
-      <td class="ticker">AAPL</td>
-      <td class="num">$329.80</td>
-      <td class="num">$330.69</td>
-      <td class="num">$327.47</td>
-      <td class="num">1.9%</td>
-    </tr>
-    <tr>
-      <td class="ticker">MSTR</td>
-      <td class="num">$138.53</td>
-      <td class="num">$139.05</td>
-      <td class="num">$134.82</td>
-      <td class="num">6.1%</td>
-    </tr>
-    <tr>
-      <td class="ticker">AMZN</td>
-      <td class="num">$257.53</td>
-      <td class="num">$257.93</td>
-      <td class="num">$255.38</td>
-      <td class="num">2.0%</td>
-    </tr>
-    <tr>
-      <td class="ticker">PLTR</td>
-      <td class="num">$182.38</td>
-      <td class="num">$185.83</td>
-      <td class="num">$181.93</td>
-      <td class="num">4.3%</td>
-    </tr>
-    <tr>
-      <td class="ticker">MSFT</td>
-      <td class="num">$511.40</td>
-      <td class="num">$512.92</td>
-      <td class="num">$508.24</td>
-      <td class="num">1.8%</td>
-    </tr>
-    <tr>
-      <td class="ticker">CRM</td>
-      <td class="num">$266.74</td>
-      <td class="num">$268.27</td>
-      <td class="num">$263.18</td>
-      <td class="num">3.8%</td>
-    </tr>
-    <tr>
-      <td class="ticker">NOW</td>
-      <td class="num">$145.18</td>
-      <td class="num">$146.72</td>
-      <td class="num">$143.56</td>
-      <td class="num">4.4%</td>
-    </tr>
-    <tr>
-      <td class="ticker">CRCL</td>
-      <td class="num">$100.34</td>
-      <td class="num">$101.48</td>
-      <td class="num">$98.03</td>
-      <td class="num">6.9%</td>
-    </tr>
-    <tr>
-      <td class="ticker">GOOG</td>
-      <td class="num">$339.88</td>
-      <td class="num">$340.85</td>
-      <td class="num">$337.94</td>
-      <td class="num">1.7%</td>
-    </tr>
-    <tr>
-      <td class="ticker">COIN</td>
-      <td class="num">$191.06</td>
-      <td class="num">$191.80</td>
-      <td class="num">$186.57</td>
-      <td class="num">5.5%</td>
-    </tr>
-    <tr>
-      <td class="ticker">TEAM</td>
-      <td class="num">$196.80</td>
-      <td class="num">$198.60</td>
-      <td class="num">$193.50</td>
-      <td class="num">5.2%</td>
-    </tr>
-    <tr>
-      <td class="ticker">WDAY</td>
-      <td class="num">$210.68</td>
-      <td class="num">$211.23</td>
-      <td class="num">$205.75</td>
-      <td class="num">5.2%</td>
-    </tr>
-    <tr>
-      <td class="ticker">MRVL</td>
-      <td class="num">$209.41</td>
-      <td class="num">$210.42</td>
-      <td class="num">$204.69</td>
-      <td class="num">5.5%</td>
-    </tr>
-    <tr>
-      <td class="ticker">GOOGL</td>
-      <td class="num">$344.23</td>
-      <td class="num">$344.68</td>
-      <td class="num">$341.63</td>
-      <td class="num">1.8%</td>
-    </tr>
-    <tr>
-      <td class="ticker">IONQ</td>
-      <td class="num">$39.41</td>
-      <td class="num">$39.73</td>
-      <td class="num">$38.57</td>
-      <td class="num">5.9%</td>
-    </tr>
-    <tr>
-      <td class="ticker">HPE</td>
-      <td class="num">$49.35</td>
-      <td class="num">$50.09</td>
-      <td class="num">$48.90</td>
-      <td class="num">4.8%</td>
-    </tr>
-    <tr>
-      <td class="ticker">AMAT</td>
-      <td class="num">$433.78</td>
-      <td class="num">$435.51</td>
-      <td class="num">$427.82</td>
-      <td class="num">3.5%</td>
-    </tr>
-    <tr>
-      <td class="ticker">ANET</td>
-      <td class="num">$190.53</td>
-      <td class="num">$190.97</td>
-      <td class="num">$187.43</td>
-      <td class="num">3.7%</td>
-    </tr>
-    <tr>
-      <td class="ticker">RBRK</td>
-      <td class="num">$91.67</td>
-      <td class="num">$92.65</td>
-      <td class="num">$89.90</td>
-      <td class="num">6.0%</td>
-    </tr>
-    <tr>
-      <td class="ticker">BMNR</td>
-      <td class="num">$25.79</td>
-      <td class="num">$25.85</td>
-      <td class="num">$25.07</td>
-      <td class="num">6.0%</td>
-    </tr>
-    <tr>
-      <td class="ticker">CRWV</td>
-      <td class="num">$81.96</td>
-      <td class="num">$82.40</td>
-      <td class="num">$80.04</td>
-      <td class="num">5.8%</td>
-    </tr>
-    <tr>
-      <td class="ticker">ANF</td>
-      <td class="num">$141.99</td>
-      <td class="num">$141.99</td>
-      <td class="num">$138.45</td>
-      <td class="num">5.0%</td>
-    </tr>
-    <tr>
-      <td class="ticker">BULL</td>
-      <td class="num">$10.08</td>
-      <td class="num">$10.09</td>
-      <td class="num">$9.80</td>
-      <td class="num">5.8%</td>
-    </tr>
-    <tr>
-      <td class="ticker">XOM</td>
-      <td class="num">$165.51</td>
-      <td class="num">$165.57</td>
-      <td class="num">$164.15</td>
-      <td class="num">1.7%</td>
-    </tr>
-    <tr>
-      <td class="ticker">WULF</td>
-      <td class="num">$15.81</td>
-      <td class="num">$15.85</td>
-      <td class="num">$15.29</td>
-      <td class="num">7.2%</td>
-    </tr>
-    <tr>
-      <td class="ticker">OSCR</td>
-      <td class="num">$31.94</td>
-      <td class="num">$31.99</td>
-      <td class="num">$31.08</td>
-      <td class="num">5.7%</td>
-    </tr>
-    <tr>
-      <td class="ticker">AMD</td>
-      <td class="num">$455.60</td>
-      <td class="num">$456.19</td>
-      <td class="num">$448.70</td>
-      <td class="num">3.3%</td>
-    </tr>
-    <tr>
-      <td class="ticker">BE</td>
-      <td class="num">$229.30</td>
-      <td class="num">$229.85</td>
-      <td class="num">$221.82</td>
-      <td class="num">7.0%</td>
-    </tr>
-    <tr>
-      <td class="ticker">GLW</td>
-      <td class="num">$144.32</td>
-      <td class="num">$144.84</td>
-      <td class="num">$141.69</td>
-      <td class="num">4.4%</td>
-    </tr>
-    <tr>
-      <td class="ticker">KLAC</td>
-      <td class="num">$171.01</td>
-      <td class="num">$171.33</td>
-      <td class="num">$168.27</td>
-      <td class="num">3.6%</td>
-    </tr>
-    <tr>
-      <td class="ticker">LRCX</td>
-      <td class="num">$285.94</td>
-      <td class="num">$287.37</td>
-      <td class="num">$281.88</td>
-      <td class="num">3.8%</td>
-    </tr></tbody></table></div>
-    <h4 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Closed Trades</h4>
-    <div class="table-wrap"><div class="empty">No closed trades yet.</div></div>
-    <h3 style="margin:32px 0 10px;">Momentum Breakout</h3>
-    
-    <div class="badges" style="margin-bottom:12px;"><span class="pill pill-on"><span class="pill-dot"></span>LIVE</span><span class="pill pill-warn"><span class="pill-dot"></span>DRY RUN</span></div>
     <div class="banner">
-      Revived 2026-09-01 after swing_setup.detect_base() was fixed (widened
-      base window + MA-riding check) — backtest: PF 1.69, 9.9% CAGR at
-      cap=10 (SWING_MOMENTUM_MAX_CONCURRENT_POSITIONS). Not yet paper-traded.
+      <b>"Night time is Right Time and Morning time is right time"</b> — Pradeep Bonde's
+      earnings-breakout discovery, the origin of the Episodic Pivot. The gate is the guide's own
+      first checklist line: <b>up 4% on 100,000 volume</b>,
+      measured on the extended-hours session. Both lists are kept side by side on purpose — last
+      night's after-hours gappers, then what actually survived into this morning's pre-market.
+      <br><span style="opacity:.75;">Every name is checked against the guide's three-path checklist
+      and scored on MAGNA53. Two criteria have no free data source and always read "n/a" rather than
+      a false negative: <b>3+ analyst price-target raises</b>, and fund <i>count</i> for neglect
+      (institutional ownership % is shown as a disclosed proxy). This section is
+      <b>research only</b> — it places no orders. The guide gives four different entries and warns
+      "many of these moves fade after the first 1 or 2 hours"; that call stays yours.</span>
     </div>
-    <div class="cards"><div class="card"><div class="label">Realized P&amp;L</div><div class="value ">$0.00</div></div><div class="card"><div class="label">Unrealized P&amp;L</div><div class="value ">$0.00</div></div><div class="card"><div class="label">Win Rate</div><div class="value ">—</div><div class=footnote>0 closed trades</div></div><div class="card"><div class="label">Open Positions</div><div class="value ">0</div><div class=footnote>cap 10</div></div><div class="card"><div class="label">Portfolio Heat</div><div class="value ">0.0%</div><div class=footnote>cap 6.0%</div></div><div class="card"><div class="label">Account Equity</div><div class="value ">—</div><div class=footnote>as of —</div></div></div>
-    <h4 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Open Positions</h4>
-    <div class="table-wrap"><div class="empty">No open swing positions.</div></div>
-    <h4 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Ready Setups Today</h4>
-    <div class="table-wrap"><table>
-      <thead><tr><th>Ticker</th><th class="num">Breakout</th><th class="num">Stop</th>
-      <th class="num">Base</th><th class="num">Prior Move</th></tr></thead>
-      <tbody>
-    <tr>
-      <td class="ticker">REPL</td>
-      <td class="num">$16.33</td>
-      <td class="num">$14.90</td>
-      <td class="num">10d</td>
-      <td class="num">+265%</td>
-    </tr>
-    <tr>
-      <td class="ticker">EOLS</td>
-      <td class="num">$9.15</td>
-      <td class="num">$8.75</td>
-      <td class="num">10d</td>
-      <td class="num">+68%</td>
-    </tr></tbody></table></div>
-    <h4 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Closed Trades</h4>
-    <div class="table-wrap"><div class="empty">No closed trades yet.</div></div>
-    <h3 style="margin:32px 0 10px;">Minervini</h3>
     
-    <div class="badges" style="margin-bottom:12px;"><span class="pill pill-on"><span class="pill-dot"></span>LIVE</span><span class="pill pill-warn"><span class="pill-dot"></span>DRY RUN</span></div>
+    <h3 style="margin:26px 0 8px;">NTRT — Night Time is Right Time (after hours)</h3>
     <div class="banner">
-      Built 2026-09-01 (Trend Template + VCP, see minervini_setup.py).
-      Backtest: PF 2.25 unconstrained / 2.33 at cap=20 (MINERVINI_MAX_CONCURRENT_POSITIONS
-      is currently 20). Not yet paper-traded. Candidate universe includes
-      some ETFs (liquidity-sorted, no ticker-type filter yet) alongside
-      individual stocks — a known scope nuance, not a bug.
+      Session 2026-09-08 · last scan 2026-09-08T22:48:00 ·
+      <b>5</b> cleared the gate (4%+ on
+      100,000+ shares) of 60 scanned ·
+      <b>0</b> pass the checklist · <b>0</b> meet MAGNA53
     </div>
-    <div class="cards"><div class="card"><div class="label">Realized P&amp;L</div><div class="value ">$0.00</div></div><div class="card"><div class="label">Unrealized P&amp;L</div><div class="value ">$0.00</div></div><div class="card"><div class="label">Win Rate</div><div class="value ">—</div><div class=footnote>0 closed trades</div></div><div class="card"><div class="label">Open Positions</div><div class="value ">0</div><div class=footnote>cap 20</div></div><div class="card"><div class="label">Portfolio Heat</div><div class="value ">0.0%</div><div class=footnote>cap 24.0%</div></div><div class="card"><div class="label">Account Equity</div><div class="value ">—</div><div class=footnote>as of —</div></div></div>
-    <h4 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Open Positions</h4>
-    <div class="table-wrap"><div class="empty">No open swing positions.</div></div>
-    <h4 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Candidates Today</h4>
     <div class="table-wrap"><table>
-      <thead><tr><th>Ticker</th><th class="num">Breakout</th><th class="num">Stop</th>
-      <th class="num">Base</th><th class="num">RS%ile</th></tr></thead>
-      <tbody>
-    <tr>
-      <td class="ticker">EWT</td>
-      <td class="num">$110.99</td>
-      <td class="num">$102.62</td>
-      <td class="num">22d</td>
-      <td class="num">90</td>
-    </tr>
-    <tr>
-      <td class="ticker">ROKU</td>
-      <td class="num">$159.89</td>
-      <td class="num">$154.52</td>
-      <td class="num">17d</td>
-      <td class="num">84</td>
-    </tr>
-    <tr>
-      <td class="ticker">ATAI</td>
-      <td class="num">$7.45</td>
-      <td class="num">$7.29</td>
-      <td class="num">15d</td>
-      <td class="num">84</td>
-    </tr>
-    <tr>
-      <td class="ticker">XLK</td>
-      <td class="num">$191.75</td>
-      <td class="num">$178.82</td>
-      <td class="num">22d</td>
-      <td class="num">76</td>
-    </tr>
-    <tr>
-      <td class="ticker">VGT</td>
-      <td class="num">$123.39</td>
-      <td class="num">$115.91</td>
-      <td class="num">23d</td>
-      <td class="num">75</td>
-    </tr>
-    <tr>
-      <td class="ticker">EEM</td>
-      <td class="num">$67.94</td>
-      <td class="num">$65.78</td>
-      <td class="num">15d</td>
-      <td class="num">74</td>
-    </tr>
-    <tr>
-      <td class="ticker">IEMG</td>
-      <td class="num">$82.73</td>
-      <td class="num">$80.12</td>
-      <td class="num">15d</td>
-      <td class="num">73</td>
-    </tr>
-    <tr>
-      <td class="ticker">SSO</td>
-      <td class="num">$72.80</td>
-      <td class="num">$68.91</td>
-      <td class="num">15d</td>
-      <td class="num">72</td>
-    </tr></tbody></table></div>
-    <h4 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Closed Trades</h4>
-    <div class="table-wrap"><div class="empty">No closed trades yet.</div></div></div>
-  </details>
+      <thead><tr><th>Ticker</th><th>Company</th><th>Price</th><th>Gap</th><th>Ext-hrs vol</th>
+      <th>Checklist</th><th>MAGNA53</th><th>Catalyst</th></tr></thead>
+      <tbody><tr><td><b>BNC</b></td><td>CEA Industries Inc.</td><td>$5.25</td><td class="pos">+50.4%</td><td>70,011,327</td><td><span class="tag">no</span></td><td>GN (3/6)</td><td><span class="tag tag-open">earnings · headline</span><br><span style="font-size:11px;opacity:.8;">CEA Industries Inc. Reports Full Year Fiscal 2026 Financial Results — (GlobeNewswire)</span></td></tr><tr><td><b>SMR</b></td><td>NuScale Power Corporation</td><td>$11.18</td><td class="pos">+15.3%</td><td>53,956,246</td><td><span class="tag">no</span></td><td>G (1/6)</td><td><span class="tag">none confirmed</span></td></tr><tr><td><b>INTC</b></td><td>Intel Corporation</td><td>$104.47</td><td class="pos">+9.1%</td><td>140,265,187</td><td><span class="tag">no</span></td><td>GA (2/6)</td><td><span class="tag">none confirmed</span></td></tr><tr><td><b>MARA</b></td><td>MARA Holdings, Inc.</td><td>$11.83</td><td class="pos">+4.6%</td><td>53,474,725</td><td><span class="tag">no</span></td><td>G (1/6)</td><td><span class="tag">none confirmed</span></td></tr><tr><td><b>PLUG</b></td><td>Plug Power, Inc.</td><td>$2.26</td><td class="pos">+4.1%</td><td>76,343,617</td><td><span class="tag">no</span></td><td>G (1/6)</td><td><span class="tag">none confirmed</span></td></tr></tbody></table></div>
+    
+    <h3 style="margin:26px 0 8px;">MTRT — Morning Time is Right Time (pre-market)</h3>
+    <div class="banner">
+      Session 2026-09-08 · last scan 2026-09-08T23:05:25 ·
+      <b>0</b> cleared the gate (4%+ on
+      100,000+ shares) of 50 scanned ·
+      <b>0</b> pass the checklist · <b>0</b> meet MAGNA53
+    </div>
+    <div class="table-wrap"><div class="empty">Nothing stored for this session yet. MTRT — Morning Time is Right Time (pre-market) runs in its own window — NTRT 4–8 PM ET, MTRT 4–9:30 AM ET.</div></div>
+  </section>
 
-  <details class="strategy-section" id="sec-daytrade">
-    <summary>
-      <h2>⚡ Day Trade — GUNS (Low-Float Momentum, catalyst-tagged)</h2>
-      <span class="chevron">Details <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </summary>
-    <div class="section-body">
-    <div class="badges" style="margin-bottom:12px;"><span class="pill pill-on"><span class="pill-dot"></span>LIVE</span><span class="pill pill-warn"><span class="pill-dot"></span>DRY RUN</span><span class="pill pill-on"><span class="pill-dot"></span>CATALYST TAGGED, NOT REQUIRED</span></div>
-    <div class="banner">
-      <b>Two scans, same rules, same risk/reward.</b> Pre-market (broad
-      market, scanned once before open, feeds Setups 1-5) and in-market
-      (NASDAQ100+S&amp;P500 only, continuous through the day, feeds Setups
-      4-5) — both require price ≥$3, volume ≥300K, and a gap ≥3% OR ≥$3
-      move. Can never be backtested (no historical float+scanner+news data
-      exists to replay) — every number below is <b>hypothetical</b> while
-      GUNS_DRY_RUN is on, computed by walking real price bars after each
-      signal, not real fills.
+  <section>
+    <h2>🌋 Cats · Dogs · Liquid Lava</h2>
+    <div class="badges" style="margin-bottom:12px;"><span class="pill pill-on"><span class="pill-dot"></span>LIVE</span><span class="pill pill-warn"><span class="pill-dot"></span>DRY RUN</span></div>
+<div class="banner">
+      <b>The scan:</b> price ≥ $2.00 and today's cumulative volume ≥
+      9,000,000 shares, run live from 09:30 to
+      15:55 ET every 5 minutes.
+      Last pass 2026-09-08T22:35:49 — <b>196</b> names cleared the screen →
+      137 Liquid Lava, 3 Cats, 4 Dogs,
+      5 undetermined.
+      <br><span style="opacity:.75;">The guide's own scan is V ≥ 8,900,000 EOD; this runs at
+      9,000,000 intraday — both are config
+      (<code>NINE_MIN_VOLUME</code>). Liquid Lava also requires a
+      $2B+ market cap, and a Dog is capped at
+      $20B — both are this system's additions, not the
+      guide's numbers.</span>
     </div>
-    <div class="cards"><div class="card"><div class="label">Starting Balance (virtual)</div><div class="value ">$100,000</div></div><div class="card"><div class="label">Current Balance (virtual)</div><div class="value neg">$99,767</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value neg">−$232.74 (-0.23%)</div><div class=footnote>4 closed days + today (in progress)</div></div><div class="card"><div class="label">Today&#x27;s P&amp;L</div><div class="value neg">−$50.24</div></div></div>
-    <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Today's Signals</h3>
-    <div class="table-wrap"><table>
-      <thead><tr><th>Ticker</th><th>Pattern</th><th class="num">Entry</th><th class="num">Stop</th>
-      <th class="num">Target</th><th class="num">Qty</th><th>Outcome</th><th class="num">P&amp;L</th><th>Fired</th></tr></thead>
-      <tbody>
-        <tr>
-          <td class="ticker">USDE</td>
-          <td>GUNS6</td>
-          <td class="num">$7.84</td>
-          <td class="num">$7.66</td>
-          <td class="num">$8.19</td>
-          <td class="num">255</td>
-          <td><span class="tag tag-stop">STOP HIT</span></td>
-          <td class="num neg">−$45.44 (-1.00R)</td>
-          <td>6h ago</td>
-        </tr>
-        <tr>
-          <td class="ticker">MSFT</td>
-          <td>GUNS6</td>
-          <td class="num">$512.39</td>
-          <td class="num">$510.79</td>
-          <td class="num">$515.59</td>
-          <td class="num">3</td>
-          <td><span class="tag tag-stop">STOP HIT</span></td>
-          <td class="num neg">−$4.80 (-1.00R)</td>
-          <td>5h ago</td>
-        </tr></tbody></table></div>
-    <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Pre-Market Watchlist</h3>
-    <div class="table-wrap"><table>
-      <thead><tr><th>Ticker</th><th>Company</th><th class="num">Price</th><th class="num">Gap</th>
-      <th class="num">Volume</th><th class="num">Mkt Cap</th><th class="num">Float</th><th>Catalyst</th>
-      <th>Status</th><th>Since</th></tr></thead>
-      <tbody>
-        <tr>
-          <td class="ticker">AEHL</td>
-          <td>Antelope Enterprise Holdings Limited</td>
-          <td class="num">$8.01</td>
-          <td class="num">+47.5%</td>
-          <td class="num">6,807,119</td>
-          <td class="num">$28M</td>
-          <td class="num">1.3M</td>
-          <td><span class="tag">none</span></td>
-          <td><span class="tag tag-open">watching</span></td>
-          <td>2m ago</td>
-        </tr>
-        <tr>
-          <td class="ticker">TLYS</td>
-          <td>Tilly&#x27;s, Inc.</td>
-          <td class="num">$5.55</td>
-          <td class="num">+45.7%</td>
-          <td class="num">1,709,376</td>
-          <td class="num">$123M</td>
-          <td class="num">22.2M</td>
-          <td><span class="tag tag-open">earnings_beat</span></td>
-          <td><span class="tag tag-open">watching</span></td>
-          <td>2m ago</td>
-        </tr>
-        <tr>
-          <td class="ticker">BIAF</td>
-          <td>bioAffinity Technologies, Inc.</td>
-          <td class="num">$13.21</td>
-          <td class="num">+35.5%</td>
-          <td class="num">3,843,468</td>
-          <td class="num">$7M</td>
-          <td class="num">0.6M</td>
-          <td><span class="tag">none</span></td>
-          <td><span class="tag tag-open">watching</span></td>
-          <td>2m ago</td>
-        </tr>
-        <tr>
-          <td class="ticker">CHPT</td>
-          <td>ChargePoint Holdings, Inc.</td>
-          <td class="num">$6.87</td>
-          <td class="num">+32.4%</td>
-          <td class="num">790,103</td>
-          <td class="num">$239M</td>
-          <td class="num">22.7M</td>
-          <td><span class="tag tag-open">earnings_beat</span></td>
-          <td><span class="tag tag-open">watching</span></td>
-          <td>2m ago</td>
-        </tr>
-        <tr>
-          <td class="ticker">DLTH</td>
-          <td>Duluth Holdings Inc.</td>
-          <td class="num">$4.18</td>
-          <td class="num">+15.5%</td>
-          <td class="num">1,358,419</td>
-          <td class="num">$169M</td>
-          <td class="num">13.1M</td>
-          <td><span class="tag">none</span></td>
-          <td><span class="tag tag-open">watching</span></td>
-          <td>2m ago</td>
-        </tr>
-        <tr>
-          <td class="ticker">DAIC</td>
-          <td>CID HoldCo, Inc.</td>
-          <td class="num">$3.45</td>
-          <td class="num">+13.3%</td>
-          <td class="num">1,684,028</td>
-          <td class="num">$6M</td>
-          <td class="num">1.3M</td>
-          <td><span class="tag">none</span></td>
-          <td><span class="tag tag-open">watching</span></td>
-          <td>2m ago</td>
-        </tr>
-        <tr>
-          <td class="ticker">USDE</td>
-          <td>StablecoinX Inc.</td>
-          <td class="num">$8.11</td>
-          <td class="num">+8.1%</td>
-          <td class="num">560,182</td>
-          <td class="num">$237M</td>
-          <td class="num">21.7M</td>
-          <td><span class="tag">none</span></td>
-          <td><span class="tag tag-fired">already fired</span></td>
-          <td>2m ago</td>
-        </tr>
-        <tr>
-          <td class="ticker">HOOD</td>
-          <td>Robinhood Markets, Inc.</td>
-          <td class="num">$113.80</td>
-          <td class="num">+6.4%</td>
-          <td class="num">894,061</td>
-          <td class="num">$111.8B</td>
-          <td class="num">761.0M</td>
-          <td><span class="tag tag-open">analyst_upgrade</span></td>
-          <td><span class="tag tag-open">watching</span></td>
-          <td>2m ago</td>
-        </tr></tbody></table></div>
-    <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">In-Market Watchlist (NASDAQ100+S&amp;P500)</h3>
-    <div class="table-wrap"><div class="empty">Nothing on the watchlist right now.</div></div>
-    <h3 style="margin:20px 0 10px;font-size:13px;color:var(--text-2);">Trade History</h3>
-    <div class="table-wrap"><table>
-      <thead><tr><th>Date</th><th>Ticker</th><th>Pattern</th><th class="num">Entry</th>
-      <th class="num">Exit</th><th class="num">Qty</th><th>Outcome</th><th class="num">P&amp;L</th></tr></thead>
-      <tbody>
-        <tr>
-          <td>2026-09-02</td>
-          <td class="ticker">UPC</td>
-          <td>GUNS6</td>
-          <td class="num">$4.79</td>
-          <td class="num">$4.70</td>
-          <td class="num">417</td>
-          <td><span class="tag tag-stop">STOP HIT</span></td>
-          <td class="num neg">−$37.53 (-1.00R)</td>
-        </tr>
-        <tr>
-          <td>2026-09-02</td>
-          <td class="ticker">BIAF</td>
-          <td>GUNS6</td>
-          <td class="num">$10.10</td>
-          <td class="num">$9.85</td>
-          <td class="num">198</td>
-          <td><span class="tag tag-stop">STOP HIT</span></td>
-          <td class="num neg">−$49.50 (-1.00R)</td>
-        </tr>
-        <tr>
-          <td>2026-09-02</td>
-          <td class="ticker">BRNX</td>
-          <td>GUNS6</td>
-          <td class="num">$3.80</td>
-          <td class="num">$3.72</td>
-          <td class="num">526</td>
-          <td><span class="tag tag-stop">STOP HIT</span></td>
-          <td class="num neg">−$42.08 (-1.00R)</td>
-        </tr>
-        <tr>
-          <td>2026-09-02</td>
-          <td class="ticker">JLHL</td>
-          <td>GUNS6</td>
-          <td class="num">$7.10</td>
-          <td class="num">$6.91</td>
-          <td class="num">281</td>
-          <td><span class="tag tag-stop">STOP HIT</span></td>
-          <td class="num neg">−$53.39 (-1.00R)</td>
-        </tr></tbody></table></div></div>
-  </details>
+<div class="cards"><div class="card"><div class="label">Allocated Capital</div><div class="value ">$100,000</div><div class=footnote>virtual tracking bucket</div></div><div class="card"><div class="label">Realized P&amp;L</div><div class="value ">$0.00</div><div class=footnote>0 closed trade(s), 0 winner(s)</div></div><div class="card"><div class="label">Open Positions</div><div class="value ">0</div><div class=footnote>Lava 0/5 · Cats 0/5 · Dogs 0/3</div></div><div class="card"><div class="label">Portfolio Heat</div><div class="value pos">0.00%</div><div class=footnote>$0.00 at risk · combined cap 6.0%</div></div></div>
+<h3 style="margin:30px 0 10px;">🌋 Liquid Lava</h3>
 
-  <script>
-  (function() {
-    // Remember each section's open/closed state per viewer (localStorage —
-    // private to this browser, never sent anywhere). Defaults to
-    // COLLAPSED on a first-ever visit (added 2026-09-02 at the user's
-    // request — dashboard should be clean/glanceable by default, expand
-    // only the section you actually need to check).
-    document.querySelectorAll('.strategy-section').forEach(function(el) {
-      var key = 'unified-dash-' + el.id;
-      try {
-        var saved = localStorage.getItem(key);
-        el.open = saved === null ? false : saved === 'true';
-      } catch (e) { el.open = false; }
-      el.addEventListener('toggle', function() {
-        try { localStorage.setItem(key, el.open); } catch (e) {}
-      });
-    });
-  })();
-  </script>
+    <div class="banner" style="opacity:.9;">Needs a setup — bottom bounce, continuation, consolidation breakout or range expansion. Stop 2.5% or tighter, target 10%, time stop 5 bars ("5-15% in 3-5 days"). Risk 1.0% of the bucket, up to 25% notional — the tight stop is what buys the size.</div>
+    <h4 style="margin:18px 0 8px;font-size:13px;color:var(--text-2);">Candidates</h4>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Ticker</th><th>Company</th><th>Price</th><th>Chg</th><th>Volume</th>
+      <th>RVol</th><th>Mkt Cap</th><th>Signal</th><th>Why</th></tr></thead>
+      <tbody><tr><td><b>ROIV</b></td><td>Roivant Sciences Ltd.</td><td>$41.48</td><td class="pos">+18.75%</td><td>24,667,437</td><td>2.6x</td><td>$30.0B</td><td><span class="tag tag-open">Range expansion</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">true range 6.3x ATR20, closed 75% up its range</td></tr><tr><td><b>SMR</b></td><td>NuScale Power Corporation</td><td>$11.18</td><td class="pos">+15.26%</td><td>53,956,246</td><td>1.6x</td><td>$4.8B</td><td><span class="tag tag-open">Range expansion</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">true range 2.6x ATR20, closed 87% up its range</td></tr><tr><td><b>FRMI</b></td><td>Fermi Inc.</td><td>$5.71</td><td class="pos">+11.52%</td><td>27,656,430</td><td>1.9x</td><td>$3.7B</td><td><span class="tag tag-open">Range expansion</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">true range 1.7x ATR20, closed 71% up its range</td></tr><tr><td><b>BE</b></td><td>Bloom Energy Corporation</td><td>$277.22</td><td class="pos">+9.63%</td><td>27,499,957</td><td>2.2x</td><td>$81.6B</td><td><span class="tag tag-open">Range expansion</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">true range 1.8x ATR20, closed 73% up its range</td></tr><tr><td><b>INTC</b></td><td>Intel Corporation</td><td>$104.47</td><td class="pos">+9.05%</td><td>140,265,187</td><td>1.7x</td><td>$552.2B</td><td><span class="tag tag-open">Range expansion</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">true range 2.3x ATR20, closed 72% up its range</td></tr><tr><td><b>AMD</b></td><td>Advanced Micro Devices, Inc.</td><td>$505.74</td><td class="pos">+5.90%</td><td>28,166,284</td><td>1.8x</td><td>$825.6B</td><td><span class="tag tag-open">Range expansion</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">true range 1.9x ATR20, closed 74% up its range</td></tr><tr><td><b>FCX</b></td><td>Freeport-McMoRan, Inc.</td><td>$76.62</td><td class="pos">+5.35%</td><td>16,796,081</td><td>1.1x</td><td>$110.0B</td><td><span class="tag tag-open">Continuation</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">above a rising 20MA (+5.1%), held the pullback, taking out the last 3 bars&#x27; highs</td></tr><tr><td><b>SPCX</b></td><td>Space Exploration Technologies Cor</td><td>$153.47</td><td class="pos">+3.73%</td><td>85,839,650</td><td>1.4x</td><td>$2,082.8B</td><td><span class="tag tag-open">Continuation</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">above a rising 20MA (+8.3%), held the pullback, taking out the last 3 bars&#x27; highs</td></tr><tr><td><b>QCOM</b></td><td>QUALCOMM Incorporated</td><td>$174.09</td><td class="pos">+3.17%</td><td>26,129,029</td><td>2.6x</td><td>$182.8B</td><td><span class="tag tag-open">Continuation</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">above a rising 20MA (+6.2%), held the pullback, taking out the last 3 bars&#x27; highs</td></tr><tr><td><b>AVGO</b></td><td>Broadcom Inc.</td><td>$368.56</td><td class="pos">+2.98%</td><td>30,463,847</td><td>1.1x</td><td>$1,753.5B</td><td><span class="tag tag-open">Bottom bounce</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">down 21% off the 30-bar high, bottomed 2 bars ago, now 7.7% off that low and closing strong</td></tr><tr><td><b>LULU</b></td><td>lululemon athletica inc.</td><td>$103.19</td><td class="pos">+2.56%</td><td>11,221,872</td><td>1.2x</td><td>$12.0B</td><td><span class="tag tag-open">Bottom bounce</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">down 24% off the 30-bar high, bottomed 1 bars ago, now 5.3% off that low and closing strong</td></tr><tr><td><b>CPB</b></td><td>The Campbell&#x27;s Company</td><td>$21.76</td><td class="pos">+1.78%</td><td>11,111,500</td><td>1.2x</td><td>$6.5B</td><td><span class="tag tag-open">Range expansion</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">true range 1.6x ATR20, closed 88% up its range</td></tr><tr><td><b>SUNB</b></td><td>Sunbelt Rentals Holdings, Inc.</td><td>$69.32</td><td class="pos">+1.06%</td><td>10,679,223</td><td>1.1x</td><td>$28.4B</td><td><span class="tag tag-open">Bottom bounce</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">down 24% off the 30-bar high, bottomed 2 bars ago, now 6.9% off that low and closing strong</td></tr><tr><td><b>CRWV</b></td><td>CoreWeave, Inc.</td><td>$99.83</td><td class="pos">+11.72%</td><td>51,191,106</td><td>3.0x</td><td>$55.1B</td><td><span class="tag">no setup</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">no Liquid Lava setup today</td></tr><tr><td><b>WULF</b></td><td>TeraWulf Inc.</td><td>$17.86</td><td class="pos">+8.18%</td><td>36,710,223</td><td>1.4x</td><td>$8.9B</td><td><span class="tag">no setup</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">no Liquid Lava setup today</td></tr><tr><td><b>PATH</b></td><td>UiPath, Inc.</td><td>$14.01</td><td class="neg">-7.77%</td><td>62,577,071</td><td>0.9x</td><td>$7.3B</td><td><span class="tag">no setup</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">no Liquid Lava setup today</td></tr><tr><td><b>HPE</b></td><td>Hewlett Packard Enterprise Company</td><td>$56.03</td><td class="pos">+7.75%</td><td>27,635,527</td><td>1.0x</td><td>$74.4B</td><td><span class="tag">no setup</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">no Liquid Lava setup today</td></tr><tr><td><b>NBIS</b></td><td>Nebius Group N.V.</td><td>$243.88</td><td class="pos">+7.73%</td><td>26,697,323</td><td>2.1x</td><td>$66.3B</td><td><span class="tag">no setup</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">no Liquid Lava setup today</td></tr><tr><td><b>KEEL</b></td><td>Keel Infrastructure Corp.</td><td>$3.73</td><td class="pos">+7.49%</td><td>43,933,528</td><td>1.3x</td><td>$2.3B</td><td><span class="tag">no setup</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">no Liquid Lava setup today</td></tr><tr><td><b>APLD</b></td><td>Applied Digital Corporation</td><td>$28.31</td><td class="pos">+7.36%</td><td>19,992,962</td><td>1.4x</td><td>$8.3B</td><td><span class="tag">no setup</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">no Liquid Lava setup today</td></tr><tr><td><b>RDW</b></td><td>Redwire Corporation</td><td>$11.23</td><td class="pos">+6.65%</td><td>15,297,885</td><td>1.6x</td><td>$2.8B</td><td><span class="tag">no setup</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">no Liquid Lava setup today</td></tr><tr><td><b>QBTS</b></td><td>D-Wave Quantum Inc.</td><td>$17.67</td><td class="pos">+6.57%</td><td>35,819,778</td><td>2.3x</td><td>$6.6B</td><td><span class="tag">no setup</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">no Liquid Lava setup today</td></tr><tr><td><b>CLSK</b></td><td>CleanSpark, Inc.</td><td>$13.48</td><td class="pos">+6.23%</td><td>18,709,640</td><td>1.1x</td><td>$3.5B</td><td><span class="tag">no setup</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">no Liquid Lava setup today</td></tr><tr><td><b>ASTS</b></td><td>AST SpaceMobile, Inc.</td><td>$66.12</td><td class="pos">+6.11%</td><td>12,118,758</td><td>1.2x</td><td>$25.7B</td><td><span class="tag">no setup</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">no Liquid Lava setup today</td></tr><tr><td><b>BSX</b></td><td>Boston Scientific Corporation</td><td>$44.98</td><td class="neg">-5.90%</td><td>29,028,776</td><td>1.5x</td><td>$65.2B</td><td><span class="tag">no setup</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">no Liquid Lava setup today</td></tr><tr><td><b>CRCL</b></td><td>Circle Internet Group, Inc.</td><td>$96.18</td><td class="neg">-5.75%</td><td>12,926,711</td><td>0.8x</td><td>$24.4B</td><td><span class="tag">no setup</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">no Liquid Lava setup today</td></tr><tr><td><b>FIG</b></td><td>FIGMA INC</td><td>$22.75</td><td class="neg">-5.68%</td><td>19,428,484</td><td>1.3x</td><td>$12.1B</td><td><span class="tag">no setup</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">no Liquid Lava setup today</td></tr><tr><td><b>CNH</b></td><td>CNH Industrial N.V.</td><td>$13.60</td><td class="neg">-5.56%</td><td>17,423,212</td><td>0.5x</td><td>$16.8B</td><td><span class="tag">no setup</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">no Liquid Lava setup today</td></tr></tbody></table></div>
+    <h4 style="margin:18px 0 8px;font-size:13px;color:var(--text-2);">Open Positions</h4>
+    <div class="table-wrap"><div class="empty">No open positions.</div></div>
+<h3 style="margin:30px 0 10px;">🐱 Cats</h3>
+
+    <div class="banner" style="opacity:.9;">Real, confirmable catalyst (SEC 8-K in the last 3 days, or a dated headline naming earnings / guidance / a management change / an analyst action / a partnership / a major order / an insider trade / a regulatory event). Stop 2.5%, skipped entirely if an intraday entry would need more than 8.0%. Target 20%+, risk 1.5%.</div>
+    <h4 style="margin:18px 0 8px;font-size:13px;color:var(--text-2);">Candidates</h4>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Ticker</th><th>Company</th><th>Price</th><th>Chg</th><th>Volume</th>
+      <th>RVol</th><th>Mkt Cap</th><th>Signal</th><th>Why</th></tr></thead>
+      <tbody><tr><td><b>BNC</b></td><td>CEA Industries Inc.</td><td>$5.25</td><td class="pos">+50.43%</td><td>70,011,327</td><td>193.1x</td><td>$0.2B</td><td><span class="tag tag-open">earnings</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">CEA Industries Inc. Reports Full Year Fiscal 2026 Financial Results — (GlobeNewswire)</td></tr><tr><td><b>DYN</b></td><td>Dyne Therapeutics, Inc.</td><td>$20.31</td><td class="neg">-16.35%</td><td>17,173,107</td><td>10.6x</td><td>$3.8B</td><td><span class="tag tag-open">regulatory</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">Novartis shares fall as del-desiran flunks Phase 3 myotonic dystrophy trial — (Proactive)</td></tr><tr><td><b>POET</b></td><td>POET Technologies Inc.</td><td>$8.31</td><td class="pos">+4.92%</td><td>17,893,489</td><td>2.4x</td><td>$1.4B</td><td><span class="tag tag-open">earnings</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">POET Technologies Reports Second Quarter 2026 Results: Revenue Up 112% Year-Over-Year in Sixth Consecutive Quarter of Sequential Growth — (GlobeNewswire)</td></tr></tbody></table></div>
+    <h4 style="margin:18px 0 8px;font-size:13px;color:var(--text-2);">Open Positions</h4>
+    <div class="table-wrap"><div class="empty">No open positions.</div></div>
+<h3 style="margin:30px 0 10px;">🐶 Dogs</h3>
+
+    <div class="banner" style="opacity:.9;">A big move on big volume with <b>no catalyst anyone can confirm</b> — the guide's own definition of a story stock. Wide 9.0% stop, small size (0.75% risk, 10% notional cap), partial at +40%, and held until a downside range-expansion bar. Capped at $20B — a mega-cap is not a story stock.</div>
+    <h4 style="margin:18px 0 8px;font-size:13px;color:var(--text-2);">Candidates</h4>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Ticker</th><th>Company</th><th>Price</th><th>Chg</th><th>Volume</th>
+      <th>RVol</th><th>Mkt Cap</th><th>Signal</th><th>Why</th></tr></thead>
+      <tbody><tr><td><b>NUR</b></td><td>Nuran Wireless Inc.</td><td>$2.46</td><td class="pos">+38.98%</td><td>48,163,121</td><td>1215.1x</td><td>$0.0B</td><td><span class="tag">no catalyst found</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">+39.0% on 1215.1x its normal volume with NO confirmable catalyst at a $0.0B market cap — a story move by the guide&#x27;s own definition</td></tr><tr><td><b>NUAI</b></td><td>New Era Energy &amp; Digital, Inc.</td><td>$6.60</td><td class="pos">+22.00%</td><td>15,443,900</td><td>3.1x</td><td>$0.7B</td><td><span class="tag">no catalyst found</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">+22.0% on 3.1x its normal volume with NO confirmable catalyst at a $0.7B market cap — a story move by the guide&#x27;s own definition</td></tr><tr><td><b>BCRX</b></td><td>BioCryst Pharmaceuticals, Inc.</td><td>$9.06</td><td class="neg">-8.99%</td><td>9,687,920</td><td>4.0x</td><td>$2.3B</td><td><span class="tag">no catalyst found</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">-9.0% on 4.0x its normal volume with NO confirmable catalyst at a $2.3B market cap — a story move by the guide&#x27;s own definition</td></tr><tr><td><b>INFQ</b></td><td>Infleqtion, Inc.</td><td>$13.66</td><td class="pos">+6.30%</td><td>15,454,873</td><td>2.1x</td><td>$3.1B</td><td><span class="tag">no catalyst found</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">+6.3% on 2.1x its normal volume with NO confirmable catalyst at a $3.1B market cap — a story move by the guide&#x27;s own definition</td></tr></tbody></table></div>
+    <h4 style="margin:18px 0 8px;font-size:13px;color:var(--text-2);">Open Positions</h4>
+    <div class="table-wrap"><div class="empty">No open positions.</div></div>
+<h3 style="margin:32px 0 10px;">Closed Trades</h3>
+<div class="table-wrap"><div class="empty">No closed trades yet.</div></div>
+  </section>
 
   <footer>
     <span>Generated by unified_dashboard.py</span>
-    <span>Paper trading only — DUT••••••</span>
+    <span>Paper trading only — DUT•••••• · 9-Million is the only strategy in the system</span>
   </footer>
 </div>
 </body>
