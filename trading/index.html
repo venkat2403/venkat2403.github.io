@@ -229,14 +229,14 @@ footer a { color: var(--accent); text-decoration: none; }
     <div>
       <h1>🌋 Trading System — 9 Million</h1>
       <div class="sub">
-        Last refreshed: Wednesday, September 09 2026 — 10:45 AM EDT <span id="lr-ago" class="lr-ago"></span>
+        Last refreshed: Wednesday, September 09 2026 — 10:47 AM EDT <span id="lr-ago" class="lr-ago"></span>
         · IBKR paper account DUT•••••• · Swing Trading — LIVE (dry-run)
       </div>
     </div>
   </div>
   <script>
   (function() {
-    var refreshedAt = new Date("2026-09-09T10:45:28.128143-04:00");
+    var refreshedAt = new Date("2026-09-09T10:47:00.134921-04:00");
     var el = document.getElementById("lr-ago");
     function tick() {
       var mins = Math.round((Date.now() - refreshedAt.getTime()) / 60000);
@@ -254,7 +254,7 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <section class="market-clock">
       <div class="mc-main">
-        <div class="mc-time" id="mc-time">9:45:28 AM</div>
+        <div class="mc-time" id="mc-time">9:47:00 AM</div>
         <div class="mc-tz">CENTRAL TIME</div>
       </div>
       <div class="mc-status">
@@ -333,54 +333,41 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <section>
     <h2>Market Bias <span class="count">overall bias + T2108 proxy</span></h2>
-    <div class="cards"><div class="card"><div class="label">Overall Bias</div><div class="value ">SELECTIVE — TRIM SIZE</div><div class=footnote>Some breakouts working, some not. Be very selective, trim size, and go in with a low profit expectation.</div></div><div class="card"><div class="label">T2108 proxy</div><div class="value ">60.0%</div><div class=footnote>% of 300 names above their 40-day MA</div></div></div>
+    <div class="cards"><div class="card"><div class="label">Overall Bias</div><div class="value ">SELECTIVE — TRIM SIZE</div><div class=footnote>Some breakouts working, some not. Be very selective, trim size, and go in with a low profit expectation.</div></div><div class="card"><div class="label">T2108 proxy</div><div class="value ">60.3%</div><div class=footnote>% of 348 names above their 40-day MA</div></div></div>
   </section>
 
   <section>
-    <h2>📣 Pre-Market Buzz <span class="count">today's movers ranked by retail chatter (StockTwits)</span></h2>
+    <h2>📣 Buzz <span class="count">post-market &amp; pre-market movers ranked by retail chatter (StockTwits)</span></h2>
     
     <div class="banner">
-      <b>How much retail chatter today's pre-market movers are generating.</b>
+      <b>How much retail chatter today's movers are generating.</b>
       Ranked by messages per hour, price $3+.
-      <b>Only names with real chatter are listed</b> — quiet ones are counted on the cards, not tabled.
+      <b>Pre-Market</b> is built at 8:25 AM CT; <b>Post-Market</b> at 7:05 PM CT, after the
+      after-hours session closes. Only ON FIRE / HOT / ACTIVE are listed.
       <br><br><b>Source is StockTwits, not X.</b> X serves only a JavaScript shell without its paid
-      API and Nitter mirrors return nothing; Reddit and Benzinga both return 403. StockTwits is the
-      one openly reachable ticker-chatter feed.
-      <br><b>Buzz is a rate, not a count</b> — the API returns a fixed 30-message page, so what's
-      measured is how much wall-clock time those 30 messages span. 30 in 20 minutes is a crowd;
-      30 over 5 days is nobody.
+      API; Reddit and Benzinga return 403. <b>Buzz is a rate, not a count</b> — the API returns a
+      fixed 30-message page, so what's measured is how much wall-clock time those 30 messages span.
       <br><span style="opacity:.75;">Chatter is <b>not</b> catalyst evidence and never confirms a Cat.
       It is the cleanest read on the Dog case: a big move with heavy chatter and nothing confirmable
-      behind it. Message bodies aren't shown — they add nothing over the rate.</span>
+      behind it.</span>
+    </div>
+    
+    <h3 style="margin:26px 0 8px;">Post-Market</h3>
+    <div class="banner" style="opacity:.9;">
+      Session 2026-09-09 · built 2026-09-09T10:46:22
+    </div>
+    <div class="cards"><div class="card"><div class="label">Names ranked</div><div class="value ">0</div><div class=footnote>0 buzzing + 0 active + 0 quiet + 0 no data</div></div><div class="card"><div class="label">Buzzing</div><div class="value ">0</div><div class=footnote>ON FIRE or HOT</div></div><div class="card"><div class="label">Quiet</div><div class="value ">0</div><div class=footnote>chatter under 1.5 msgs/hr</div></div><div class="card"><div class="label">Built</div><div class="value compact">2026-09-09T10:46:22</div><div class=footnote>session 2026-09-09</div></div></div>
+    <div class="table-wrap"><div class="empty">No pre-market names ranked yet. This builds in the 8:25 AM CT morning routine, after the pre-market scan.</div></div>
+    
+    <h3 style="margin:26px 0 8px;">MTRT</h3>
+    <div class="banner" style="opacity:.9;">
+      Session 2026-09-09 · built 2026-09-09T10:43:43
     </div>
     <div class="cards"><div class="card"><div class="label">Names ranked</div><div class="value ">29</div><div class=footnote>6 buzzing + 2 active + 19 quiet + 2 no data</div></div><div class="card"><div class="label">Buzzing</div><div class="value pos">6</div><div class=footnote>ON FIRE or HOT</div></div><div class="card"><div class="label">Quiet</div><div class="value ">19</div><div class=footnote>chatter under 1.5 msgs/hr</div></div><div class="card"><div class="label">Built</div><div class="value compact">2026-09-09T10:43:43</div><div class=footnote>session 2026-09-09</div></div></div>
     <div class="table-wrap"><table>
       <thead><tr><th>Ticker</th><th>Company</th><th>Price</th><th>PM Gap</th><th>PM Volume</th>
       <th>Buzz</th><th>Msgs/hr ▼</th><th>Catalyst</th></tr></thead>
       <tbody><tr><td><b>SUNE</b></td><td>SUNation Energy, Inc.</td><td>$3.05</td><td class="pos">+28.8%</td><td>10,554,899</td><td class="pos">🔥 ON FIRE</td><td>194.6</td><td style="font-size:11px;opacity:.8;">earnings</td></tr><tr><td><b>META</b></td><td>Meta Platforms, Inc.</td><td>$646.00</td><td class="pos">+5.3%</td><td>1,744,064</td><td class="pos">🔥 ON FIRE</td><td>79.0</td><td style="font-size:11px;opacity:.8;">not analysed</td></tr><tr><td><b>IRD</b></td><td>Opus Genetics, Inc.</td><td>$5.21</td><td class="pos">+20.0%</td><td>2,338,513</td><td class="pos">🔥 ON FIRE</td><td>74.3</td><td style="font-size:11px;opacity:.8;">regulatory</td></tr><tr><td><b>BIAF</b></td><td>bioAffinity Technologies, </td><td>$10.64</td><td class="pos">+19.1%</td><td>2,132,477</td><td class="pos">🔥 HOT</td><td>26.0</td><td style="font-size:11px;opacity:.8;">partnership</td></tr><tr><td><b>ODD</b></td><td>ODDITY Tech Ltd.</td><td>$17.40</td><td class="pos">+33.6%</td><td>1,203,303</td><td class="pos">🔥 HOT</td><td>25.5</td><td style="font-size:11px;opacity:.8;">earnings</td></tr><tr><td><b>FGL</b></td><td>Founder Group Limited</td><td>$8.57</td><td class="pos">+13.2%</td><td>915,130</td><td class="pos">🔥 HOT</td><td>12.9</td><td style="font-size:11px;opacity:.8;">partnership</td></tr><tr><td><b>CHYM</b></td><td>Chime Financial, Inc.</td><td>$35.09</td><td class="pos">+8.6%</td><td>146,819</td><td class=""> ACTIVE</td><td>1.7</td><td style="font-size:11px;opacity:.8;">other</td></tr><tr><td><b>MODD</b></td><td>Modular Medical, Inc.</td><td>$3.13</td><td class="pos">+11.0%</td><td>146,635</td><td class=""> ACTIVE</td><td>1.5</td><td style="font-size:11px;opacity:.8;">other</td></tr></tbody></table><div style="font-size:11px;opacity:.7;margin:6px 0 0;">19 quieter name(s) checked and not listed · no StockTwits feed for RML (+67.8%), AUOTY (+4.2%) — checked, none exists.</div></div>
-  </section>
-
-  <section>
-    <h2>🌙 NTRT <span class="count">last night's after-hours earnings gaps</span></h2>
-    
-    <div class="banner">
-      <b>Earnings gappers — up 4%+ on 100,000+ shares in extended hours.</b>
-      <br><b>NTRT</b> = last night after-hours. <b>MTRT</b> = this morning pre-market.
-      Both are kept so you can see what actually survived overnight.
-      <br><br>Each name is checked against the 3-path checklist and scored on MAGNA53.
-      Two criteria have no free data and read <b>n/a</b> rather than a false no:
-      3+ analyst target raises, and fund <i>count</i> for neglect.
-      <br><b>Research only — this places no orders.</b>
-    </div>
-    
-    <h3 style="margin:26px 0 8px;">NTRT — Night Time is Right Time (after hours)</h3>
-    <div class="banner">
-      Session 2026-09-08 · last scan 2026-09-09T00:31:57 ·
-      <b>0</b> cleared the gate (4%+ on
-      100,000+ shares) of 18 scanned ·
-      <b>0</b> pass the checklist · <b>0</b> meet MAGNA53
-    </div>
-    <div class="table-wrap"><div class="empty">Scanned 18 names — none cleared the 4%/100,000 gate. A quiet session, not a failure.</div></div>
   </section>
 
   <section>
