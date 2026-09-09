@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="PreBell — Daily pre-market gap scanner, sector ETF rotation, AH movers and earnings intelligence. Ready by 8:20 AM CST.">
+<meta name="theme-color" content="#0d1117">
+<title>🔔 PreBell — 2026-02-25</title>
+<style>
+:root {
+  --bg:        #0a0d12;
+  --surface:   #111520;
+  --surface-2: #161b28;
+  --border:    #1e2535;
+  --text:      #eef2f7;
+  --text-2:    #9aaabb;
+  --muted:     #5c6e82;
+  --green:     #30d158;
+  --green-bg:  #0a1f12;
+  --yellow:    #ffd60a;
+  --yellow-bg: #1a1400;
+  --red:       #ff453a;
+  --red-bg:    #1a0808;
+  --blue:      #0a84ff;
+  --orange:    #ff9f0a;
+  --purple:    #bf5af2;
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'SF Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 0 20px 100px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── top banner ── */
+.top-bar {
+  background: rgba(17, 21, 32, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.top-bar .brand { display: flex; flex-direction: column; gap: 2px; }
+.top-bar h1 { font-size: 22px; color: var(--blue); font-weight: 700; letter-spacing: -0.5px; }
+.top-bar .tagline { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; font-weight: 500; }
+.top-bar .ts { font-size: 12px; color: var(--muted); text-align: right; line-height: 1.7; }
+
+/* ── market condition badge ── */
+.mkt-green  { background: var(--green-bg);  color: var(--green);  border: 1px solid rgba(48,209,88,.25);  }
+.mkt-yellow { background: var(--yellow-bg); color: var(--yellow); border: 1px solid rgba(255,214,10,.25); }
+.mkt-red    { background: var(--red-bg);    color: var(--red);    border: 1px solid rgba(255,69,58,.25);  }
+.mkt-badge  { padding: 4px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; letter-spacing: 0.3px; }
+
+/* ── sections ── */
+.section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 14px auto;
+  max-width: 960px;
+  overflow: hidden;
+}
+.section-header {
+  background: var(--surface-2);
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid var(--border);
+}
+.section-header h2 { font-size: 15px; color: var(--text); font-weight: 600; letter-spacing: -0.2px; }
+.section-header .arrow { color: var(--muted); font-size: 12px; transition: transform .25s ease; }
+.section-header.open .arrow { transform: rotate(180deg); }
+.section-body { padding: 18px 20px; display: none; }
+.section-body.open { display: block; }
+
+/* ── KV grid ── */
+.kv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0 24px;
+}
+.kv-row { display: flex; gap: 8px; align-items: baseline; padding: 7px 0; border-bottom: 1px solid var(--border); }
+.kv-row:last-child { border-bottom: none; }
+.kv-label { color: var(--muted); min-width: 150px; flex-shrink: 0; font-size: 12px; font-weight: 500; }
+.kv-value { color: var(--text-2); word-break: break-word; font-size: 13px; }
+.kv-mono  { font-family: var(--font-mono); font-size: 12px; }
+
+/* ── summary table ── */
+.tbl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+table { width: 100%; border-collapse: collapse; }
+th {
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; font-size: 13px; }
+td:first-child { color: var(--muted); font-size: 12px; font-weight: 500; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--surface-2); transition: background .15s; }
+
+/* ── conviction ── */
+.conv-high { color: var(--green);  }
+.conv-mid  { color: var(--yellow); }
+.conv-low  { color: var(--red);    }
+.conv-cell { font-weight: 700; font-size: 15px; }
+.conv-label { font-size: 10px; color: var(--muted); }
+
+/* ── gap colours ── */
+.gap-hot  { color: var(--orange); font-weight: 700; }
+.gap-warm { color: var(--yellow); font-weight: 600; }
+.gap-cool { color: var(--blue);   font-weight: 600; }
+
+/* ── stock cards ── */
+.stock-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 10px auto;
+  max-width: 960px;
+  overflow: hidden;
+}
+.stock-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.ticker-badge {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--blue);
+  min-width: 90px;
+  letter-spacing: -0.5px;
+}
+.stock-meta { flex: 1; line-height: 1.6; min-width: 0; }
+.stock-meta > strong { color: var(--text); display: block; font-size: 15px; font-weight: 600; letter-spacing: -0.2px; margin-bottom: 3px; }
+.stock-meta .meta-row { font-size: 12px; color: var(--text-2); }
+.stock-meta .meta-row strong { display: inline; font-size: 12px; font-weight: 600; }
+.conv-ring {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2.5px solid;
+  font-size: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+  letter-spacing: -1px;
+}
+.card-body { padding: 20px; display: none; }
+.card-body.open { display: block; }
+
+/* ── subsections inside card ── */
+.sub-section { margin-bottom: 24px; }
+.sub-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+pre.raw-text {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--text-2);
+  font-family: var(--font);
+  font-size: 13px;
+  line-height: 1.75;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+/* ── trade plan box ── */
+.trade-plan {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+.tp-cell {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 12px;
+  text-align: center;
+}
+.tp-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; font-weight: 600; }
+.tp-val   { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.5px; }
+.tp-val.green { color: var(--green); }
+.tp-val.red   { color: var(--red);   }
+.tp-val.blue  { color: var(--blue);  }
+
+/* ── earnings scorecard ── */
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+.score-cell {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  text-align: center;
+}
+.score-label { font-size: 10px; color: var(--muted); letter-spacing: .5px; font-weight: 600; text-transform: uppercase; }
+.score-val   { font-size: 20px; font-weight: 700; color: var(--text); margin: 6px 0 4px; letter-spacing: -0.5px; }
+.score-bar   { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.score-bar-fill { height: 100%; border-radius: 2px; }
+
+/* ── sector ETF grid ── */
+.etf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.etf-cell {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 8px;
+  text-align: center;
+}
+.etf-ticker  { font-size: 14px; font-weight: 700; color: var(--blue); letter-spacing: -0.3px; }
+.etf-name    { font-size: 10px; color: var(--muted); margin: 3px 0 2px; font-weight: 500; }
+.etf-change  { font-size: 17px; font-weight: 700; letter-spacing: -0.5px; }
+.etf-status  { font-size: 10px; color: var(--muted); margin-top: 3px; letter-spacing: .3px; font-weight: 600; text-transform: uppercase; }
+.etf-hot     { border-color: rgba(48,209,88,.35); background: var(--green-bg); }
+.etf-cold    { border-color: rgba(255,69,58,.35);  background: var(--red-bg);  }
+.etf-up      { color: var(--green); }
+.etf-flat    { color: var(--muted); }
+.etf-down    { color: var(--red);   }
+.etf-section-label {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  margin: 14px 0 7px;
+  font-weight: 600;
+}
+
+/* ── source badges — pill style ── */
+.badge-ah       { background: rgba(94,158,255,.1);  color: #7ec8e3; border: 1px solid rgba(94,158,255,.25);
+                  font-size: 10px; padding: 2px 9px; border-radius: 20px; white-space: nowrap; font-weight: 600; }
+.badge-earnings { background: rgba(48,209,88,.1);   color: var(--green); border: 1px solid rgba(48,209,88,.25);
+                  font-size: 10px; padding: 2px 9px; border-radius: 20px; white-space: nowrap; font-weight: 600; }
+.badge-ep       { background: rgba(255,214,10,.1);  color: #ffd60a; border: 1px solid rgba(255,214,10,.35);
+                  font-size: 10px; padding: 2px 9px; border-radius: 20px; white-space: nowrap; font-weight: 700; }
+
+/* ── no-stocks banner ── */
+.no-stocks {
+  text-align: center;
+  padding: 64px 20px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+.no-stocks span { display: block; font-size: 48px; margin-bottom: 16px; }
+
+/* ── footer ── */
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 24px 20px;
+  border-top: 1px solid var(--border);
+  max-width: 960px;
+  margin: 40px auto 0;
+  line-height: 1.8;
+}
+
+/* ── responsive — tablet ── */
+@media (max-width: 768px) {
+  .section, .stock-card { margin: 10px auto; }
+  .kv-grid { grid-template-columns: 1fr; }
+  .trade-plan { grid-template-columns: repeat(3, 1fr); }
+  .etf-grid { grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); }
+  th { font-size: 10px; padding: 8px 10px; }
+  td { padding: 9px 10px; font-size: 12px; }
+}
+
+/* ── responsive — phone ── */
+@media (max-width: 480px) {
+  body { padding: 0 8px 60px; font-size: 13px; }
+  .top-bar { flex-direction: column; align-items: flex-start; padding: 12px 14px; }
+  .top-bar h1 { font-size: 20px; }
+  .top-bar .ts { font-size: 11px; }
+  .section-header h2 { font-size: 14px; }
+  .section-body { padding: 12px 12px; }
+  .kv-label { min-width: 110px; font-size: 11px; }
+  .kv-value { font-size: 12px; }
+  .tbl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { min-width: 700px; }
+  th { font-size: 10px; padding: 7px 9px; }
+  td { padding: 7px 9px; font-size: 11px; }
+  .stock-header { flex-wrap: wrap; gap: 10px; padding: 12px 14px; min-height: 44px; }
+  .ticker-badge { font-size: 18px; min-width: 64px; }
+  .stock-meta strong { font-size: 14px; }
+  .conv-ring    { width: 46px; height: 46px; font-size: 16px; border-width: 2px; }
+  .card-body    { padding: 14px 12px; }
+  .trade-plan { grid-template-columns: repeat(2, 1fr); }
+  .tp-val     { font-size: 18px; }
+  .etf-grid   { grid-template-columns: repeat(auto-fill, minmax(82px, 1fr)); gap: 6px; }
+  .etf-cell   { padding: 8px 6px; }
+  .etf-ticker { font-size: 13px; }
+  .etf-change { font-size: 15px; }
+  .score-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+  .badge-ah, .badge-earnings, .badge-ep { font-size: 9px; padding: 2px 7px; }
+  .section-header, .stock-header { min-height: 44px; }
+  .mkt-badge { font-size: 11px; padding: 3px 10px; }
+  footer { font-size: 11px; padding: 16px 8px; }
+}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <div class="brand">
+    <h1>🔔 PreBell</h1>
+    <span class="tagline">Morning Market Intelligence &mdash; 2026-02-25</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <span class="mkt-badge mkt-green">GREEN</span>
+    <span class="ts">Generated Wednesday, February 25 2026  04:28 PM EST<br>Target: 8:20 AM CST</span>
+  </div>
+</div>
+
+<div class="section"><div class="section-header open"><h2>📊 Market Overview</h2><span class="arrow">▼</span></div><div class="section-body open"><div style="margin-bottom:12px"><span class="mkt-badge mkt-green">GREEN</span></div>
+<div class="kv-grid">
+<div class="kv-row"><span class="kv-label">Market Status</span><span class="kv-value">NYSE OPEN — Full session  |  VIX: 15.2 (CALM)</span></div>
+<div class="kv-row"><span class="kv-label">Yesterday Context</span><span class="kv-value">SPY +0.24%  QQQ +0.8%  DOMINANT THEME: Tech-led rally</span></div>
+<div class="kv-row"><span class="kv-label">Futures Snapshot</span><span class="kv-value">ES +12 (+0.24%)  NQ +45  VIX 15.2  VERDICT: Green open</span></div>
+<div class="kv-row"><span class="kv-label">Global Markets</span><span class="kv-value">Asia +0.5%  Europe +0.3%  RISK SENTIMENT: RISK ON</span></div>
+<div class="kv-row"><span class="kv-label">Economic Calendar</span><span class="kv-value">8:30 EST | Jobless Claims | 215K | 210K | 🟡 MEDIUM</span></div>
+<div class="kv-row"><span class="kv-label">Market Score</span><span class="kv-value">8 / 10</span></div>
+<div class="kv-row"><span class="kv-label">Sector Bias</span><span class="kv-value">Technology — TAILWIND</span></div>
+</div></div></div>
+
+<div class="section"><div class="section-header open"><h2>📈 Sector ETFs — Premarket Snapshot</h2><span class="arrow">▼</span></div><div class="section-body open"><div class="etf-section-label">Broad Market</div>
+<div class="etf-grid"><div class="etf-cell"><div class="etf-ticker">SPY</div><div class="etf-name">S&amp;P 500</div><div class="etf-change etf-up">+0.25%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">QQQ</div><div class="etf-name">Nasdaq 100</div><div class="etf-change etf-up">+0.55%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">IWM</div><div class="etf-name">Russell 2000</div><div class="etf-change etf-flat">-0.10%</div><div class="etf-status">FLAT</div></div></div>
+<div class="etf-section-label">SPDR Sector ETFs</div>
+<div class="etf-grid"><div class="etf-cell etf-hot"><div class="etf-ticker">XLK</div><div class="etf-name">Technology</div><div class="etf-change etf-up">+0.82%</div><div class="etf-status">HOT</div></div><div class="etf-cell"><div class="etf-ticker">XLF</div><div class="etf-name">Financials</div><div class="etf-change etf-up">+0.31%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLV</div><div class="etf-name">Health Care</div><div class="etf-change etf-flat">-0.12%</div><div class="etf-status">FLAT</div></div><div class="etf-cell etf-cold"><div class="etf-ticker">XLE</div><div class="etf-name">Energy</div><div class="etf-change etf-down">-1.25%</div><div class="etf-status">COLD</div></div><div class="etf-cell"><div class="etf-ticker">XLB</div><div class="etf-name">Materials</div><div class="etf-change etf-up">+0.18%</div><div class="etf-status">FLAT</div></div><div class="etf-cell"><div class="etf-ticker">XLI</div><div class="etf-name">Industrials</div><div class="etf-change etf-up">+0.28%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLY</div><div class="etf-name">Consumer Discr.</div><div class="etf-change etf-up">+0.65%</div><div class="etf-status">UP</div></div><div class="etf-cell"><div class="etf-ticker">XLP</div><div class="etf-name">Consumer Staples</div><div class="etf-change etf-flat">-0.05%</div><div class="etf-status">FLAT</div></div><div class="etf-cell"><div class="etf-ticker">XLRE</div><div class="etf-name">Real Estate</div><div class="etf-change etf-down">-0.45%</div><div class="etf-status">DOWN</div></div><div class="etf-cell"><div class="etf-ticker">XLU</div><div class="etf-name">Utilities</div><div class="etf-change etf-down">-0.32%</div><div class="etf-status">DOWN</div></div></div>
+<div style="margin-top:10px;padding:6px 10px;background:#0d1117;border:1px solid var(--border);border-radius:4px;font-size:12px;">Sector Bias: <strong style="color:var(--muted)">NEUTRAL — mixed sector signals</strong> &nbsp; avg PM +0.00%</div></div></div>
+
+<div id="stocks-container">
+<div class="section"><div class="section-header open"><h2>📋 Stocks Summary</h2><span class="arrow">▼</span></div><div class="section-body open"><div class="tbl-wrap"><table><thead><tr><th style="min-width:40px">#</th><th style="min-width:70px">Ticker</th><th style="min-width:160px">Company</th><th style="min-width:65px">Price</th><th style="min-width:75px">Gap %</th><th style="min-width:65px">Rel Vol</th><th style="min-width:200px">Catalyst</th><th style="min-width:110px">Type</th><th style="min-width:55px">Conv</th><th style="min-width:65px">Entry</th><th style="min-width:65px">Stop</th><th style="min-width:70px">Target</th><th style="min-width:55px">R:R</th></tr></thead><tbody><tr><td>1</td><td><strong style="color:var(--blue)">EXMPL</strong></td><td>Example Corp</td><td>$42.50</td><td class="gap-warm">+12.5%</td><td>4.2x</td><td style="white-space:normal;max-width:220px;color:var(--text-2)">Q4 earnings beat — EPS +35% above est, rev +22%</td><td><span class="badge-earnings">📊 EARNINGS</span> <span class="badge-ep">⚡ EP</span></td><td class="conv-cell conv-high">8</td><td class="green">$43.00</td><td class="red">$41.20</td><td class="blue">$47.00</td><td>1:2.2</td></tr><tr><td>2</td><td><strong style="color:var(--blue)">EARNS2</strong></td><td>Earnings Corp (No EP)</td><td>$28.10</td><td class="gap-cool">+6.2%</td><td>2.8x</td><td style="white-space:normal;max-width:220px;color:var(--text-2)">Q4 beat — EPS +18% above est, rev +12%. Steady but not massive.</td><td><span class="badge-earnings">📊 EARNINGS</span></td><td class="conv-cell conv-mid">5</td><td class="green">$28.50</td><td class="red">$27.00</td><td class="blue">$31.00</td><td>1:1.7</td></tr><tr><td>3</td><td><strong style="color:var(--blue)">AHTEST</strong></td><td>AH Mover Inc</td><td>$18.75</td><td class="gap-warm">+7.8% (AH)</td><td>3.1x</td><td style="white-space:normal;max-width:220px;color:var(--text-2)">FDA granted breakthrough therapy designation AH</td><td><span class="badge-ah">🌙 AH MOVER</span></td><td class="conv-cell conv-mid">6</td><td class="green">$19.10</td><td class="red">$17.90</td><td class="blue">$21.50</td><td>1:2.0</td></tr></tbody></table></div></div></div><div class="stock-card"><div class="stock-header"><div class="ticker-badge">#1 EXMPL</div><div class="stock-meta"><strong>Example Corp</strong><div class="meta-row">Price: <strong style="color:var(--text)">$42.50</strong>&ensp;·&ensp;Gap: <span class="gap-warm">+12.5%</span>&ensp;·&ensp;RelVol: 4.2x&ensp;<span class="badge-earnings">📊 EARNINGS</span> <span class="badge-ep">⚡ EP</span></div></div><div class="conv-ring conv-high" style="border-color:var(--green)">8</div><span class="card-arrow" style="color:var(--muted);margin-left:8px;font-size:13px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Earnings Scorecard</div>
+<div class="kv-grid">
+<div class="kv-row"><span class="kv-label">Earnings Driven</span><span class="kv-value">YES</span></div>
+<div class="kv-row"><span class="kv-label">EPS Estimate</span><span class="kv-value">$0.05</span></div>
+<div class="kv-row"><span class="kv-label">EPS Actual</span><span class="kv-value">$0.22</span></div>
+<div class="kv-row"><span class="kv-label">EPS Beat %</span><span class="kv-value">340%</span></div>
+<div class="kv-row"><span class="kv-label">Revenue Est</span><span class="kv-value">$120M</span></div>
+<div class="kv-row"><span class="kv-label">Revenue Actual</span><span class="kv-value">$198M</span></div>
+<div class="kv-row"><span class="kv-label">Revenue Beat %</span><span class="kv-value">65.0%</span></div>
+<div class="kv-row"><span class="kv-label">Guidance</span><span class="kv-value">Raised FY guidance +18%</span></div>
+<div class="kv-row"><span class="kv-label">Total Score</span><span class="kv-value">28 / 35</span></div>
+</div>
+<div class="score-grid" style="margin-top:12px">
+<div class="score-cell"><div class="score-label">EPS</div><div class="score-val">5/5</div><div class="score-bar"><div class="score-bar-fill" style="width:100%;background:#3fb950"></div></div></div>
+<div class="score-cell"><div class="score-label">Revenue</div><div class="score-val">5/5</div><div class="score-bar"><div class="score-bar-fill" style="width:100%;background:#3fb950"></div></div></div>
+<div class="score-cell"><div class="score-label">Margin</div><div class="score-val">4/5</div><div class="score-bar"><div class="score-bar-fill" style="width:80%;background:#3fb950"></div></div></div>
+<div class="score-cell"><div class="score-label">Guidance</div><div class="score-val">5/5</div><div class="score-bar"><div class="score-bar-fill" style="width:100%;background:#3fb950"></div></div></div>
+<div class="score-cell"><div class="score-label">KPI</div><div class="score-val">3/5</div><div class="score-bar"><div class="score-bar-fill" style="width:60%;background:#d29922"></div></div></div>
+<div class="score-cell"><div class="score-label">History</div><div class="score-val">3/5</div><div class="score-bar"><div class="score-bar-fill" style="width:60%;background:#d29922"></div></div></div>
+<div class="score-cell"><div class="score-label">Valuation</div><div class="score-val">3/5</div><div class="score-bar"><div class="score-bar-fill" style="width:60%;background:#d29922"></div></div></div>
+</div>
+</div>
+<div class="sub-section"><div class="sub-title">Analyst & Short Interest</div>
+<div class="kv-grid">
+<div class="kv-row"><span class="kv-label">Consensus</span><span class="kv-value">BUY</span></div>
+<div class="kv-row"><span class="kv-label">Avg Price Target</span><span class="kv-value">$49.00</span></div>
+<div class="kv-row"><span class="kv-label"># Analysts</span><span class="kv-value">12</span></div>
+<div class="kv-row"><span class="kv-label">Recent Action</span><span class="kv-value">3 Upgrades — MS, GS, JPM</span></div>
+<div class="kv-row"><span class="kv-label">Short Interest</span><span class="kv-value">8.4%</span></div>
+<div class="kv-row"><span class="kv-label">Short Squeeze Risk</span><span class="kv-value">HIGH</span></div>
+<div class="kv-row"><span class="kv-label">Institutional Own.</span><span class="kv-value">22%</span></div>
+<div class="kv-row"><span class="kv-label">Insider Activity</span><span class="kv-value">None recent</span></div>
+</div>
+</div>
+<div class="sub-section"><div class="sub-title">Catalyst Analysis</div><pre class="raw-text">Massive earnings beat — EPS tripled YoY. Revenue surged 65%. This is a textbook Episodic Pivot setup.</pre></div>
+<div class="sub-section"><div class="sub-title">Technical Context</div><pre class="raw-text">Gap above 6-month base. First meaningful institutional accumulation visible in volume.</pre></div>
+<div class="sub-section"><div class="sub-title">Overall Verdict</div>
+<pre class="raw-text">Example verdict text for testing.</pre>
+<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$43.00</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$41.20</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$47.00</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">1:2.2</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-high">8/10</div></div></div>
+</div></div></div>
+<div class="stock-card"><div class="stock-header"><div class="ticker-badge">#2 EARNS2</div><div class="stock-meta"><strong>Earnings Corp (No EP)</strong><div class="meta-row">Price: <strong style="color:var(--text)">$28.10</strong>&ensp;·&ensp;Gap: <span class="gap-cool">+6.2%</span>&ensp;·&ensp;RelVol: 2.8x&ensp;<span class="badge-earnings">📊 EARNINGS</span></div></div><div class="conv-ring conv-mid" style="border-color:var(--yellow)">5</div><span class="card-arrow" style="color:var(--muted);margin-left:8px;font-size:13px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Earnings Scorecard</div>
+<div class="kv-grid">
+<div class="kv-row"><span class="kv-label">Earnings Driven</span><span class="kv-value">YES</span></div>
+<div class="kv-row"><span class="kv-label">EPS Estimate</span><span class="kv-value">$0.80</span></div>
+<div class="kv-row"><span class="kv-label">EPS Actual</span><span class="kv-value">$0.94</span></div>
+<div class="kv-row"><span class="kv-label">EPS Beat %</span><span class="kv-value">17.5%</span></div>
+<div class="kv-row"><span class="kv-label">Revenue Est</span><span class="kv-value">$500M</span></div>
+<div class="kv-row"><span class="kv-label">Revenue Actual</span><span class="kv-value">$560M</span></div>
+<div class="kv-row"><span class="kv-label">Revenue Beat %</span><span class="kv-value">12.0%</span></div>
+<div class="kv-row"><span class="kv-label">Guidance</span><span class="kv-value">In-line guidance</span></div>
+<div class="kv-row"><span class="kv-label">Total Score</span><span class="kv-value">18 / 35</span></div>
+</div>
+<div class="score-grid" style="margin-top:12px">
+<div class="score-cell"><div class="score-label">EPS</div><div class="score-val">3/5</div><div class="score-bar"><div class="score-bar-fill" style="width:60%;background:#d29922"></div></div></div>
+<div class="score-cell"><div class="score-label">Revenue</div><div class="score-val">3/5</div><div class="score-bar"><div class="score-bar-fill" style="width:60%;background:#d29922"></div></div></div>
+<div class="score-cell"><div class="score-label">Margin</div><div class="score-val">2/5</div><div class="score-bar"><div class="score-bar-fill" style="width:40%;background:#f85149"></div></div></div>
+<div class="score-cell"><div class="score-label">Guidance</div><div class="score-val">2/5</div><div class="score-bar"><div class="score-bar-fill" style="width:40%;background:#f85149"></div></div></div>
+<div class="score-cell"><div class="score-label">KPI</div><div class="score-val">3/5</div><div class="score-bar"><div class="score-bar-fill" style="width:60%;background:#d29922"></div></div></div>
+<div class="score-cell"><div class="score-label">History</div><div class="score-val">3/5</div><div class="score-bar"><div class="score-bar-fill" style="width:60%;background:#d29922"></div></div></div>
+<div class="score-cell"><div class="score-label">Valuation</div><div class="score-val">2/5</div><div class="score-bar"><div class="score-bar-fill" style="width:40%;background:#f85149"></div></div></div>
+</div>
+</div>
+<div class="sub-section"><div class="sub-title">Analyst & Short Interest</div>
+<div class="kv-grid">
+<div class="kv-row"><span class="kv-label">Consensus</span><span class="kv-value">HOLD</span></div>
+<div class="kv-row"><span class="kv-label">Avg Price Target</span><span class="kv-value">$30.00</span></div>
+<div class="kv-row"><span class="kv-label"># Analysts</span><span class="kv-value">8</span></div>
+<div class="kv-row"><span class="kv-label">Recent Action</span><span class="kv-value">1 Upgrade — Citi</span></div>
+<div class="kv-row"><span class="kv-label">Short Interest</span><span class="kv-value">2.1%</span></div>
+<div class="kv-row"><span class="kv-label">Short Squeeze Risk</span><span class="kv-value">LOW</span></div>
+<div class="kv-row"><span class="kv-label">Institutional Own.</span><span class="kv-value">72%</span></div>
+<div class="kv-row"><span class="kv-label">Insider Activity</span><span class="kv-value">None recent</span></div>
+</div>
+</div>
+<div class="sub-section"><div class="sub-title">Catalyst Analysis</div><pre class="raw-text">Solid but unspectacular earnings. Growth decelerating from prior quarters.</pre></div>
+<div class="sub-section"><div class="sub-title">Technical Context</div><pre class="raw-text">Modest gap, no breakout from base.</pre></div>
+<div class="sub-section"><div class="sub-title">Overall Verdict</div>
+<pre class="raw-text">Decent earnings beat but no major acceleration in growth rate.</pre>
+<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$28.50</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$27.00</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$31.00</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">1:1.7</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-mid">5/10</div></div></div>
+</div></div></div>
+<div class="stock-card"><div class="stock-header"><div class="ticker-badge">#3 AHTEST</div><div class="stock-meta"><strong>AH Mover Inc</strong><div class="meta-row">Price: <strong style="color:var(--text)">$18.75</strong>&ensp;·&ensp;Gap: <span class="gap-warm">+7.8% (AH)</span>&ensp;·&ensp;RelVol: 3.1x&nbsp;|&nbsp; AH Vol: 1,250,000&ensp;<span class="badge-ah">🌙 AH MOVER</span></div></div><div class="conv-ring conv-mid" style="border-color:var(--yellow)">6</div><span class="card-arrow" style="color:var(--muted);margin-left:8px;font-size:13px">▼</span></div><div class="card-body"><div class="sub-section"><div class="sub-title">Catalyst Analysis</div><pre class="raw-text">FDA breakthrough therapy designation announced after close.</pre></div>
+<div class="sub-section"><div class="sub-title">Technical Context</div><pre class="raw-text">Technical context for AH mover.</pre></div>
+<div class="sub-section"><div class="sub-title">Overall Verdict</div>
+<pre class="raw-text">AH mover verdict text for testing.</pre>
+<div class="trade-plan"><div class="tp-cell"><div class="tp-label">Entry</div><div class="tp-val green">$19.10</div></div><div class="tp-cell"><div class="tp-label">Stop</div><div class="tp-val red">$17.90</div></div><div class="tp-cell"><div class="tp-label">Target</div><div class="tp-val blue">$21.50</div></div><div class="tp-cell"><div class="tp-label">Risk : Reward</div><div class="tp-val">1:2.0</div></div><div class="tp-cell"><div class="tp-label">Conviction</div><div class="tp-val conv-mid">6/10</div></div></div>
+</div></div></div>
+</div>
+
+<footer>
+  🔔 <strong>PreBell</strong> &bull; Morning Market Intelligence<br>
+  Powered by Perplexity AI &amp; TradingView &bull; Pre/Post-market gaps &bull; Sector ETFs &bull; Earnings<br>
+  <span style="color:#555">For educational purposes only &mdash; not financial advice.</span><br>
+  Generated Wednesday, February 25 2026  04:28 PM EST
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // generic collapsibles
+  document.querySelectorAll('.section-header').forEach(function(hdr) {
+    hdr.addEventListener('click', function() {
+      var body = hdr.nextElementSibling;
+      if (!body) return;
+      var open = body.classList.toggle('open');
+      hdr.classList.toggle('open', open);
+    });
+  });
+  // stock card toggles
+  document.querySelectorAll('.stock-header').forEach(function(hdr) {
+    hdr.addEventListener('click', function() {
+      var body = hdr.nextElementSibling;
+      if (!body) return;
+      body.classList.toggle('open');
+      var arrow = hdr.querySelector('.card-arrow');
+      if (arrow) arrow.textContent = body.classList.contains('open') ? '▲' : '▼';
+    });
+  });
+  // open first stock by default
+  var first = document.querySelector('.card-body');
+  if (first) {
+    first.classList.add('open');
+    var arrow = first.previousElementSibling.querySelector('.card-arrow');
+    if (arrow) arrow.textContent = '▲';
+  }
+  // open all generic sections by default
+  document.querySelectorAll('.section-body').forEach(function(b) {
+    b.classList.add('open');
+  });
+  document.querySelectorAll('.section-header').forEach(function(h) {
+    h.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
