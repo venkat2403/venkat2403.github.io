@@ -229,14 +229,14 @@ footer a { color: var(--accent); text-decoration: none; }
     <div>
       <h1>🌋 Trading System — 9 Million</h1>
       <div class="sub">
-        Last refreshed: Thursday, September 10 2026 — 04:46 PM EDT <span id="lr-ago" class="lr-ago"></span>
+        Last refreshed: Thursday, September 10 2026 — 08:07 PM EDT <span id="lr-ago" class="lr-ago"></span>
         · IBKR paper account DUT•••••• · Swing Trading — LIVE (dry-run)
       </div>
     </div>
   </div>
   <script>
   (function() {
-    var refreshedAt = new Date("2026-09-10T16:46:34.089487-04:00");
+    var refreshedAt = new Date("2026-09-10T20:07:39.343998-04:00");
     var el = document.getElementById("lr-ago");
     function tick() {
       var mins = Math.round((Date.now() - refreshedAt.getTime()) / 60000);
@@ -254,12 +254,12 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <section class="market-clock">
       <div class="mc-main">
-        <div class="mc-time" id="mc-time">3:46:34 PM</div>
+        <div class="mc-time" id="mc-time">7:07:39 PM</div>
         <div class="mc-tz">CENTRAL TIME</div>
       </div>
       <div class="mc-status">
-        <span class="pill pill-purple" id="mc-status-pill"><span class="pill-dot"></span>AFTER-HOURS</span>
-        <div class="mc-countdown" id="mc-countdown">After-Hours Ends — 7:00 PM CT</div>
+        <span class="pill pill-off" id="mc-status-pill"><span class="pill-dot"></span>CLOSED</span>
+        <div class="mc-countdown" id="mc-countdown">Pre-Market Opens (tomorrow)</div>
       </div>
       <div class="mc-sessions">
         <div class="mc-session" data-session="premarket">
@@ -328,12 +328,12 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <section>
     <h2>Overall Summary</h2>
-    <div class="cards"><div class="card"><div class="label">Starting Balance</div><div class="value ">$100,000</div><div class=footnote>single strategy, virtual tracking</div></div><div class="card"><div class="label">Current Balance</div><div class="value neg">$106,848</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value pos">$6,848.38 (+6.85%)</div><div class=footnote>$12,410.63 open + -$5,562.25 realized (7 closed)</div></div><div class="card"><div class="label">Today&#x27;s Book</div><div class="value compact">1 open · 33 candidates</div><div class=footnote>27 Liquid Lava · 3 Cats · 3 Dogs</div></div></div>
+    <div class="cards"><div class="card"><div class="label">Starting Balance</div><div class="value ">$100,000</div><div class=footnote>single strategy, virtual tracking</div></div><div class="card"><div class="label">Current Balance</div><div class="value neg">$112,648</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value pos">$12,647.74 (+12.65%)</div><div class=footnote>$18,209.99 open + -$5,562.25 realized (7 closed)</div></div><div class="card"><div class="label">Today&#x27;s Book</div><div class="value compact">1 open · 33 candidates</div><div class=footnote>27 Liquid Lava · 3 Cats · 3 Dogs</div></div></div>
   </section>
 
   <section>
     <h2>Market Bias <span class="count">overall bias + T2108 proxy</span></h2>
-    <div class="cards"><div class="card"><div class="label">Overall Bias</div><div class="value ">SELECTIVE — TRIM SIZE</div><div class=footnote>Some breakouts working, some not. Be very selective, trim size, and go in with a low profit expectation.</div></div><div class="card"><div class="label">T2108 proxy</div><div class="value ">55.2%</div><div class=footnote>% of 348 names above their 40-day MA</div></div></div>
+    <div class="cards"><div class="card"><div class="label">Overall Bias</div><div class="value ">SELECTIVE — TRIM SIZE</div><div class=footnote>Some breakouts working, some not. Be very selective, trim size, and go in with a low profit expectation.</div></div><div class="card"><div class="label">T2108 proxy</div><div class="value ">56.5%</div><div class=footnote>% of 260 names above their 40-day MA</div></div></div>
   </section>
 
   <section>
@@ -354,13 +354,13 @@ footer a { color: var(--accent); text-decoration: none; }
     
     <h3 style="margin:26px 0 8px;">Post-Market</h3>
     <div class="banner" style="opacity:.9;">
-      Session 2026-09-09 · built 2026-09-09T20:10:19
+      Session 2026-09-10 · built 2026-09-10T20:07:24
     </div>
-    <div class="cards"><div class="card"><div class="label">Names ranked</div><div class="value ">9</div><div class=footnote>1 buzzing + 2 active + 6 quiet + 0 no data</div></div><div class="card"><div class="label">Buzzing</div><div class="value pos">1</div><div class=footnote>ON FIRE or HOT</div></div><div class="card"><div class="label">Quiet</div><div class="value ">6</div><div class=footnote>chatter under 1.5 msgs/hr</div></div><div class="card"><div class="label">Built</div><div class="value compact">2026-09-09T20:10:19</div><div class=footnote>session 2026-09-09</div></div></div>
+    <div class="cards"><div class="card"><div class="label">Names ranked</div><div class="value ">15</div><div class=footnote>5 buzzing + 1 active + 9 quiet + 0 no data</div></div><div class="card"><div class="label">Buzzing</div><div class="value pos">5</div><div class=footnote>ON FIRE or HOT</div></div><div class="card"><div class="label">Quiet</div><div class="value ">9</div><div class=footnote>chatter under 1.5 msgs/hr</div></div><div class="card"><div class="label">Built</div><div class="value compact">2026-09-10T20:07:24</div><div class=footnote>session 2026-09-10</div></div></div>
     <div class="table-wrap"><table>
       <thead><tr><th>Ticker</th><th>Company</th><th>Price</th><th>PM Gap</th><th>PM Volume</th>
       <th>Buzz</th><th>Msgs/hr ▼</th><th>Catalyst</th></tr></thead>
-      <tbody><tr><td><b>TNON</b></td><td>Tenon Medical, Inc.</td><td>$3.02</td><td class="pos">+23.8%</td><td>1,246,174</td><td class="pos">🔥 HOT</td><td>10.6</td><td style="font-size:11px;opacity:.8;">other</td></tr><tr><td><b>IRD</b></td><td>Opus Genetics, Inc.</td><td>$6.07</td><td class="pos">+5.9%</td><td>965,107</td><td class=""> ACTIVE</td><td>7.9</td><td style="font-size:11px;opacity:.8;">regulatory</td></tr><tr><td><b>BIAF</b></td><td>bioAffinity Technologies, </td><td>$11.00</td><td class="pos">+4.8%</td><td>175,155</td><td class=""> ACTIVE</td><td>3.8</td><td style="font-size:11px;opacity:.8;">regulatory</td></tr></tbody></table><div style="font-size:11px;opacity:.7;margin:6px 0 0;">6 quieter name(s) checked and not listed.</div></div>
+      <tbody><tr><td><b>TNON</b></td><td>Tenon Medical, Inc.</td><td>$5.89</td><td class="pos">+11.1%</td><td>7,712,838</td><td class="pos">🔥 ON FIRE</td><td>109.9</td><td style="font-size:11px;opacity:.8;">other</td></tr><tr><td><b>ORCL</b></td><td>Oracle Corporation</td><td>$159.26</td><td class="pos">+4.1%</td><td>14,377,135</td><td class="pos">🔥 ON FIRE</td><td>48.8</td><td style="font-size:11px;opacity:.8;">not analysed</td></tr><tr><td><b>GME</b></td><td>GameStop Corporation</td><td>$21.23</td><td class="pos">+4.1%</td><td>1,581,173</td><td class="pos">🔥 ON FIRE</td><td>42.9</td><td style="font-size:11px;opacity:.8;">not analysed</td></tr><tr><td><b>RH</b></td><td>RH</td><td>$142.71</td><td class="pos">+6.5%</td><td>428,775</td><td class="pos">🔥 HOT</td><td>13.3</td><td style="font-size:11px;opacity:.8;">earnings</td></tr><tr><td><b>ACVA</b></td><td>ACV Auctions Inc.</td><td>$10.38</td><td class="pos">+43.8%</td><td>14,420,480</td><td class="pos">🔥 HOT</td><td>8.8</td><td style="font-size:11px;opacity:.8;">earnings</td></tr><tr><td><b>CPRT</b></td><td>Copart, Inc.</td><td>$33.34</td><td class="pos">+8.4%</td><td>3,104,777</td><td class=""> ACTIVE</td><td>6.6</td><td style="font-size:11px;opacity:.8;">earnings</td></tr></tbody></table><div style="font-size:11px;opacity:.7;margin:6px 0 0;">9 quieter name(s) checked and not listed.</div></div>
     
     <h3 style="margin:26px 0 8px;">Pre-Market</h3>
     <div class="banner" style="opacity:.9;">
@@ -375,7 +375,7 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <section>
     <h2>🌋 Cats · Dogs · Liquid Lava</h2>
-    <div class="badges" style="margin-bottom:12px;"><span class="pill pill-on"><span class="pill-dot"></span>SWING TRADING — LIVE</span><span class="pill pill-on"><span class="pill-dot"></span>LIVE</span><span class="pill pill-bad"><span class="pill-dot"></span>REAL ORDERS</span></div>
+    <div class="badges" style="margin-bottom:12px;"><span class="pill pill-on"><span class="pill-dot"></span>SWING TRADING — LIVE</span><span class="pill pill-on"><span class="pill-dot"></span>LIVE</span><span class="pill pill-bad"><span class="pill-dot"></span>REAL ORDERS</span><span class="pill pill-bad"><span class="pill-dot"></span>HALTED (NINE_HALT)</span></div>
 <div class="banner">
       <b>The scan:</b> price ≥ $2.00, today's volume ≥ 8,900,000 shares.
       Live 09:30-15:55 ET, every 5 min.
@@ -385,7 +385,7 @@ footer a { color: var(--accent); text-decoration: none; }
       <br><span style="opacity:.75;">Market-cap bounds ($2B+ for Liquid Lava, $20B max for a Dog) are
       this system's additions, not the guide's. Setups gated on <b>TradingView live</b> data (authenticated session — real-time OHLC/ATR/SMA/1-month range).</span>
     </div>
-<div class="cards"><div class="card"><div class="label">Allocated Capital</div><div class="value ">$100,000</div><div class=footnote>virtual tracking bucket</div></div><div class="card"><div class="label">Open P&amp;L</div><div class="value pos">$12,410.63</div><div class=footnote>1 position(s) marked to market</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value pos">$6,848.38</div><div class=footnote>realized + open</div></div><div class="card"><div class="label">Realized P&amp;L</div><div class="value neg">-$5,562.25</div><div class=footnote>7 closed trade(s), 1 winner(s)</div></div><div class="card"><div class="label">Open Positions</div><div class="value ">1</div><div class=footnote>Lava 1/5 · Cats 0/5 · Dogs 0/3</div></div><div class="card"><div class="label">Portfolio Heat</div><div class="value pos">0.00%</div><div class=footnote>$0.00 at risk · combined cap 6.0%</div></div></div>
+<div class="cards"><div class="card"><div class="label">Allocated Capital</div><div class="value ">$100,000</div><div class=footnote>virtual tracking bucket</div></div><div class="card"><div class="label">Open P&amp;L</div><div class="value pos">$18,209.99</div><div class=footnote>1 position(s) marked to market</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value pos">$12,647.74</div><div class=footnote>realized + open</div></div><div class="card"><div class="label">Realized P&amp;L</div><div class="value neg">-$5,562.25</div><div class=footnote>7 closed trade(s), 1 winner(s)</div></div><div class="card"><div class="label">Open Positions</div><div class="value ">1</div><div class=footnote>Lava 1/5 · Cats 0/5 · Dogs 0/3</div></div><div class="card"><div class="label">Portfolio Heat</div><div class="value pos">0.00%</div><div class=footnote>$0.00 at risk · combined cap 6.0%</div></div></div>
 <h3 style="margin:30px 0 10px;">🌋 Liquid Lava</h3>
 
     <div class="banner" style="opacity:.9;"><b>Needs a setup</b> — bottom bounce, continuation, consolidation breakout or range expansion. Stop 2.5% or tighter, target 10%, out after 5 days. Risk 0.5%, position up to 25% — the tight stop is what buys the size.</div>
@@ -398,7 +398,7 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="table-wrap"><table>
       <thead><tr><th>Ticker</th><th>Qty</th><th>Entry</th><th>Last</th><th>Open P&amp;L</th>
       <th>Stop</th><th>Target</th><th>Bars</th></tr></thead>
-      <tbody><tr><td><b>TNON</b></td><td>12,082</td><td>$4.36</td><td>$5.39</td><td class="pos"><b>$12,410.63</b> +23.5%</td><td>$4.45</td><td>$0.00</td><td>0/5</td></tr></tbody></table></div>
+      <tbody><tr><td><b>TNON</b></td><td>12,082</td><td>$4.36</td><td>$5.87</td><td class="pos"><b>$18,209.99</b> +34.5%</td><td>$4.45</td><td>$0.00</td><td>0/5</td></tr></tbody></table></div>
 <h3 style="margin:30px 0 10px;">🐱 Cats</h3>
 
     <div class="banner" style="opacity:.9;"><b>A real catalyst you can confirm</b> — an SEC filing, or a dated headline naming earnings, guidance, a management change, an analyst move, a partnership, a big order, an insider trade or a regulatory event. Stop 2.5%, skipped if entry would need more than 8%. Target 20%+, risk 0.5%.</div>
