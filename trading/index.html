@@ -229,14 +229,14 @@ footer a { color: var(--accent); text-decoration: none; }
     <div>
       <h1>🌋 Trading System — 9 Million</h1>
       <div class="sub">
-        Last refreshed: Thursday, September 10 2026 — 09:46 PM EDT <span id="lr-ago" class="lr-ago"></span>
+        Last refreshed: Thursday, September 10 2026 — 09:50 PM EDT <span id="lr-ago" class="lr-ago"></span>
         · IBKR paper account DUT•••••• · Swing Trading — LIVE (dry-run)
       </div>
     </div>
   </div>
   <script>
   (function() {
-    var refreshedAt = new Date("2026-09-10T21:46:01.202695-04:00");
+    var refreshedAt = new Date("2026-09-10T21:50:10.709380-04:00");
     var el = document.getElementById("lr-ago");
     function tick() {
       var mins = Math.round((Date.now() - refreshedAt.getTime()) / 60000);
@@ -254,7 +254,7 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <section class="market-clock">
       <div class="mc-main">
-        <div class="mc-time" id="mc-time">8:46:01 PM</div>
+        <div class="mc-time" id="mc-time">8:50:10 PM</div>
         <div class="mc-tz">CENTRAL TIME</div>
       </div>
       <div class="mc-status">
@@ -332,8 +332,13 @@ footer a { color: var(--accent); text-decoration: none; }
   </section>
 
   <section>
+    <h2>Per-Bucket Performance <span class="count">expectancy per bet, not the total</span></h2>
+    <div class="table-wrap"><table><tr><th>Bucket</th><th>Trades</th><th>Win%</th><th>Avg W</th><th>Avg L</th><th>Expectancy</th><th>Total R</th><th>Max DD</th><th>Gap cost</th></tr><tr><td><b>Liquid Lava</b></td><td>5</td><td>20%</td><td>+1.16</td><td>-1.40</td><td class="neg"><b>-0.888R</b></td><td class="neg">-4.44R</td><td>-5.60R</td><td>3 (-1.74R)</td></tr><tr><td><b>Cats</b></td><td>1</td><td>0%</td><td>+0.00</td><td>-1.00</td><td class="neg"><b>-1.000R</b></td><td class="neg">-1.00R</td><td>-1.00R</td><td>0 (+0.00R)</td></tr><tr><td><b>Dogs</b></td><td>1</td><td>0%</td><td>+0.00</td><td>-1.18</td><td class="neg"><b>-1.180R</b></td><td class="neg">-1.18R</td><td>-1.18R</td><td>1 (-0.18R)</td></tr><tr style="opacity:.6;border-top:2px solid var(--border);"><td><b>Combined</b></td><td>7</td><td>14%</td><td>+1.16</td><td>-1.30</td><td class="neg"><b>-0.946R</b></td><td class="neg">-6.62R</td><td>-7.78R</td><td>4 (-1.92R)</td></tr></table></div><div style="font-size:12px;opacity:.7;margin-top:6px;">Expectancy is the number that decides whether a bucket is worth trading. Gap cost is R lost <i>beyond</i> the stop — a stop is a resting order, not a guarantee. <b>Only 7 closed trades — nothing here is significant yet; 30+ per bucket before acting on it.</b></div>
+  </section>
+
+  <section>
     <h2>Market Bias <span class="count">overall bias + T2108 proxy</span></h2>
-    <div class="cards"><div class="card"><div class="label">Overall Bias</div><div class="value ">SELECTIVE — TRIM SIZE</div><div class=footnote>Some breakouts working, some not. Be very selective, trim size, and go in with a low profit expectation.</div></div><div class="card"><div class="label">T2108 proxy</div><div class="value ">57.5%</div><div class=footnote>% of 348 names above their 40-day MA</div></div></div>
+    <div class="cards"><div class="card"><div class="label">Overall Bias</div><div class="value ">SELECTIVE — TRIM SIZE</div><div class=footnote>Some breakouts working, some not. Be very selective, trim size, and go in with a low profit expectation.</div></div><div class="card"><div class="label">T2108 proxy</div><div class="value ">55.2%</div><div class=footnote>% of 348 names above their 40-day MA</div></div></div>
   </section>
 
   <section>
