@@ -229,14 +229,14 @@ footer a { color: var(--accent); text-decoration: none; }
     <div>
       <h1>🌋 Trading System — 9 Million</h1>
       <div class="sub">
-        Last refreshed: Monday, September 14 2026 — 10:19 AM EDT <span id="lr-ago" class="lr-ago"></span>
+        Last refreshed: Monday, September 14 2026 — 10:35 AM EDT <span id="lr-ago" class="lr-ago"></span>
         · IBKR paper account DUT•••••• · Swing Trading — LIVE (dry-run)
       </div>
     </div>
   </div>
   <script>
   (function() {
-    var refreshedAt = new Date("2026-09-14T10:19:56.666664-04:00");
+    var refreshedAt = new Date("2026-09-14T10:35:18.051257-04:00");
     var el = document.getElementById("lr-ago");
     function tick() {
       var mins = Math.round((Date.now() - refreshedAt.getTime()) / 60000);
@@ -254,7 +254,7 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <section class="market-clock">
       <div class="mc-main">
-        <div class="mc-time" id="mc-time">9:19:56 AM</div>
+        <div class="mc-time" id="mc-time">9:35:18 AM</div>
         <div class="mc-tz">CENTRAL TIME</div>
       </div>
       <div class="mc-status">
@@ -328,17 +328,17 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <section>
     <h2>Overall Summary</h2>
-    <div class="cards"><div class="card"><div class="label">Starting Balance</div><div class="value ">$100,000</div><div class=footnote>single strategy, virtual tracking</div></div><div class="card"><div class="label">Current Balance</div><div class="value neg">$109,871</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value pos">$9,870.85 (+9.87%)</div><div class=footnote>$15,085.39 open + -$5,214.54 realized (9 closed)</div></div><div class="card"><div class="label">Today&#x27;s Book</div><div class="value compact">3 open · 8 candidates</div><div class=footnote>3 Liquid Lava · 3 Cats · 2 Dogs</div></div></div>
+    <div class="cards"><div class="card"><div class="label">Starting Balance</div><div class="value ">$100,000</div><div class=footnote>single strategy, virtual tracking</div></div><div class="card"><div class="label">Current Balance</div><div class="value neg">$108,812</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value pos">$8,811.55 (+8.81%)</div><div class=footnote>$14,537.65 open + -$5,726.10 realized (10 closed)</div></div><div class="card"><div class="label">Today&#x27;s Book</div><div class="value compact">4 open · 9 candidates</div><div class=footnote>4 Liquid Lava · 3 Cats · 2 Dogs</div></div></div>
   </section>
 
   <section>
     <h2>Per-Bucket Performance <span class="count">expectancy per bet, not the total</span></h2>
-    <div class="table-wrap"><table><tr><th>Bucket</th><th>Trades</th><th>Win%</th><th>Avg W</th><th>Avg L</th><th>Expectancy</th><th>Total R</th><th>Max DD</th><th>Gap cost</th></tr><tr><td><b>Liquid Lava</b></td><td>5</td><td>20%</td><td>+1.16</td><td>-1.40</td><td class="neg"><b>-0.888R</b></td><td class="neg">-4.44R</td><td>-5.60R</td><td>3 (-1.74R)</td></tr><tr><td><b>Cats</b></td><td>2</td><td>0%</td><td>+0.00</td><td>-0.51</td><td class="neg"><b>-0.510R</b></td><td class="neg">-1.02R</td><td>-1.02R</td><td>0 (+0.00R)</td></tr><tr><td><b>Dogs</b></td><td>2</td><td>50%</td><td>+0.65</td><td>-1.18</td><td class="neg"><b>-0.265R</b></td><td class="neg">-0.53R</td><td>-1.18R</td><td>1 (-0.18R)</td></tr><tr style="opacity:.6;border-top:2px solid var(--border);"><td><b>Combined</b></td><td>9</td><td>22%</td><td>+0.91</td><td>-1.11</td><td class="neg"><b>-0.666R</b></td><td class="neg">-5.99R</td><td>-7.78R</td><td>4 (-1.92R)</td></tr></table></div><div style="font-size:12px;opacity:.7;margin-top:6px;">Expectancy is the number that decides whether a bucket is worth trading. Gap cost is R lost <i>beyond</i> the stop — a stop is a resting order, not a guarantee. <b>Only 9 closed trades — nothing here is significant yet; 30+ per bucket before acting on it.</b></div>
+    <div class="table-wrap"><table><tr><th>Bucket</th><th>Trades</th><th>Win%</th><th>Avg W</th><th>Avg L</th><th>Expectancy</th><th>Total R</th><th>Max DD</th><th>Gap cost</th></tr><tr><td><b>Liquid Lava</b></td><td>5</td><td>20%</td><td>+1.16</td><td>-1.40</td><td class="neg"><b>-0.888R</b></td><td class="neg">-4.44R</td><td>-5.60R</td><td>3 (-1.74R)</td></tr><tr><td><b>Cats</b></td><td>2</td><td>0%</td><td>+0.00</td><td>-0.51</td><td class="neg"><b>-0.510R</b></td><td class="neg">-1.02R</td><td>-1.02R</td><td>0 (+0.00R)</td></tr><tr><td><b>Dogs</b></td><td>3</td><td>33%</td><td>+0.65</td><td>-1.10</td><td class="neg"><b>-0.517R</b></td><td class="neg">-1.55R</td><td>-1.55R</td><td>2 (-0.20R)</td></tr><tr style="opacity:.6;border-top:2px solid var(--border);"><td><b>Combined</b></td><td>10</td><td>20%</td><td>+0.91</td><td>-1.10</td><td class="neg"><b>-0.701R</b></td><td class="neg">-7.01R</td><td>-7.78R</td><td>5 (-1.94R)</td></tr></table></div><div style="font-size:12px;opacity:.7;margin-top:6px;">Expectancy is the number that decides whether a bucket is worth trading. Gap cost is R lost <i>beyond</i> the stop — a stop is a resting order, not a guarantee. <b>Only 10 closed trades — nothing here is significant yet; 30+ per bucket before acting on it.</b></div>
   </section>
 
   <section>
     <h2>Market Bias <span class="count">overall bias + T2108 proxy</span></h2>
-    <div class="cards"><div class="card"><div class="label">Overall Bias</div><div class="value ">SELECTIVE — TRIM SIZE</div><div class=footnote>Some breakouts working, some not. Be very selective, trim size, and go in with a low profit expectation.</div></div><div class="card"><div class="label">T2108 proxy</div><div class="value ">52.9%</div><div class=footnote>% of 314 names above their 40-day MA</div></div></div>
+    <div class="cards"><div class="card"><div class="label">Overall Bias</div><div class="value ">SELECTIVE — TRIM SIZE</div><div class=footnote>Some breakouts working, some not. Be very selective, trim size, and go in with a low profit expectation.</div></div><div class="card"><div class="label">T2108 proxy</div><div class="value ">49.7%</div><div class=footnote>% of 314 names above their 40-day MA</div></div></div>
   </section>
 
   <section>
@@ -384,13 +384,13 @@ footer a { color: var(--accent); text-decoration: none; }
 <div class="banner">
       <b>The scan:</b> price ≥ $2.00, today's volume ≥ 8,900,000 shares.
       Live 09:30-15:55 ET, every 5 min.
-      <br>Last pass 2026-09-14T10:17:07 — <b>16</b> names cleared →
-      3 Liquid Lava, 3 Cats, 2 Dogs,
+      <br>Last pass 2026-09-14T10:32:29 — <b>17</b> names cleared →
+      4 Liquid Lava, 3 Cats, 2 Dogs,
       0 undetermined.
       <br><span style="opacity:.75;">Market-cap bounds ($2B+ for Liquid Lava, $20B max for a Dog) are
       this system's additions, not the guide's. Setups gated on <b>TradingView live</b> data (authenticated session — real-time OHLC/ATR/SMA/1-month range).</span>
     </div>
-<div class="cards"><div class="card"><div class="label">Allocated Capital</div><div class="value ">$100,000</div><div class=footnote>virtual tracking bucket</div></div><div class="card"><div class="label">Open P&amp;L</div><div class="value pos">$15,085.39</div><div class=footnote>3 position(s) marked to market</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value pos">$9,870.85</div><div class=footnote>realized + open</div></div><div class="card"><div class="label">Realized P&amp;L</div><div class="value neg">-$5,214.54</div><div class=footnote>9 closed trade(s), 2 winner(s)</div></div><div class="card"><div class="label">Open Positions</div><div class="value ">3</div><div class=footnote>Lava 1/5 · Cats 1/5 · Dogs 1/3</div></div><div class="card"><div class="label">Today&#x27;s R</div><div class="value ">+0.00R</div><div class=footnote>0 closed today · stops at -3.0R</div></div><div class="card"><div class="label">Portfolio Heat</div><div class="value pos">1.00%</div><div class=footnote>$998.31 at risk · combined cap 3.0%</div></div></div>
+<div class="cards"><div class="card"><div class="label">Allocated Capital</div><div class="value ">$100,000</div><div class=footnote>virtual tracking bucket</div></div><div class="card"><div class="label">Open P&amp;L</div><div class="value pos">$14,537.65</div><div class=footnote>4 position(s) marked to market</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value pos">$8,811.55</div><div class=footnote>realized + open</div></div><div class="card"><div class="label">Realized P&amp;L</div><div class="value neg">-$5,726.10</div><div class=footnote>10 closed trade(s), 2 winner(s)</div></div><div class="card"><div class="label">Open Positions</div><div class="value ">4</div><div class=footnote>Lava 1/5 · Cats 1/5 · Dogs 2/3</div></div><div class="card"><div class="label">Today&#x27;s R</div><div class="value ">-1.02R</div><div class=footnote>1 closed today · stops at -3.0R</div></div><div class="card"><div class="label">Portfolio Heat</div><div class="value pos">1.50%</div><div class=footnote>$1,497.42 at risk · combined cap 3.0%</div></div></div>
 <h3 style="margin:30px 0 10px;">🌋 Liquid Lava</h3>
 
     <div class="banner" style="opacity:.9;"><b>Needs a setup</b> — bottom bounce, continuation, consolidation breakout or range expansion. Stop 2.5% or tighter, target 10%, out after 5 days. Risk 0.5%, position up to 25% — the tight stop is what buys the size.</div>
@@ -398,12 +398,12 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="table-wrap"><table>
       <thead><tr><th>Ticker</th><th>Company</th><th>Price</th><th>Chg</th><th>Volume</th>
       <th>RVol ▼</th><th>Mkt Cap</th><th>Signal</th><th>Why</th></tr></thead>
-      <tbody><tr><td><b>BMNR</b></td><td>BitMine Immersion Technologies, In</td><td>$25.40</td><td class="pos">+1.48%</td><td>10,506,068</td><td>0.2x</td><td>$15.3B</td><td><span class="tag tag-open">Continuation</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">live (PROVISIONAL — first-leg/tight-bar/volume qualifiers need bar history): above a rising 20MA (+7.7%, 20&gt;50MA), week +0.3%</td></tr><tr><td><b>ONDS</b></td><td>Ondas Inc</td><td>$7.39</td><td class="pos">+2.28%</td><td>10,043,980</td><td>0.2x</td><td>$4.2B</td><td><span class="tag tag-open">Bottom bounce</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">live: 25% off the 1-month high, now 5.8% off the low and holding strong</td></tr><tr><td><b>GOOGL</b></td><td>Alphabet Inc.</td><td>$345.52</td><td class="pos">+2.07%</td><td>9,512,085</td><td>0.4x</td><td>$4,208.5B</td><td><span class="tag">no setup</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">no live Liquid Lava setup</td></tr></tbody></table></div>
+      <tbody><tr><td><b>NFLX</b></td><td>Netflix, Inc.</td><td>$79.89</td><td class="pos">+3.22%</td><td>9,209,740</td><td>0.3x</td><td>$332.7B</td><td><span class="tag tag-open">Bottom bounce</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">live: 10% off the 1-month high, now 6.5% off the low and holding strong</td></tr><tr><td><b>ONDS</b></td><td>Ondas Inc</td><td>$7.45</td><td class="pos">+3.00%</td><td>14,066,573</td><td>0.2x</td><td>$4.3B</td><td><span class="tag tag-open">Bottom bounce</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">live: 25% off the 1-month high, now 6.5% off the low and holding strong</td></tr><tr><td><b>GOOGL</b></td><td>Alphabet Inc.</td><td>$343.59</td><td class="pos">+1.50%</td><td>10,256,357</td><td>0.4x</td><td>$4,185.0B</td><td><span class="tag">no setup</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">no live Liquid Lava setup</td></tr><tr><td><b>NIO</b></td><td>NIO Inc.</td><td>$3.72</td><td class="pos">+0.75%</td><td>9,930,277</td><td>0.2x</td><td>$8.6B</td><td><span class="tag">no setup</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">no live Liquid Lava setup</td></tr></tbody></table></div>
     <h4 style="margin:18px 0 8px;font-size:13px;color:var(--text-2);">Open Positions</h4>
     <div class="table-wrap"><table>
       <thead><tr><th>Ticker</th><th>Qty</th><th>Entry</th><th>Last</th><th>Open P&amp;L</th>
       <th>Stop</th><th>Target</th><th>Bars</th></tr></thead>
-      <tbody><tr><td><b>TNON</b></td><td>10,442</td><td>$4.24</td><td>$5.72</td><td class="pos"><b>$15,411.93</b> +34.8%</td><td>$4.45</td><td>$0.00</td><td>1/5</td></tr></tbody></table></div>
+      <tbody><tr><td><b>TNON</b></td><td>10,442</td><td>$4.24</td><td>$5.64</td><td class="pos"><b>$14,591.65</b> +32.9%</td><td>$4.45</td><td>$0.00</td><td>1/5</td></tr></tbody></table></div>
 <h3 style="margin:30px 0 10px;">🐱 Cats</h3>
 
     <div class="banner" style="opacity:.9;"><b>A real catalyst you can confirm</b> — an SEC filing, or a dated headline naming earnings, guidance, a management change, an analyst move, a partnership, a big order, an insider trade or a regulatory event. Stop 2.5%, skipped if entry would need more than 8%. Target 20%+, risk 0.5%.</div>
@@ -411,12 +411,12 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="table-wrap"><table>
       <thead><tr><th>Ticker</th><th>Company</th><th>Price</th><th>Chg</th><th>Volume</th>
       <th>RVol ▼</th><th>Mkt Cap</th><th>Signal</th><th>Why</th></tr></thead>
-      <tbody><tr><td><b>SCNI</b></td><td>Scinai Immunotherapeutics Ltd.</td><td>$2.38</td><td class="pos">+43.07%</td><td>31,143,045</td><td>54.6x</td><td>$0.0B</td><td><span class="tag tag-open">other</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">Scinai Immunotherapeutics terminated its option and license agreements with PinCell for the PC111 program and is refocusing capital on its NanoAb platform and CDMO busine</td></tr><tr><td><b>BWIN</b></td><td>The Baldwin Insurance Group, Inc.</td><td>$31.84</td><td class="pos">+7.40%</td><td>12,280,917</td><td>12.4x</td><td>$4.4B</td><td><span class="tag tag-open">earnings</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">The Baldwin Insurance Group Inc (BWIN) (Q2 2026) Earnings Call Highlights: Record EBITDA and ... — (GuruFocus.com)</td></tr><tr><td><b>RUM</b></td><td>RUM Group Inc.</td><td>$8.32</td><td class="pos">+16.11%</td><td>11,915,769</td><td>3.5x</td><td>$4.1B</td><td><span class="tag tag-open">earnings</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">Rum Group shares are moving on a report that Anthropic is the unnamed customer behind a previously disclosed $13.7 billion six-year compute contract, with the deal also s</td></tr></tbody></table></div>
+      <tbody><tr><td><b>SCNI</b></td><td>Scinai Immunotherapeutics Ltd.</td><td>$2.42</td><td class="pos">+45.77%</td><td>32,077,538</td><td>56.2x</td><td>$0.0B</td><td><span class="tag tag-open">other</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">Scinai Immunotherapeutics is terminating its option and license agreements with PinCell for the PC111 program and shifting focus to its NanoAb platform and CDMO business.</td></tr><tr><td><b>BWIN</b></td><td>The Baldwin Insurance Group, Inc.</td><td>$31.88</td><td class="pos">+7.50%</td><td>12,701,625</td><td>12.8x</td><td>$4.4B</td><td><span class="tag tag-open">earnings</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">The Baldwin Insurance Group Inc (BWIN) (Q2 2026) Earnings Call Highlights: Record EBITDA and ... — (GuruFocus.com)</td></tr><tr><td><b>RUM</b></td><td>RUM Group Inc.</td><td>$8.50</td><td class="pos">+18.55%</td><td>13,772,607</td><td>4.0x</td><td>$4.2B</td><td><span class="tag tag-open">earnings</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">Anthropic was reported to have struck a six-year $13.7 billion compute deal with RUM Group, including warrants for up to about 50.8 million shares.</td></tr></tbody></table></div>
     <h4 style="margin:18px 0 8px;font-size:13px;color:var(--text-2);">Open Positions</h4>
     <div class="table-wrap"><table>
       <thead><tr><th>Ticker</th><th>Qty</th><th>Entry</th><th>Last</th><th>Open P&amp;L</th>
       <th>Stop</th><th>Target</th><th>Bars</th></tr></thead>
-      <tbody><tr><td><b>BWIN</b></td><td>261</td><td>$31.83</td><td>$31.84</td><td class="pos"><b>$1.57</b> +0.0%</td><td>$29.92</td><td>$38.20</td><td>0/10</td></tr></tbody></table></div>
+      <tbody><tr><td><b>BWIN</b></td><td>261</td><td>$31.83</td><td>$31.89</td><td class="pos"><b>$16.97</b> +0.2%</td><td>$29.92</td><td>$38.20</td><td>0/10</td></tr></tbody></table></div>
 <h3 style="margin:30px 0 10px;">🐶 Dogs</h3>
 
     <div class="banner" style="opacity:.9;"><b>Big move, big volume, no catalyst anyone can confirm</b> — a story stock. Wide 9% stop, small size (0.5% risk, 10% max position), take some at +40%, hold until a big down day. Max $20B — a mega-cap isn't a story stock.</div>
@@ -424,14 +424,17 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="table-wrap"><table>
       <thead><tr><th>Ticker</th><th>Company</th><th>Price</th><th>Chg</th><th>Volume</th>
       <th>RVol ▼</th><th>Mkt Cap</th><th>Signal</th><th>Why</th></tr></thead>
-      <tbody><tr><td><b>BMGL</b></td><td>Basel Medical Group Ltd</td><td>$7.39</td><td class="pos">+61.35%</td><td>22,078,242</td><td>768.3x</td><td>$0.0B</td><td><span class="tag">no catalyst found</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">+61.4% on 768.3x its normal volume with NO confirmable catalyst across 6 sources (SEC filings included) at a $0.0B market cap — a story move by the guide&#x27;s own defin</td></tr><tr><td><b>FTFT</b></td><td>Future FinTech Group Inc.</td><td>$4.55</td><td class="pos">+58.03%</td><td>33,776,815</td><td>2.0x</td><td>$0.0B</td><td><span class="tag">no catalyst found</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">+58.0% on 2.0x its normal volume with NO confirmable catalyst across 6 sources (SEC filings included) at a $0.0B market cap — a story move by the guide&#x27;s own definit</td></tr></tbody></table></div>
+      <tbody><tr><td><b>BMGL</b></td><td>Basel Medical Group Ltd</td><td>$7.56</td><td class="pos">+65.07%</td><td>24,426,628</td><td>850.0x</td><td>$0.0B</td><td><span class="tag">no catalyst found</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">+65.1% on 850.0x its normal volume with NO confirmable catalyst across 6 sources (SEC filings included) at a $0.0B market cap — a story move by the guide&#x27;s own defin</td></tr><tr><td><b>FTFT</b></td><td>Future FinTech Group Inc.</td><td>$4.86</td><td class="pos">+68.76%</td><td>38,530,499</td><td>2.3x</td><td>$0.0B</td><td><span class="tag">no catalyst found</span></td><td style="max-width:420px;font-size:11px;opacity:.8;">+68.8% on 2.3x its normal volume with NO confirmable catalyst across 6 sources (SEC filings included) at a $0.0B market cap — a story move by the guide&#x27;s own definit</td></tr></tbody></table></div>
     <h4 style="margin:18px 0 8px;font-size:13px;color:var(--text-2);">Open Positions</h4>
     <div class="table-wrap"><table>
       <thead><tr><th>Ticker</th><th>Qty</th><th>Entry</th><th>Last</th><th>Open P&amp;L</th>
       <th>Stop</th><th>Target</th><th>Bars</th></tr></thead>
-      <tbody><tr><td><b>BMGL</b></td><td>588</td><td>$7.89</td><td>$7.33</td><td class="neg"><b>-$328.10</b> -7.1%</td><td>$7.04</td><td>$11.05</td><td>0/5</td></tr></tbody></table></div>
+      <tbody><tr><td><b>FTFT</b></td><td>381</td><td>$4.56</td><td>$4.78</td><td class="pos"><b>$81.92</b> +4.7%</td><td>$3.25</td><td>$6.38</td><td>0/5</td></tr><tr><td><b>BMGL</b></td><td>588</td><td>$7.89</td><td>$7.63</td><td class="neg"><b>-$152.88</b> -3.3%</td><td>$7.04</td><td>$11.05</td><td>0/5</td></tr></tbody></table></div>
 <h3 style="margin:32px 0 10px;">Closed Trades</h3>
-<div class="table-wrap"><div class="empty">No trades closed today.</div></div><div style="font-size:12px;opacity:.7;margin-top:6px;">9 earlier closed trade(s) not shown — see Per-Bucket Performance for all-time expectancy.</div>
+<div class="table-wrap"><table>
+      <thead><tr><th>Ticker</th><th>Category</th><th>Entry</th><th>Exit</th><th>P&amp;L</th>
+      <th>R</th><th>Bars</th><th>Exit reason</th></tr></thead>
+      <tbody><tr><td><b>BMGL</b></td><td>Dog</td><td>$7.89</td><td>$7.02</td><td class="neg">-$511.56</td><td class="neg">-1.02R</td><td>0</td><td style="font-size:11px;opacity:.8;">STOP_HIT_BROKER</td></tr></tbody></table></div><div style="font-size:12px;opacity:.7;margin-top:6px;">9 earlier closed trade(s) not shown — see Per-Bucket Performance for all-time expectancy.</div>
   </section>
 
   <footer>
