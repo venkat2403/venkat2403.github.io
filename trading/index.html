@@ -229,14 +229,14 @@ footer a { color: var(--accent); text-decoration: none; }
     <div>
       <h1>🌋 Trading System — 9 Million</h1>
       <div class="sub">
-        Last refreshed: Tuesday, September 15 2026 — 03:54 PM EDT <span id="lr-ago" class="lr-ago"></span>
+        Last refreshed: Tuesday, September 15 2026 — 04:04 PM EDT <span id="lr-ago" class="lr-ago"></span>
         · IBKR paper account DUT•••••• · Swing Trading — LIVE (dry-run)
       </div>
     </div>
   </div>
   <script>
   (function() {
-    var refreshedAt = new Date("2026-09-15T15:54:26.764980-04:00");
+    var refreshedAt = new Date("2026-09-15T16:04:59.617991-04:00");
     var el = document.getElementById("lr-ago");
     function tick() {
       var mins = Math.round((Date.now() - refreshedAt.getTime()) / 60000);
@@ -254,12 +254,12 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <section class="market-clock">
       <div class="mc-main">
-        <div class="mc-time" id="mc-time">2:54:26 PM</div>
+        <div class="mc-time" id="mc-time">3:04:59 PM</div>
         <div class="mc-tz">CENTRAL TIME</div>
       </div>
       <div class="mc-status">
-        <span class="pill pill-on" id="mc-status-pill"><span class="pill-dot"></span>MARKET OPEN</span>
-        <div class="mc-countdown" id="mc-countdown">Market Closes — 3:00 PM CT</div>
+        <span class="pill pill-purple" id="mc-status-pill"><span class="pill-dot"></span>AFTER-HOURS</span>
+        <div class="mc-countdown" id="mc-countdown">After-Hours Ends — 7:00 PM CT</div>
       </div>
       <div class="mc-sessions">
         <div class="mc-session" data-session="premarket">
@@ -328,7 +328,7 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <section>
     <h2>Overall Summary</h2>
-    <div class="cards"><div class="card"><div class="label">Starting Balance</div><div class="value ">$100,000</div><div class=footnote>single strategy, virtual tracking</div></div><div class="card"><div class="label">Current Balance</div><div class="value neg">$102,157</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value pos">$2,156.96 (+2.16%)</div><div class=footnote>$9,030.90 open + -$6,873.94 realized (15 closed)</div></div><div class="card"><div class="label">Today&#x27;s Book</div><div class="value compact">6 open · 30 candidates</div><div class=footnote>23 Liquid Lava · 2 Cats · 5 Dogs</div></div></div>
+    <div class="cards"><div class="card"><div class="label">Capital at Work</div><div class="value ">$200,000</div><div class=footnote>9-Million $100,000 + Day Trading $100,000</div></div><div class="card"><div class="label">Combined P&amp;L</div><div class="value pos">$1,328.99 (+0.66%)</div><div class=footnote>$8,202.93 open + -$6,873.94 realized</div></div><div class="card"><div class="label">Open Positions</div><div class="value compact">6</div><div class=footnote>6 swing · 0 intraday</div></div><div class="card"><div class="label">Closed Trades</div><div class="value compact">15</div><div class=footnote>15 swing · 0 intraday</div></div></div><div class="cards" style="margin-top:12px;"><div class="card"><div class="label">🌋 9-Million</div><div class="value pos">$1,328.99</div><div class=footnote>$100,000 · 6 open · 15 closed</div></div><div class="card"><div class="label">⚡ Day Trading</div><div class="value ">no trades yet</div><div class=footnote>$100,000 · today +0.00R · 0/5 trades · no closed trades — no evidence yet</div></div></div>
   </section>
 
   <section>
@@ -338,7 +338,7 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <section>
     <h2>Market Bias <span class="count">overall bias + T2108 proxy</span></h2>
-    <div class="cards"><div class="card"><div class="label">Overall Bias</div><div class="value neg">BREAKOUTS FAILING — SIT OUT</div><div class=footnote>Breakouts are failing. His rule for this state is blunt: don&amp;#x27;t even trade.</div></div><div class="card"><div class="label">T2108 proxy</div><div class="value neg">46.6%</div><div class=footnote>% of 320 names above their 40-day MA</div></div></div>
+    <div class="cards"><div class="card"><div class="label">Overall Bias</div><div class="value neg">BREAKOUTS FAILING — SIT OUT</div><div class=footnote>Breakouts are failing. His rule for this state is blunt: don&amp;#x27;t even trade.</div></div><div class="card"><div class="label">T2108 proxy</div><div class="value neg">48.0%</div><div class=footnote>% of 348 names above their 40-day MA</div></div></div>
   </section>
 
   <section>
@@ -378,9 +378,12 @@ footer a { color: var(--accent); text-decoration: none; }
       <tbody><tr><td><b>VEEA</b></td><td>Veea Inc.</td><td>$4.28</td><td class="pos">+86.9%</td><td>36,141,506</td><td class="pos">🔥 ON FIRE</td><td>111.9</td><td style="font-size:11px;opacity:.8;"></td></tr><tr><td><b>VERA</b></td><td>Vera Therapeutics, Inc.</td><td>$38.00</td><td class="pos">+11.6%</td><td>1,057,762</td><td class="pos">🔥 HOT</td><td>23.9</td><td style="font-size:11px;opacity:.8;">earnings</td></tr><tr><td><b>FPS</b></td><td>Forgent Power Solutions, I</td><td>$30.92</td><td class="pos">+8.0%</td><td>1,301,602</td><td class="pos">🔥 HOT</td><td>19.6</td><td style="font-size:11px;opacity:.8;">earnings</td></tr><tr><td><b>TNON</b></td><td>Tenon Medical, Inc.</td><td>$6.31</td><td class="pos">+13.5%</td><td>3,048,038</td><td class="pos">🔥 HOT</td><td>10.0</td><td style="font-size:11px;opacity:.8;"></td></tr></tbody></table><div style="font-size:11px;opacity:.7;margin:6px 0 0;">11 quieter name(s) checked and not listed.</div></div>
   </section>
 
-  <section>
-    <h2>🌋 Trading System — 9 Million <span class="count">Cats · Dogs · Liquid Lava</span></h2>
-    <div class="badges" style="margin-bottom:12px;"><span class="pill pill-on"><span class="pill-dot"></span>SWING TRADING — LIVE</span><span class="pill pill-on"><span class="pill-dot"></span>LIVE</span><span class="pill pill-bad"><span class="pill-dot"></span>REAL ORDERS</span></div>
+  <details class="strategy-section" id="sec-nine">
+    <summary>
+      <h2>🌋 Trading System — 9 Million <span class="count">Cats · Dogs · Liquid Lava</span></h2>
+      <span class="chevron">Details <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </summary>
+    <div class="section-body"><div class="badges" style="margin-bottom:12px;"><span class="pill pill-on"><span class="pill-dot"></span>SWING TRADING — LIVE</span><span class="pill pill-on"><span class="pill-dot"></span>LIVE</span><span class="pill pill-bad"><span class="pill-dot"></span>REAL ORDERS</span></div>
 <div class="banner">
       <b>The scan:</b> price ≥ $2.00, today's volume ≥ 8,900,000 shares.
       Live 09:30-15:55 ET, every 5 min.
@@ -390,7 +393,7 @@ footer a { color: var(--accent); text-decoration: none; }
       <br><span style="opacity:.75;">Market-cap bounds ($2B+ for Liquid Lava, $20B max for a Dog) are
       this system's additions, not the guide's. Setups gated on <b>TradingView live</b> data (authenticated session — real-time OHLC/ATR/SMA/1-month range).</span>
     </div>
-<div class="cards"><div class="card"><div class="label">Allocated Capital</div><div class="value ">$100,000</div><div class=footnote>virtual tracking bucket</div></div><div class="card"><div class="label">Open P&amp;L</div><div class="value pos">$9,030.90</div><div class=footnote>6 position(s) marked to market</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value pos">$2,156.96</div><div class=footnote>realized + open</div></div><div class="card"><div class="label">Realized P&amp;L</div><div class="value neg">-$6,873.94</div><div class=footnote>15 closed trade(s), 3 winner(s)</div></div><div class="card"><div class="label">Open Positions</div><div class="value ">6</div><div class=footnote>Lava 4/5 · Cats 1/5 · Dogs 1/3</div></div><div class="card"><div class="label">Today&#x27;s R</div><div class="value neg">-3.54R</div><div class=footnote>LIMIT HIT — no new entries (cap -3.0R)</div></div><div class="card"><div class="label">Portfolio Heat</div><div class="value pos">2.41%</div><div class=footnote>$2,407.70 at risk · combined cap 3.0%</div></div></div>
+<div class="cards"><div class="card"><div class="label">Allocated Capital</div><div class="value ">$100,000</div><div class=footnote>virtual tracking bucket</div></div><div class="card"><div class="label">Open P&amp;L</div><div class="value pos">$8,202.93</div><div class=footnote>6 position(s) marked to market</div></div><div class="card"><div class="label">Total P&amp;L</div><div class="value pos">$1,328.99</div><div class=footnote>realized + open</div></div><div class="card"><div class="label">Realized P&amp;L</div><div class="value neg">-$6,873.94</div><div class=footnote>15 closed trade(s), 3 winner(s)</div></div><div class="card"><div class="label">Open Positions</div><div class="value ">6</div><div class=footnote>Lava 4/5 · Cats 1/5 · Dogs 1/3</div></div><div class="card"><div class="label">Today&#x27;s R</div><div class="value neg">-3.54R</div><div class=footnote>LIMIT HIT — no new entries (cap -3.0R)</div></div><div class="card"><div class="label">Portfolio Heat</div><div class="value pos">2.41%</div><div class=footnote>$2,407.70 at risk · combined cap 3.0%</div></div></div>
 <h3 style="margin:30px 0 10px;">🌋 Liquid Lava</h3>
 
     <div class="banner" style="opacity:.9;"><b>Needs a setup</b> — bottom bounce, continuation, consolidation breakout or range expansion. Stop 2.5% or tighter, target 10%, out after 5 days. Risk 0.5%, position up to 25% — the tight stop is what buys the size.</div>
@@ -403,7 +406,7 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="table-wrap"><table>
       <thead><tr><th>Ticker</th><th>Qty</th><th>Entry</th><th>Last</th><th>Open P&amp;L</th>
       <th>Stop</th><th>Target</th><th>Bars</th></tr></thead>
-      <tbody><tr><td><b>CVX</b></td><td>76</td><td>$215.79</td><td>$217.05</td><td class="pos"><b>$96.06</b> +0.6%</td><td>$210.41</td><td>$237.38</td><td>0/5</td></tr><tr><td><b>NOW</b></td><td>37</td><td>$142.82</td><td>$142.14</td><td class="neg"><b>-$25.15</b> -0.5%</td><td>$129.34</td><td>$157.09</td><td>0/5</td></tr><tr><td><b>RBLX</b></td><td>103</td><td>$51.28</td><td>$50.50</td><td class="neg"><b>-$80.34</b> -1.5%</td><td>$46.46</td><td>$56.42</td><td>0/5</td></tr><tr><td><b>TNON</b></td><td>10,442</td><td>$4.24</td><td>$5.11</td><td class="pos"><b>$9,015.62</b> +20.4%</td><td>$4.45</td><td>$0.00</td><td>2/5</td></tr></tbody></table></div>
+      <tbody><tr><td><b>CVX</b></td><td>76</td><td>$215.79</td><td>$217.74</td><td class="pos"><b>$147.97</b> +0.9%</td><td>$210.41</td><td>$237.38</td><td>0/5</td></tr><tr><td><b>NOW</b></td><td>37</td><td>$142.82</td><td>$141.91</td><td class="neg"><b>-$33.67</b> -0.6%</td><td>$129.34</td><td>$157.09</td><td>0/5</td></tr><tr><td><b>RBLX</b></td><td>103</td><td>$51.28</td><td>$50.25</td><td class="neg"><b>-$106.09</b> -2.0%</td><td>$46.46</td><td>$56.42</td><td>0/5</td></tr><tr><td><b>TNON</b></td><td>10,442</td><td>$4.24</td><td>$5.03</td><td class="pos"><b>$8,241.74</b> +18.6%</td><td>$4.45</td><td>$0.00</td><td>2/5</td></tr></tbody></table></div>
 <h3 style="margin:30px 0 10px;">🐱 Cats</h3>
 
     <div class="banner" style="opacity:.9;"><b>A real catalyst you can confirm</b> — an SEC filing, or a dated headline naming earnings, guidance, a management change, an analyst move, a partnership, a big order, an insider trade or a regulatory event. Stop 2.5%, skipped if entry would need more than 8%. Target 20%+, risk 0.5%.</div>
@@ -416,7 +419,7 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="table-wrap"><table>
       <thead><tr><th>Ticker</th><th>Qty</th><th>Entry</th><th>Last</th><th>Open P&amp;L</th>
       <th>Stop</th><th>Target</th><th>Bars</th></tr></thead>
-      <tbody><tr><td><b>BWIN</b></td><td>261</td><td>$31.84</td><td>$32.53</td><td class="pos"><b>$180.04</b> +2.2%</td><td>$29.92</td><td>$38.20</td><td>0/10</td></tr></tbody></table></div>
+      <tbody><tr><td><b>BWIN</b></td><td>261</td><td>$31.84</td><td>$32.48</td><td class="pos"><b>$168.03</b> +2.0%</td><td>$29.92</td><td>$38.20</td><td>0/10</td></tr></tbody></table></div>
 <h3 style="margin:30px 0 10px;">🐶 Dogs</h3>
 
     <div class="banner" style="opacity:.9;"><b>Big move, big volume, no catalyst anyone can confirm</b> — a story stock. Wide 9% stop, small size (0.5% risk, 10% max position), take some at +40%, hold until a big down day. Max $20B — a mega-cap isn't a story stock.</div>
@@ -429,26 +432,44 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="table-wrap"><table>
       <thead><tr><th>Ticker</th><th>Qty</th><th>Entry</th><th>Last</th><th>Open P&amp;L</th>
       <th>Stop</th><th>Target</th><th>Bars</th></tr></thead>
-      <tbody><tr><td><b>VEEA</b></td><td>253</td><td>$6.30</td><td>$5.69</td><td class="neg"><b>-$155.34</b> -9.7%</td><td>$4.31</td><td>$8.79</td><td>0/5</td></tr></tbody></table></div>
+      <tbody><tr><td><b>VEEA</b></td><td>253</td><td>$6.30</td><td>$5.45</td><td class="neg"><b>-$215.05</b> -13.5%</td><td>$4.31</td><td>$8.79</td><td>0/5</td></tr></tbody></table></div>
 <h3 style="margin:32px 0 10px;">Closed Trades</h3>
 <div class="table-wrap"><table>
       <thead><tr><th>Ticker</th><th>Category</th><th>Entry</th><th>Exit</th><th>P&amp;L</th>
       <th>R</th><th>Bars</th><th>Exit reason</th></tr></thead>
-      <tbody><tr><td><b>ELMT</b></td><td>Cat</td><td>$21.91</td><td>$20.22</td><td class="neg">-$512.07</td><td class="neg">-1.00R</td><td>0</td><td style="font-size:11px;opacity:.8;">STOP_HIT_BROKER</td></tr><tr><td><b>ELMT</b></td><td>Cat</td><td>$21.91</td><td>$20.22</td><td class="neg">-$512.07</td><td class="neg">-1.00R</td><td>0</td><td style="font-size:11px;opacity:.8;">STOP_HIT_BROKER</td></tr><tr><td><b>BMGL</b></td><td>Dog</td><td>$7.60</td><td>$6.03</td><td class="neg">-$1,204.72</td><td class="neg">-1.54R</td><td>0</td><td style="font-size:11px;opacity:.8;">STOP_HIT_BROKER</td></tr></tbody></table></div><div style="font-size:12px;opacity:.7;margin-top:6px;">12 earlier closed trade(s) not shown — see Per-Bucket Performance for all-time expectancy.</div>
-  </section>
+      <tbody><tr><td><b>ELMT</b></td><td>Cat</td><td>$21.91</td><td>$20.22</td><td class="neg">-$512.07</td><td class="neg">-1.00R</td><td>0</td><td style="font-size:11px;opacity:.8;">STOP_HIT_BROKER</td></tr><tr><td><b>ELMT</b></td><td>Cat</td><td>$21.91</td><td>$20.22</td><td class="neg">-$512.07</td><td class="neg">-1.00R</td><td>0</td><td style="font-size:11px;opacity:.8;">STOP_HIT_BROKER</td></tr><tr><td><b>BMGL</b></td><td>Dog</td><td>$7.60</td><td>$6.03</td><td class="neg">-$1,204.72</td><td class="neg">-1.54R</td><td>0</td><td style="font-size:11px;opacity:.8;">STOP_HIT_BROKER</td></tr></tbody></table></div><div style="font-size:12px;opacity:.7;margin-top:6px;">12 earlier closed trade(s) not shown — see Per-Bucket Performance for all-time expectancy.</div></div>
+  </details>
 
-  <section>
-    <h2>⚡ Trading System — Day Trading <span class="count">opening momentum · 08:30–10:30 CT · long only</span></h2>
-    <div class="badges" style="margin-bottom:12px;"><span class="pill pill-on"><span class="pill-dot"></span>LIVE</span><span class="pill pill-bad"><span class="pill-dot"></span>REAL ORDERS</span><span class="pill pill-on"><span class="pill-dot"></span>LONG ONLY</span></div>
-<div class="table-wrap" style="padding:12px;line-height:1.7;font-size:13px;"><b>14:54 CT</b> · entry window 08:30–10:30 CT: closed — past 10:30 CT — no new trades under this playbook (open positions are still managed)<br>market tier <b>OPPOSING</b> — QQQ confirmed weak (-0.68%) — QQQ is weak but drifting (volume 0.85x)<br>breadth 999 adv / 1,802 dec (35.7% up)<br>QQQ BEARISH (-0.68%) — below VWAP, 9&lt;21 — weak structure · last scan 22 min ago</div>
+  <details class="strategy-section" id="sec-daytrade">
+    <summary>
+      <h2>⚡ Trading System — Day Trading <span class="count">opening momentum · 08:30–10:30 CT · long only</span></h2>
+      <span class="chevron">Details <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </summary>
+    <div class="section-body"><div class="badges" style="margin-bottom:12px;"><span class="pill pill-on"><span class="pill-dot"></span>LIVE</span><span class="pill pill-bad"><span class="pill-dot"></span>REAL ORDERS</span><span class="pill pill-on"><span class="pill-dot"></span>LONG ONLY</span></div>
+<div class="table-wrap" style="padding:12px;line-height:1.7;font-size:13px;"><b>15:05 CT</b> · entry window 08:30–10:30 CT: closed — past 10:30 CT — no new trades under this playbook (open positions are still managed)<br>market tier <b>OPPOSING</b> — QQQ confirmed weak (-0.68%) — QQQ is weak but drifting (volume 0.85x)<br>breadth 999 adv / 1,802 dec (35.7% up)<br>QQQ BEARISH (-0.68%) — below VWAP, 9&lt;21 — weak structure · last scan 32 min ago</div>
 <div class="cards"><div class="card"><div class="label">Allocation</div><div class="value ">$100,000</div><div class=footnote>day-trading bucket, separate from 9-Million</div></div><div class="card"><div class="label">Risk per trade</div><div class="value ">0.250%</div><div class=footnote>$250 per trade</div></div><div class="card"><div class="label">Today</div><div class="value ">+0.00R</div><div class=footnote>0W / 0L · peak +0.00R</div></div><div class="card"><div class="label">Trades today</div><div class="value ">0 / 5</div><div class=footnote>max 1 at once</div></div><div class="card"><div class="label">Open</div><div class="value ">flat</div><div class=footnote>no positions</div></div><div class="card"><div class="label">All-time</div><div class="value ">—</div><div class=footnote>no closed trades yet</div></div></div>
 <h3 style="margin:26px 0 10px;">Open Positions</h3>
 <div class="table-wrap"><div class="empty">Flat — no open positions.</div></div>
 <h3 style="margin:26px 0 10px;">Watchlist — what the rules said on the last pass</h3>
 <div class="table-wrap"><table><thead><tr><th>Ticker</th><th>Verdict</th><th>Score</th><th>Setup</th><th>Chg</th><th>RVOL</th><th>Catalyst</th><th>Entry / Stop</th><th>Room</th><th>Why</th></tr></thead><tbody><tr><td><b>SWKS</b></td><td><span class="pill pill-off"><span class="pill-dot"></span>NO TRADE</span></td><td>0/10</td><td>None</td><td>+11.72%</td><td>2.79x</td><td>UNVERIFIED</td><td>—</td><td>—</td><td style="font-size:11px;opacity:.75;">9 EMA is not above the 21 EMA — no long trend to continue</td></tr><tr><td><b>RVTY</b></td><td><span class="pill pill-off"><span class="pill-dot"></span>NO TRADE</span></td><td>0/10</td><td>First Pullback</td><td>+8.11%</td><td>2.76x</td><td>WEAK</td><td>—</td><td>—</td><td style="font-size:11px;opacity:.75;">structure is messy — impulse only 0.92% (min 1.5%); pullback gave back 83% of the leg — re</td></tr><tr><td><b>CRWD</b></td><td><span class="pill pill-off"><span class="pill-dot"></span>NO TRADE</span></td><td>0/10</td><td>None</td><td>+2.58%</td><td>1.96x</td><td>WEAK</td><td>—</td><td>—</td><td style="font-size:11px;opacity:.75;">9 EMA is not above the 21 EMA — no long trend to continue</td></tr><tr><td><b>TMO</b></td><td><span class="pill pill-off"><span class="pill-dot"></span>NO TRADE</span></td><td>0/10</td><td>First Pullback</td><td>+3.98%</td><td>1.70x</td><td>UNVERIFIED</td><td>—</td><td>—</td><td style="font-size:11px;opacity:.75;">structure is messy — impulse only 0.31% (min 1.5%); pullback held 60% of the leg; pullback</td></tr><tr><td><b>DGX</b></td><td><span class="pill pill-off"><span class="pill-dot"></span>NO TRADE</span></td><td>0/10</td><td>First Pullback</td><td>+4.13%</td><td>1.84x</td><td>UNVERIFIED</td><td>—</td><td>—</td><td style="font-size:11px;opacity:.75;">structure is messy — impulse only 0.89% (min 1.5%); pullback held 73% of the leg; pullback</td></tr><tr><td><b>APA</b></td><td><span class="pill pill-off"><span class="pill-dot"></span>NO TRADE</span></td><td>0/10</td><td>First Pullback</td><td>+4.91%</td><td>1.67x</td><td>VERIFIED</td><td>—</td><td>—</td><td style="font-size:11px;opacity:.75;">structure is messy — impulse only 0.51% (min 1.5%); pullback gave back 71% of the leg — re</td></tr><tr><td><b>QCOM</b></td><td><span class="pill pill-off"><span class="pill-dot"></span>NO TRADE</span></td><td>0/10</td><td>None</td><td>+4.18%</td><td>1.52x</td><td>UNVERIFIED</td><td>—</td><td>—</td><td style="font-size:11px;opacity:.75;">9 EMA is not above the 21 EMA — no long trend to continue</td></tr><tr><td><b>FFIV</b></td><td><span class="pill pill-off"><span class="pill-dot"></span>NO TRADE</span></td><td>0/10</td><td>First Pullback</td><td>+4.35%</td><td>1.55x</td><td>UNVERIFIED</td><td>—</td><td>—</td><td style="font-size:11px;opacity:.75;">structure is messy — impulse only 1.03% (min 1.5%); pullback held 86% of the leg; pullback</td></tr><tr><td><b>VLO</b></td><td><span class="pill pill-off"><span class="pill-dot"></span>NO TRADE</span></td><td>0/10</td><td>First Pullback</td><td>+3.64%</td><td>1.39x</td><td>UNVERIFIED</td><td>—</td><td>—</td><td style="font-size:11px;opacity:.75;">structure is messy — impulse only 0.56% (min 1.5%); pullback gave back 77% of the leg — re</td></tr><tr><td><b>DXCM</b></td><td><span class="pill pill-off"><span class="pill-dot"></span>NO TRADE</span></td><td>0/10</td><td>None</td><td>+2.50%</td><td>2.04x</td><td>VERIFIED</td><td>—</td><td>—</td><td style="font-size:11px;opacity:.75;">9 EMA is not above the 21 EMA — no long trend to continue</td></tr><tr><td><b>LH</b></td><td><span class="pill pill-off"><span class="pill-dot"></span>NO TRADE</span></td><td>0/10</td><td>First Pullback</td><td>+3.07%</td><td>1.67x</td><td>UNVERIFIED</td><td>—</td><td>—</td><td style="font-size:11px;opacity:.75;">structure is messy — impulse only 0.72% (min 1.5%); pullback held 62% of the leg; pullback</td></tr><tr><td><b>ZBH</b></td><td><span class="pill pill-off"><span class="pill-dot"></span>NO TRADE</span></td><td>0/10</td><td>First Pullback</td><td>+2.44%</td><td>2.20x</td><td>UNVERIFIED</td><td>—</td><td>—</td><td style="font-size:11px;opacity:.75;">structure is messy — impulse only 0.46% (min 1.5%); pullback gave back 80% of the leg — re</td></tr></tbody></table></div>
 <h3 style="margin:26px 0 10px;">Closed Trades</h3>
-<div class="table-wrap"><div class="empty">No closed trades yet — nothing here is evidence of anything until 30+.</div></div>
-  </section>
+<div class="table-wrap"><div class="empty">No closed trades yet — nothing here is evidence of anything until 30+.</div></div></div>
+  </details>
+
+  <script>
+  (function() {
+    // Remember each section's open/closed state per viewer. Collapsed is the
+    // default: the top summary answers "how is it going", and the detail is
+    // there when the answer prompts a question.
+    document.querySelectorAll('details.strategy-section').forEach(function(d) {
+      var k = 'dash-open-' + d.id;
+      try { if (localStorage.getItem(k) === '1') d.open = true; } catch (e) {}
+      d.addEventListener('toggle', function() {
+        try { localStorage.setItem(k, d.open ? '1' : '0'); } catch (e) {}
+      });
+    });
+  })();
+  </script>
 
   <footer>
     <span>Generated by unified_dashboard.py</span>
