@@ -121,7 +121,7 @@ table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:9px;borde
 <div><label>Discount rate %</label><input id="scDisc" type="number" step=".01" value="13.00"></div>
 <div><label>Cash ($B)</label><input id="scCash" type="number" step=".001"></div>
 <div><label>Debt ($B)</label><input id="scDebt" type="number" step=".001"></div>
-<div><label>Diluted shares ($B)</label><input id="scShares" type="number" step=".001"></div>
+<div><label>Diluted shares (billions)</label><input id="scShares" type="number" step=".001"></div>
 <div style="align-self:end"><button onclick="calculateScenario()">Calculate Scenario IV</button></div>
 </div>
 <div class="box ivbox" style="margin-top:12px"><div class="eyebrow">Pre-Commercial Scenario IV</div><div class="big" id="scenarioIV">—</div><span class="muted" id="scenarioDetail">Enter assumptions and calculate.</span></div>
@@ -140,7 +140,7 @@ Scenario IV / Share  = Present Equity Value &divide; Diluted Shares</div>
 <div><label>TTM metric ($B)</label><input id="exactBase" type="number" step=".001"></div>
 <div><label>Cash + ST investments ($B)</label><input id="exactCash" type="number" step=".001"></div>
 <div><label>Debt ($B)</label><input id="exactDebt" type="number" step=".001"></div>
-<div><label>Shares ($B)</label><input id="exactShares" type="number" step=".001"></div>
+<div><label>Shares (billions)</label><input id="exactShares" type="number" step=".001"></div>
 <div><label>Growth 1–5 %</label><input id="exactG1" type="number" step=".01"></div>
 <div><label>Growth 6–10 %</label><input id="exactG2" type="number" step=".01"></div>
 <div><label>Growth 11–20 %</label><input id="exactG3" value="4.00" type="number" step=".01"></div>
