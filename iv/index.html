@@ -213,7 +213,9 @@ function render(){
    ?'Standard DCF/DNI is not appropriate because current free cash flow, operating cash flow, and net income are negative. Use Pre-Commercial Scenario Valuation.'
    :(classifiable?state+' — model estimate, not a guaranteed future price.'
                  :'No valuation zone is shown because the model did not produce a positive intrinsic value.');
- const w=D.warnings||[];$('warnings').innerHTML=w.length?w.map(t=>'<div class="notice warn" style="margin-top:8px"><strong>Data caveat:</strong> '+t.replace(/[<>]/g,'')+'</div>').join(''):'';
+ // The scenario message is already the headline notice; don't repeat it as a caveat.
+ const w=(D.warnings||[]).filter(t=>!(scenarioMode&&t.indexOf('Standard DCF/DNI is not appropriate')===0));
+ $('warnings').innerHTML=w.length?w.map(t=>'<div class="notice warn" style="margin-top:8px"><strong>Data caveat:</strong> '+t.replace(/[<>]/g,'')+'</div>').join(''):'';
  set('base',bill(D.auto.base));set('baseLabel',D.auto.baseLabel);set('g1',pct(D.auto.g1));set('g2',pct(D.auto.g2));set('wacc',pct(D.auto.wacc));set('beta',Number.isFinite(D.beta)?D.beta.toFixed(2):'—');set('adjBeta',Number.isFinite(D.adjustedBeta)?D.adjustedBeta.toFixed(2):'—');set('rf',pct(D.riskFree));
  set('ocf',bill(D.ttmOCF));set('fcf',D.capexKnown?bill(D.ttmFCF):'unavailable');set('fcfSource',D.capexKnown?(D.fcfSource||''):'capital expenditure not identified');set('capex',D.capexKnown?bill(D.capex):'unavailable');set('capexStatus',D.capexStatus||'');set('ni',bill(D.ttmNetIncome));set('shares',Number.isFinite(D.shares)?(D.shares*1000).toFixed(1)+'M':'—');set('shareSource',D.shareSource||'');set('cash',bill(D.cash));set('cashSource',D.cashSource||'');set('marketableEquity',bill(D.marketableEquity));set('debt',bill(D.debt));set('mcap',bill(D.marketCap));set('revGrowth',pct(D.latestRevenueGrowth));set('histGrowth',pct(D.auto.histGrowth));set('ttmGrowth',pct(D.auto.ttmGrowth));set('taxRate',pct(D.taxRate));
  const num=(id,v,d=3)=>{if(Number.isFinite(v))$(id).value=v.toFixed(d)};
