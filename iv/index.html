@@ -64,6 +64,7 @@ table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:9px;borde
 <div class="box">30% below IV<strong id="mos30">—</strong></div>
 </div>
 <div id="valuationNotice" class="notice">Load a ticker.</div>
+<div id="warnings"></div>
 </section>
 
 <section class="card">
@@ -94,6 +95,7 @@ table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:9px;borde
 <div class="g4">
 <div class="box">TTM operating cash flow<strong id="ocf">—</strong></div>
 <div class="box">TTM free cash flow<strong id="fcf">—</strong><span class="muted" id="fcfSource"></span></div>
+<div class="box">TTM capital expenditure<strong id="capex">—</strong><span class="muted" id="capexStatus"></span></div>
 <div class="box">TTM net income<strong id="ni">—</strong></div>
 <div class="box">Diluted shares used<strong id="shares">—</strong><span class="muted" id="shareSource"></span></div>
 <div class="box">Cash + short-term investments<strong id="cash">—</strong><span class="muted" id="cashSource"></span></div>
@@ -173,8 +175,9 @@ function render(){
  const r=D.price>0?D.price/D.auto.iv:NaN;set('ratio',Number.isFinite(r)?r.toFixed(2)+'×':'—');set('upside',Number.isFinite(r)?pct(D.auto.iv/D.price-1):'—');
  let state='Price unavailable';if(Number.isFinite(r))state=r<=.8?'Margin-of-safety zone':r<=1.25?'Fair / watch zone':'Valuation-risk zone';set('state',state);
  $('valuationNotice').className='notice '+(r<=.8?'good':r<=1.25?'warn':'bad');$('valuationNotice').textContent=state+' — model estimate, not a guaranteed future price.';
+ const w=D.warnings||[];$('warnings').innerHTML=w.length?w.map(t=>'<div class="notice warn" style="margin-top:8px"><strong>Data caveat:</strong> '+t.replace(/[<>]/g,'')+'</div>').join(''):'';
  set('base',bill(D.auto.base));set('baseLabel',D.auto.baseLabel);set('g1',pct(D.auto.g1));set('g2',pct(D.auto.g2));set('wacc',pct(D.auto.wacc));set('beta',Number.isFinite(D.beta)?D.beta.toFixed(2):'—');set('adjBeta',Number.isFinite(D.adjustedBeta)?D.adjustedBeta.toFixed(2):'—');set('rf',pct(D.riskFree));
- set('ocf',bill(D.ttmOCF));set('fcf',bill(D.ttmFCF));set('fcfSource',D.fcfSource||'');set('ni',bill(D.ttmNetIncome));set('shares',Number.isFinite(D.shares)?(D.shares*1000).toFixed(1)+'M':'—');set('shareSource',D.shareSource||'');set('cash',bill(D.cash));set('cashSource',D.cashSource||'');set('marketableEquity',bill(D.marketableEquity));set('debt',bill(D.debt));set('mcap',bill(D.marketCap));set('revGrowth',pct(D.latestRevenueGrowth));set('histGrowth',pct(D.auto.histGrowth));set('ttmGrowth',pct(D.auto.ttmGrowth));set('taxRate',pct(D.taxRate));
+ set('ocf',bill(D.ttmOCF));set('fcf',D.capexKnown?bill(D.ttmFCF):'unavailable');set('fcfSource',D.capexKnown?(D.fcfSource||''):'capital expenditure not identified');set('capex',D.capexKnown?bill(D.capex):'unavailable');set('capexStatus',D.capexStatus||'');set('ni',bill(D.ttmNetIncome));set('shares',Number.isFinite(D.shares)?(D.shares*1000).toFixed(1)+'M':'—');set('shareSource',D.shareSource||'');set('cash',bill(D.cash));set('cashSource',D.cashSource||'');set('marketableEquity',bill(D.marketableEquity));set('debt',bill(D.debt));set('mcap',bill(D.marketCap));set('revGrowth',pct(D.latestRevenueGrowth));set('histGrowth',pct(D.auto.histGrowth));set('ttmGrowth',pct(D.auto.ttmGrowth));set('taxRate',pct(D.taxRate));
  $('exactBase').value=D.auto.base.toFixed(3);$('exactCash').value=D.cash.toFixed(3);$('exactDebt').value=D.debt.toFixed(3);$('exactShares').value=D.shares.toFixed(3);$('exactG1').value=(D.auto.g1*100).toFixed(2);$('exactG2').value=(D.auto.g2*100).toFixed(2);$('exactWacc').value=(D.auto.wacc*100).toFixed(2);$('exactModel').value=D.auto.model;
 }
 function calculateExact(){const a=['exactBase','exactCash','exactDebt','exactShares','exactG1','exactG2','exactG3','exactWacc'].map(n);if(!a.every(Number.isFinite)||a[3]<=0)return set('exactIV','—');set('exactIV',money(iv20(a[0],a[4]/100,a[5]/100,a[6]/100,a[7]/100,a[1],a[2],a[3])))}
