@@ -197,27 +197,28 @@ async function analyze(){
 }
 function render(){
  set('company',(D.name||D.symbol)+' ('+D.symbol+')');set('price',money(D.price));set('priceSource',D.priceSource||'');set('model',D.auto.modelLabel);set('confidence',D.auto.confidence);
- const ivv=D.auto.iv,scenarioMode=D.auto.model==='scenario_required'||!Number.isFinite(ivv);
+ const ivv=D.auto.iv,noValue=!Number.isFinite(ivv);
+ const scenarioMode=D.auto.model==='scenario_required';
  // Only a POSITIVE intrinsic value may be classified. A negative IV makes price/IV negative,
  // which silently satisfied the <=0.8 margin-of-safety test.
- const classifiable=!scenarioMode&&ivv>0&&D.price>0;
- set('iv',scenarioMode?'N/A':money(ivv));
+ const classifiable=!noValue&&ivv>0&&D.price>0;
+ set('iv',noValue?'N/A':money(ivv));
  set('mos10',classifiable?money(ivv*.90):'N/A');set('mos20',classifiable?money(ivv*.80):'N/A');
  set('mos20b',classifiable?money(ivv*.80):'N/A');set('mos30',classifiable?money(ivv*.70):'N/A');
  const r=classifiable?D.price/ivv:NaN;
  set('ratio',classifiable?r.toFixed(2)+'×':'N/A');set('upside',classifiable?pct(ivv/D.price-1):'N/A');
  let state,cls;
  if(scenarioMode){state='Scenario valuation required';cls='warn'}
- else if(!classifiable){state='Not classifiable';cls='warn'}
+ else if(D.auto.model==='data_unavailable'){state='SEC data unavailable';cls='warn'}
+ else if(!classifiable){state='No positive intrinsic value';cls='warn'}
  else{state=r<=.8?'Margin-of-safety zone':r<=1.25?'Fair / watch zone':'Valuation-risk zone';cls=r<=.8?'good':r<=1.25?'warn':'bad'}
  set('state',state);
  $('valuationNotice').className='notice '+cls;
- $('valuationNotice').textContent=scenarioMode
-   ?'Standard DCF/DNI is not appropriate because current free cash flow, operating cash flow, and net income are negative. Use Pre-Commercial Scenario Valuation.'
-   :(classifiable?state+' — model estimate, not a guaranteed future price.'
-                 :'No valuation zone is shown because the model did not produce a positive intrinsic value.');
+ $('valuationNotice').textContent=classifiable
+   ?state+' — model estimate, not a guaranteed future price.'
+   :(D.auto.ivNote||'No valuation zone is shown because the model did not produce a positive intrinsic value.');
  // The scenario message is already the headline notice; don't repeat it as a caveat.
- const w=(D.warnings||[]).filter(t=>!(scenarioMode&&t.indexOf('Standard DCF/DNI is not appropriate')===0));
+ const w=(D.warnings||[]).filter(t=>t!==D.auto.ivNote);
  $('warnings').innerHTML=w.length?w.map(t=>'<div class="notice warn" style="margin-top:8px"><strong>Data caveat:</strong> '+t.replace(/[<>]/g,'')+'</div>').join(''):'';
  set('base',bill(D.auto.base));set('baseLabel',D.auto.baseLabel);set('g1',pct(D.auto.g1));set('g2',pct(D.auto.g2));set('wacc',pct(D.auto.wacc));set('beta',Number.isFinite(D.beta)?D.beta.toFixed(2):'—');set('adjBeta',Number.isFinite(D.adjustedBeta)?D.adjustedBeta.toFixed(2):'—');set('rf',pct(D.riskFree));
  set('ocf',bill(D.ttmOCF));set('fcf',D.capexKnown?bill(D.ttmFCF):'unavailable');set('fcfSource',D.capexKnown?(D.fcfSource||''):'capital expenditure not identified');set('capex',D.capexKnown?bill(D.capex):'unavailable');set('capexStatus',D.capexStatus||'');set('ni',bill(D.ttmNetIncome));set('shares',Number.isFinite(D.shares)?(D.shares*1000).toFixed(1)+'M':'—');set('shareSource',D.shareSource||'');set('cash',bill(D.cash));set('cashSource',D.cashSource||'');set('marketableEquity',bill(D.marketableEquity));set('debt',bill(D.debt));set('mcap',bill(D.marketCap));set('revGrowth',pct(D.latestRevenueGrowth));set('histGrowth',pct(D.auto.histGrowth));set('ttmGrowth',pct(D.auto.ttmGrowth));set('taxRate',pct(D.taxRate));
