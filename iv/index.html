@@ -172,6 +172,9 @@ Scenario IV / Share  = Present Equity Value &divide; Diluted Shares</div>
 <script>
 const API=(window.IV_API_BASE||'').replace(/\/$/,'');
 let D=null;
+// Tracks only tab switches this code made, so returning to a profitable ticker undoes the
+// automatic jump without overriding a tab the user chose themselves.
+let autoSwitchedToScenario=false;
 const $=id=>document.getElementById(id);
 const n=id=>{const x=parseFloat($(id).value);return Number.isFinite(x)?x:NaN};
 const money=x=>Number.isFinite(x)?'$'+x.toFixed(2):'—';
@@ -225,7 +228,8 @@ function render(){
  // Seed the scenario tab from live SEC figures, then hand control to the user.
  num('scRev',D.revenueAnchor);num('scCash',D.cash);num('scDebt',D.debt);num('scShares',D.shares);
  num('scDisc',D.auto.wacc*100,2);
- if(scenarioMode){const t=document.querySelector('[data-p=scenario]');if(t)showPanel(t)}
+ if(scenarioMode){const t=document.querySelector('[data-p=scenario]');if(t){showPanel(t);autoSwitchedToScenario=true}}
+ else if(autoSwitchedToScenario){const t=document.querySelector('[data-p=assumptions]');if(t)showPanel(t);autoSwitchedToScenario=false}
 }
 function scenarioIVjs(rev,years,cagr,ps,disc,cash,debt,shares){
  if(!(shares>0)||!(years>0))return NaN;
