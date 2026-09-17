@@ -71,6 +71,7 @@ table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:9px;borde
 <div class="tabs">
 <div class="tab active" data-p="assumptions" onclick="showPanel(this)">Auto Assumptions</div>
 <div class="tab" data-p="audit" onclick="showPanel(this)">Financial Audit</div>
+<div class="tab" data-p="scenario" onclick="showPanel(this)">Pre-Commercial Scenario</div>
 <div class="tab" data-p="exact" onclick="showPanel(this)">Exact Adam / StockOracle</div>
 <div class="tab" data-p="tests" onclick="showPanel(this)">Engine Tests</div>
 </div>
@@ -107,6 +108,28 @@ table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:9px;borde
 <div class="box">TTM metric growth<strong id="ttmGrowth">—</strong></div>
 <div class="box">Tax rate<strong id="taxRate">—</strong></div>
 </div>
+</div>
+
+<div id="p-scenario" class="panel">
+<h2>Pre-commercial scenario valuation</h2>
+<p class="muted">For companies with no positive free cash flow, operating cash flow or net income, where a 20-year discounted model has nothing to discount. This is an explicit scenario you control — not a DCF, and not OracleValue.</p>
+<div class="grid">
+<div><label>Revenue anchor ($B)</label><input id="scRev" type="number" step=".001"></div>
+<div><label>Projection years</label><input id="scYears" type="number" step="1" value="5"></div>
+<div><label>Revenue CAGR %</label><input id="scCagr" type="number" step=".1" value="60"></div>
+<div><label>Exit P/S multiple</label><input id="scPS" type="number" step=".1" value="8"></div>
+<div><label>Discount rate %</label><input id="scDisc" type="number" step=".01" value="13.00"></div>
+<div><label>Cash ($B)</label><input id="scCash" type="number" step=".001"></div>
+<div><label>Debt ($B)</label><input id="scDebt" type="number" step=".001"></div>
+<div><label>Diluted shares ($B)</label><input id="scShares" type="number" step=".001"></div>
+<div style="align-self:end"><button onclick="calculateScenario()">Calculate Scenario IV</button></div>
+</div>
+<div class="box ivbox" style="margin-top:12px"><div class="eyebrow">Pre-Commercial Scenario IV</div><div class="big" id="scenarioIV">—</div><span class="muted" id="scenarioDetail">Enter assumptions and calculate.</span></div>
+<div class="formula" style="margin-top:10px">Future Revenue       = Revenue Anchor &times; (1 + Revenue CAGR)^Years
+Future Equity Value  = Future Revenue &times; Exit P/S + Cash &minus; Debt
+Present Equity Value = Future Equity Value &divide; (1 + Discount Rate)^Years
+Scenario IV / Share  = Present Equity Value &divide; Diluted Shares</div>
+<div class="notice">Revenue anchor defaults to max(TTM revenue, latest quarterly revenue &times; 4). Every field is an assumption: the exit multiple and CAGR move the answer more than anything else here. Read the output as one scenario, not as a valuation.</div>
 </div>
 
 <div id="p-exact" class="panel">
@@ -171,14 +194,50 @@ async function analyze(){
 }
 function render(){
  set('company',(D.name||D.symbol)+' ('+D.symbol+')');set('price',money(D.price));set('priceSource',D.priceSource||'');set('model',D.auto.modelLabel);set('confidence',D.auto.confidence);
- set('iv',money(D.auto.iv));set('mos10',money(D.auto.iv*.90));set('mos20',money(D.auto.iv*.80));set('mos20b',money(D.auto.iv*.80));set('mos30',money(D.auto.iv*.70));
- const r=D.price>0?D.price/D.auto.iv:NaN;set('ratio',Number.isFinite(r)?r.toFixed(2)+'×':'—');set('upside',Number.isFinite(r)?pct(D.auto.iv/D.price-1):'—');
- let state='Price unavailable';if(Number.isFinite(r))state=r<=.8?'Margin-of-safety zone':r<=1.25?'Fair / watch zone':'Valuation-risk zone';set('state',state);
- $('valuationNotice').className='notice '+(r<=.8?'good':r<=1.25?'warn':'bad');$('valuationNotice').textContent=state+' — model estimate, not a guaranteed future price.';
+ const ivv=D.auto.iv,scenarioMode=D.auto.model==='scenario_required'||!Number.isFinite(ivv);
+ // Only a POSITIVE intrinsic value may be classified. A negative IV makes price/IV negative,
+ // which silently satisfied the <=0.8 margin-of-safety test.
+ const classifiable=!scenarioMode&&ivv>0&&D.price>0;
+ set('iv',scenarioMode?'N/A':money(ivv));
+ set('mos10',classifiable?money(ivv*.90):'N/A');set('mos20',classifiable?money(ivv*.80):'N/A');
+ set('mos20b',classifiable?money(ivv*.80):'N/A');set('mos30',classifiable?money(ivv*.70):'N/A');
+ const r=classifiable?D.price/ivv:NaN;
+ set('ratio',classifiable?r.toFixed(2)+'×':'N/A');set('upside',classifiable?pct(ivv/D.price-1):'N/A');
+ let state,cls;
+ if(scenarioMode){state='Scenario valuation required';cls='warn'}
+ else if(!classifiable){state='Not classifiable';cls='warn'}
+ else{state=r<=.8?'Margin-of-safety zone':r<=1.25?'Fair / watch zone':'Valuation-risk zone';cls=r<=.8?'good':r<=1.25?'warn':'bad'}
+ set('state',state);
+ $('valuationNotice').className='notice '+cls;
+ $('valuationNotice').textContent=scenarioMode
+   ?'Standard DCF/DNI is not appropriate because current free cash flow, operating cash flow, and net income are negative. Use Pre-Commercial Scenario Valuation.'
+   :(classifiable?state+' — model estimate, not a guaranteed future price.'
+                 :'No valuation zone is shown because the model did not produce a positive intrinsic value.');
  const w=D.warnings||[];$('warnings').innerHTML=w.length?w.map(t=>'<div class="notice warn" style="margin-top:8px"><strong>Data caveat:</strong> '+t.replace(/[<>]/g,'')+'</div>').join(''):'';
  set('base',bill(D.auto.base));set('baseLabel',D.auto.baseLabel);set('g1',pct(D.auto.g1));set('g2',pct(D.auto.g2));set('wacc',pct(D.auto.wacc));set('beta',Number.isFinite(D.beta)?D.beta.toFixed(2):'—');set('adjBeta',Number.isFinite(D.adjustedBeta)?D.adjustedBeta.toFixed(2):'—');set('rf',pct(D.riskFree));
  set('ocf',bill(D.ttmOCF));set('fcf',D.capexKnown?bill(D.ttmFCF):'unavailable');set('fcfSource',D.capexKnown?(D.fcfSource||''):'capital expenditure not identified');set('capex',D.capexKnown?bill(D.capex):'unavailable');set('capexStatus',D.capexStatus||'');set('ni',bill(D.ttmNetIncome));set('shares',Number.isFinite(D.shares)?(D.shares*1000).toFixed(1)+'M':'—');set('shareSource',D.shareSource||'');set('cash',bill(D.cash));set('cashSource',D.cashSource||'');set('marketableEquity',bill(D.marketableEquity));set('debt',bill(D.debt));set('mcap',bill(D.marketCap));set('revGrowth',pct(D.latestRevenueGrowth));set('histGrowth',pct(D.auto.histGrowth));set('ttmGrowth',pct(D.auto.ttmGrowth));set('taxRate',pct(D.taxRate));
- $('exactBase').value=D.auto.base.toFixed(3);$('exactCash').value=D.cash.toFixed(3);$('exactDebt').value=D.debt.toFixed(3);$('exactShares').value=D.shares.toFixed(3);$('exactG1').value=(D.auto.g1*100).toFixed(2);$('exactG2').value=(D.auto.g2*100).toFixed(2);$('exactWacc').value=(D.auto.wacc*100).toFixed(2);$('exactModel').value=D.auto.model;
+ const num=(id,v,d=3)=>{if(Number.isFinite(v))$(id).value=v.toFixed(d)};
+ num('exactBase',D.auto.base);num('exactCash',D.cash);num('exactDebt',D.debt);num('exactShares',D.shares);
+ num('exactG1',D.auto.g1*100,2);num('exactG2',D.auto.g2*100,2);num('exactWacc',D.auto.wacc*100,2);
+ if(D.auto.model!=='scenario_required')$('exactModel').value=D.auto.model;
+ // Seed the scenario tab from live SEC figures, then hand control to the user.
+ num('scRev',D.revenueAnchor);num('scCash',D.cash);num('scDebt',D.debt);num('scShares',D.shares);
+ num('scDisc',D.auto.wacc*100,2);
+ if(scenarioMode){const t=document.querySelector('[data-p=scenario]');if(t)showPanel(t)}
+}
+function scenarioIVjs(rev,years,cagr,ps,disc,cash,debt,shares){
+ if(!(shares>0)||!(years>0))return NaN;
+ const futureRevenue=rev*Math.pow(1+cagr,years);
+ return (futureRevenue*ps+cash-debt)/Math.pow(1+disc,years)/shares;
+}
+function calculateScenario(){
+ const v=['scRev','scYears','scCagr','scPS','scDisc','scCash','scDebt','scShares'].map(n);
+ if(!v.every(Number.isFinite)||v[7]<=0||v[1]<=0){set('scenarioIV','—');set('scenarioDetail','Enter every assumption; shares and years must be greater than zero.');return}
+ const [rev,years,cagr,ps,disc,cash,debt,sh]=v;
+ const out=scenarioIVjs(rev,years,cagr/100,ps,disc/100,cash,debt,sh);
+ set('scenarioIV',money(out));
+ const fr=rev*Math.pow(1+cagr/100,years);
+ set('scenarioDetail','Revenue $'+rev.toFixed(3)+'B → $'+fr.toFixed(3)+'B in '+years+'y, exit '+ps.toFixed(1)+'× P/S, discounted at '+disc.toFixed(2)+'%');
 }
 function calculateExact(){const a=['exactBase','exactCash','exactDebt','exactShares','exactG1','exactG2','exactG3','exactWacc'].map(n);if(!a.every(Number.isFinite)||a[3]<=0)return set('exactIV','—');set('exactIV',money(iv20(a[0],a[4]/100,a[5]/100,a[6]/100,a[7]/100,a[1],a[2],a[3])))}
 function tests(){const a=iv20(18.779,.059,.0456,.04,.0634,2.085,49.802,.996),b=iv20(15.099,.059,.0456,.04,.0634,2.085,49.802,.996),c=iv20(83.159,.3196,.2626,.04,.0777,60.608,18.467,24.483);[[1,a,283.49,.02],[2,b,218.55,.02],[3,c,282.21,.60]].forEach(([i,v,e,t])=>{set('test'+i,money(v));const ok=Math.abs(v-e)<=t;set('pass'+i,ok?'PASS':'FAIL');$('pass'+i).className=ok?'good':'bad'})}
