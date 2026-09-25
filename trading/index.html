@@ -229,14 +229,14 @@ footer a { color: var(--accent); text-decoration: none; }
     <div>
       <h1>⚡ Trading System <span class="count" style="font-weight:500;">Day Trading</span></h1>
       <div class="sub">
-        Last refreshed: Thursday, September 24 2026 — 08:06 PM EDT <span id="lr-ago" class="lr-ago"></span>
+        Last refreshed: Friday, September 25 2026 — 09:27 AM EDT <span id="lr-ago" class="lr-ago"></span>
         · IBKR paper account DUT•••••• · Day Trading — LIVE
       </div>
     </div>
   </div>
   <script>
   (function() {
-    var refreshedAt = new Date("2026-09-24T20:06:46.126069-04:00");
+    var refreshedAt = new Date("2026-09-25T09:27:12.280651-04:00");
     var el = document.getElementById("lr-ago");
     function tick() {
       var mins = Math.round((Date.now() - refreshedAt.getTime()) / 60000);
@@ -254,12 +254,12 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <section class="market-clock">
       <div class="mc-main">
-        <div class="mc-time" id="mc-time">7:06:46 PM</div>
+        <div class="mc-time" id="mc-time">8:27:12 AM</div>
         <div class="mc-tz">CENTRAL TIME</div>
       </div>
       <div class="mc-status">
-        <span class="pill pill-off" id="mc-status-pill"><span class="pill-dot"></span>CLOSED</span>
-        <div class="mc-countdown" id="mc-countdown">Pre-Market Opens (tomorrow)</div>
+        <span class="pill pill-warn" id="mc-status-pill"><span class="pill-dot"></span>PRE-MARKET</span>
+        <div class="mc-countdown" id="mc-countdown">Market Opens — 8:30 AM CT</div>
       </div>
       <div class="mc-sessions">
         <div class="mc-session" data-session="premarket">
@@ -328,13 +328,13 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <section>
     <h2>Overall Summary</h2>
-    <div class="cards"><div class="card"><div class="label">Allocation</div><div class="value ">$100,000</div><div class=footnote>day trading — IBKR paper DUT••••••</div></div><div class="card"><div class="label">Realized P&amp;L</div><div class="value pos">$7.92 (+0.01%)</div><div class=footnote>3 closed trade(s)</div></div><div class="card"><div class="label">Today</div><div class="value neg">-0.47R</div><div class=footnote>1/5 trades · 0 open</div></div><div class="card"><div class="label">Expectancy</div><div class="value pos">+0.005R</div><div class=footnote>+0.02R total · needs 30+ trades to mean anything</div></div></div>
+    <div class="cards"><div class="card"><div class="label">Allocation</div><div class="value ">$100,000</div><div class=footnote>day trading — IBKR paper DUT••••••</div></div><div class="card"><div class="label">Realized P&amp;L</div><div class="value pos">$7.92 (+0.01%)</div><div class=footnote>3 closed trade(s)</div></div><div class="card"><div class="label">Today</div><div class="value ">+0.00R</div><div class=footnote>0/5 trades · 0 open</div></div><div class="card"><div class="label">Expectancy</div><div class="value pos">+0.005R</div><div class=footnote>+0.02R total · needs 30+ trades to mean anything</div></div></div>
   </section>
 
 
   <section>
     <h2>Market Bias <span class="count">overall bias + T2108 proxy</span></h2>
-    <div class="cards"><div class="card"><div class="label">Overall Bias</div><div class="value ">SELECTIVE — TRIM SIZE</div><div class=footnote>Some breakouts working, some not. Be very selective, trim size, and go in with a low profit expectation.</div></div><div class="card"><div class="label">T2108 proxy</div><div class="value ">46.1%</div><div class=footnote>% of 243 names above their 40-day MA</div></div></div>
+    <div class="cards"><div class="card"><div class="label">Overall Bias</div><div class="value ">SELECTIVE — TRIM SIZE</div><div class=footnote>Some breakouts working, some not. Be very selective, trim size, and go in with a low profit expectation.</div></div><div class="card"><div class="label">T2108 proxy</div><div class="value ">44.3%</div><div class=footnote>% of 334 names above their 40-day MA</div></div></div>
   </section>
 
   <section>
@@ -365,13 +365,13 @@ footer a { color: var(--accent); text-decoration: none; }
     
     <h3 style="margin:26px 0 8px;">Pre-Market</h3>
     <div class="banner" style="opacity:.9;">
-      Session 2026-09-24 · built 2026-09-24T09:56:38
+      Session 2026-09-25 · built 2026-09-25T09:26:57
     </div>
-    <div class="cards"><div class="card"><div class="label">Names ranked</div><div class="value ">23</div><div class=footnote>8 buzzing + 0 active + 15 quiet + 0 no data</div></div><div class="card"><div class="label">Buzzing</div><div class="value pos">8</div><div class=footnote>ON FIRE or HOT</div></div><div class="card"><div class="label">Quiet</div><div class="value ">15</div><div class=footnote>chatter under 1.5 msgs/hr</div></div><div class="card"><div class="label">Built</div><div class="value compact">2026-09-24T09:56:38</div><div class=footnote>session 2026-09-24</div></div></div>
+    <div class="cards"><div class="card"><div class="label">Names ranked</div><div class="value ">32</div><div class=footnote>8 buzzing + 2 active + 21 quiet + 0 no data</div></div><div class="card"><div class="label">Buzzing</div><div class="value pos">8</div><div class=footnote>ON FIRE or HOT</div></div><div class="card"><div class="label">Quiet</div><div class="value ">21</div><div class=footnote>chatter under 1.5 msgs/hr</div></div><div class="card"><div class="label">Built</div><div class="value compact">2026-09-25T09:26:57</div><div class=footnote>session 2026-09-25</div></div></div>
     <div class="table-wrap"><table>
       <thead><tr><th>Ticker</th><th>Company</th><th>Price</th><th>PM Gap</th><th>PM Volume</th>
       <th>Buzz</th><th>Msgs/hr ▼</th><th>Catalyst</th></tr></thead>
-      <tbody><tr><td><b>GLND</b></td><td>Greenland Energy Company</td><td>$3.21</td><td class="pos">+10.3%</td><td>4,243,709</td><td class="pos">🔥 ON FIRE</td><td>275.5</td><td style="font-size:11px;opacity:.8;">8k_filing</td></tr><tr><td><b>GRML</b></td><td>Greenland Mines Ltd</td><td>$12.70</td><td class="pos">+13.5%</td><td>3,505,319</td><td class="pos">🔥 ON FIRE</td><td>172.2</td><td style="font-size:11px;opacity:.8;">8k_filing</td></tr><tr><td><b>APUS</b></td><td>Apimeds Pharmaceuticals US</td><td>$6.92</td><td class="pos">+202.2%</td><td>25,287,932</td><td class="pos">🔥 ON FIRE</td><td>140.8</td><td style="font-size:11px;opacity:.8;"></td></tr><tr><td><b>PFSA</b></td><td>Profusa, Inc.</td><td>$3.50</td><td class="pos">+71.0%</td><td>35,532,149</td><td class="pos">🔥 ON FIRE</td><td>95.2</td><td style="font-size:11px;opacity:.8;">earnings</td></tr><tr><td><b>SRZN</b></td><td>Surrozen, Inc.</td><td>$30.57</td><td class="pos">+89.2%</td><td>2,009,736</td><td class="pos">🔥 ON FIRE</td><td>36.3</td><td style="font-size:11px;opacity:.8;"></td></tr><tr><td><b>SKYQ</b></td><td>Sky Quarry Inc.</td><td>$3.08</td><td class="pos">+21.3%</td><td>9,782,636</td><td class="pos">🔥 ON FIRE</td><td>30.3</td><td style="font-size:11px;opacity:.8;">8k_filing</td></tr><tr><td><b>KYTX</b></td><td>Kyverna Therapeutics, Inc.</td><td>$7.79</td><td class="pos">+10.2%</td><td>313,155</td><td class="pos">🔥 HOT</td><td>13.8</td><td style="font-size:11px;opacity:.8;">8k_filing</td></tr><tr><td><b>SOXS</b></td><td>Direxion Daily Semiconduct</td><td>$35.46</td><td class="pos">+5.3%</td><td>13,229,646</td><td class="pos">🔥 HOT</td><td>8.3</td><td style="font-size:11px;opacity:.8;"></td></tr></tbody></table><div style="font-size:11px;opacity:.7;margin:6px 0 0;">15 quieter name(s) checked and not listed.</div></div>
+      <tbody><tr><td><b>GLND</b></td><td>Greenland Energy Company</td><td>$6.20</td><td class="pos">+15.9%</td><td>12,212,427</td><td class="pos">🔥 ON FIRE</td><td>104.3</td><td style="font-size:11px;opacity:.8;">8k_filing</td></tr><tr><td><b>JAGX</b></td><td>Jaguar Health, Inc.</td><td>$9.13</td><td class="pos">+29.3%</td><td>5,238,990</td><td class="pos">🔥 ON FIRE</td><td>82.1</td><td style="font-size:11px;opacity:.8;">8k_filing</td></tr><tr><td><b>KITT</b></td><td>Nauticus Robotics, Inc.</td><td>$3.16</td><td class="pos">+7.3%</td><td>4,716,796</td><td class="pos">🔥 ON FIRE</td><td>73.3</td><td style="font-size:11px;opacity:.8;">not analysed</td></tr><tr><td><b>APUS</b></td><td>Apimeds Pharmaceuticals US</td><td>$7.53</td><td class="pos">+53.0%</td><td>9,139,628</td><td class="pos">🔥 ON FIRE</td><td>66.6</td><td style="font-size:11px;opacity:.8;">8k_filing</td></tr><tr><td><b>INLF</b></td><td>INLIF LIMITED</td><td>$6.33</td><td class="pos">+114.6%</td><td>21,340,700</td><td class="pos">🔥 ON FIRE</td><td>59.7</td><td style="font-size:11px;opacity:.8;"></td></tr><tr><td><b>AKAM</b></td><td>Akamai Technologies, Inc.</td><td>$128.52</td><td class="pos">+16.4%</td><td>1,862,560</td><td class="pos">🔥 ON FIRE</td><td>31.2</td><td style="font-size:11px;opacity:.8;">major_order</td></tr><tr><td><b>GRML</b></td><td>Greenland Mines Ltd</td><td>$16.69</td><td class="pos">+12.1%</td><td>2,252,400</td><td class="pos">🔥 HOT</td><td>25.9</td><td style="font-size:11px;opacity:.8;">8k_filing</td></tr><tr><td><b>WHLR</b></td><td>Wheeler Real Estate Invest</td><td>$4.90</td><td class="pos">+31.0%</td><td>5,778,895</td><td class="pos">🔥 HOT</td><td>19.3</td><td style="font-size:11px;opacity:.8;">earnings</td></tr><tr><td><b>PRME</b></td><td>Prime Medicine, Inc.</td><td>$3.34</td><td class="pos">+8.8%</td><td>327,340</td><td class=""> ACTIVE</td><td>1.9</td><td style="font-size:11px;opacity:.8;">regulatory</td></tr><tr><td><b>ARM</b></td><td>Arm Holdings plc</td><td>$322.00</td><td class="pos">+5.1%</td><td>288,708</td><td class=""> ACTIVE</td><td>1.7</td><td style="font-size:11px;opacity:.8;">not analysed</td></tr></tbody></table><div style="font-size:11px;opacity:.7;margin:6px 0 0;">21 quieter name(s) checked and not listed.</div></div>
   </section>
 
   <details class="strategy-section" id="sec-watchlist">
@@ -410,8 +410,8 @@ footer a { color: var(--accent); text-decoration: none; }
       <span class="chevron">Details <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
     </summary>
     <div class="section-body"><div class="badges" style="margin-bottom:12px;"><span class="pill pill-on"><span class="pill-dot"></span>LIVE</span><span class="pill pill-bad"><span class="pill-dot"></span>REAL ORDERS</span><span class="pill pill-on"><span class="pill-dot"></span>LONG ONLY</span></div>
-<div class="table-wrap" style="padding:12px;line-height:1.7;font-size:13px;"><b>19:06 CT</b> · entry window 08:30–10:30 CT: closed — past 10:30 CT — no new trades under this playbook (open positions are still managed)<br>market tier <b>OPPOSING</b> — QQQ confirmed weak (-0.68%) — QQQ is weak but drifting (volume 0.71x, only 0.09x ATR below VWAP)<br>breadth 974 adv / 3,072 dec (24.1% up)<br>QQQ BEARISH (-0.68%) — below VWAP, 9&lt;21 — weak structure · last scan 517 min ago</div>
-<div class="cards"><div class="card"><div class="label">Allocation</div><div class="value ">$100,000</div><div class=footnote>IBKR paper DUT•••••• · the only live strategy</div></div><div class="card"><div class="label">Risk per trade</div><div class="value ">0.250%</div><div class=footnote>$250 per trade</div></div><div class="card"><div class="label">Today</div><div class="value bad">-0.47R</div><div class=footnote>0W / 1L · peak +0.00R</div></div><div class="card"><div class="label">Trades today</div><div class="value ">1 / 5</div><div class=footnote>max 1 at once</div></div><div class="card"><div class="label">Open</div><div class="value ">flat</div><div class=footnote>no positions</div></div><div class="card"><div class="label">All-time</div><div class="value good">+0.02R</div><div class=footnote>3 closed · expectancy +0.005R</div></div></div>
+<div class="table-wrap" style="padding:12px;line-height:1.7;font-size:13px;"><b>08:27 CT</b> · entry window 08:30–10:30 CT: closed — before the 08:30 CT open<br>market tier <b>OPPOSING</b> — QQQ confirmed weak (-0.68%) — QQQ is weak but drifting (volume 0.71x, only 0.09x ATR below VWAP)<br>breadth 974 adv / 3,072 dec (24.1% up)<br>QQQ BEARISH (-0.68%) — below VWAP, 9&lt;21 — weak structure · last scan 1317 min ago</div>
+<div class="cards"><div class="card"><div class="label">Allocation</div><div class="value ">$100,000</div><div class=footnote>IBKR paper DUT•••••• · the only live strategy</div></div><div class="card"><div class="label">Risk per trade</div><div class="value ">0.250%</div><div class=footnote>$250 per trade</div></div><div class="card"><div class="label">Today</div><div class="value ">+0.00R</div><div class=footnote>0W / 0L · peak +0.00R</div></div><div class="card"><div class="label">Trades today</div><div class="value ">0 / 5</div><div class=footnote>max 1 at once</div></div><div class="card"><div class="label">Open</div><div class="value ">flat</div><div class=footnote>no positions</div></div><div class="card"><div class="label">All-time</div><div class="value good">+0.02R</div><div class=footnote>3 closed · expectancy +0.005R</div></div></div>
 <h3 style="margin:26px 0 10px;">Open Positions</h3>
 <div class="table-wrap"><div class="empty">Flat — no open positions.</div></div>
 <h3 style="margin:26px 0 10px;">Watchlist — what the rules said on the last pass</h3>
